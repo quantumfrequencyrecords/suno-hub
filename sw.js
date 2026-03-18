@@ -1,93 +1,91 @@
-// Suno Prompt Hub — Service Worker
-// Caches all files after first visit for full offline support
+// Suno Prompt Hub — Service Worker v3
+// IMPORTANT: index.html is NEVER cached — always fetched fresh from network
+// This prevents stale app versions from being served after updates
 
-const CACHE = 'suno-hub-v1';
-const ALWAYS_FETCH = ['/manifest.json']; // Always try network for the file list
+var CACHE = ‘suno-hub-v3’;
 
-const CORE_FILES = [
-  './',
-  './index.html',
-  './app.webmanifest',
-  'https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap'
-];
-
-// Install: cache core files
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE).then(cache => cache.addAll(CORE_FILES)).then(() => self.skipWaiting())
-  );
+// Install: skip waiting immediately so new SW activates right away
+self.addEventListener(‘install’, function(event) {
+self.skipWaiting();
 });
 
-// Activate: clean old caches
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k)))
-    ).then(() => self.clients.claim())
-  );
+// Activate: delete ALL old caches, claim all clients
+self.addEventListener(‘activate’, function(event) {
+event.waitUntil(
+caches.keys().then(function(keys) {
+return Promise.all(
+keys.filter(function(k) { return k !== CACHE; })
+.map(function(k) { return caches.delete(k); })
+);
+}).then(function() {
+return self.clients.claim();
+})
+);
 });
 
-// Fetch strategy:
-// - manifest.json: network first, fall back to cache (so new artists appear)
-// - artist JSON files: cache first (they don't change), network updates cache
-// - Everything else: cache first
-self.addEventListener('fetch', event => {
-  const url = new URL(event.request.url);
-  const filename = url.pathname.split('/').pop();
+self.addEventListener(‘fetch’, function(event) {
+var url = new URL(event.request.url);
+var filename = url.pathname.split(’/’).pop();
 
-  // manifest.json — always try network first so new files are discovered
-  if (filename === 'manifest.json') {
-    event.respondWith(
-      fetch(event.request)
-        .then(res => {
-          const clone = res.clone();
-          caches.open(CACHE).then(c => c.put(event.request, clone));
-          return res;
-        })
-        .catch(() => caches.match(event.request))
-    );
-    return;
-  }
+// NEVER cache index.html — always get fresh from network
+if (filename === ‘index.html’ || filename === ‘’ || url.pathname.endsWith(’/’)) {
+event.respondWith(
+fetch(event.request).catch(function() {
+return caches.match(’./index.html’);
+})
+);
+return;
+}
 
-  // Artist JSON files — cache first, refresh in background
-  if (filename.endsWith('.json')) {
-    event.respondWith(
-      caches.open(CACHE).then(cache =>
-        cache.match(event.request).then(cached => {
-          const fetchPromise = fetch(event.request).then(res => {
-            cache.put(event.request, res.clone());
-            return res;
-          });
-          return cached || fetchPromise;
-        })
-      )
-    );
-    return;
-  }
+// manifest.json — network first so new artists are discovered immediately
+if (filename === ‘manifest.json’) {
+event.respondWith(
+fetch(event.request).then(function(res) {
+var clone = res.clone();
+caches.open(CACHE).then(function(c) { c.put(event.request, clone); });
+return res;
+}).catch(function() {
+return caches.match(event.request);
+})
+);
+return;
+}
 
-  // Everything else: cache first
-  event.respondWith(
-    caches.match(event.request).then(cached => {
-      if (cached) return cached;
-      return fetch(event.request).then(res => {
-        if (res.status === 200) {
-          const clone = res.clone();
-          caches.open(CACHE).then(c => c.put(event.request, clone));
-        }
-        return res;
-      });
-    })
-  );
+// Artist/genre JSON files — cache but always update in background
+if (filename.endsWith(’.json’)) {
+event.respondWith(
+caches.open(CACHE).then(function(cache) {
+return cache.match(event.request).then(function(cached) {
+var networkFetch = fetch(event.request).then(function(res) {
+if (res.ok) cache.put(event.request, res.clone());
+return res;
+});
+return cached || networkFetch;
+});
+})
+);
+return;
+}
+
+// Everything else: network first with cache fallback
+event.respondWith(
+fetch(event.request).then(function(res) {
+if (res.status === 200) {
+var clone = res.clone();
+caches.open(CACHE).then(function(c) { c.put(event.request, clone); });
+}
+return res;
+}).catch(function() {
+return caches.match(event.request);
+})
+);
 });
 
-// Message from hub: force refresh all artist files
-self.addEventListener('message', event => {
-  if (event.data === 'CLEAR_ARTIST_CACHE') {
-    caches.open(CACHE).then(cache => {
-      cache.keys().then(keys => {
-        keys.filter(k => k.url && k.url.includes('artist_'))
-            .forEach(k => cache.delete(k));
-      });
-    });
-  }
+// Message handler — clear all caches on demand
+self.addEventListener(‘message’, function(event) {
+if (event.data === ‘CLEAR_ALL’) {
+caches.keys().then(function(keys) {
+keys.forEach(function(k) { caches.delete(k); });
+});
+}
 });
