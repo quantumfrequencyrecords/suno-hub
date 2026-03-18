@@ -11,6 +11,21 @@
 <link rel="manifest" href="app.webmanifest">
 <link rel="apple-touch-icon" href="icon.svg">
 <title>Suno Prompt Hub</title>
+<!-- CACHE BUSTER: kills all service workers and caches immediately on every load -->
+<script>
+(function(){
+  if(navigator.serviceWorker){
+    navigator.serviceWorker.getRegistrations().then(function(regs){
+      regs.forEach(function(r){ r.unregister(); });
+    });
+  }
+  if(window.caches){
+    caches.keys().then(function(keys){
+      keys.forEach(function(k){ caches.delete(k); });
+    });
+  }
+})();
+</script>
 <style>
 /* ── DESIGN TOKENS ─────────────────────────────────── */
 :root {
@@ -1293,25 +1308,9 @@ location.reload(true);
 } else { location.reload(true); }
 }
 
-/* ═══════════════════════════════════════════════════════
-SERVICE WORKER
-═══════════════════════════════════════════════════════ */
-if(‘serviceWorker’ in navigator){
-window.addEventListener(‘load’,function(){
-navigator.serviceWorker.register(’./sw.js?v=3’)
-.then(function(reg){
-// Force update if waiting
-if(reg.waiting) reg.waiting.postMessage(‘SKIP_WAITING’);
-reg.addEventListener(‘updatefound’,function(){
-var nw=reg.installing;
-nw.addEventListener(‘statechange’,function(){
-if(nw.state===‘installed’&&navigator.serviceWorker.controller) reg.waiting&&reg.waiting.postMessage(‘SKIP_WAITING’);
-});
-});
-})
-.catch(function(){/* SW optional */});
-});
-}
+/* SERVICE WORKER: disabled — was causing stale cache issues */
+// SW registration removed. The SW killer script at the top of the page
+// already unregisters any old SWs. No new SW will be registered.
 
 /* ── START ──────────────────────────────────────────────── */
 loadAll();
