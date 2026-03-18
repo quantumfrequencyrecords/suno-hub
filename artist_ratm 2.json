@@ -1,0 +1,427 @@
+{
+  "id": "ratm",
+  "name": "Rage Against the Machine",
+  "genres": ["Rap-Metal", "Funk-Metal", "Hip-Hop", "Alternative Metal", "Hardcore"],
+  "era": "1991–2011",
+  "color": "#ffa502",
+  "bio": "Tom Morello, Zack de la Rocha, Tim Commerford, Brad Wilk. Formed in Los Angeles 1991. None of their albums were recorded with a click track — all have natural tempo drift, and the true mode across the catalog sits around 84–90 BPM, making them distinctly slow and heavy for rock. Morello identifies as a DJ using his guitar — using the kill switch rhythmically, imitating record scratching, employing a DigiTech Whammy pedal. De la Rocha's vocal style combines controlled hip-hop verse delivery with explosive screamed sloganeering. Inducted into the Rock and Roll Hall of Fame in 2023. Won Grammy Awards for Best Metal Performance (Tire Me) and Best Hard Rock Performance (Guerrilla Radio).",
+  "producer_notes": "Debut (1992): self-produced, GGGarth Richardson, Sound City Van Nuys CA. Evil Empire (1996): Brendan O'Brien, Cole Rehearsal Studios Hollywood. Battle of Los Angeles (1999): Brendan O'Brien, tightest production. Renegades (2000): Rick Rubin, covers album, brickwalled mastering. All albums: 'No samples, keyboards or synthesizers used in the making of this record.' Suno note: frame political content as anti-authoritarian rather than explicitly radical to avoid content filters.",
+  "songs": [
+    {
+      "title": "Bombtrack",
+      "album": "Rage Against the Machine",
+      "year": 1992,
+      "bpm": 76,
+      "vibe": "Album opener · Tim Commerford bass riffs · F# minor · Che Guevara artwork",
+      "dna": "Opens the debut album. Riffs composed by Tim Commerford. One of three debut tracks in F# with Know Your Enemy and Fistful of Steel. Opens with a solo guitar riff around 86 BPM before the full band slows it dramatically — classic RATM no-click-track tempo drift. Third single; highest Netherlands chart position at number 8. Single artwork featured Korda's iconic Che Guevara photograph. Lyric targets landlords and capitalist property exploitation.",
+      "style_prompt": "Slow heavy funk-metal, 76 BPM natural tempo drift, Tim Commerford bass-composed riff opening, Morello angular guitar stabs, Brad Wilk thunderous pocket, de la Rocha controlled-then-explosive rap vocal, F# minor, no synthesizers — all live instruments, landlord exploitation lyric, debut Sound City GGGarth production",
+      "lyric_prompt": "Write a slow heavy rap-metal song targeting economic exploitation — specifically landlords, corporate property ownership, and the class relationship between those who own land and those who must pay to exist. Verses are controlled and precise. The chorus is a declaration that the system will burn — stated with certainty, not threat. Include fire and destruction as metaphors for systemic collapse. De la Rocha style: controlled rap verses building to screamed sloganeering. Under 4:15."
+    },
+    {
+      "title": "Killing in the Name",
+      "album": "Rage Against the Machine",
+      "year": 1992,
+      "bpm": 86,
+      "vibe": "UK Christmas #1 (2009) · Whammy pedal solo · escalating refusal climax · institutional racism",
+      "dna": "Morello used the DigiTech Whammy pedal on the solo and Ibanez DFL Flanger on the intro. One of the most cathartic rock recordings ever — the closing escalation of 'Fuck you I won't do what you tell me' building from spoken whisper to full scream. UK Christmas #1 in 2009 via Facebook campaign. Targets institutional racism and police brutality. Lyrics were deliberately omitted from the album booklet.",
+      "style_prompt": "Slow heavy groove rap-metal, 86 BPM, flanger-textured opening riff, DigiTech Whammy guitar solo, Brad Wilk thunderous slow pocket, escalating closing section — defiant refusal phrase building from spoken to absolute full-volume scream, institutional racism lyric, debut raw production, most cathartic climax structure, under 5:15",
+      "lyric_prompt": "Write a slow heavy rap-metal song about institutional power doing harm in the name of authority. The verses name this contradiction with controlled precise anger. The song must end with an escalating refusal — a single defiant phrase repeated, starting quiet and spoken, building to absolute full-volume scream. This escalation IS the emotional point. The refusal to comply is the revolutionary act. Under 5:15."
+    },
+    {
+      "title": "Take the Power Back",
+      "album": "Rage Against the Machine",
+      "year": 1992,
+      "bpm": 105,
+      "vibe": "Eurocentric education system critique · jazz-influenced groove · Morello whammy pitch dives",
+      "dna": "Targets American education — specifically Eurocentric curricula erasing history. Most musically complex debut track. The groove has a jazz-influenced looseness. Morello uses dramatic pitch-dive whammy effects during the breakdown. De la Rocha's verse delivery is the most rhythmically hip-hop-influenced on the album. The breakdown features Morello's most jazz-guitar-adjacent playing.",
+      "style_prompt": "Mid-tempo funk-metal with jazz groove, 105 BPM, complex syncopated rhythm, Morello pitch-dive whammy drops in breakdown, Brad Wilk jazz-influenced loose pocket, de la Rocha hip-hop verse cadence, education-system-erasure lyric, debut Sound City production, most rhythmically sophisticated debut track, under 5:35",
+      "lyric_prompt": "Write a funk-metal song targeting the education system — specifically the erasure of non-Western history and the whitewashing of colonial history in schools. The verses catalogue what is taught versus what is omitted. The chorus is a call to reclaim knowledge. Include the idea that textbooks themselves are a form of control. Rhythmically complex — hip-hop cadence, not simple rock meter. Under 5:35."
+    },
+    {
+      "title": "Settle for Nothing",
+      "album": "Rage Against the Machine",
+      "year": 1992,
+      "bpm": 100,
+      "vibe": "More personal than political · refusing diminished existence · slower introspective groove",
+      "dna": "More introspective than the surrounding debut tracks — about the individual refusing to accept a diminished life rather than targeting a specific system. Features one of Morello's most controlled debut performances. The contrast of controlled verses and explosive chorus previews mature RATM structural approach.",
+      "style_prompt": "Grinding mid-tempo rap-metal, 100 BPM, Morello controlled restraint building to explosions, Brad Wilk slow heavy pocket, de la Rocha personal-alienation lyric — individual refusing diminished existence, quiet-loud dynamic arc, debut Sound City production, under 4:47",
+      "lyric_prompt": "Write a mid-tempo rap-metal song about the personal refusal to accept a diminished, compromised existence — refusing to want less than you deserve. More personal than political: the narrator's interior experience of alienation and the systems that demand compliance. The chorus is the refusal — a declaration of not settling. Under 4:47."
+    },
+    {
+      "title": "Bullet in the Head",
+      "album": "Rage Against the Machine",
+      "year": 1992,
+      "bpm": 88,
+      "vibe": "Cable-tap guitar effect · media lobotomy metaphor · industrial clicking percussion texture",
+      "dna": "Morello created the signature guitar effect by tapping a pickup with the guitar's unplugged cable connector — generating industrial clicking percussion woven through the track. Targets media hypnosis — television as a weapon destroying critical thought. The cable-tap technique became one of his signature studio discoveries.",
+      "style_prompt": "Heavy aggressive debut rap-metal, 88 BPM, cable-tap pickup percussive industrial clicking texture woven through groove, Brad Wilk relentless heavy pocket, de la Rocha rapid warning-delivery verses, media-hypnosis lyric, debut Sound City production, warning chorus hook, under 5 minutes",
+      "lyric_prompt": "Write a heavy rap-metal song about media as a weapon of mass distraction — entertainment designed to keep people passive and manageable. Passive consumption as a self-inflicted wound. The verses name specific distraction mechanisms with precision. The chorus is a warning about what this entertainment is doing to your brain. Anger at both the system that designs the distraction and the willingness to accept it. Under 5 minutes."
+    },
+    {
+      "title": "Know Your Enemy",
+      "album": "Rage Against the Machine",
+      "year": 1992,
+      "bpm": 112,
+      "vibe": "Fast declarative · F# with Bombtrack and Fistful of Steel · Malcolm X political lineage",
+      "dna": "One of the faster debut tracks at 112 BPM. F# key like Bombtrack and Fistful of Steel. Lyric draws directly from Malcolm X's political consciousness — identifying the true enemy as the capitalist system rather than other oppressed people. De la Rocha's most explicitly political debut performance.",
+      "style_prompt": "Fast-aggressive debut rap-metal, 112 BPM, F# minor, tight rhythm lock, Morello angular riff attack, de la Rocha confident declarative delivery naming enemies precisely, Black power political consciousness lyric, Sound City production, under 5 minutes",
+      "lyric_prompt": "Write a fast rap-metal song built entirely on the concept of knowing your enemy — identifying true systems of oppression rather than blaming the wrong targets. The verses name specific enemies: the system, ideology, institutions — not other oppressed people. The chorus is the demand: know your enemy. Include the importance of reading, historical consciousness, and understanding power. Confident and instructional, not paranoid. Under 5 minutes."
+    },
+    {
+      "title": "Wake Up",
+      "album": "Rage Against the Machine",
+      "year": 1992,
+      "bpm": 85,
+      "vibe": "The Matrix closing track · Ibanez DFL Flanger intro · political awakening anthem",
+      "dna": "Famous for ending The Matrix (1999). The Ibanez DFL Flanger creates the distinctive swirling guitar intro texture. Builds through repeated escalation to de la Rocha's screamed finale. About political consciousness — waking up to the true nature of power. The song that plays as Neo realizes the truth of his world.",
+      "style_prompt": "Heavy hypnotic rap-metal, 85 BPM, slow flanger-sweep guitar intro building to slinky funk-metal verse riff, conversational political hip-hop verses, Brad Wilk thunderous groove, building escalation to screamed sloganeering climax, political awakening lyric, debut Sound City production, under 6 minutes",
+      "lyric_prompt": "Write a slow hypnotic rap-metal song about political awakening — the moment someone realizes the systems around them are not neutral but designed. Controlled rhyming verses naming what is hidden. Energy builds through the song. The climax is a repeated screamed call for people to open their eyes. The tone is enraged and certain — awareness itself is a revolutionary act. Under 6 minutes."
+    },
+    {
+      "title": "Fistful of Steel",
+      "album": "Rage Against the Machine",
+      "year": 1992,
+      "bpm": 157,
+      "vibe": "Fastest debut track · whammy dive-bombs · most structurally experimental debut song",
+      "dna": "The fastest debut track at 157 BPM. Third F# song with Bombtrack and Know Your Enemy. Features Morello's most experimental debut guitar work — dramatic whammy dive-bombs and extended techniques. Structurally the most unusual debut track, with dramatically shifting sections. Less overtly political — more oblique and experimental.",
+      "style_prompt": "Fast experimental debut rap-metal, 157 BPM, F# key, Morello dramatic whammy dive-bombs throughout, Brad Wilk driving fast pocket, de la Rocha oblique experimental lyric, most structurally unusual debut track, Sound City production, high energy, extended guitar technique showcase, under 5:30",
+      "lyric_prompt": "Write a fast oblique rap-metal song — more imagistic and abstract than typical, less direct sloganeering. Tone is aggressive and urgent but visceral and experiential rather than programmatic. Steel, force, physical power as metaphors for collective resistance. Structure should feel unpredictable — shifting sections with different energies. Under 5:30. RATM at their most experimental."
+    },
+    {
+      "title": "Township Rebellion",
+      "album": "Rage Against the Machine",
+      "year": 1992,
+      "bpm": 131,
+      "vibe": "South African township uprisings · Tim Commerford bass showcase · upbeat debut tempo",
+      "dna": "References South African apartheid-era township uprisings. One of the more upbeat debut tracks at 131 BPM. Features Commerford's most prominent bass work on the album. Draws on the history of Black South African resistance and connects it to American systemic racism. The faster tempo gives more propulsive urgency.",
+      "style_prompt": "Upbeat heavy rap-metal, 131 BPM, Tim Commerford prominent bass groove, Morello tight chord work, Brad Wilk driving faster pocket, de la Rocha urgent delivery, South African township resistance and US systemic racism connections, debut Sound City production, under 5:24",
+      "lyric_prompt": "Write an upbeat rap-metal song about collective uprising — drawing connections between different historical moments of oppressed people fighting back. Verses catalogue the conditions that create uprising. The chorus is the uprising itself — collective, defiant, unstoppable. Under 5:24."
+    },
+    {
+      "title": "Freedom",
+      "album": "Rage Against the Machine",
+      "year": 1992,
+      "bpm": 98,
+      "vibe": "Debut closer · Leonard Peltier dedication · Morello abstract noise outro · hopeful fury",
+      "dna": "Closes the debut. Dedicated to Leonard Peltier, Native American activist imprisoned since 1977 whom RATM campaigned to free. Builds from quiet intro to intense climax. De la Rocha screams 'freedom' repeatedly at the peak. The outro features abstract Morello noise guitar dissolving the song. Their most hopeful-while-furious statement.",
+      "style_prompt": "Debut-era political rap-metal, 98 BPM, quiet textured intro building to full-band heavy groove, controlled verses building to screamed freedom-word climax, dedication to specific political prisoner, Morello abstract noise outro dissolving into silence, Sound City production, hopeful fury, under 6 minutes",
+      "lyric_prompt": "Write a rap-metal song dedicated to a specific political prisoner whose story illustrates a systemic wrong. Verses tell their story with precision. The song builds to a climax repeating the word 'freedom' with increasing fury — not platitude but demand. End with dissolving abstract outro. Under 6 minutes. Most hopeful-while-furious in the set."
+    },
+    {
+      "title": "People of the Sun",
+      "album": "Evil Empire",
+      "year": 1996,
+      "bpm": 93,
+      "vibe": "Evil Empire opener · Zapatista uprising tribute · choppy rhythmic riff",
+      "dna": "Opens Evil Empire. Written in tribute to the Zapatista uprising in Chiapas, Mexico, which began January 1, 1994. RATM's declaration of support for indigenous Mexican resistance against NAFTA. Brendan O'Brien production — tighter and more aggressive than the debut. Nominated for Grammy Best Hard Rock Performance.",
+      "style_prompt": "Opening aggressive rap-metal, 93 BPM, choppy rhythmic Morello guitar riff, tight O'Brien production, de la Rocha passionate indigenous rights delivery, Zapatista uprising tribute, Evil Empire opener energy, Brad Wilk tight pocket, heavier than debut, under 3 minutes",
+      "lyric_prompt": "Write a fast aggressive rap-metal song in tribute to indigenous resistance — the uprising of people dispossessed of land and rights by economic agreements and colonial systems. Historically specific: name the place, what was taken, who did the taking. The chorus is a declaration of defiance and solidarity. Fiercely proud and certain. Under 3 minutes."
+    },
+    {
+      "title": "Bulls on Parade",
+      "album": "Evil Empire",
+      "year": 1996,
+      "bpm": 83,
+      "vibe": "Guitar kill-switch scratch solo · minimal riff · military industrial complex · Grammy nominee",
+      "dna": "Morello uses the guitar's pickup selector as a kill switch to imitate record scratching near the end. Ingeniously minimal riff. Perhaps the finest RATM sonic Molotov cocktail. Grammy nominated Best Hard Rock Performance. Targets the military-industrial complex. Hypnotic locked groove.",
+      "style_prompt": "Minimal-riff funk-metal, 83 BPM, hypnotically spare guitar riff, Brad Wilk thunderous groove, de la Rocha rapid-fire political rhyming, guitar kill-switch scratch solo simulating turntable, military-industrial complex lyric, Evil Empire O'Brien production, under 3:50, groove carries everything",
+      "lyric_prompt": "Write a funk-metal song targeting the military-industrial complex — weapons over food. Name the hypocrisy: leaders claiming family values while funding death. Precise indictments over hypnotic minimal groove. The chorus is a single overwhelming image of what the machine produces. Include 'weapons not food' or equivalent. Under 3:50. The groove feels like a march to the guillotine."
+    },
+    {
+      "title": "Vietnow",
+      "album": "Evil Empire",
+      "year": 1996,
+      "bpm": 107,
+      "vibe": "Vietnam War as propaganda template · right-wing radio critique · mid-tempo complex groove",
+      "dna": "Targets right-wing talk radio and corporate media. The title combines Vietnam and now — arguing that media propaganda used during Vietnam continues and has intensified. Mid-tempo with a forward-pushing groove. Features Morello's most controlled rhythm work on Evil Empire.",
+      "style_prompt": "Mid-tempo political rap-metal, 107 BPM, forward-pushing groove, Morello controlled rhythm riff, Brad Wilk steady heavy pocket, de la Rocha media-propaganda critique, Vietnam-as-template-for-current-media-control lyric, Evil Empire O'Brien production, under 4:30",
+      "lyric_prompt": "Write a mid-tempo rap-metal song about media control and propaganda — how wartime media manipulation became permanent corporate operating mode. The verses catalogue specific propaganda techniques: framing, omission, manufactured consent. The chorus is a demand to see through the noise. Include the idea that the war abroad and the war on your mind are run by the same people. Under 4:30."
+    },
+    {
+      "title": "Revolver",
+      "album": "Evil Empire",
+      "year": 1996,
+      "bpm": 138,
+      "vibe": "Fastest Evil Empire track · firearm-as-state-power metaphor · breathless aggression",
+      "dna": "Fastest Evil Empire track at 138 BPM. The revolver as metaphor for state power and the monopoly on violence. Features Morello's most aggressive riff performance on Evil Empire. Almost breathlessly paced — unusual for the album's typically slow-burn approach.",
+      "style_prompt": "Fast aggressive rap-metal, 138 BPM, fastest Evil Empire track, Morello aggressive high-energy riff, Brad Wilk driving fast pocket, de la Rocha firearm-power-metaphor lyric, O'Brien tight production, relentless momentum, under 4 minutes",
+      "lyric_prompt": "Write a fast rap-metal song using a firearm as an extended metaphor for state power — who holds the means of violence controls everything. The verses explore how this power functions: who has it, who doesn't, what happens to those who challenge it. The chorus is the confrontation of that power relationship. Under 4 minutes."
+    },
+    {
+      "title": "Snakecharmer",
+      "album": "Evil Empire",
+      "year": 1996,
+      "bpm": 97,
+      "vibe": "Corporate seduction and hypnosis · sinuous groove mirroring content · Commerford bass showcase",
+      "dna": "The snakecharmer as metaphor for corporate and political manipulation — controlling by seduction and hypnosis. The groove has a sinuous, hypnotic quality mirroring the content. Features Commerford's most prominent Evil Empire bass work.",
+      "style_prompt": "Thick heavy rap-metal, 97 BPM, sinuous hypnotic groove mirroring seduction lyric, Tim Commerford prominent bass, Morello dark riff, Brad Wilk heavy locked pocket, corporate-manipulation-as-seduction lyric, Evil Empire O'Brien production, under 5 minutes",
+      "lyric_prompt": "Write a heavy rap-metal song about the seductive face of power — corporations, politicians, and media using charm and false promises to manipulate rather than brute force. You watch the snake and forget you're being bitten. The verses describe specific seduction techniques. The chorus is the moment of recognizing the manipulation. The groove should feel as hypnotic as the content. Under 5 minutes."
+    },
+    {
+      "title": "Tire Me",
+      "album": "Evil Empire",
+      "year": 1996,
+      "bpm": 170,
+      "vibe": "Grammy winner Best Metal Performance · fastest Evil Empire · near-industrial grinding intensity",
+      "dna": "Won Grammy Award for Best Metal Performance 1997. Fastest Evil Empire track at 170 BPM. Almost industrial in grinding intensity. Vocals recorded in Melbourne, Australia. De la Rocha's most aggressive vocal performance on the album. More abstract than most RATM tracks — about pushing limits and exhaustion as metaphor.",
+      "style_prompt": "Industrial-speed metal-rap, 170 BPM, near-industrial grinding energy, Morello aggressive high-BPM attack, Brad Wilk precise fast drumming, de la Rocha maximum aggression, Grammy Best Metal Performance winner, O'Brien tight production, under 3:30, relentlessly intense",
+      "lyric_prompt": "Write a fast grinding heavy rap-metal song about exhaustion and limits pushed to the breaking point — the accumulation of every demand and every voice until the explosive refusal to be worn down. Visceral and physical rather than programmatic. The verses describe accumulation of pressure. The chorus is the refusal to be tired. Under 3:30. Maximum aggression."
+    },
+    {
+      "title": "Down Rodeo",
+      "album": "Evil Empire",
+      "year": 1996,
+      "bpm": 84,
+      "vibe": "Class war · Rodeo Drive luxury enclave · seething fury at exclusion",
+      "dna": "Brings the class war to Rodeo Drive — Beverly Hills luxury shopping district as symbol of exclusion. De la Rocha's verse delivery at its most snarling. About what happens when the excluded masses march on the places that exclude them. Slow, heavy, seething.",
+      "style_prompt": "Slow seething heavy rap-metal, 84 BPM, snarling low guitar riff, Brad Wilk thunderous slow groove, de la Rocha most snarling delivery, class war with Beverly Hills luxury enclave as target, Evil Empire O'Brien production, under 5:30, luxury imagery contrasting street fury",
+      "lyric_prompt": "Write a slow seething rap-metal song about class war — bringing the rage of the excluded to the places of exclusion: the luxury district, the gated community, the private club. Contrast specific details of wealth with the fury of those kept outside. The chorus is about what happens when the gates come down. Snarling and specific. Under 5:30."
+    },
+    {
+      "title": "Without a Face",
+      "album": "Evil Empire",
+      "year": 1996,
+      "bpm": 99,
+      "vibe": "Undocumented immigration · dehumanization of migrants · unusual melodic Morello guitar",
+      "dna": "About the dehumanization of undocumented immigrants crossing the US-Mexico border — reduced to 'illegals' and statistics rather than human beings. Features a notably melodic Morello guitar figure unusual for Evil Empire. De la Rocha's most emotionally tender vocal on the album.",
+      "style_prompt": "Mid-tempo heavy rap-metal with unusual melodic Morello guitar, 99 BPM, emotional weight beneath heavy groove, de la Rocha undocumented-immigration dehumanization lyric, border crossing imagery, Evil Empire O'Brien production, humanity-restoration as lyric goal, under 4 minutes",
+      "lyric_prompt": "Write a mid-tempo rap-metal song about the dehumanization of people crossing borders in search of survival — reduced to faceless statistics. The verses describe specific images from the migrant experience. The chorus is a restoration of humanity — naming the face that has been erased. Furious at the system, tender toward the people. Under 4 minutes."
+    },
+    {
+      "title": "Wind Below",
+      "album": "Evil Empire",
+      "year": 1996,
+      "bpm": 88,
+      "vibe": "Most atmospheric Evil Empire track · almost psychedelic · oblique imagistic lyric",
+      "dna": "Most atmospheric and unusual Evil Empire track. More psychedelic and less overtly political. Features Morello's most experimental extended techniques on the album. The lyric is more oblique and imagistic — a rare moment of sonic departure in the RATM catalog.",
+      "style_prompt": "Atmospheric heavy rap-metal, 88 BPM, Morello extended experimental techniques, Brad Wilk hypnotic pocket, de la Rocha oblique imagistic lyric, meditative intensity, most unusual Evil Empire track, O'Brien production, under 5 minutes",
+      "lyric_prompt": "Write a heavy atmospheric rap-metal song that is more oblique and imagistic than political — using natural imagery (wind, earth, fire) as metaphors for forces gathering for change. More psychedelic than programmatic. The verses describe a world in transformation from below. The chorus is the emergence of those forces. Under 5 minutes. RATM at their most poetic."
+    },
+    {
+      "title": "Roll Right",
+      "album": "Evil Empire",
+      "year": 1996,
+      "bpm": 92,
+      "vibe": "Gang violence as systemic product · criminalization of poverty · LA roots",
+      "dna": "Addresses gang violence as a product of systemic poverty and neglect rather than individual moral failure. De la Rocha draws on his LA upbringing. Sympathetic toward gang members — understanding their circumstances as manufactured by the system. Alternate 'clean' lyrics printed in the CD booklet.",
+      "style_prompt": "Slow heavy rap-metal, 92 BPM, LA West Coast groove, de la Rocha sympathetic gang-life-as-systemic-product lyric, Brad Wilk heavy pocket, Morello controlled riff, Evil Empire O'Brien production, poverty-as-cause analysis, under 5 minutes",
+      "lyric_prompt": "Write a slow heavy rap-metal song examining gang violence as a product of systemic poverty and abandonment — not individual moral failure. The verses describe the conditions that manufacture gang culture: economic exclusion, absent institutions, no alternatives. The narrator is analytical rather than condemnatory — these are people the system made. The chorus is understanding rather than judgment. Under 5 minutes."
+    },
+    {
+      "title": "Year of tha Boomerang",
+      "album": "Evil Empire",
+      "year": 1994,
+      "bpm": 84,
+      "vibe": "Higher Learning soundtrack original · Evil Empire closer · karma and systemic blowback",
+      "dna": "Originally released on the Higher Learning film soundtrack in 1994 before closing Evil Empire. The boomerang metaphor: violence and exploitation exported by the US will inevitably return. One of de la Rocha's most prophetic lyrics. The production has particular closing-statement gravity.",
+      "style_prompt": "Slow heavy closing rap-metal, 84 BPM, prophetic boomerang-karma lyric, Brad Wilk thick powerful groove, Morello heavy riff, de la Rocha declaration-of-inevitability delivery, Evil Empire album closer, originally 1994 Higher Learning soundtrack, under 4 minutes",
+      "lyric_prompt": "Write a slow heavy rap-metal song built on the boomerang concept — what a nation exports (violence, exploitation, resource extraction) will inevitably return home. The verses catalogue specific acts of export. The chorus is the declaration of inevitability: it's coming back. Not vengeful — prophetic and certain. Under 4 minutes. The closing statement of an album."
+    },
+    {
+      "title": "Testify",
+      "album": "The Battle of Los Angeles",
+      "year": 1999,
+      "bpm": 117,
+      "vibe": "BOLA opener · two-party system as illusion · Michael Moore video · 2000 election urgency",
+      "dna": "Opens The Battle of Los Angeles. Featured in a Michael Moore-directed video. Released during the 1999-2000 election cycle. Argues both US political parties serve the same corporate interests — the illusion of democratic choice. De la Rocha's most rhythmically aggressive BOLA delivery. O'Brien's tightest production.",
+      "style_prompt": "Fast aggressive BOLA rap-metal, 117 BPM, RATM tightest production, de la Rocha most rhythmically aggressive, two-party-system-as-illusion lyric, Michael Moore video era, Brad Wilk precise fast pocket, Morello dynamic riff, BOLA opener energy, under 4 minutes",
+      "lyric_prompt": "Write a fast aggressive rap-metal song arguing both major political parties serve the same corporate interests — the choice between them is an illusion managing dissent without changing anything. The verses name specific examples of bipartisan corporate compliance. The chorus demands the audience testify — witness and acknowledge the truth. Election year urgency. Under 4 minutes."
+    },
+    {
+      "title": "Guerrilla Radio",
+      "album": "The Battle of Los Angeles",
+      "year": 1999,
+      "bpm": 103,
+      "vibe": "Wah pedal groove · Commerford bass intro · anti-corporate media · Grammy Best Hard Rock",
+      "dna": "Morello's prominent wah pedal creates the funky-aggressive texture. Commerford's bass intro is one of the most recognizable in hard rock. Grammy winner Best Hard Rock Performance. Targets corporate media control. The chorus is a call for alternative broadcasting.",
+      "style_prompt": "Bass-forward funk rap-metal, 103 BPM, prominent bass guitar intro and groove, wah-filtered guitar funky-aggressive texture, hip-hop verse delivery, Brad Wilk thunderous pocket, anti-corporate-media lyric, BOLA O'Brien production, Grammy Best Hard Rock winner, under 3:30, locked rhythmic pocket",
+      "lyric_prompt": "Write a groove-forward rap-metal song about independent uncensored media cutting through corporate noise. The verses name what corporate media buries. The chorus is a call to broadcast truth regardless of who controls the dial. Urgent and righteous. Under 3:30. The bass drives everything."
+    },
+    {
+      "title": "Calm Like a Bomb",
+      "album": "The Battle of Los Angeles",
+      "year": 1999,
+      "bpm": 90,
+      "vibe": "Longest BOLA track · slow fuse energy · controlled verses to total detonation",
+      "dna": "BOLA's longest track at 4:58. Entirely controlled fury in first two thirds, then total detonation in the final third. De la Rocha's most controlled verse delivery. Morello's most inventive BOLA guitar textures. RATM's most relentlessly locked groove.",
+      "style_prompt": "Controlled-pressure rap-metal, 90 BPM, most locked RATM groove, de la Rocha most controlled delivery — contained building fury, diverse Morello textures building pressure, total explosion in final third, BOLA O'Brien production, 4:30–5 minute runtime, calm-then-bomb arc",
+      "lyric_prompt": "Write a rap-metal song structured like a slow-burning fuse — entirely controlled first two thirds, then total detonation in the final third. Calm precise verses cataloguing injustice. Terrifyingly composed delivery. Then the final section ignites — control breaks, bomb goes off, screaming begins. The title IS the arc: calm like a bomb. Under 5 minutes."
+    },
+    {
+      "title": "Mic Check",
+      "album": "The Battle of Los Angeles",
+      "year": 1999,
+      "bpm": 100,
+      "vibe": "Corporate censorship of art · mic check as voice-control metaphor · artistic freedom",
+      "dna": "The mic check as metaphor for corporate censorship — checking whether voices are allowed to speak. Targets corporate control of music and artistic expression. A meta-commentary on RATM's position as a radical band on a major label. Mid-tempo with particularly aggressive Morello riff.",
+      "style_prompt": "Mid-tempo aggressive BOLA rap-metal, 100 BPM, aggressive Morello riff, Brad Wilk driving mid-tempo pocket, de la Rocha corporate-censorship-of-art lyric, mic check as voice-control metaphor, O'Brien tight production, under 4 minutes",
+      "lyric_prompt": "Write a mid-tempo rap-metal song about corporate control of artistic expression — who controls the microphone controls the message. The verses describe how the system co-opts, silences, or markets rebellion into harmlessness. The chorus is a declaration of unfiltered voice. Under 4 minutes."
+    },
+    {
+      "title": "Sleep Now in the Fire",
+      "album": "The Battle of Los Angeles",
+      "year": 1999,
+      "bpm": 96,
+      "vibe": "NYSE closed during filming · Michael Moore video · global capitalism and Wall Street target",
+      "dna": "During filming of Michael Moore's video, the band caused the New York Stock Exchange to close its doors. Moore: 'No matter what happens, don't stop playing.' Morello's jabbing rhythmic riff is almost industrial. Targets global capitalism and American empire. The sardonic chorus addresses the wealthy comfortable in their privilege.",
+      "style_prompt": "Industrial-funk rap-metal, 96 BPM, jabbing rhythmic guitar — almost percussive, no sustain, Brad Wilk thunderous pocket, de la Rocha rapid-fire political delivery, sneering contemptuous chorus, BOLA tighter production, Wall Street and empire target, under 3:30, relentless and locked",
+      "lyric_prompt": "Write a jabbing industrial rap-metal song targeting global financial power. Rapid-fire indictments with contemptuous precision. The chorus is sardonic: telling the powerful to sleep comfortable in the fire they built. They profit while the world burns and call it civilization. Under 3:30. Every line a specific accusation."
+    },
+    {
+      "title": "Born of a Broken Man",
+      "album": "The Battle of Los Angeles",
+      "year": 1999,
+      "bpm": 86,
+      "vibe": "Mental illness and systemic failure · most emotionally vulnerable BOLA track · complex Wilk drumming",
+      "dna": "Also known as Broken Man. About mental illness and the failure of social systems to support those experiencing it — the criminalization and neglect of mentally ill people. Brad Wilk's most technically complex BOLA drumming. De la Rocha's most unusually vulnerable delivery on the album.",
+      "style_prompt": "Slow emotional BOLA rap-metal, 86 BPM, most emotionally vulnerable track, Brad Wilk complex drumming, de la Rocha unusually vulnerable delivery, mental illness and systemic failure lyric, O'Brien BOLA production, less overtly political more personally painful, under 5 minutes",
+      "lyric_prompt": "Write a slow heavy rap-metal song about mental illness and the failure of every social system to support people experiencing it — the criminalization, neglect, and abandonment. More vulnerable than typical RATM — bearing witness to specific suffering, not sloganeering. The verses describe what it feels like to be failed by every system. The chorus states the cost of that failure. Under 5 minutes."
+    },
+    {
+      "title": "Ashes in the Fall",
+      "album": "The Battle of Los Angeles",
+      "year": 1999,
+      "bpm": 90,
+      "vibe": "Autumn and fire imagery · systemic collapse and regeneration · contemplative BOLA track",
+      "dna": "Uses autumn and fire imagery to discuss systemic collapse and the possibility of regeneration from the ashes. One of BOLA's more contemplative slower-burning tracks. Morello in a more textural mode. De la Rocha's lyric is more metaphorical — natural imagery describing political reality.",
+      "style_prompt": "Slow contemplative BOLA rap-metal, 90 BPM, Morello textural atmospheric guitar, Brad Wilk measured heavy pocket, de la Rocha autumn-fire metaphorical lyric, systemic collapse and regeneration, more imagistic than direct political naming, O'Brien BOLA production, under 4:30",
+      "lyric_prompt": "Write a slow heavy rap-metal song using autumn and fire imagery to describe systemic collapse — the fall of old structures and possibility of new growth from the ashes. More metaphorical and imagistic than direct political naming. Verses describe what is burning. The chorus asks or declares what comes after. Under 4:30."
+    },
+    {
+      "title": "War Within a Breath",
+      "album": "The Battle of Los Angeles",
+      "year": 1999,
+      "bpm": 98,
+      "vibe": "BOLA closer · final original RATM statement · breath as moment of revolutionary decision",
+      "dna": "Closes The Battle of Los Angeles — RATM's final original album before de la Rocha's October 2000 departure. The breath as metaphor for the space between oppression and resistance — the war that happens in a single moment of decision. De la Rocha's most deliberate closing performance.",
+      "style_prompt": "Heavy closing-statement BOLA rap-metal, 98 BPM, final original album weight, de la Rocha deliberate closing delivery, Brad Wilk heavy foundational groove, Morello purposeful riff, breath-as-revolution metaphor, O'Brien BOLA production, under 5 minutes, last original RATM statement before dissolution",
+      "lyric_prompt": "Write a heavy rap-metal song about the moment of decision — the single breath between oppression and resistance, the space where revolution either happens or doesn't. Every moment is a choice: comply or resist. The verses describe the accumulated weight making that breath necessary. The chorus is the breath itself — the decision. Under 5 minutes. The closing statement of the entire original catalog."
+    },
+    {
+      "title": "Maria",
+      "album": "The Battle of Los Angeles",
+      "year": 1999,
+      "bpm": 83,
+      "vibe": "Slowest BOLA track · Virgin Mary as political symbol · religious iconography critique",
+      "dna": "Slowest BOLA track. Uses Maria — the Virgin Mary — to examine how religious iconography is used to pacify and control populations, particularly in Latin American political contexts. One of de la Rocha's most complex lyrical performances. Morello in an unusually minimal approach.",
+      "style_prompt": "Slowest heaviest BOLA track, 83 BPM, minimalist Morello guitar, Brad Wilk grinding slow pocket, de la Rocha complex religious-iconography lyric, Virgin Mary as political control symbol, Latin American political context, O'Brien production, under 4 minutes",
+      "lyric_prompt": "Write a slow heavy rap-metal song examining how religious iconography has been used to pacify populations — specifically how suffering gets reframed as holy, endurance as virtue, uprising as sin. The verses analyse this specific mechanism of control. The chorus reclaims the symbol for liberation. Under 4 minutes."
+    },
+    {
+      "title": "New Millennium Homes",
+      "album": "The Battle of Los Angeles",
+      "year": 1999,
+      "bpm": 88,
+      "vibe": "Housing inequality · first dot-com boom displacement · LA class geography",
+      "dna": "Released during the first dot-com boom when housing prices were dramatically rising and displacing lower-income communities — a phenomenon that has only accelerated since. Specifically about LA class geography — the contrast between luxury development and homelessness.",
+      "style_prompt": "Heavy mid-tempo BOLA rap-metal, 88 BPM, housing inequality and class displacement lyric, dot-com-era displacement context, LA-specific class geography, Brad Wilk heavy BOLA pocket, Morello aggressive riff, O'Brien production, under 4 minutes",
+      "lyric_prompt": "Write a heavy rap-metal song about housing inequality and the displacement of communities by luxury development — the gleaming construction site next to the tent city. The verses contrast specific images of luxury development with homelessness. The chorus is about who the new millennium homes are actually for. Under 4 minutes."
+    },
+    {
+      "title": "Maggie's Farm",
+      "album": "Renegades",
+      "year": 2000,
+      "bpm": 89,
+      "vibe": "Bob Dylan cover (1965) · folk protest to metal · labor exploitation refusal",
+      "dna": "Bob Dylan original (1965). RATM transform Dylan's folk protest about labor exploitation into heavy funk-metal. The folk acoustic guitar becomes Morello's heavy metal riff. One of the most successful genre translations on Renegades — the political content maps perfectly onto RATM's aesthetic.",
+      "style_prompt": "RATM-ized folk-to-metal protest, 89 BPM, Dylan labor-exploitation original in heavy funk-metal, Morello electric riff replacing acoustic guitar, Brad Wilk heavy pocket, de la Rocha transforming Dylan cadence, Renegades Rick Rubin production, labor refusal anthem, under 4 minutes",
+      "lyric_prompt": "Write a heavy rap-metal song in the spirit of refusing to work under oppressive exploitative conditions. The narrator has worked for every institution — the boss, the government, the church, the family — and refuses each one. Each verse is a different authority demanding compliance. The chorus is the refusal. Translate folk protest tradition into metal fury. Under 4 minutes."
+    },
+    {
+      "title": "Microphone Fiend",
+      "album": "Renegades",
+      "year": 2000,
+      "bpm": 93,
+      "vibe": "Eric B. and Rakim cover (1988) · pure MC skills showcase · most purely hip-hop catalog entry",
+      "dna": "Eric B. and Rakim original (1988). The most purely hip-hop track in the RATM catalog — a showcase for de la Rocha's MC skills, covering one of the definitive 1988 hip-hop tracks. Morello in a more hip-hop-production-influenced mode. Shows the direct hip-hop lineage of RATM's entire approach.",
+      "style_prompt": "Hip-hop-influenced rap-metal, 93 BPM, Eric B and Rakim original RATM-ized, de la Rocha pure MC tribute delivery, Morello hip-hop-influenced mode, Brad Wilk hip-hop-influenced groove, Renegades Rick Rubin production, MC skills showcase, under 4 minutes",
+      "lyric_prompt": "Write a rap-metal song primarily showcasing pure MC lyrical skill — complex internal rhyme schemes, sophisticated wordplay, intricate syllabic patterns. The content is about the power and craft of the microphone itself. This is the most hip-hop track in the catalog: it's about rapping and what rapping can do. Under 4 minutes. Lead with lyrical complexity over political message."
+    },
+    {
+      "title": "Renegades of Funk",
+      "album": "Renegades",
+      "year": 2000,
+      "bpm": 89,
+      "vibe": "Afrika Bambaataa cover (1983) · hip-hop founding text · lineage of musical resistance",
+      "dna": "Afrika Bambaataa original (1983) — one of the founding texts of hip-hop culture. RATM cover it as a tribute to the lineage of Black American resistance through music. The electronic production of the original becomes Morello-driven rock.",
+      "style_prompt": "Funk-rock cultural-heritage cover, 89 BPM, Bambaataa original into RATM rock, hip-hop founding-text energy, Morello funk-rock groove, Brad Wilk driving pocket, de la Rocha hip-hop lineage delivery, Renegades Rick Rubin production, cultural resistance heritage, under 4 minutes",
+      "lyric_prompt": "Write a funk-metal song tracing the lineage of musical resistance — from funk to hip-hop to punk to rap-metal — as a continuous tradition of speaking truth to power. The song celebrates renegades who used music as a weapon across generations. The verses name specific moments and figures in this lineage. The chorus: this tradition continues through us. Under 4 minutes."
+    },
+    {
+      "title": "Ghost of Tom Joad",
+      "album": "Renegades",
+      "year": 2000,
+      "bpm": 77,
+      "vibe": "Bruce Springsteen cover (1995) · Grapes of Wrath lineage · most celebrated RATM cover",
+      "dna": "Bruce Springsteen original (1995). RATM's most celebrated cover — transforming Springsteen's sparse acoustic song into heavy metal. The Ghost of Tom Joad — from Steinbeck's Grapes of Wrath — becomes the metaphor for resistance that cannot be killed. Originally released as a single in 1997. De la Rocha's most passionate vocal performance on Renegades.",
+      "style_prompt": "Slow heavy Grapes-of-Wrath heritage cover, 77 BPM, Springsteen sparse acoustic original into heavy RATM statement, de la Rocha passionate economic-justice delivery, Brad Wilk heavy slow pocket, Morello transforming acoustic into electric metal riff, Renegades Rick Rubin production, most emotionally devastating cover, under 4:30",
+      "lyric_prompt": "Write a slow heavy rap-metal song in the spirit of Tom Joad — about the ghost of resistance that cannot be killed because it lives in every act of solidarity. The verses describe specific faces of contemporary poverty that echo the 1930s Dust Bowl. The chorus is Tom Joad's promise: wherever there's a fight, I'll be there. Under 4:30. Most emotionally devastating track in the catalog."
+    },
+    {
+      "title": "How I Could Just Kill a Man",
+      "album": "Renegades",
+      "year": 2000,
+      "bpm": 90,
+      "vibe": "Cypress Hill cover (1991) · hip-hop swagger to metal fury · dual-register de la Rocha",
+      "dna": "Cypress Hill original (1991). RATM transform the hip-hop classic into heavy metal. De la Rocha adopts hip-hop swagger verses before shifting to metal delivery — a rare dual-register performance. Shows the hip-hop-to-metal bridge at its most explicit.",
+      "style_prompt": "Hip-hop-to-metal bridge cover, 90 BPM, Cypress Hill original transformed, de la Rocha hip-hop swagger verses to metal fury chorus, Morello metal riff replacing hip-hop beat, Brad Wilk metal groove, Renegades Rick Rubin production, dual-register vocal, under 3:30",
+      "lyric_prompt": "Write a rap-metal song bridging hip-hop swagger and metal fury — the same narrator in two registers: controlled street-smart verses and explosive furious chorus. About the dangerous knowledge of what systemic violence breeds. Cool calculated verses erupting into explosion. Under 3:30. Most explicit hip-hop-to-metal bridge in the catalog."
+    },
+    {
+      "title": "Street Fighting Man",
+      "album": "Renegades",
+      "year": 2000,
+      "bpm": 107,
+      "vibe": "Rolling Stones cover (1968) · 1968 protest season · ambivalence transformed into declaration",
+      "dna": "Rolling Stones original (1968), written during the worldwide 1968 protest movement. The original's ambivalence ('what can a poor boy do?') becomes in RATM's version a declaration rather than a question. They answer what Jagger left ambiguous.",
+      "style_prompt": "Mid-tempo 1968-protest-spirit cover, 107 BPM, Stones original into RATM declaration, de la Rocha replacing Jagger ambivalence with certainty, Morello electric riff, Brad Wilk driving pocket, Renegades Rick Rubin production, under 3:30",
+      "lyric_prompt": "Write a mid-tempo rap-metal song that answers the question 'what can a poor boy do' — with RATM's certainty rather than Jagger's ambivalence. The street fighter has plenty of options. The verses describe the world that makes street fighting necessary. The chorus is the answer: fight. Under 3:30."
+    },
+    {
+      "title": "Kick Out the Jams",
+      "album": "Renegades",
+      "year": 2000,
+      "bpm": 137,
+      "vibe": "MC5 cover (1969) · proto-punk anarchist energy · fastest Renegades track",
+      "dna": "MC5 original (1969). The most purely punk track on Renegades — fastest at 137 BPM. MC5's anarchist Detroit politics directly influenced hardcore punk and RATM. The exhortation to free yourself maps perfectly onto RATM's aesthetic.",
+      "style_prompt": "Fast proto-punk anarchist cover, 137 BPM, MC5 original transformed, fastest Renegades track, de la Rocha pure punk energy, Morello aggressive fast riff, Brad Wilk driving fast pocket, Renegades Rick Rubin production, anarchist liberation energy, under 3 minutes",
+      "lyric_prompt": "Write a fast anarchist punk-metal song about stripping away everything constraining authentic existence — kicking out the jams. The verses describe the constraints: conformity, authority, social expectation, corporate control. The chorus is the exhortation to remove them all and be free. Under 3 minutes. Maximum energy, maximum liberation."
+    },
+    {
+      "title": "Beautiful World",
+      "album": "Renegades",
+      "year": 2000,
+      "bpm": 135,
+      "vibe": "Devo cover (1981) · satirical consumer optimism · Morello new-wave guitar textures",
+      "dna": "Devo original (1981). One of the most unexpected Renegades covers — new-wave satire about the beautiful world available only to the privileged. RATM transform the ironic new-wave original into heavy metal fury. Morello's guitar has unusual new-wave textures for the album.",
+      "style_prompt": "Heavy new-wave-meets-metal satirical cover, 135 BPM, Morello unusual new-wave textures in heavy metal context, de la Rocha satirical-consumer-optimism lyric, Brad Wilk heavy pocket, Renegades Rick Rubin production, beautiful-world-only-for-the-privileged irony, under 4 minutes",
+      "lyric_prompt": "Write a fast heavy metal song with heavy satirical irony about the 'beautiful world' available to those with money — clean suburbs, safe neighborhoods, the beautiful life — as seen from outside it. The verses describe that beautiful world admiringly in a way that reveals its exclusivity. The chorus exposes who it's for and who it isn't. Under 4 minutes. Most satirically ironic track in the catalog."
+    }
+  ],
+  "albums": [
+    {
+      "title": "Rage Against the Machine",
+      "year": 1992,
+      "style_prompt": "Raw debut rap-metal, no click track natural tempo drift, GGGarth Richardson Sound City production, no samples keyboards or synthesizers — all live instruments, 75–163 BPM range most tracks 85–100 BPM, Morello experimental techniques without pedals, Brad Wilk loose powerful drumming, de la Rocha controlled-to-screaming vocal, political awakening and systemic critique, debut rawness and discovery energy",
+      "lyric_prompt": "Write a debut-era RATM song embodying the political awakening of 1992 — raw, certain, naming specific enemies and systems. Emotional world: a young person discovering the reality of power, racism, exploitation, and media control for the first time and being seized by righteous fury. A manifesto — the opening statement of a band with something urgent to say. Controlled hip-hop verses erupting into metal fury. Under 5 minutes."
+    },
+    {
+      "title": "Evil Empire",
+      "year": 1996,
+      "style_prompt": "Polished aggressive rap-metal, Brendan O'Brien production — tighter and more aggressive than debut, 83–170 BPM most tracks 84–107 BPM, Cole Rehearsal Studios Hollywood, Grammy-winning metal energy, heavier guitar distortion than debut, Brad Wilk more precise, de la Rocha more rhythmically complex, political maturity targeting specific institutions and ideologies, #1 Billboard 200",
+      "lyric_prompt": "Write an Evil Empire-era RATM song — more polished and specific than the debut, with wider lyrical range from global capitalism to media manipulation to housing and immigration. Emotional world: four years into the fight, still furious but now precise in identifying mechanisms of power. The song should feel like a prosecutor's brief — specific, documented, unanswerable. Under 5 minutes."
+    },
+    {
+      "title": "The Battle of Los Angeles",
+      "year": 1999,
+      "style_prompt": "RATM peak production — O'Brien's tightest work, 83–172 BPM most tracks 88–100 BPM, most sonically diverse RATM album, Michael Moore collaboration era, de la Rocha most complex lyrical performances, Morello most inventive guitar work, Brad Wilk most technically precise, 2000 election year political urgency, final original-material statement",
+      "lyric_prompt": "Write a BOLA-era RATM song — the final statement of a band at peak, with election year urgency and the knowledge this may be their last album. Emotional world: maximum political clarity, maximum musical ambition, maximum rage. The song should feel like a reckoning — everything the band has been building toward, delivered with absolute precision. Under 5 minutes."
+    },
+    {
+      "title": "Renegades",
+      "year": 2000,
+      "style_prompt": "Rick Rubin-produced covers album, RATM reimagining hip-hop and rock classics, 77–137 BPM average 106 BPM, brickwalled mastering, de la Rocha covering artists from Dylan to MC5 to Cypress Hill to Rakim, Morello translating acoustic and electronic sources into heavy metal, posthumous band statement after dissolution, homage to musical lineage of resistance",
+      "lyric_prompt": "Write a Renegades-era RATM song honoring the tradition of musical resistance — covering or channeling a classic song of rebellion from any genre (folk, hip-hop, proto-punk, soul) and transforming it through heavy metal fury. A bridge between eras: the past tradition speaking through the present band. Show the continuous lineage of those who used music to fight power. Under 4 minutes."
+    }
+  ]
+}

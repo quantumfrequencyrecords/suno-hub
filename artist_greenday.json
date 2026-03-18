@@ -1,0 +1,81 @@
+{
+  "id": "greenday",
+  "name": "Green Day",
+  "genres": ["Punk Rock", "Pop-Punk", "Punk Opera", "Alternative Rock"],
+  "era": "1987–2025",
+  "color": "#a8e063",
+  "bio": "Billie Joe Armstrong, Mike Dirnt, Tré Cool. Rob Cavallo produced their major-label run from Dookie through American Idiot. Known for power chords combined with strong pop melodic sensibility. American Idiot is a punk rock opera following Jesus of Suburbia — expressing the disillusionment of a generation shaped by 9/11 and the Iraq War.",
+  "producer_notes": "Rob Cavallo (Dookie through 21st Century Breakdown) — enormous snare, everything sounds bigger than it should be. Butch Vig produced 21st Century Breakdown.",
+  "songs": [
+    {
+      "title": "Jesus of Suburbia",
+      "album": "American Idiot",
+      "year": 2004,
+      "bpm": "Multi-tempo 80–184",
+      "vibe": "9-minute 5-movement punk opera",
+      "dna": "9 minutes 8 seconds, five distinct movements. Armstrong wrote it as an attempt at the Bohemian Rhapsody of the future. The opening bars evoke David Bowie's Moonage Daydream. Each section has its own distinct tempo, feel, and emotional register.",
+      "style_prompt": "Multi-movement punk rock opera, 5 distinct sections at varying tempos 80–184 BPM, opens with sparse acoustic guitar-voice call-and-response, builds through melodic storytelling to full punk explosion, Bowie-influenced glam rock elements under punk structure, Billie Joe Armstrong style sneer-to-anthem vocal arc, Rob Cavallo production clarity, suburban alienation narrative, cinematic scope in punk packaging, 7–9 minute runtime permitted",
+      "lyric_prompt": "Write a multi-movement punk rock epic — five distinct sections that tell a complete story arc. A suburban teenager: I. Describes his miserable town and diet of media and medication — angry, staccato, spoken-word intro; II. Announces he's leaving — melodic and searching; III. Arrives in the city and finds it just as hollow — punk explosion; IV. Considers what he's lost and what he's become — quieter reflection; V. A defiant declaration that he owns his alienation — full-band outro. Total runtime 7–9 minutes. Each section should feel like a different song that connects to the same story."
+    },
+    {
+      "title": "American Idiot",
+      "album": "American Idiot",
+      "year": 2004,
+      "bpm": 184,
+      "vibe": "Defining protest anthem of the 2000s",
+      "dna": "Released two months before George W. Bush was reelected. 184 BPM, 2:54 of pure compressed fury. The palm-muted opening guitar riff is instantly recognizable. Targets media manipulation, jingoism, and the redneck agenda.",
+      "style_prompt": "Blazing protest punk anthem, 184 BPM, opening palm-muted guitar riff under sneering political vocal, enormous Rob Cavallo production — everything sounds bigger than it should, Billie Joe Armstrong sneer-to-scream vocal arc, under 3 minutes, no-fat punk compression, media manipulation and political outrage as lyric core, freight-train momentum, gang-vocal chorus screamed, anti-authoritarian fury delivered with pop precision",
+      "lyric_prompt": "Write a blazing 184 BPM protest punk anthem — the defining political statement of a disillusioned generation. Target: media manipulation, manufactured patriotism, political leaders who treat the public as idiots to be managed. The tone is contemptuous of conformity and blind nationalism. The chorus is a screamed rejection — refusing to be part of the machine. Include the word 'idiot' used to describe both the powerful and the compliant. Under 3 minutes. Maximum compression, maximum fury. Every word loaded."
+    },
+    {
+      "title": "Wake Me Up When September Ends",
+      "album": "American Idiot",
+      "year": 2004,
+      "bpm": 104,
+      "vibe": "Grief ballad · Armstrong's father's death",
+      "dna": "Written about Armstrong's father, who died of cancer when Billie was 10. Starts with clean acoustic guitar, builds through two verse-chorus cycles, culminates in full electric climax, returns to acoustic. Rob Cavallo lets the dynamic do the work.",
+      "style_prompt": "Dynamic grief ballad, 104 BPM, opens with clean acoustic guitar — delicate and exposed, male vocal raw with loss, builds through two cycles adding electric guitar and drums, culminates in full-band electric explosion at the climax, then strips back to acoustic close, Rob Cavallo quiet-loud-quiet production arc, genuine grief not performed grief, autumn and loss imagery, under 4:45, the most emotionally devastating Green Day energy",
+      "lyric_prompt": "Write a grief ballad about losing a parent young — not dramatized or poeticized, just raw and honest. September as the month of the loss. The song asks to be allowed to skip the month entirely — to sleep through the anniversary of losing them. The emotional arc: quiet description of the ongoing loss → building toward the anniversary → full emotional release at the climax → quiet return to the beginning. Use autumn imagery organically. The most restrained and most devastating moment should be the last line. Under 4:45."
+    },
+    {
+      "title": "Good Riddance (Time of Your Life)",
+      "album": "Nimrod",
+      "year": 1997,
+      "bpm": 84,
+      "vibe": "Accidental anthem · acoustic only",
+      "dna": "Written as an angry breakup song, misread as a sentimental anthem — Armstrong decided to let the misreading stand. Acoustic guitar only with subtle violin. 2:33. Deceptively simple: three chords, one perspective. Played at both graduations and funerals.",
+      "style_prompt": "Sparse acoustic punk ballad, 84 BPM, acoustic guitar only with subtle violin, conversational male vocal — no performance, just direct honest delivery, under 2:40, bittersweet ambiguity between anger and sentimentality, three-chord simplicity, the most universally resonant energy possible, graduation-and-goodbye atmosphere, nothing wasted — every word essential",
+      "lyric_prompt": "Write a sparse acoustic song with radical ambiguity — it can be read as an angry send-off or a bittersweet farewell, and both readings are equally valid. The central lyric question should be about unpredictability and choices made at crossroads. The tone is direct, conversational, not sentimental in the traditional way — more resigned acceptance. Under 2:40. Three chords. No fat. The most deceptively simple song in the set — every single word must earn its place. This should be played at both breakups and graduations."
+    },
+    {
+      "title": "Basket Case",
+      "album": "Dookie",
+      "year": 1994,
+      "bpm": 186,
+      "vibe": "Anxiety as pop-punk · the Dookie breakthrough",
+      "dna": "Written by Armstrong about his anxiety disorder before he was diagnosed. The result is anxiety portrayed from the inside: fast, chaotic, self-aware but unable to stop. Rob Cavallo Dookie production: bright, fast, enormous snare.",
+      "style_prompt": "Anxiety-driven Dookie-era punk, 186 BPM, Rob Cavallo bright enormous-snare production, vocal delivery rushed and anxious in verses — the words come too fast, chorus erupts into desperate naming, under 3 minutes, guitar tone bright and trebly, bass prominent, anxiety from the inside as lyric structure — self-aware but unable to stop, the most energetically anxious Green Day energy",
+      "lyric_prompt": "Write a fast punk song about anxiety from the inside — not describing anxiety from outside but the experience of living in it. The verses should feel rushed, the thoughts tumbling over each other. The chorus is the desperate attempt to name what's happening: 'am I paranoid or am I just anxious / am I crazy or is this just Tuesday?' The self-awareness doesn't help — the narrator knows what's happening and can't stop it. Under 2:45. Written by someone who didn't have the diagnosis yet, just the experience."
+    },
+    {
+      "title": "Holiday",
+      "album": "American Idiot",
+      "year": 2004,
+      "bpm": 117,
+      "vibe": "Anti-war anthem · marching energy",
+      "dna": "The march-rhythm opening. Anti-war, anti-Bush, anti-media compliance. The production has a military snare quality — the beat of war repurposed as protest. The breakdown 'This is the dawning of the rest of our lives' is the most anthemic moment.",
+      "style_prompt": "Anti-war protest punk with military march energy, 117 BPM marching tempo, snare-driven rhythm suggesting a march turned protest, Billie Joe Armstrong contemptuous sneering vocal, Rob Cavallo enormous production, political outrage at war and media compliance, massive singalong breakdown section, under 3:50, driving relentless energy, punk power chords over march beat, crowd-participation anthem",
+      "lyric_prompt": "Write a punk anthem that uses the word 'holiday' sarcastically — a holiday from reality, from truth, from having to think about what your government is doing in your name. The song targets war, propaganda, blind patriotism. The tone is furious contempt, not sad resignation. Include a breakdown section that shifts from verse cynicism to a massive crowd-participation moment about resistance and solidarity. The military march rhythm should be felt in the lyric cadence. Under 3:50."
+    },
+    {
+      "title": "21 Guns",
+      "album": "21st Century Breakdown",
+      "year": 2009,
+      "bpm": 69,
+      "vibe": "Slowest Green Day hit · Butch Vig production",
+      "dna": "From 21st Century Breakdown, produced by Butch Vig. 69 BPM — Green Day's slowest major single. Piano opens the track. Builds to a full-band stadium rock climax. Armstrong's vocal is at its most naked and powerful.",
+      "style_prompt": "Slow-build stadium punk ballad, 69 BPM, opens with solo piano — exposed and fragile, Billie Joe Armstrong-style raw tenor builds from intimate to enormous, Butch Vig production adding weight and scale, full-band climax with massive singalong chorus, military honor imagery reframed as personal sacrifice, under 5:30, the most dynamically ambitious Green Day energy, surrender as the theme",
+      "lyric_prompt": "Write a slow-build stadium punk ballad about surrender — not defeat, but the conscious, dignified choice to lay down what you've been fighting for because the fight has cost too much. The 21-gun salute as central metaphor: honoring what's being let go. The song should move from intimate piano confession to full-band cathartic release. The central question: when does fighting for something become destroying it? The chorus is the moment of beautiful surrender — arms open, white flag raised with dignity. Under 5:30. The biggest, slowest, most cinematic song in the set."
+    }
+  ]
+}

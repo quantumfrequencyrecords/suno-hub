@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "files": [
+    "artist_blink182.json",
+    "artist_greenday.json",
+    "artist_ratm.json",
+    "artist_russell_dickerson.json",
+    "artist_taylor_male.json",
+    "artist_thomas_rhett.json",
+    "genre_country.json",
+    "artist_avicii.json",
+    "artist_angels_airwaves.json"
+  ]
+}

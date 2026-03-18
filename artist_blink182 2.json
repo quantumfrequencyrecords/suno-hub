@@ -1,0 +1,201 @@
+{
+  "id": "blink182",
+  "name": "Blink-182",
+  "genres": ["Pop-Punk", "Skate-Punk", "Emo", "Alternative Rock"],
+  "era": "1992–2025",
+  "color": "#ff4757",
+  "bio": "Pop-punk pioneers. Travis Barker drumming engine. Tom DeLonge and Mark Hoppus dual vocal tag team spanning classic Enema of the State era through the 2023 Tom reunion album One More Time. No click tracks on the self-titled album — recorded in a rented mansion converted into a musical laboratory using vintage analog gear.",
+  "producer_notes": "Jerry Finn (Enema, TOYPAJ) — super bright compressed production. Self-titled: vintage analog mansion sessions. Neighborhoods: Tom and Mark recording separately and merging digitally. One More Time (2023): most polished Blink production ever.",
+  "songs": [
+    {
+      "title": "Pretty Little Girl",
+      "album": "Neighborhoods",
+      "year": 2011,
+      "bpm": 140,
+      "vibe": "Hip-hop crossover · Yelawolf feature",
+      "dna": "Features Yelawolf — only the second time a Blink song had guest vocals. Modern pop-punk with electronic elements, pulsing synth bed. Travis Barker drumming bridges pop-punk and hip-hop. Melodic Tom DeLonge verse leading into a harder hip-hop bridge.",
+      "style_prompt": "Modern pop-punk with hip-hop crossover elements, 140 BPM, clean melodic punk verses with pulsing electronic synth bed, Travis Barker-style aggressive precise drumming, distorted power chord rhythm guitar, melodic male tenor lead vocal, hip-hop rap section in bridge over drum track, modern polished production, punch and clarity in low end, singalong chorus with layered harmonies, suburban obsession energy",
+      "lyric_prompt": "Write a modern pop-punk song about a guy who is completely fixated on a girl who is out of his league — or at least he thinks so. Melodic verses set the obsession scene: he sees her everywhere, she doesn't notice, he can't stop. The chorus is a punchy declaration of wanting her. The bridge should switch energy dramatically — a rapped or spoken section from a different voice describing her from the outside with specific swagger. Classic Blink tone: self-deprecating, lovesick, but more self-aware than teenage. Under 3:20."
+    },
+    {
+      "title": "Edging",
+      "album": "One More Time...",
+      "year": 2023,
+      "bpm": 148,
+      "vibe": "Reunion album anthem · Tom + Mark dual vocal",
+      "dna": "The reunion album's defining statement. Fast, anthemic, Tom and Mark trading vocals on a song literally about the tension of almost reaching something. Most polished Blink production ever while still hitting like classic pop-punk. Enormous chorus. Travis's drumming at its most technically impressive.",
+      "style_prompt": "Anthemic modern pop-punk, 148 BPM, dual male vocal trading verses — one higher melodic tenor, one deeper punk delivery, technically precise explosive drum fills, heavily distorted rhythm power chords, massive layered chorus with gang vocals, clean modern production with raw punk energy underneath, tension-and-release song structure, emotionally charged reunion energy, wide stereo mix, punchy bass",
+      "lyric_prompt": "Write a fast, anthemic pop-punk song built on the metaphor of being perpetually almost there — almost saying the right thing, almost getting back together, almost making it work — the feeling of prolonged emotional tension without release. The song should have two distinct voices alternating: one more melodic and searching, one more raw and direct. The chorus is the eruption of that tension — all the things almost said, finally half-said. The lyrics have double meaning throughout: the relationship tension and the band's own history of breakup and reunion. Under 3:15."
+    },
+    {
+      "title": "Mutt",
+      "album": "Enema of the State",
+      "year": 1999,
+      "bpm": 181,
+      "vibe": "Fast skate-punk · Classic era",
+      "dna": "Classic Enema era — 181 BPM, blistering tempo, loud/fast California punk. Mark Hoppus lead vocal, sarcastic and self-deprecating. Jerry Finn production: super bright, compressed, slamming. Quintessential late-90s pop-punk aggression with tight melody.",
+      "style_prompt": "Blistering late-90s pop-punk, 181 BPM, Mark Hoppus-style bass-forward vocal delivery, Jerry Finn-style super compressed bright production, power chord barrage, insanely fast drumming with snappy snare, no complex arrangements — speed and hooks, slightly sarcastic/self-deprecating male vocal, short under 2:30, loud and fast from the first second, singalong punk chorus, California skate-punk energy",
+      "lyric_prompt": "Write a fast, sarcastic pop-punk song from a guy who watches a girl he likes constantly date terrible, toxic guys — and he can't understand why she won't notice him instead. The tone is self-deprecating and slightly bitter but mostly just perplexed and annoyed. The chorus is a direct observation about the pattern. Short, fast, under 2:30. No emotional depth required — this is pure pop-punk frustration delivered at maximum BPM. Late 90s slang and attitude welcome."
+    },
+    {
+      "title": "Aliens Exist",
+      "album": "Enema of the State",
+      "year": 1999,
+      "bpm": 188,
+      "vibe": "Tom DeLonge UFO obsession in pop-punk form",
+      "dna": "188 BPM — among Blink's fastest. Tom DeLonge lead vocal. Classic Enema production — Jerry Finn bright and punchy. The lyric is literally about believing in aliens and government cover-ups, delivered with full Tom DeLonge sincerity.",
+      "style_prompt": "Blazing fast late-90s pop-punk, 188 BPM, Tom DeLonge-style nasally sincere tenor vocal — earnest not sarcastic, super bright compressed Jerry Finn production, blistering power chord drive, tight fast drumming, under 2:20, conspiracy/paranoia lyric delivered with absolute sincerity, singalong hook chorus, California punk guitar tone, no electronics — pure guitars bass drums",
+      "lyric_prompt": "Write a blazing fast pop-punk song delivered with complete earnest sincerity about believing in aliens, government cover-ups, and things the authorities don't want you to know. The singer is not joking — he genuinely believes all of it and wants you to understand. The tone is not paranoid-angry but passionate and desperate to convince. The chorus is a declaration of belief. Include specific references to Area 51, black helicopters, unexplained lights. Under 2:20. This song should feel like the most sincere punk song about extraterrestrials ever written."
+    },
+    {
+      "title": "Ghost on the Dance Floor",
+      "album": "Neighborhoods",
+      "year": 2011,
+      "bpm": 103,
+      "vibe": "Gothic haunted atmosphere · Tom DeLonge lead",
+      "dna": "103 BPM — one of their slower, more atmospheric tracks. The Neighborhoods album had Tom and Mark recording separately and digitally merging. Ghost on the Dance Floor is the album's most haunting track: electronic elements, post-rock atmosphere. Written about a deceased friend.",
+      "style_prompt": "Atmospheric post-punk, 103 BPM, spacious reverb-heavy production, electronic synth bed under distorted guitars, haunting male tenor vocal with wide reverb — ethereal and ghostly, post-rock dynamics, grief and the supernatural as emotional core, dance floor imagery meets funeral atmosphere, wide stereo field, angular guitar lines, builds to emotional climax, Blink-182 meets Angels and Airwaves aesthetic",
+      "lyric_prompt": "Write a haunting atmospheric pop-punk song about seeing someone who is gone — a friend who died — everywhere you go, especially in places they used to love. The singer can't stop sensing their presence, particularly on a dance floor or at a venue where they used to be together. The tone is grief filtered through the supernatural — not horror, but aching longing. The chorus is the central image: seeing their ghost in a specific place. Include the moment where the narrator realizes the ghost isn't real, and the crash of that realization. Under 4 minutes. Slow, atmospheric, devastating."
+    },
+    {
+      "title": "Even If She Falls",
+      "album": "Neighborhoods",
+      "year": 2011,
+      "bpm": 145,
+      "vibe": "Mark Hoppus lead · Faithful love anthem",
+      "dna": "Mark Hoppus lead on this upbeat, earnest devotion anthem — a more mature take on love than classic Blink. More emotional sincerity than comedy, representing where the band had grown to by 2011.",
+      "style_prompt": "Upbeat earnest pop-punk devotion anthem, 145 BPM, Mark Hoppus-style warm bass-forward delivery, bright layered production, distorted rhythm guitars, tight punchy drumming, emotionally sincere male vocal — no comedy, genuine love song in punk packaging, layered harmonies on chorus, full-bodied modern pop-punk production, devotion and loyalty as lyric core",
+      "lyric_prompt": "Write a sincere, upbeat pop-punk devotion song about a guy who is committed to standing by someone he loves through anything — her failures, her worst days, her doubts about herself. The tone is mature and genuine — no jokes, no irony. Pop-punk packaging around real emotional commitment. The chorus is a direct declaration of unconditional presence. Include verses about specific ways she struggles and specific ways he shows up. Under 3:15."
+    },
+    {
+      "title": "Anthem Part Two",
+      "album": "Take Off Your Pants and Jacket",
+      "year": 2001,
+      "bpm": 155,
+      "vibe": "Anti-authoritarian youth anthem",
+      "dna": "One of Blink's most politically charged moments — anti-authority, anti-conformity, rebellious youth energy. Fast, driving, gang-vocal chorus. Tom and Mark alternating. Simple, direct, loud. Pure Warped Tour anthemic energy.",
+      "style_prompt": "Fast anti-authoritarian pop-punk anthem, 155 BPM, dual vocal trading verses, massive gang-vocal chorus screaming, driving power chords, Travis Barker relentless drumming, youth rebellion energy, simple direct lyrics — no subtlety, this is a fist-pump anthem, Warped Tour crowd energy, layered shouted backing vocals, under 2:45, aggressive bright production",
+      "lyric_prompt": "Write a fast, loud pop-punk youth rebellion anthem — a direct address to kids telling them to ignore authority figures, conform to nothing, make their own rules. The tone is earnest and angry rather than comedic. The chorus should be the kind of lyric 10,000 people scream at once with fists in the air. Include specific authority targets: parents, teachers, society's expectations. Two vocalists trading verses. Under 2:45. Loud. Fast. No nuance required."
+    },
+    {
+      "title": "All the Small Things",
+      "album": "Enema of the State",
+      "year": 1999,
+      "bpm": 148,
+      "vibe": "Pop-punk's defining MTV hit",
+      "dna": "The song that put pop-punk on MTV. Tom DeLonge lead, Jerry Finn production at its most irresistible. The 'na na na' section. Super bright, clean, hook-forward. Structurally perfect — 2:47 of pure hook-delivery-hook.",
+      "style_prompt": "Irresistibly catchy pop-punk, 148 BPM, super bright Jerry Finn-style compressed production, Tom DeLonge-style sincere tenor lead vocal, hooky singalong na-na-na section, short and perfectly structured under 2:50, romantic gesture lyrics delivered with complete earnestness, fast drumming with snappy snare, layered melodic guitar harmonics on lead, no fat — every second is a hook",
+      "lyric_prompt": "Write a perfectly compact pop-punk love song celebrating the small, everyday things a person does for you — the kind of gestures that prove love without grand declarations. The lyric should catalogue specific small acts (leaving notes, saying goodnight, remembering things). The chorus is a hooky singalong declaration — include a 'na na na' or similar chantable section. Keep it under 2:50. Every line should be instantly singable. This is about perfecting the hook, not exploring emotion. The world's most irresistible simple love song."
+    },
+    {
+      "title": "The Rock Show",
+      "album": "Take Off Your Pants and Jacket",
+      "year": 2001,
+      "bpm": 151,
+      "vibe": "Classic Blink meet-at-a-show story",
+      "dna": "Mark Hoppus lead vocal. Quintessential Blink narrative song — meets a girl at a rock show. Simple story at driving tempo. Quintessential TOYPAJ production — super punchy, fast, hooks everywhere.",
+      "style_prompt": "Driving pop-punk narrative, 151 BPM, Mark Hoppus-style warm bass vocal lead, super punchy TOYPAJ-era production, fast clean guitar power chords, narrative storytelling verses building to hook explosion chorus, tight precise drumming, meet-at-a-concert atmosphere, under 3 minutes, bright and energetic throughout, singalong chorus with layered gang vocals",
+      "lyric_prompt": "Write a driving pop-punk narrative song about meeting a girl at a rock show — she's cooler and more beautiful than anyone he's ever seen, he spends the whole show staring at her, finally talks to her, and is completely destroyed in the best way. The song should move like the story — fast, propulsive, specific details about the venue, the crowd, the songs playing. The chorus is the declaration of what she did to him in that one night. Under 3 minutes. Pure fun, no angst."
+    },
+    {
+      "title": "First Date",
+      "album": "Take Off Your Pants and Jacket",
+      "year": 2001,
+      "bpm": 154,
+      "vibe": "Pre-date anxiety played for laughs",
+      "dna": "Tom DeLonge lead, fast, nervous energy perfectly matched by tempo. Quintessential Blink comedy-mixed-with-sincerity: the guy is genuinely nervous but the delivery is self-aware and funny.",
+      "style_prompt": "Fast nervous-energy pop-punk, 154 BPM, Tom DeLonge-style sincere tenor lead, super bright punchy production, driving power chord rhythm, first-date jitters translated into tempo, funny-but-sincere vocal delivery, under 2:30, comedic self-awareness with genuine underlying feeling, singalong chorus, TOYPAJ-era Blink brightness and speed",
+      "lyric_prompt": "Write a fast, funny pop-punk song from a guy preparing for and going on a first date — the nervous energy, the overthinking, the awkward moments, and the genuine hopefulness underneath it all. The humor comes from the specific ridiculous things he worries about. The chorus is sincere: underneath all the nerves, he really likes her. Under 2:30. This should make someone laugh and feel tender at the same time."
+    },
+    {
+      "title": "Carousel",
+      "album": "Buddha EP / Cheshire Cat",
+      "year": 1994,
+      "bpm": 184,
+      "vibe": "Early Blink chaos · Mark lead",
+      "dna": "One of the earliest Blink recordings — raw, chaotic, Mark Hoppus lead vocal. Pre-Jerry Finn production, lo-fi and aggressive. Classic early San Diego skatepunk sound.",
+      "style_prompt": "Raw early skate-punk, 184 BPM, lo-fi garage production — sloppy and perfect, Mark Hoppus-style nasal bass vocal lead, simple two-chord power chord aggression, chaotic drum fills everywhere, under 2 minutes, no polished production — raw and loud, early 90s San Diego punk energy, trebly guitar tone, genuine teenage urgency",
+      "lyric_prompt": "Write a raw, chaotic early skate-punk song — simple, fast, barely under control. The theme is circular frustration: being stuck in the same patterns, the same mistakes, going around and around like a carousel. The lyrics should feel like a teenager wrote them — genuine, unpolished, angry at nothing specific but angry at everything. Under 1:45. No sophistication required. Just urgency, volume, and teenage feeling."
+    },
+    {
+      "title": "Turpentine",
+      "album": "One More Time...",
+      "year": 2023,
+      "bpm": 130,
+      "vibe": "Emotional reunion-era depth",
+      "dna": "From the 2023 reunion album — one of the deeper, more emotionally raw cuts. More angular, less poppy than classic Blink. The band processing Travis's recovery, Tom's return, and years of separation.",
+      "style_prompt": "Modern emotionally heavy pop-punk, 130 BPM, more angular production than classic Blink, introspective male vocals alternating between controlled and raw, heavier guitar distortion with less brightness, mid-tempo with emotional weight, modern production clarity, reunion and survival themes, processing loss and return, layered harmonies, under 3:30, less comedy more raw vulnerability",
+      "lyric_prompt": "Write a raw, emotionally heavy pop-punk song about surviving something that nearly destroyed you — a friendship, a near-death, a long estrangement — and finding your way back to it. The tone is older and heavier than classic Blink, the comedy is gone. What remains is gratitude filtered through pain. The chorus is about what's left when turpentine burns everything away — the essential thing that couldn't be destroyed. Under 3:30. The most emotionally honest Blink song in the set."
+    },
+    {
+      "title": "One Night Stand",
+      "album": "Dogs Eating Dogs EP",
+      "year": 2012,
+      "bpm": 150,
+      "vibe": "Post-hiatus · darker adult tone",
+      "dna": "From the post-reunion Dogs Eating Dogs EP. Tom DeLonge lead with a slightly darker, more confessional tone. Adult subject matter — the complicated morning-after feelings. Shows the band's maturation.",
+      "style_prompt": "Post-hiatus Blink pop-punk, 150 BPM, Tom DeLonge-style sincere tenor lead — slightly darker than Enema era, adult subject matter in punk packaging, distorted rhythm guitars with some atmospheric texture, Travis Barker precise driving drumming, confessional morning-after emotional core, under 3 minutes, still melodic and punchy but with more emotional weight than classic Blink",
+      "lyric_prompt": "Write a pop-punk song about the complicated feeling after a one-night stand — not bragging, not regret exactly, but the specific discomfort of lying next to a stranger and wondering how you got here. The verses are honest and specific about the morning after. The chorus is the complicated emotional statement — wanting more but knowing this wasn't meant to be more. Adult Blink tone: still punchy and melodic but genuinely honest. Under 3 minutes."
+    },
+    {
+      "title": "Story of a Lonely Guy",
+      "album": "Take Off Your Pants and Jacket",
+      "year": 2001,
+      "bpm": 127,
+      "vibe": "Mark Hoppus lead · emotionally vulnerable",
+      "dna": "Mark Hoppus lead, slightly slower than typical TOYPAJ. One of Blink's more emotionally direct songs — genuine loneliness and romantic failure, not played for laughs.",
+      "style_prompt": "Mid-tempo earnest pop-punk, 127 BPM, Mark Hoppus-style warm emotionally direct bass vocal, TOYPAJ production slightly restrained for emotional space, distorted rhythm guitar, sincere loneliness as lyric core — no comedy, chorus builds to emotional release, under 3 minutes, genuine heartache in pop-punk packaging, harmonies adding warmth on chorus",
+      "lyric_prompt": "Write a sincere, emotionally direct pop-punk song about genuine loneliness — not funny, not ironic. A guy who keeps falling for people who don't love him back, who spends Friday nights alone, who watches others connect effortlessly while he can't. The tone is honest without being self-pitying. The chorus is a direct statement of the loneliness. The bridge is the moment he asks what's wrong with him — and leaves it unanswered. Under 3 minutes."
+    },
+    {
+      "title": "Stay Together for the Kids",
+      "album": "Take Off Your Pants and Jacket",
+      "year": 2001,
+      "bpm": 142,
+      "vibe": "Blink's most emotionally serious pre-hiatus song",
+      "dna": "Tom DeLonge lead. Written about parents staying in failing marriages for children's sake — and the damage that does. Builds from a quiet intro to an explosive climax. Unique dynamic arc for pre-hiatus Blink.",
+      "style_prompt": "Emotionally serious pop-punk with dynamic structure, 142 BPM, quiet restrained verse building to explosive distorted climax, Tom DeLonge-style earnest tenor lead — no comedy, genuine anger and pain, TOYPAJ production at its most dynamic, divorce and childhood damage as lyric core, builds from near acoustic to full band explosion, under 3:30, the most emotionally heavy pre-hiatus Blink energy",
+      "lyric_prompt": "Write a pop-punk song from the perspective of a child or teenager watching their parents' failing marriage — seeing through the performance of 'staying together for the kids' and knowing it's making everything worse, not better. The anger is directed at the situation, not at the parents specifically — just at the lie of pretending. The song builds from quiet observation to an explosive chorus of frustration. Include specific domestic images: empty dinners, separate rooms, the performance of normalcy. Under 3:30."
+    },
+    {
+      "title": "Feeling This",
+      "album": "Blink-182 (Self-Titled)",
+      "year": 2003,
+      "bpm": 173,
+      "vibe": "Tom and Mark alternating · mature production",
+      "dna": "Self-titled album — vintage analog mansion sessions. Flagship single. Tom and Mark alternating vocals. 173 BPM, explosive, most technically advanced Blink production up to that point. Two distinct narrative voices.",
+      "style_prompt": "Explosive mature pop-punk, 173 BPM, two distinct male vocal personalities alternating — one punchy and direct, one melodic and earnest, vintage analog production warmth with modern energy, technically advanced drumming with syncopated fills, dual narrative lyric structure, layered guitar textures, under 3 minutes, the most sonically sophisticated Blink energy, genuine emotional complexity",
+      "lyric_prompt": "Write a pop-punk song with two distinct vocal/lyric narratives that intertwine: Voice 1 tells the physical, immediate story of a night together — specific, direct, slightly detached. Voice 2 tells the emotional interior — what's actually being felt, the genuine connection underneath. The two voices should meet and harmonize in the chorus, where both truths land simultaneously. The song should feel like two sides of the same experience. Under 3 minutes. Structurally adventurous."
+    },
+    {
+      "title": "I Miss You",
+      "album": "Blink-182 (Self-Titled)",
+      "year": 2003,
+      "bpm": 110,
+      "vibe": "Gothic Cure-influenced ballad · 1B+ Spotify streams",
+      "dna": "All acoustic instruments: piano, cello, acoustic bass guitar, brushstroked hip-hop groove. Directly inspired by The Cure's The Love Cats. Over one billion Spotify streams. DeLonge: the song is about vulnerability and not wanting someone to waste their time on you.",
+      "style_prompt": "Gothic acoustic pop-punk ballad, 110 BPM, Cure-influenced dark romanticism, acoustic instruments only — piano, cello, acoustic bass, brushstroke hip-hop drum groove, male tenor vocal in wide reverb — earnest and slightly theatrical, Tom and Mark alternating narrative voices, haunted mansion atmosphere, B major melancholy, vulnerability and pre-emptive heartbreak as lyric core, under 3:50, both beautiful and aching",
+      "lyric_prompt": "Write a gothic acoustic ballad about the pre-emptive heartbreak of loving someone while believing they've already mentally left — telling them 'don't waste your time on me, you've already given up on me in your head.' The tone is both vulnerable and somewhat theatrical — more Tim Burton than emo. The instrumentation is acoustic and orchestral, not punk. Include Halloween/gothic imagery that serves the emotional metaphor without being campy. Two vocal perspectives alternating. The most emotionally devastating song in the Blink catalog. Under 3:50."
+    },
+    {
+      "title": "Wishing Well",
+      "album": "Neighborhoods",
+      "year": 2011,
+      "bpm": 99,
+      "vibe": "Atmospheric slow-burn · Mark Hoppus lead",
+      "dna": "99 BPM — among the slowest in their catalog. Mark Hoppus lead in atmospheric, post-rock territory. Neighborhoods era spacious, reverb-driven sound.",
+      "style_prompt": "Atmospheric slow pop-punk, 99 BPM, spacious reverb-heavy Neighborhoods production, Mark Hoppus warm contemplative vocal, post-rock guitar textures, wide stereo field, emotional wishing and longing as core, builds slowly to full-band climax, under 4 minutes, more atmosphere than aggression, wistful and aching rather than angry",
+      "lyric_prompt": "Write a slow, atmospheric pop-punk song about wanting something you know you can't have — not a person, but a version of the past, or a version of yourself, or a second chance at something specific that's already gone. The wishing-well metaphor: you keep making the wish, knowing it won't be granted. The tone is wistful and slow — no aggression. The chorus is the wish itself, stated plainly. Under 4 minutes. Let it breathe."
+    },
+    {
+      "title": "Reckless Abandon",
+      "album": "Take Off Your Pants and Jacket",
+      "year": 2001,
+      "bpm": 210,
+      "vibe": "Fastest Blink song · pure chaos",
+      "dna": "Among Blink's fastest songs ever. Tom DeLonge lead. A song that essentially IS its title: no brakes, no structure, just velocity. Classic Blink adolescent-freedom energy at its rawest.",
+      "style_prompt": "Maximum speed pop-punk, 210 BPM or faster, absolute fastest possible tempo, Tom DeLonge barely-controlled yelling lead vocal, drums sounding like a car crash at speed, wall of distorted power chords, under 1:45, no subtlety — pure velocity, adolescent freedom-and-chaos energy, sounds like it could fall apart at any second but doesn't, Warped Tour mosh pit energy",
+      "lyric_prompt": "Write the fastest, most chaotic pop-punk song possible — a celebration of doing stupid things at high speed and not caring about consequences. Driving too fast, staying out all night, breaking things, laughing at everything. The song itself should feel like it's barely under control. No emotional depth. No metaphors. Pure adolescent reckless joy. Under 1:45. If it's longer than 1:45 it's too slow."
+    }
+  ]
+}

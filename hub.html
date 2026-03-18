@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suno Prompt Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0a0a0e; --nav:#080810; --sidebar:#101016; --panel:#141420;
+  --card:#1a1a26; --hover:#1e1e2c; --active:#22223a;
+  --border:#1e1e2e; --border2:#252535;
+  --text:#e4e4f0; --text2:#9090b0; --muted:#484868; --dim:#2a2a3e;
+  --accent:#f5f5e8; --green:#1db954; --green2:rgba(29,185,84,.15);
+  --mono:'DM Mono',monospace; --sans:'DM Sans',sans-serif; --r:8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:14px;line-height:1.6;display:flex;flex-direction:column}
+button{cursor:pointer;font-family:var(--sans);border:none;background:none}
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--dim);border-radius:3px}
+
+/* TOPBAR */
+.topbar{height:56px;flex-shrink:0;background:var(--nav);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 20px;gap:16px;z-index:100}
+.logo{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;letter-spacing:3px;color:var(--accent);white-space:nowrap;font-weight:500}
+.logo-pulse{width:7px;height:7px;border-radius:50%;background:var(--green);flex-shrink:0;animation:pulse 2.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.search-wrap{flex:1;max-width:460px;position:relative}
+.search-ic{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;font-size:14px}
+#qi{width:100%;padding:9px 36px;background:var(--panel);border:1px solid var(--border2);border-radius:20px;color:var(--text);font-family:var(--sans);font-size:13px;outline:none;transition:border-color .2s,background .2s}
+#qi:focus{border-color:var(--green);background:var(--card)}
+#qi::placeholder{color:var(--muted)}
+.kbd{position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:10px;color:var(--muted);font-family:var(--mono);pointer-events:none}
+.topbar-right{margin-left:auto;display:flex;align-items:center;gap:12px}
+.t-stats{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.5px}
+.t-btn{padding:5px 10px;background:var(--panel);border:1px solid var(--border2);color:var(--text2);border-radius:4px;font-size:10px;letter-spacing:1px;font-family:var(--mono);transition:all .15s}
+.t-btn:hover{border-color:var(--green);color:var(--green)}
+
+/* FILTER BAR */
+.filter-bar{display:none;align-items:center;gap:8px;padding:8px 20px;border-bottom:1px solid var(--border);background:var(--sidebar);flex-wrap:wrap;flex-shrink:0}
+.filter-bar.on{display:flex}
+.fb-label{font-size:9px;color:var(--muted);font-family:var(--mono);letter-spacing:1.5px;text-transform:uppercase;flex-shrink:0}
+.af{display:inline-flex;align-items:center;gap:5px;padding:3px 9px;border-radius:20px;background:var(--green2);border:1px solid var(--green);color:var(--green);font-size:11px}
+.af-x{font-size:13px;line-height:1;cursor:pointer}
+.clear-btn{margin-left:auto;font-size:10px;color:var(--muted);font-family:var(--mono);transition:color .15s}
+.clear-btn:hover{color:var(--text)}
+
+/* LAYOUT */
+.layout{display:flex;flex:1;overflow:hidden}
+
+/* SIDEBAR */
+.sidebar{width:236px;flex-shrink:0;background:var(--sidebar);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden}
+.sb-inner{overflow-y:auto;flex:1;padding-bottom:20px}
+.sb-sec{padding:18px 12px 4px}
+.sb-lbl{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted);font-family:var(--mono);padding:0 8px}
+.sb-items{margin-top:4px;display:flex;flex-direction:column;gap:1px}
+.ni{display:flex;align-items:center;gap:9px;padding:8px 12px;border-radius:5px;color:var(--text2);font-size:13px;transition:all .15s;width:100%;text-align:left}
+.ni:hover{background:var(--hover);color:var(--text)}
+.ni.on{background:var(--active);color:var(--accent)}
+.ni-ic{font-size:13px;flex-shrink:0;width:18px;text-align:center}
+.ni-ct{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--muted)}
+.ani{display:flex;align-items:center;gap:9px;padding:7px 12px;border-radius:5px;color:var(--text2);font-size:12px;transition:all .15s;width:100%;text-align:left}
+.ani:hover{background:var(--hover);color:var(--text)}
+.ani.on{background:var(--active);color:var(--accent)}
+.ani-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.ani-nm{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ani-ct{font-family:var(--mono);font-size:10px;color:var(--muted);flex-shrink:0}
+
+/* CENTER */
+.center{flex:1;overflow-y:auto;background:var(--bg);min-width:0}
+
+/* DETAIL PANEL */
+.dp{width:400px;flex-shrink:0;background:var(--panel);border-left:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;transition:width .2s}
+.dp.off{width:0;border-left:none}
+.dp-inner{overflow-y:auto;flex:1}
+
+/* PAGE HEADER */
+.ph{padding:24px 24px 14px;border-bottom:1px solid var(--border)}
+.ph-t{font-size:26px;font-weight:700;color:var(--accent);margin-bottom:3px}
+.ph-s{font-size:12px;color:var(--text2)}
+
+/* HOME GRID */
+.hg{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;padding:20px 24px}
+.ac{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.ac::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--r) var(--r) 0 0}
+.ac:hover{background:var(--hover);border-color:var(--border2);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.4)}
+.ac-era{font-size:10px;color:var(--muted);font-family:var(--mono);margin-bottom:3px;margin-top:8px}
+.ac-nm{font-size:14px;font-weight:700;color:var(--accent);margin-bottom:5px}
+.ac-d{font-size:11px;color:var(--text2);line-height:1.5;margin-bottom:8px}
+.ac-tags{display:flex;flex-wrap:wrap;gap:3px}
+.ac-tag{font-size:9px;padding:1px 6px;border-radius:3px;background:rgba(255,255,255,.04);color:var(--muted);border:1px solid var(--border)}
+
+/* LIST */
+.lh{display:flex;align-items:center;gap:10px;padding:12px 24px 8px;position:sticky;top:0;background:var(--bg);z-index:10;border-bottom:1px solid var(--border)}
+.lh-back{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--muted);transition:color .15s}
+.lh-back:hover{color:var(--text)}
+.lh-t{font-size:13px;font-weight:600;color:var(--text)}
+.lh-ct{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--muted)}
+.adh{padding:20px 24px 16px;border-bottom:1px solid var(--border);display:flex;gap:16px;align-items:flex-start}
+.adh-blk{width:60px;height:60px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:24px}
+.adh-i{flex:1;min-width:0}
+.adh-nm{font-size:20px;font-weight:700;margin-bottom:3px}
+.adh-era{font-size:10px;color:var(--muted);font-family:var(--mono);margin-bottom:4px}
+.adh-bio{font-size:11px;color:var(--text2);line-height:1.6}
+.adh-tags{display:flex;flex-wrap:wrap;gap:3px;margin-top:6px}
+.adh-tag{font-size:9px;padding:2px 7px;border-radius:3px;background:rgba(255,255,255,.04);color:var(--text2);border:1px solid var(--border2)}
+.prod-note{padding:8px 24px;font-size:10px;color:var(--muted);font-family:var(--mono);background:var(--sidebar);border-bottom:1px solid var(--border)}
+.sl{padding:10px 14px 20px}
+.sr{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:5px;cursor:pointer;transition:all .15s;border:1px solid transparent;margin-bottom:2px}
+.sr:hover{background:var(--hover);border-color:var(--border)}
+.sr.on{background:var(--active);border-color:var(--border2)}
+.sr-n{font-family:var(--mono);font-size:10px;color:var(--muted);min-width:20px;text-align:right;flex-shrink:0}
+.sr-i{flex:1;min-width:0}
+.sr-tt{font-size:13px;font-weight:500;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sr-m{font-size:10px;color:var(--muted);font-family:var(--mono);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sr-tags{display:flex;gap:3px;flex-shrink:0;max-width:180px;overflow:hidden}
+.tg{font-size:9px;padding:2px 5px;border-radius:3px;white-space:nowrap;flex-shrink:0}
+.tg-b{background:rgba(29,185,84,.1);color:#7ecf9a;border:1px solid rgba(29,185,84,.2)}
+.tg-m{background:rgba(155,109,255,.1);color:#c4a0ff;border:1px solid rgba(155,109,255,.2)}
+.tg-th{background:rgba(255,165,2,.08);color:#d4a843;border:1px solid rgba(255,165,2,.18)}
+.alb-sec{padding:0 14px}
+.alb-lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-family:var(--mono);padding:12px 2px 6px;border-top:1px solid var(--border);margin-top:4px}
+
+/* BROWSE */
+.bw{padding:18px 24px}
+.bw-sec{margin-bottom:24px}
+.bw-t{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-family:var(--mono);margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.tc{display:flex;flex-wrap:wrap;gap:5px}
+.tp{display:inline-flex;align-items:center;gap:5px;padding:5px 11px;border-radius:20px;background:var(--card);border:1px solid var(--border);color:var(--text2);font-size:12px;cursor:pointer;transition:all .15s}
+.tp:hover{background:var(--hover);color:var(--text)}
+.tp.on{background:var(--green2);border-color:var(--green);color:var(--green)}
+.tp-c{font-family:var(--mono);font-size:10px;color:var(--muted)}
+.tp.on .tp-c{color:rgba(29,185,84,.7)}
+
+/* SEARCH */
+.sc{padding:14px 24px}
+.sg-l{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-family:var(--mono);padding:14px 0 6px;border-bottom:1px solid var(--border);margin-bottom:4px}
+.sres{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:5px;cursor:pointer;transition:all .15s;border:1px solid transparent;margin-bottom:2px}
+.sres:hover{background:var(--hover);border-color:var(--border)}
+.sres-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.sres-c{flex:1;min-width:0}
+.sres-tt{font-size:13px;font-weight:600;color:var(--text)}
+.sres-sb{font-size:10px;color:var(--muted);font-family:var(--mono);margin-top:1px}
+.sres-mx{font-size:11px;color:var(--text2);margin-top:2px;font-style:italic;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+
+/* DETAIL PANEL */
+.dph{padding:16px 18px 12px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--panel);z-index:5;display:flex;align-items:flex-start;justify-content:space-between}
+.dp-cl{color:var(--muted);font-size:18px;padding:2px;transition:color .15s;flex-shrink:0}
+.dp-cl:hover{color:var(--text)}
+.dp-tt{font-size:16px;font-weight:700;color:var(--accent);line-height:1.2}
+.dp-sb{font-size:10px;color:var(--muted);font-family:var(--mono);margin-top:3px}
+.dpb{padding:14px 18px 28px}
+.dp-dna{font-size:11px;color:var(--text2);line-height:1.75;background:var(--card);border:1px solid var(--border);border-radius:5px;padding:10px 12px;margin-bottom:12px}
+.dp-dna-l{font-size:8px;letter-spacing:2px;text-transform:uppercase;font-family:var(--mono);color:var(--muted);margin-bottom:4px}
+.dp-tgs{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:13px}
+.dt{font-size:9px;padding:2px 7px;border-radius:3px;cursor:pointer;transition:opacity .15s}
+.dt:hover{opacity:.7}
+.dp-ps{margin-bottom:12px}
+.dp-pl{font-size:8px;letter-spacing:2px;text-transform:uppercase;font-family:var(--mono);font-weight:600;margin-bottom:5px;display:flex;align-items:center;justify-content:space-between}
+.dp-pl-hint{font-size:8px;color:var(--muted);font-weight:400;letter-spacing:1px;text-transform:none}
+.dp-pb{background:var(--card);border:1px solid var(--border);border-radius:5px;overflow:hidden}
+.dp-pt{padding:11px 13px;font-size:11px;color:#b0b0cc;font-family:var(--mono);line-height:1.8;white-space:pre-wrap;max-height:190px;overflow-y:auto}
+.dp-cp{display:block;width:calc(100% - 18px);margin:7px 9px 9px;padding:6px 12px;background:rgba(255,255,255,.04);border:1px solid var(--border2);color:var(--text2);border-radius:4px;font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;transition:all .15s}
+.dp-cp:hover{background:rgba(29,185,84,.1);border-color:var(--green);color:var(--green)}
+.dp-cp.ok{background:rgba(29,185,84,.15);border-color:var(--green);color:var(--green)}
+
+/* EMPTY / LOADING */
+.empty{text-align:center;padding:50px 20px;color:var(--muted)}
+.empty h3{font-size:22px;font-weight:700;color:var(--dim);margin-bottom:6px}
+.empty p{font-size:12px;line-height:1.7;max-width:360px;margin:0 auto}
+.loading{text-align:center;padding:60px 20px;color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:2px}
+
+@media(max-width:1050px){.dp{width:340px}}
+@media(max-width:850px){.sidebar{width:190px}.dp{display:none}}
+@media(max-width:600px){.sidebar{display:none}.hg{grid-template-columns:1fr 1fr;gap:8px;padding:14px}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="logo"><div class="logo-pulse"></div>SUNO HUB</div>
+  <div class="search-wrap">
+    <span class="search-ic">⌕</span>
+    <input type="text" id="qi" placeholder="Search anything — songs, artists, moods, instruments…" autocomplete="off">
+    <span class="kbd">⌘K</span>
+  </div>
+  <div class="topbar-right">
+    <div class="t-stats" id="t-stats"></div>
+    <button class="t-btn" onclick="location.reload()">↻ Refresh</button>
+  </div>
+</div>
+
+<div class="filter-bar" id="fb">
+  <span class="fb-label">Filtered by:</span>
+  <div id="fb-chips" style="display:flex;gap:6px;flex-wrap:wrap"></div>
+  <button class="clear-btn" onclick="clearFilters()">Clear all</button>
+</div>
+
+<div class="layout">
+  <div class="sidebar">
+    <div class="sb-inner">
+      <div class="sb-sec">
+        <div class="sb-lbl">Library</div>
+        <div class="sb-items">
+          <button class="ni on" id="n-home" onclick="gHome()"><span class="ni-ic">⊞</span>All Artists<span class="ni-ct" id="n-hct"></span></button>
+          <button class="ni" id="n-songs" onclick="gSongs()"><span class="ni-ic">♪</span>All Songs<span class="ni-ct" id="n-sct"></span></button>
+          <button class="ni" id="n-browse" onclick="gBrowse()"><span class="ni-ic">◈</span>Browse by Tag</button>
+        </div>
+      </div>
+      <div class="sb-sec">
+        <div class="sb-lbl">Artists</div>
+        <div class="sb-items" id="sb-artists"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="center" id="ctr">
+    <div class="loading">Loading database…</div>
+  </div>
+
+  <div class="dp off" id="dp">
+    <div class="dp-inner" id="dp-in">
+      <div style="padding:40px 16px;text-align:center;color:var(--muted);font-size:11px;font-family:var(--mono)">Select a song to view prompts</div>
+    </div>
+  </div>
+</div>
+
+<script>
+let DB=null,view='home',curArtist=null,selKey=null,filters={},sq='';
+
+async function init(){
+  try{
+    const r=await fetch('./index.json?_='+Date.now());
+    if(!r.ok)throw 0;
+    DB=await r.json();
+    boot();
+  }catch(e){
+    document.getElementById('ctr').innerHTML=`<div class="empty" style="padding:44px 24px"><h3>Index Not Found</h3>
+    <p>Run <code style="background:var(--card);padding:1px 5px;border-radius:3px;font-family:var(--mono);font-size:11px">launch.py</code> to start the hub and build the index, then open <b>http://localhost:8765/hub.html</b></p>
+    <div style="margin:20px auto;max-width:420px;background:var(--card);border:1px solid var(--border);border-radius:6px;padding:16px;text-align:left;font-family:var(--mono);font-size:11px;color:var(--text2)">
+    <span style="color:var(--green);font-size:9px;letter-spacing:2px;text-transform:uppercase;display:block;margin-bottom:6px">Quick Start</span>
+    python3 launch.py<br><span style="color:var(--muted)"># Windows: double-click launch.bat</span>
+    </div></div>`;
+  }
+}
+
+function boot(){
+  buildSidebar();
+  document.getElementById('t-stats').textContent=`${DB.total_artists} artists · ${DB.total_songs} songs`;
+  document.getElementById('n-hct').textContent=DB.total_artists;
+  document.getElementById('n-sct').textContent=DB.total_songs;
+  gHome();
+}
+
+function buildSidebar(){
+  const el=document.getElementById('sb-artists');
+  el.innerHTML='';
+  DB.artists.forEach(a=>{
+    const b=document.createElement('button');
+    b.className='ani';b.id='sa-'+a.id;
+    b.onclick=()=>gArtist(a.id);
+    b.innerHTML=`<span class="ani-dot" style="background:${a.color||'#666'}"></span><span class="ani-nm">${a.name}</span><span class="ani-ct">${(a.songs||[]).length}</span>`;
+    el.appendChild(b);
+  });
+}
+
+function navOn(id){
+  document.querySelectorAll('.ni,.ani').forEach(b=>b.classList.remove('on'));
+  const el=document.getElementById(id);
+  if(el)el.classList.add('on');
+}
+
+function setC(html){document.getElementById('ctr').innerHTML=html;document.getElementById('ctr').scrollTop=0;}
+
+// ── HOME ──────────────────────────────────────────────────────
+function gHome(){
+  view='home';curArtist=null;navOn('n-home');hideDp();updateFb();
+  let arts=DB.artists;
+  if(Object.keys(filters).length)arts=arts.filter(a=>(a.songs||[]).some(s=>smf(s)));
+  const cards=arts.map(a=>{
+    const tags=(a.genres||[]).map(g=>`<span class="ac-tag">${g}</span>`).join('');
+    return `<div class="ac" onclick="gArtist('${a.id}')" style="--c:${a.color||'#666'}">
+      <style>.ac[onclick*="${a.id}"]::before{background:${a.color||'#666'}}</style>
+      <div class="ac-era">${a.era||''} · ${(a.songs||[]).length} songs</div>
+      <div class="ac-nm">${a.name}</div>
+      <div class="ac-d">${(a.bio||'').slice(0,110)}…</div>
+      <div class="ac-tags">${tags}</div>
+    </div>`;
+  }).join('');
+  setC(`<div class="ph"><div class="ph-t">Artists</div><div class="ph-s">${arts.length} in your library · Drop new artist_*.json files in the folder and hit Refresh</div></div>
+  <div class="hg">${cards||'<div class="empty"><p>No artists match current filters.</p></div>'}</div>`);
+}
+
+// ── ARTIST ────────────────────────────────────────────────────
+function gArtist(id){
+  view='artist';curArtist=id;navOn('sa-'+id);
+  const a=DB.artists.find(x=>x.id===id);if(!a)return;
+  let songs=a.songs||[];
+  if(Object.keys(filters).length)songs=songs.filter(s=>smf(s));
+  const rows=songs.map((s,i)=>{
+    const ri=(a.songs||[]).indexOf(s);
+    const k=`${id}::${ri}`;
+    const bt=s.tags?.bpm_tier?`<span class="tg tg-b">${s.tags.bpm_tier}</span>`:'';
+    const mt=s.tags?.mood?.[0]?`<span class="tg tg-m">${s.tags.mood[0]}</span>`:'';
+    const tt=s.tags?.lyric_themes?.[0]?`<span class="tg tg-th">${s.tags.lyric_themes[0]}</span>`:'';
+    return `<div class="sr${selKey===k?' on':''}" id="sr-${id}-${ri}" onclick="selSong('${id}',${ri})">
+      <span class="sr-n">${String(i+1).padStart(2,'0')}</span>
+      <div class="sr-i"><div class="sr-tt">${s.title}</div>
+      <div class="sr-m">${s.album||''} ${s.year?'· '+s.year:''} ${s.bpm?'· '+s.bpm+' BPM':''}</div></div>
+      <div class="sr-tags">${bt}${mt}${tt}</div>
+    </div>`;
+  }).join('');
+  let albsec='';
+  if((a.albums||[]).length){
+    const ar=(a.albums||[]).map((al,i)=>{
+      const k=`${id}::alb::${i}`;
+      return `<div class="sr${selKey===k?' on':''}" id="sr-${id}-alb-${i}" onclick="selAlb('${id}',${i})">
+        <span class="sr-n" style="color:${a.color||'var(--muted)'}">♦</span>
+        <div class="sr-i"><div class="sr-tt">${al.title}</div><div class="sr-m">Album prompt ${al.year?'· '+al.year:''}</div></div>
+        <div class="sr-tags"><span class="tg tg-m">Album</span></div>
+      </div>`;
+    }).join('');
+    albsec=`<div class="alb-sec"><div class="alb-lbl">Album-Wide Prompts</div>${ar}</div>`;
+  }
+  const gtags=(a.genres||[]).map(g=>`<span class="adh-tag">${g}</span>`).join('');
+  setC(`<div class="lh"><button class="lh-back" onclick="gHome()">← Artists</button>
+    <span class="lh-ct">${songs.length} song${songs.length!==1?'s':''}</span></div>
+    <div class="adh">
+      <div class="adh-blk" style="background:${a.color||'#666'}22;border:1px solid ${a.color||'#666'}33">🎵</div>
+      <div class="adh-i">
+        <div class="adh-nm" style="color:${a.color||'var(--accent)'}">${a.name}</div>
+        <div class="adh-era">${a.era||''} · ${(a.songs||[]).length} songs</div>
+        <div class="adh-bio">${a.bio||''}</div>
+        <div class="adh-tags">${gtags}</div>
+      </div>
+    </div>
+    ${a.producer_notes?`<div class="prod-note">${a.producer_notes}</div>`:''}
+    <div class="sl">${rows||'<div class="empty"><p>No songs match filters.</p></div>'}</div>
+    ${albsec}`);
+  // Re-open panel if song was selected
+  if(selKey&&selKey.startsWith(id+'::')){
+    const p=selKey.split('::');
+    if(p[1]==='alb')selAlb(id,parseInt(p[2]));
+    else selSong(id,parseInt(p[1]));
+  }
+}
+
+// ── ALL SONGS ─────────────────────────────────────────────────
+function gSongs(){
+  view='songs';curArtist=null;navOn('n-songs');
+  let all=[];
+  DB.artists.forEach(a=>(a.songs||[]).forEach((s,i)=>all.push({s,a,i})));
+  if(Object.keys(filters).length)all=all.filter(({s})=>smf(s));
+  const rows=all.map(({s,a,i},n)=>{
+    const k=`${a.id}::${i}`;
+    const bt=s.tags?.bpm_tier?`<span class="tg tg-b">${s.tags.bpm_tier}</span>`:'';
+    const mt=s.tags?.mood?.[0]?`<span class="tg tg-m">${s.tags.mood[0]}</span>`:'';
+    const tt=s.tags?.lyric_themes?.[0]?`<span class="tg tg-th">${s.tags.lyric_themes[0]}</span>`:'';
+    return `<div class="sr${selKey===k?' on':''}" onclick="selSong('${a.id}',${i})">
+      <span class="sr-n" style="color:${a.color||'var(--muted)'}">${String(n+1).padStart(2,'0')}</span>
+      <div class="sr-i"><div class="sr-tt">${s.title}</div>
+      <div class="sr-m">${a.name} · ${s.album||''} ${s.year?'· '+s.year:''} ${s.bpm?'· '+s.bpm+' BPM':''}</div></div>
+      <div class="sr-tags">${bt}${mt}${tt}</div>
+    </div>`;
+  }).join('');
+  setC(`<div class="ph"><div class="ph-t">All Songs</div><div class="ph-s">${all.length} songs</div></div>
+    <div class="sl">${rows||'<div class="empty"><p>No songs match filters.</p></div>'}</div>`);
+}
+
+// ── BROWSE ────────────────────────────────────────────────────
+function gBrowse(){
+  view='browse';navOn('n-browse');hideDp();
+  const tc=DB.tag_counts||{};
+  const secs=[
+    {k:'genres',      l:'Genre',           c:'#9b6dff'},
+    {k:'mood',        l:'Mood & Energy',   c:'#e05c7e'},
+    {k:'lyric_themes',l:'Lyric Themes',    c:'#ffa502'},
+    {k:'instruments', l:'Instruments',     c:'#4ab8c4'},
+    {k:'vocals',      l:'Vocal Style',     c:'#a8e063'},
+    {k:'bpm_tier',    l:'Tempo / BPM',     c:'#1db954'},
+    {k:'production_era',l:'Production Era',c:'#c8922a'},
+    {k:'structure',   l:'Song Structure',  c:'#5ab4e8'},
+  ];
+  const html=secs.map(sec=>{
+    const tags=tc[sec.k]||[];
+    if(!tags.length)return'';
+    const pills=tags.map(([tag,ct])=>{
+      const on=filters[sec.k]===tag;
+      return `<button class="tp${on?' on':''}" onclick="togF('${sec.k}','${tag.replace(/'/g,"\\'")}',this)">${tag}<span class="tp-c">${ct}</span></button>`;
+    }).join('');
+    return `<div class="bw-sec"><div class="bw-t" style="border-bottom-color:${sec.c}33">${sec.l}</div><div class="tc">${pills}</div></div>`;
+  }).join('');
+  setC(`<div class="ph"><div class="ph-t">Browse by Tag</div><div class="ph-s">Click a tag to filter all songs. Tags are extracted automatically from every prompt.</div></div>
+    <div class="bw">${html}</div>`);
+}
+
+// ── SEARCH ────────────────────────────────────────────────────
+document.getElementById('qi').addEventListener('input',function(){
+  sq=this.value.trim();
+  if(!sq){if(view==='search')gHome();return;}
+  doSearch(sq);
+});
+
+function doSearch(q){
+  view='search';navOn('');
+  const ql=q.toLowerCase();
+  const arts=[],songs=[];
+  DB.artists.forEach(a=>{
+    if((a.name+' '+(a.bio||'')+' '+(a.genres||[]).join(' ')).toLowerCase().includes(ql))
+      arts.push(a);
+    (a.songs||[]).forEach((s,i)=>{
+      const txt=[s.title,s.album,s.vibe,s.dna,s.style_prompt,s.lyric_prompt,
+        ...(s.tags?.mood||[]),...(s.tags?.instruments||[]),...(s.tags?.lyric_themes||[]),
+        ...(s.tags?.vocals||[]),s.tags?.bpm_tier||''].join(' ').toLowerCase();
+      if(txt.includes(ql)){
+        const pt=(s.style_prompt+' '+s.lyric_prompt).toLowerCase();
+        const mi=pt.indexOf(ql);
+        let mx='';
+        if(mi>=0){
+          const st=Math.max(0,mi-28),en=Math.min(pt.length,mi+ql.length+50);
+          mx='…'+pt.slice(st,en).replace(new RegExp(ql,'gi'),m=>`<mark style="background:rgba(29,185,84,.3);color:var(--green);border-radius:2px">${m}</mark>`)+'…';
+        }
+        songs.push({a,s,i,mx});
+      }
+    });
+  });
+  const ah=arts.map(a=>`<div class="sres" onclick="gArtist('${a.id}')">
+    <span class="sres-dot" style="background:${a.color||'#666'}"></span>
+    <div class="sres-c"><div class="sres-tt">${a.name}</div>
+    <div class="sres-sb">${(a.genres||[]).join(' · ')} · ${(a.songs||[]).length} songs</div></div>
+  </div>`).join('');
+  const sh=songs.map(({a,s,i,mx})=>`<div class="sres" onclick="selSong('${a.id}',${i});gArtist('${a.id}')">
+    <span class="sres-dot" style="background:${a.color||'#666'}"></span>
+    <div class="sres-c"><div class="sres-tt">${s.title}</div>
+    <div class="sres-sb">${a.name} · ${s.album||''} ${s.year?'· '+s.year:''}</div>
+    ${mx?`<div class="sres-mx">${mx}</div>`:''}</div>
+  </div>`).join('');
+  const tot=arts.length+songs.length;
+  setC(`<div class="ph"><div class="ph-t">Search: "${q}"</div><div class="ph-s">${tot} result${tot!==1?'s':''}</div></div>
+    <div class="sc">
+      ${arts.length?`<div class="sg-l">Artists (${arts.length})</div>${ah}`:''}
+      ${songs.length?`<div class="sg-l">Songs (${songs.length})</div>${sh}`:''}
+      ${tot===0?'<div class="empty"><h3>No Results</h3><p>Try searching for a mood, instrument, theme, or any word from the prompts.</p></div>':''}
+    </div>`);
+}
+
+// ── FILTER ────────────────────────────────────────────────────
+function togF(cat,tag,btn){
+  filters[cat]===tag?delete filters[cat]:(filters[cat]=tag);
+  updateFb();
+  if(view==='browse')gBrowse();
+  else if(view==='artist'&&curArtist)gArtist(curArtist);
+  else if(view==='songs')gSongs();
+  else gHome();
+}
+function clearFilters(){
+  filters={};updateFb();
+  if(view==='browse')gBrowse();
+  else if(view==='artist'&&curArtist)gArtist(curArtist);
+  else if(view==='songs')gSongs();
+  else gHome();
+}
+function updateFb(){
+  const bar=document.getElementById('fb'),chips=document.getElementById('fb-chips');
+  const en=Object.entries(filters);chips.innerHTML='';
+  if(!en.length){bar.classList.remove('on');return;}
+  bar.classList.add('on');
+  en.forEach(([cat,tag])=>{
+    const c=document.createElement('span');c.className='af';
+    c.innerHTML=`<span>${clbl(cat)}: ${tag}</span><span class="af-x" onclick="togF('${cat}','${tag.replace(/'/g,"\\'")}')">×</span>`;
+    chips.appendChild(c);
+  });
+}
+function clbl(c){return{bpm_tier:'Tempo',instruments:'Instrument',vocals:'Vocal',mood:'Mood',production_era:'Era',lyric_themes:'Theme',structure:'Structure',genres:'Genre'}[c]||c;}
+function smf(s){
+  for(const [cat,tag] of Object.entries(filters)){
+    const t=s.tags;if(!t)return false;
+    if(cat==='bpm_tier'){if(t.bpm_tier!==tag)return false;}
+    else if(Array.isArray(t[cat])){if(!t[cat].includes(tag))return false;}
+    else return false;
+  }
+  return true;
+}
+
+// ── SONG SELECT ───────────────────────────────────────────────
+function selSong(aid,idx){
+  const k=`${aid}::${idx}`;selKey=k;
+  document.querySelectorAll('.sr').forEach(r=>r.classList.remove('on'));
+  const el=document.getElementById(`sr-${aid}-${idx}`);if(el)el.classList.add('on');
+  const a=DB.artists.find(x=>x.id===aid);
+  const s=(a?.songs||[])[idx];if(!s)return;
+  renderDp({title:s.title,sub:`${a.name} · ${s.album||''} ${s.year?'· '+s.year:''} ${s.bpm?'· '+s.bpm+' BPM':''}`,dna:s.dna,tags:s.tags,color:a.color,sp:s.style_prompt,lp:s.lyric_prompt,pk:k});
+}
+function selAlb(aid,idx){
+  const k=`${aid}::alb::${idx}`;selKey=k;
+  document.querySelectorAll('.sr').forEach(r=>r.classList.remove('on'));
+  const el=document.getElementById(`sr-${aid}-alb-${idx}`);if(el)el.classList.add('on');
+  const a=DB.artists.find(x=>x.id===aid);
+  const al=(a?.albums||[])[idx];if(!al)return;
+  renderDp({title:al.title,sub:`${a.name} · Album Prompt ${al.year?'· '+al.year:''}`,dna:null,tags:null,color:a.color,sp:al.style_prompt,lp:al.lyric_prompt,pk:k});
+}
+
+function renderDp({title,sub,dna,tags,color,sp,lp,pk}){
+  const dp=document.getElementById('dp');dp.classList.remove('off');
+  const pid=pk.replace(/::/g,'-');
+  const tagHtml=tags?buildTagPills(tags,color):'';
+  const dnaHtml=dna?`<div class="dp-dna"><div class="dp-dna-l">Sonic DNA</div>${dna}</div>`:'';
+  const spHtml=sp?`<div class="dp-ps">
+    <div class="dp-pl" style="color:${color||'var(--text2)'}">STYLE PROMPT<span class="dp-pl-hint">→ Paste into Style field</span></div>
+    <div class="dp-pb"><div class="dp-pt" id="dps-${pid}">${sp}</div>
+    <button class="dp-cp" onclick="dcp('dps-${pid}',this)">Copy Style Prompt</button></div>
+  </div>`:'';
+  const lpHtml=lp?`<div class="dp-ps">
+    <div class="dp-pl" style="color:${color||'var(--text2)'}">LYRIC GENERATION PROMPT<span class="dp-pl-hint">→ Paste into Lyrics → Generate</span></div>
+    <div class="dp-pb"><div class="dp-pt" id="dpl-${pid}">${lp}</div>
+    <button class="dp-cp" onclick="dcp('dpl-${pid}',this)">Copy Lyric Generation Prompt</button></div>
+  </div>`:'';
+  document.getElementById('dp-in').innerHTML=`
+    <div class="dph">
+      <div><div class="dp-tt">${title}</div><div class="dp-sb">${sub}</div></div>
+      <button class="dp-cl" onclick="hideDp()">×</button>
+    </div>
+    <div class="dpb">${tagHtml}${dnaHtml}${spHtml}${lpHtml}</div>`;
+}
+
+function buildTagPills(tags,color){
+  if(!tags)return'';
+  const secs=[
+    {k:'bpm_tier',    ia:false,bg:'rgba(29,185,84,.1)',  c:'#7ecf9a',b:'rgba(29,185,84,.25)'},
+    {k:'mood',        ia:true, bg:'rgba(155,109,255,.1)',c:'#c4a0ff',b:'rgba(155,109,255,.25)'},
+    {k:'lyric_themes',ia:true, bg:'rgba(255,165,2,.08)', c:'#d4a843',b:'rgba(255,165,2,.2)'},
+    {k:'instruments', ia:true, bg:'rgba(74,184,196,.1)', c:'#6dd4de',b:'rgba(74,184,196,.25)'},
+    {k:'vocals',      ia:true, bg:'rgba(168,224,99,.08)',c:'#a8d860',b:'rgba(168,224,99,.2)'},
+    {k:'production_era',ia:true,bg:'rgba(200,146,42,.08)',c:'#c8922a',b:'rgba(200,146,42,.2)'},
+    {k:'structure',   ia:true, bg:'rgba(90,180,232,.1)', c:'#7abee8',b:'rgba(90,180,232,.25)'},
+  ];
+  let h='<div class="dp-tgs">';
+  secs.forEach(sec=>{
+    const vals=sec.ia?(tags[sec.k]||[]):(tags[sec.k]?[tags[sec.k]]:[]);
+    vals.forEach(v=>{
+      h+=`<span class="dt" style="background:${sec.bg};color:${sec.c};border:1px solid ${sec.b}" onclick="togF('${sec.k}','${v.replace(/'/g,"\\'")}');gSongs()">${v}</span>`;
+    });
+  });
+  return h+'</div>';
+}
+
+function hideDp(){
+  selKey=null;
+  document.getElementById('dp').classList.add('off');
+  document.querySelectorAll('.sr').forEach(r=>r.classList.remove('on'));
+}
+
+function dcp(id,btn){
+  const el=document.getElementById(id);const orig=btn.textContent;
+  navigator.clipboard.writeText(el.textContent.trim()).then(()=>{
+    btn.textContent='✓  Copied!';btn.classList.add('ok');
+    setTimeout(()=>{btn.classList.remove('ok');btn.textContent=orig;},2500);
+  });
+}
+
+// ── KEYBOARD ──────────────────────────────────────────────────
+document.addEventListener('keydown',e=>{
+  if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();const q=document.getElementById('qi');q.focus();q.select();}
+  if(e.key==='Escape'){
+    const q=document.getElementById('qi');
+    if(q.value){q.value='';sq='';gHome();}
+    else hideDp();
+  }
+});
+
+init();
+</script>
+</body>
+</html>

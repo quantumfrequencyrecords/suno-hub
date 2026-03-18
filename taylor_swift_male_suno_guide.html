@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Male Era — Antonoff-Style Suno Prompt System</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #08080d;
+    --surface: #0f0f18;
+    --card: #131320;
+    --border: #1c1c2e;
+    --text: #ddddf0;
+    --muted: #5a5a78;
+    --dim: #3a3a55;
+    --gold: #d4a843;
+    --violet: #9b6dff;
+    --rose: #e05c7e;
+    --teal: #3ec9b4;
+    --sky: #5ab4e8;
+    --accent: #f0ead8;
+    --universal: #ff7043;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  /* HEADER */
+  header {
+    padding: 70px 48px 48px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -60px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(155,109,255,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -40px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(212,168,67,0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 8vw, 100px);
+    letter-spacing: 5px;
+    line-height: 0.95;
+    color: var(--accent);
+  }
+  header .subtitle {
+    margin-top: 16px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--gold);
+    letter-spacing: 1px;
+  }
+  header .meta {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  /* NAV TABS */
+  .nav-bar {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 100;
+    padding: 0 48px;
+  }
+  .nav-tab {
+    padding: 14px 20px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.2s, border-color 0.2s;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-family: 'DM Mono', monospace;
+  }
+  .nav-tab:hover { color: var(--text); }
+  .nav-tab.active { color: var(--accent); border-bottom-color: var(--gold); }
+
+  /* SECTIONS */
+  .section { display: none; }
+  .section.active { display: block; }
+
+  main { max-width: 1200px; margin: 0 auto; padding: 48px 48px 100px; }
+
+  /* INTRO BOX */
+  .intro-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin-bottom: 40px;
+  }
+  .intro-box p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.9;
+    margin-bottom: 8px;
+  }
+  .intro-box p:last-child { margin-bottom: 0; }
+  .intro-box strong { color: var(--text); }
+
+  /* SUNO RULES */
+  .rules-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .rule-chip {
+    background: rgba(155,109,255,0.08);
+    border: 1px solid rgba(155,109,255,0.2);
+    color: #9b9bcc;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 2px;
+  }
+
+  /* SONG CARD */
+  .song-section {
+    margin-bottom: 56px;
+    padding-bottom: 56px;
+    border-bottom: 1px solid var(--border);
+  }
+  .song-section:last-child { border-bottom: none; }
+
+  .song-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  .song-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    line-height: 1;
+    color: var(--dim);
+    flex-shrink: 0;
+    min-width: 56px;
+    text-align: right;
+  }
+  .song-meta { flex: 1; }
+  .song-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--accent);
+    line-height: 1.2;
+  }
+  .song-details {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+  }
+  .song-detail {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .song-detail span { color: var(--gold); }
+
+  .song-dna {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+  .song-dna strong { color: var(--text); }
+
+  /* PROMPT PAIR */
+  .prompt-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  @media (max-width: 760px) {
+    .prompt-pair { grid-template-columns: 1fr; }
+    main { padding: 28px 20px 80px; }
+    header { padding: 48px 20px 36px; }
+    .nav-bar { padding: 0 20px; }
+    .song-number { font-size: 36px; min-width: 40px; }
+  }
+
+  .prompt-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .prompt-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    gap: 8px;
+  }
+  .prompt-type {
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .type-style { color: var(--sky); }
+  .type-lyric { color: var(--teal); }
+  .type-universal-style { color: var(--universal); }
+  .type-universal-lyric { color: #ffb347; }
+  .type-album-style { color: var(--rose); }
+  .type-album-lyric { color: #ff9aaa; }
+
+  .prompt-hint {
+    font-size: 9px;
+    color: var(--dim);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .prompt-body {
+    padding: 14px;
+    font-size: 11px;
+    line-height: 1.85;
+    color: #c4c4e0;
+    white-space: pre-wrap;
+    max-height: 260px;
+    overflow-y: auto;
+  }
+  .copy-btn {
+    display: block;
+    width: calc(100% - 28px);
+    margin: 10px 14px 14px;
+    padding: 8px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+  .copy-btn:hover { border-color: var(--text); color: var(--text); }
+  .copy-btn.ok { border-color: #4caf50; color: #4caf50; }
+
+  /* ALBUM SECTION */
+  .album-block {
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+  }
+  .album-block:last-child { border-bottom: none; }
+  .album-header {
+    margin-bottom: 20px;
+  }
+  .album-era {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .album-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--accent);
+    line-height: 1.1;
+  }
+  .album-name em {
+    font-style: italic;
+    color: var(--rose);
+  }
+  .album-desc {
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 700px;
+  }
+
+  /* SCROLLBAR */
+  .prompt-body::-webkit-scrollbar { width: 3px; }
+  .prompt-body::-webkit-scrollbar-track { background: transparent; }
+  .prompt-body::-webkit-scrollbar-thumb { background: var(--dim); }
+
+  /* UNIVERSAL SECTION */
+  .universal-banner {
+    background: linear-gradient(135deg, rgba(255,112,67,0.08) 0%, rgba(155,109,255,0.08) 100%);
+    border: 1px solid rgba(255,112,67,0.2);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin-bottom: 32px;
+  }
+  .universal-banner h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--universal);
+    margin-bottom: 8px;
+  }
+  .universal-banner p {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  .full-width { grid-column: 1 / -1; }
+  .prompt-body-tall { max-height: 380px; }
+
+  /* section divider label */
+  .section-label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>The<br>Male Era</h1>
+  <div class="subtitle">An Antonoff-Style Male Pop Songwriting System for Suno AI</div>
+  <div class="meta">Per-Song Prompts · Universal Formula · Album-by-Album Guides</div>
+</header>
+
+<div class="nav-bar">
+  <button class="nav-tab active" onclick="showSection('songs')">14 Songs</button>
+  <button class="nav-tab" onclick="showSection('universal')">Universal Prompt</button>
+  <button class="nav-tab" onclick="showSection('albums')">By Album</button>
+  <button class="nav-tab" onclick="showSection('howto')">How To Use</button>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--  SONGS SECTION  -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div id="songs" class="section active">
+<main>
+  <div class="intro-box">
+    <p>Each prompt pair below is reverse-engineered from the specific sonic DNA of that song — the instrumentation Antonoff used, the lyrical mode it operates in, the emotional arc, and the structural quirks that made it a hit. All prompts are written for a <strong>male vocalist and male perspective</strong>, with the Antonoff production signature preserved: Juno-6 synths, reverb-drenched vocals, 80s-influenced drums, layered harmonies, and emotionally raw storytelling.</p>
+    <p><strong>How to use:</strong> Paste the Style prompt into Suno's Style field → paste the Lyric Generation prompt into the Lyrics field → click "Generate Lyrics" → review and hit Create. Regenerate lyrics as many times as you want for a unique song each time.</p>
+  </div>
+  <div class="rules-row">
+    <span class="rule-chip">Style → Style Field</span>
+    <span class="rule-chip">Lyric Prompt → Lyrics Field → Generate Lyrics</span>
+    <span class="rule-chip">No artist names in either field</span>
+    <span class="rule-chip">Style max ~500 chars</span>
+    <span class="rule-chip">Regenerate lyrics for variety</span>
+  </div>
+
+  <!-- 1. WELCOME TO NEW YORK -->
+  <div class="song-section">
+    <div class="song-header">
+      <div class="song-number">01</div>
+      <div class="song-meta">
+        <div class="song-title">Welcome to New York</div>
+        <div class="song-details">
+          <div class="song-detail">Album: <span>1989</span></div>
+          <div class="song-detail">BPM: <span>~117</span></div>
+          <div class="song-detail">Key Vibe: <span>Euphoric city rebirth anthem</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Juno-106 synth arpeggios opening cold, insistent disco-influenced drum machine, high-in-the-mix processed vocals, layered choral harmonies on the chorus, no guitar — pure synth-pop. Emotional core: leaving the past behind, the city as metaphor for reinvention. Lyrics are broad, cinematic, almost manifesto-like. Repeating hook phrase drives the chorus. Male version: a man arriving in a new city or chapter of life, shedding an old identity.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-style">Style Prompt → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="s01-style">Euphoric 80s synth-pop, Juno synth arpeggio opening, insistent disco drum machine, no guitar, layered choral male vocals high in the mix, processed vocal harmonies, cinematic city-anthem energy, pure electronic production, bright and wide stereo field, 117 BPM, triumphant rebirth tone, warm analog synth bass, New Wave-influenced, emotionally open and celebratory</div>
+        <button class="copy-btn" onclick="cp('s01-style',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-lyric">Lyric Generation Prompt → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="s01-lyric">Write an anthem for a man who has just moved to a new city and is shedding his entire old identity — old name, old reputation, old heartbreaks. The tone is euphoric and almost manifesto-like, not reflective. The city itself becomes a character: it doesn't know his past, it offers him a blank slate. The chorus should be a huge repeated hook using the city (or a metaphor for it) as the central image. Lyrics should feel broad and cinematic rather than specific — more declaration than story. Structure: short punchy verses building momentum → massive anthem chorus with layered imagery → second verse with a single new detail → same chorus → brief bridge about what he's leaving behind → final exploding chorus. Under 3:30. The very first line should land like stepping off a train.</div>
+        <button class="copy-btn" onclick="cp('s01-lyric',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. OUT OF THE WOODS -->
+  <div class="song-section">
+    <div class="song-header">
+      <div class="song-number">02</div>
+      <div class="song-meta">
+        <div class="song-title">Out of the Woods</div>
+        <div class="song-details">
+          <div class="song-detail">Album: <span>1989</span></div>
+          <div class="song-detail">BPM: <span>~92 (half-time chorus feel)</span></div>
+          <div class="song-detail">Key Vibe: <span>Anxious love, relentless percussion, are we safe yet?</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Gibson ES-330 guitar, Juno-6 synth, Vox AC30 amp, Fine Young Cannibals-inspired snare sample, half-time feel on chorus, relentlessly driving percussion throughout. The chorus keeps asking the same question — "are we out of the woods yet?" — which creates anxiety through repetition. The song builds and builds. Male version: a man in a relationship built on anxiety and precariousness, wondering if it's ever going to feel safe.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-style">Style Prompt → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="s02-style">Anxious 80s synth-pop, hollow-body guitar texture, Juno synth swells, vintage Vox amp warmth, relentless driving drum pattern with half-time chorus feel, sampled snare snap, building tension throughout, male tenor vocal urgent and breathless, repeated questioning hook chorus, no dynamic rest — constant forward momentum, wide reverb field, 92 BPM with relentless pulse, emotionally unstable love song energy</div>
+        <button class="copy-btn" onclick="cp('s02-style',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-lyric">Lyric Generation Prompt → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="s02-lyric">Write a song from the perspective of a man in a relationship that has always felt one step from disaster — a love that was passionate but built on anxiety and near-misses. The central chorus question should be a repeated urgent refrain asking whether they've finally made it through ("are we past this now?", "are we finally free?" — that structural idea). The verses recall specific moments of danger or instability in the relationship. The bridge should be the moment where he realizes the relationship is over and declares some kind of freedom or resignation. The emotional tone is exhausted hope — not angry, not sad, just desperately wanting to finally exhale. Percussion and urgency should be felt in the lyric rhythm. Structure: two short urgent verses → long repeated-hook chorus → verse → chorus → bridge with emotional revelation → final chorus with a twist on the repeated hook. Under 3:45.</div>
+        <button class="copy-btn" onclick="cp('s02-lyric',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. I WISH YOU WOULD -->
+  <div class="song-section">
+    <div class="song-header">
+      <div class="song-number">03</div>
+      <div class="song-meta">
+        <div class="song-title">I Wish You Would</div>
+        <div class="song-details">
+          <div class="song-detail">Album: <span>1989</span></div>
+          <div class="song-detail">BPM: <span>~170</span></div>
+          <div class="song-detail">Key Vibe: <span>Fast-tempo longing, wishing the ex would come back</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Started as an Antonoff guitar instrumental, 170 BPM — unusually fast for the album. Driving rhythm guitar, Juno synths, punchy production. The chorus is a list of desperate wishes ("I wish you would come back / I wish I'd never looked"). Simple, declarative, longing. Male version: a man alone at 2am wishing his ex would show up at his door.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-style">Style Prompt → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="s03-style">Fast-tempo 80s synth-pop, 170 BPM, driving rhythm guitar energy, Juno synth accents, punchy tight drum machine, male vocal urgent and raw, late-night restless energy, no vocal layering on verses — intimate and direct, layered harmonies exploding on chorus, simple declarative chorus lyrics built on repeated wish/longing structure, bright guitar-forward production with synth bed, emotionally desperate but melodically upbeat</div>
+        <button class="copy-btn" onclick="cp('s03-style',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-lyric">Lyric Generation Prompt → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="s03-lyric">Write a fast-tempo pop song from a man's perspective — he's alone at 2am, driving past her street, unable to stop thinking about his ex and wishing she'd come back. The chorus is built entirely around a repeated "I wish you would..." structure — a list of desperate, specific wishes. Each wish should be slightly different — some about her coming back, some about things that happened, some about what he'd do differently. The verses are short and urgent — setting the late-night scene, his restlessness, the specific physical details of missing someone. The bridge should be the moment he almost calls her and stops himself. The entire song should feel like the inside of his head at 2am — racing, specific, half-regretful. Under 3:15.</div>
+        <button class="copy-btn" onclick="cp('s03-lyric',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. YOU ARE IN LOVE -->
+  <div class="song-section">
+    <div class="song-header">
+      <div class="song-number">04</div>
+      <div class="song-meta">
+        <div class="song-title">You Are in Love</div>
+        <div class="song-details">
+          <div class="song-detail">Album: <span>1989</span></div>
+          <div class="song-detail">BPM: <span>~72 (slow ballad)</span></div>
+          <div class="song-detail">Key Vibe: <span>Third-person quiet love observation</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Antonoff's warmest, most intimate production — frequencies cut above a certain range for warmth, only brief high-frequency snaps in the bridge. Spacious, cloud-like. Written about observing someone else fall in love. Male version: a man watching his best friend fall in love, describing it from the outside with aching tenderness and perhaps his own quiet longing in the subtext.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-style">Style Prompt → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="s04-style">Warm intimate synth-pop ballad, 72 BPM, high frequencies rolled off for woolen softness, spacious cloud-like production, male vocal tender and breathy, no percussion until bridge, subtle bass pulse, analog warmth throughout, Juno synth pads sustained and blurring, third-person observational lyric, emotionally restrained tenderness, whispered harmonies layered under lead, feels like 3am quiet love, gentle and unhurried</div>
+        <button class="copy-btn" onclick="cp('s04-style',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-lyric">Lyric Generation Prompt → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="s04-lyric">Write a tender, slow pop ballad from a man's perspective — but written in the third person or second person, observing someone else (his best friend, a stranger, someone he cares about) fall in love. He's describing the small quiet signs that someone is in love: how they laugh differently, leave their phone unanswered, speak in a softer voice. The emotional subtext is that HE is also in love — either with the same person being described, or with the idea of love itself — but this should never be stated outright, only felt. The language is extremely specific and sensory: small gestures, sounds, the quality of morning light. No chorus in the traditional sense — the song should flow as a series of observed moments. The title phrase should appear only once, at the most devastating moment. Under 4 minutes. The quietest, most controlled song imaginable.</div>
+        <button class="copy-btn" onclick="cp('s04-lyric',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. ALL YOU HAD TO DO WAS STAY -->
+  <div class="song-section">
+    <div class="song-header">
+      <div class="song-number">05</div>
+      <div class="song-meta">
+        <div class="song-title">All You Had to Do Was Stay</div>
+        <div class="song-details">
+          <div class="song-detail">Album: <span>1989</span></div>
+          <div class="song-detail">BPM: <span>~120</span></div>
+          <div class="song-detail">Key Vibe: <span>Controlled anger, rejection of a returning ex</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Opening with a high-pitched vocal sting ("stay"), propulsive mid-tempo synth-pop, bright production. Attitude-forward. The chorus is a single repeated accusation delivered with a wagging-finger energy. Male version: a man finally turning down an ex who left him and now wants to come back. Controlled anger, not rage — more like righteous exhaustion.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-style">Style Prompt → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="s05-style">Bright attitude-forward 80s synth-pop, 120 BPM, propulsive drum machine, crisp high-pitched synth accents, male vocal controlled and sardonic — righteous not angry, layered backing harmonies on chorus with wagging-finger energy, mid-tempo with forward momentum, no guitar, clean punchy production, restrained but pointed delivery, emotionally closed-off narrator turning down an ex, short declarative chorus built on a single accusation repeated</div>
+        <button class="copy-btn" onclick="cp('s05-style',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-lyric">Lyric Generation Prompt → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="s05-lyric">Write a controlled, attitude-forward pop song from a man who had his heart broken by someone who left — and now she wants to come back. He's not angry, he's simply done. The chorus is built on one repeated accusation phrase — something like the title concept: the one simple thing she failed to do. The verses recall the specific things she did or didn't do — moments that proved she couldn't commit. The tone is wry, righteous, a little cold — not weeping, not raging, just turning the key in the lock. The bridge is the moment she explains herself and he simply doesn't care anymore. The song should feel like a door being quietly but firmly closed. Structure: two punchy verses → repeated-accusation chorus → verse → chorus → bridge (her side briefly, his response) → final chorus. Under 3:20.</div>
+        <button class="copy-btn" onclick="cp('s05-lyric',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. IS IT OVER NOW? -->
+  <div class="song-section">
+    <div class="song-header">
+      <div class="song-number">06</div>
+      <div class="song-meta">
+        <div class="song-title">Is It Over Now?</div>
+        <div class="song-details">
+          <div class="song-detail">Album: <span>1989 (Vault)</span></div>
+          <div class="song-detail">BPM: <span>~120</span></div>
+          <div class="song-detail">Key Vibe: <span>Synthwave power ballad, obsessive post-breakup spiral</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Opens with a seagull-like vocal hook created by Moog Model D and Juno-6, atmospheric synth layers, reverb-heavy soundscape with echoing drum machines. Synthwave-influenced power ballad. Lyrical mode: obsessively cataloguing a former partner's new life and relationships with painful specificity. Male version: a man who keeps watching his ex's social media, cataloguing every new person she's with, desperately asking if it's really over.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-style">Style Prompt → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="s06-style">Synthwave-influenced 80s synth-pop power ballad, Moog synthesizer atmospheric opening hook, Juno-6 synth bed, heavily reverb-soaked vocal and drums, echoing drum machine, 120 BPM, male vocal raw and obsessive, spiraling emotional energy, specific jealous imagery in lyrics, wide cinematic production, layered synth harmonics, melancholic but melodically strong, post-breakup obsession energy, coastal atmospheric feel</div>
+        <button class="copy-btn" onclick="cp('s06-style',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-lyric">Lyric Generation Prompt → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="s06-lyric">Write a synthwave-flavored pop power ballad from the perspective of a man who is obsessively monitoring his ex's new life from a distance — scrolling through her photos, noticing the new guy she's with, cataloguing every detail about him with painful specificity. The central question of the chorus is whether it is truly over — but delivered with the sting of already knowing the answer. The verses are loaded with specific, jealous, almost forensic detail about what he observes from the outside. The bridge should be the moment he realizes his obsession says more about him than about her. The language should feel raw and a little unhinged — the kind of honesty you only admit at 4am. Chorus should repeat the central question with increasing desperation each time it returns. Under 3:45.</div>
+        <button class="copy-btn" onclick="cp('s06-lyric',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. THIS LOVE -->
+  <div class="song-section">
+    <div class="song-header">
+      <div class="song-number">07</div>
+      <div class="song-meta">
+        <div class="song-title">This Love</div>
+        <div class="song-details">
+          <div class="song-detail">Album: <span>1989</span></div>
+          <div class="song-detail">BPM: <span>~90</span></div>
+          <div class="song-detail">Key Vibe: <span>Hypnotic dream-pop, cyclical doomed love</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> The only 1989 track Swift wrote entirely alone. Hypnotically sparse, ocean-like production. Minimal instrumentation, the space IS the instrument. Vocal sits in a dream-like reverb. The lyrics are almost circular — love that comes back even after it's ended. Male version: a man haunted by a love he can't shake, describing it in wave-like imagery — it keeps returning to shore.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-style">Style Prompt → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="s07-style">Hypnotic dream-pop, 90 BPM, sparse oceanic production where silence is instrumentation, male vocal deep in reverb and haze, minimal percussion — soft brush drums only, sustained synth tones blurring together, circular melodic motif, no guitar, ethereal and trance-like, lyrics built on wave and tide imagery, emotionally haunted rather than sad, cyclical song structure mirroring the lyrical theme, intimate and isolating</div>
+        <button class="copy-btn" onclick="cp('s07-style',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-lyric">Lyric Generation Prompt → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="s07-lyric">Write a hypnotic, sparse dream-pop song about a love that a man keeps returning to even after it ended — a cyclical, almost tidal feeling. The central metaphor should be water: waves, tides, things returning to shore. The lyrics should feel like they are circling the same feeling from different angles rather than building a linear narrative. The song doesn't have a traditional structure — it ebbs and flows. The language is soft and imagistic, almost impressionistic — less story, more atmosphere. There should be one devastating line buried somewhere in the middle that suddenly makes everything else click. The title phrase should feel like the whole point of the song, delivered at the exact right moment. Under 4 minutes. Quiet, haunting, unhurried.</div>
+        <button class="copy-btn" onclick="cp('s07-lyric',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. CRUEL SUMMER -->
+  <div class="song-section">
+    <div class="song-header">
+      <div class="song-number">08</div>
+      <div class="song-meta">
+        <div class="song-title">Cruel Summer</div>
+        <div class="song-details">
+          <div class="song-detail">Album: <span>Lover</span></div>
+          <div class="song-detail">BPM: <span>~170</span></div>
+          <div class="song-detail">Key Vibe: <span>Synth-pop ecstasy, secret love, screamed bridge</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Arguably the peak of the Swift/Antonoff collaboration. 170 BPM, relentless energy, pre-chorus builds unbearable tension, chorus explodes. The bridge is a screamed confessional over a pulsing synth — "I'm drunk in the back of the car / and I cried like a baby coming home from the bar." The secret/forbidden love angle. Male version: a man in a secret summer fling he can't admit to anyone, the tension of wanting to scream it out loud.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-style">Style Prompt → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="s08-style">Euphoric synth-pop peak energy, 170 BPM, relentless pulsing synth arpeggio, tight punchy drum machine, male vocal rising with building pre-chorus tension, explosive singalong chorus, pulsing bass synth bed, screamed emotional bridge over minimal backing, summer haze atmosphere, secret forbidden love energy, layered harmonies on chorus, Antonoff-style layered reverb-soaked production, irresistible momentum throughout</div>
+        <button class="copy-btn" onclick="cp('s08-style',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-lyric">Lyric Generation Prompt → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="s08-lyric">Write a euphoric synth-pop song about a man in a secret summer fling — a relationship he can't officially admit to anyone but feels so intensely he can barely contain it. The song should be structured so the tension builds almost unbearably before the chorus explodes into release. The pre-chorus should feel like holding your breath. The chorus is the exhale — a confession of how badly this summer has destroyed him in the best way. The bridge must be the emotional peak: a screamed or belted confessional — something raw, specific, the kind of thing you'd only say when drunk and overwhelmed. The verses set the scene: late nights, his car, a city in summer, sneaking around. The language should feel urgent, a little reckless, very much alive. This is the biggest, most irresistible song in the set. Under 3:30.</div>
+        <button class="copy-btn" onclick="cp('s08-lyric',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9. LOOK WHAT YOU MADE ME DO -->
+  <div class="song-section">
+    <div class="song-header">
+      <div class="song-number">09</div>
+      <div class="song-meta">
+        <div class="song-title">Look What You Made Me Do</div>
+        <div class="song-details">
+          <div class="song-detail">Album: <span>Reputation</span></div>
+          <div class="song-detail">BPM: <span>~128</span></div>
+          <div class="song-detail">Key Vibe: <span>Revenge pop, identity death, bombastic villain-mode</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Modular synth, big fuzzy guitars through EMI strips, live piano, 808-style drum hits, trap percussion elements, spoken word section. The old version of the narrator is "dead." Maximalist, theatrical, dark. Male version: a man who has been pushed to the edge by someone's betrayal and is announcing a complete identity transformation — the nice guy is gone.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-style">Style Prompt → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="s09-style">Dark maximalist electropop revenge anthem, 128 BPM, modular synth riff, fuzzy distorted guitar stabs, live piano accents, heavy 808 bass hits, trap-influenced percussion, spoken word section, male vocal cold and theatrical — deadly calm not screaming, no warmth in production, hard-panned elements, cinematic villain energy, identity-death narrative arc, bombastic production with dramatic silence contrasts, dark and industrial atmosphere</div>
+        <button class="copy-btn" onclick="cp('s09-style',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-lyric">Lyric Generation Prompt → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="s09-lyric">Write a dark theatrical pop revenge anthem from a man announcing that the version of himself people knew and manipulated is gone. He has been pushed too far by someone's betrayal and is declaring that the old him — the forgiving, soft, agreeable one — is dead. The tone is icy, theatrical, calculated — not a breakdown, a PERFORMANCE of vengeance. The chorus is a single accusation/threat delivered with absolute cold control. There should be a spoken-word section where he addresses his enemies directly, almost sarcastically. The verses catalogue what was done to him with precision. The bridge is the moment he announces the identity switch — the old him is explicitly pronounced dead. The language should feel like a press statement delivered by a supervillain. Under 3:30.</div>
+        <button class="copy-btn" onclick="cp('s09-lyric',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10. GETAWAY CAR -->
+  <div class="song-section">
+    <div class="song-header">
+      <div class="song-number">10</div>
+      <div class="song-meta">
+        <div class="song-title">Getaway Car</div>
+        <div class="song-details">
+          <div class="song-detail">Album: <span>Reputation</span></div>
+          <div class="song-detail">BPM: <span>~156</span></div>
+          <div class="song-detail">Key Vibe: <span>Cinematic heist energy, doomed exciting love</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Breathless 156 BPM, cinematic action-movie production, driving synth bass, snapping drums, wide reverb on vocals. The writing session where Antonoff and Swift wrote the bridge was famously captured on camera. Pure narrative momentum — a relationship told as a heist movie. Male version: a man who knew from the beginning he and a woman were wrong for each other and chose it anyway — and narrates the crash with cinematic flair.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-style">Style Prompt → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="s10-style">Breathless cinematic synth-pop, 156 BPM, driving pulsing synth bass, snapping drum machine, wide reverb on male vocal, action-movie heist energy, narrative velocity throughout, no slow moments — relentless forward momentum, layered backing harmonies, bright punchy production, doomed romance storytelling tone, Antonoff-style reverb-drenched mix, dramatic bridge with gear-shift, feels like a car chase through a city at night</div>
+        <button class="copy-btn" onclick="cp('s10-style',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-lyric">Lyric Generation Prompt → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="s10-lyric">Write a fast, cinematic pop song that tells a doomed love story using a heist or car chase as the extended metaphor. A man and a woman were bad for each other from the start — they both knew it — and chose to run anyway. The whole song should feel like a thriller: the beginning is the crime, the middle is the chase, the end is the crash. The chorus should hit like a gear shift into overdrive. Use heist/getaway language organically woven into the emotional narrative — not forced. The verses are a fast-talking narrator accounting for everything that went wrong. The bridge should be a dramatic gear-change moment — maybe a time jump, maybe a sudden slowdown that makes the climax hit harder. The last line should land like a body hitting the floor. Under 3:30. Pure momentum.</div>
+        <button class="copy-btn" onclick="cp('s10-lyric',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11. GORGEOUS -->
+  <div class="song-section">
+    <div class="song-header">
+      <div class="song-number">11</div>
+      <div class="song-meta">
+        <div class="song-title">Gorgeous</div>
+        <div class="song-details">
+          <div class="song-detail">Album: <span>Reputation</span></div>
+          <div class="song-detail">BPM: <span>~100</span></div>
+          <div class="song-detail">Key Vibe: <span>Playful obsession, resentful attraction</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Mid-tempo, playful, a child's voice opens the track ("gorgeous"). Lighter production within Reputation's dark palette — almost a palette cleanser. The emotional core is a man/woman being so attractive it makes you angry. Male version: a man furious at a woman for being so beautiful it ruins his entire evening and possibly his life.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-style">Style Prompt → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="s11-style">Playful mid-tempo electropop, 100 BPM, lighter production within dark Reputation palette, bouncy synth bed, warm drum machine, male vocal charming and self-deprecating — humor mixed with genuine attraction, childlike innocent opening before adult complexity, layered harmonies on chorus, conversational lyric delivery, resentful-attraction emotional core, bright production lighter than surrounding album, feels like being annoyed at someone for being too beautiful</div>
+        <button class="copy-btn" onclick="cp('s11-style',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-lyric">Lyric Generation Prompt → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="s11-lyric">Write a playful, self-aware pop song from a man who is genuinely furious at a woman for being so impossibly attractive that she has ruined his evening, his composure, and possibly his entire life. The tone is comedic on the surface but the attraction underneath is completely real. He's complaining about her beauty the way you complain about a problem you secretly love having. The verses are a running commentary on what she's doing and how it's destroying him. The chorus is a direct address to her about the damage she's causing just by existing. Include one line that's genuinely funny and one line that suddenly reveals the depth of his feeling underneath all the jokes. The bridge should be the moment the comedy drops and the real emotion surfaces briefly. Under 3:20. Charming, warm, funny.</div>
+        <button class="copy-btn" onclick="cp('s11-lyric',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12. THIS IS WHY WE CAN'T HAVE NICE THINGS -->
+  <div class="song-section">
+    <div class="song-header">
+      <div class="song-number">12</div>
+      <div class="song-meta">
+        <div class="song-title">This Is Why We Can't Have Nice Things</div>
+        <div class="song-details">
+          <div class="song-detail">Album: <span>Reputation</span></div>
+          <div class="song-detail">BPM: <span>~160</span></div>
+          <div class="song-detail">Key Vibe: <span>Gleeful revenge party, fake-out bridge laugh</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Roaring opening, celebratory chaos, feels like a party for enemies. Big brass-style synths, driving beat, a bridge that fakes sincerity ("here's a toast to my real friends") before breaking into laughter. Pure gleeful revenge. Male version: a man throwing a metaphorical party celebrating the downfall of someone who betrayed him — not angry, just delighted.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-style">Style Prompt → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="s12-style">Gleeful celebratory electropop revenge anthem, 160 BPM, roaring brass-synth stab opening, driving party-energy beat, male vocal delighted and triumphant — not angry, openly gleeful, big singalong chorus with celebratory energy, fake-sincere bridge that breaks into laughter or sarcasm, wide arena production, punchy drums, revenge party atmosphere, Antonoff maximalist celebration mode, feels like a toast at a party for your enemy's downfall</div>
+        <button class="copy-btn" onclick="cp('s12-style',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-lyric">Lyric Generation Prompt → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="s12-lyric">Write a gleeful, celebratory pop revenge song from a man who has been betrayed by a close friend or partner and is now publicly, joyfully celebrating the consequences. The tone is NOT angry — it's delighted. He's throwing a party about this. The chorus is a big singalong declaration about why the betrayal was their own fault. The verses catalogue the specific acts of betrayal with barely-suppressed laughter. The bridge must include a fake-out: he begins with something that sounds sincere and heartfelt (a toast to real friends, a moment of gratitude) — and then the sarcasm kicks back in, harder. The last line should be the most devastating and funny line in the whole song. Under 3:15. Party energy. Absolutely no sympathy for the target.</div>
+        <button class="copy-btn" onclick="cp('s12-lyric',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 13. LONDON BOY -->
+  <div class="song-section">
+    <div class="song-header">
+      <div class="song-number">13</div>
+      <div class="song-meta">
+        <div class="song-title">London Boy</div>
+        <div class="song-details">
+          <div class="song-detail">Album: <span>Lover</span></div>
+          <div class="song-detail">BPM: <span>~100</span></div>
+          <div class="song-detail">Key Vibe: <span>Besotted, cultural tourism love song, name-dropping joy</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Joyful, light, filled with place names and cultural references to a city. Acoustic and electronic hybrid. The song is a love letter to both a person AND their city, delivered with total besotted enthusiasm. Male version: a man completely smitten with a British or foreign woman, cataloguing every detail of her world and city with infectious delight.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-style">Style Prompt → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="s13-style">Joyful acoustic-electronic hybrid pop, 100 BPM, light acoustic guitar strumming over synth bed, bright production, male vocal warm and besotted — maximum enthusiasm, cultural place-name-dropping lyric style, singalong chorus built on geographic/cultural specificity, no darkness anywhere in the production, warm analog warmth, conversational verse delivery, feels like writing a love letter to a city and a person simultaneously, upbeat and charming throughout</div>
+        <button class="copy-btn" onclick="cp('s13-style',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-lyric">Lyric Generation Prompt → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="s13-lyric">Write a joyful, besotted pop song from a man who has fallen completely in love with a woman from another city or country — and by extension, completely fallen in love with her world: her city, her culture, her accent, the specific places she takes him. The lyrics should be packed with specific cultural and geographic references (neighborhoods, pubs, foods, phrases, sports) that paint a vivid picture of her world. The tone is infectious enthusiasm — he is embarrassingly, completely, happily devoted. The chorus is a declaration of his preference for her world over anything he knew before. There is no darkness, no conflict — this is a pure love song disguised as a travel itinerary. The most charming and specific detail should be the bridge. Under 3:15. Pure joy.</div>
+        <button class="copy-btn" onclick="cp('s13-lyric',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 14. MIDNIGHT RAIN -->
+  <div class="song-section">
+    <div class="song-header">
+      <div class="song-number">14</div>
+      <div class="song-meta">
+        <div class="song-title">Midnight Rain</div>
+        <div class="song-details">
+          <div class="song-detail">Album: <span>Midnights</span></div>
+          <div class="song-detail">BPM: <span>~80</span></div>
+          <div class="song-detail">Key Vibe: <span>Dual-voice dreamscape, ambition vs. love, pitch-shifted narrator</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Opens with a dramatically pitch-shifted deep male voice (Swift's own voice pitch-shifted) layered under her normal vocal — two versions of the narrator speaking simultaneously. Dreamy, slow, atmospheric Midnights production. The song is about the tension between chasing ambition and the person who wanted a quieter life. Male version: a man who chose his career over love, hearing both voices — who he is now and who he could have been — simultaneously.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-style">Style Prompt → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="s14-style">Atmospheric Midnights-era bedroom dream-pop, 80 BPM, pitch-shifted deep voice layered under normal male tenor — dual narrator effect, slow-motion drum machine, blurring Juno synth pads, late-night introspective energy, two simultaneous emotional states in production, wide reverb throughout, vocals swimming in haze, ambition-vs-love thematic tension, hushed and cinematic, Antonoff midnight atmosphere, soft bass pulse, emotionally complicated resignation</div>
+        <button class="copy-btn" onclick="cp('s14-style',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-lyric">Lyric Generation Prompt → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="s14-lyric">Write a dreamy, slow atmospheric pop song about a man who chose ambition — his career, his city, his endless striving — over a relationship with someone who wanted a quieter, simpler life. The song should contain two simultaneous voices or perspectives: his own (driven, restless, urban, never satisfied) and hers (or the version of himself who chose differently: rooted, warm, quiet, satisfied with small things). These two voices can alternate in verses or overlap. The tension is not regret exactly — it's more like wonder at the two lives that existed. The chorus is the moment both voices land on the same aching truth. Rain and midnight are natural imagery anchors. The song should feel like 3am philosophy, not melodrama. Under 4 minutes. Dreamlike, slow, complicated.</div>
+        <button class="copy-btn" onclick="cp('s14-lyric',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+</main>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--  UNIVERSAL SECTION  -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div id="universal" class="section">
+<main>
+  <div class="universal-banner">
+    <h2>The Universal Male Antonoff Formula</h2>
+    <p>This single style prompt and lyric generation prompt combines every defining element across all 14 songs — the Juno-6 synth DNA, the 80s drum machine aesthetic, the reverb-soaked vocal mix, the emotional specificity, the narrative arc structures, and the male-perspective reframe. Use these when you want a random instant hit that could have come from any era of this sound.</p>
+  </div>
+
+  <div class="prompt-pair">
+    <div class="prompt-card">
+      <div class="prompt-card-header">
+        <span class="prompt-type type-universal-style">Universal Style Prompt → Style Field</span>
+        <span class="prompt-hint">≤500 chars</span>
+      </div>
+      <div class="prompt-body" id="u-style">80s-influenced synth-pop, Juno-6 synth arpeggios and sustained pads, reverb-drenched male tenor vocal layered with harmonies, analog drum machine with half-time and full-time variations, Antonoff production signature — spacious wide stereo mix with pitched-up detuned elements, emotional vulnerability over polished production, dynamic quiet verse to explosive chorus, 100-170 BPM range, modern radio-ready clarity, cinematic narrative storytelling, intimately personal yet arena-scale</div>
+      <button class="copy-btn" onclick="cp('u-style',this)">Copy Universal Style Prompt</button>
+    </div>
+    <div class="prompt-card">
+      <div class="prompt-card-header">
+        <span class="prompt-type type-universal-lyric">Universal Lyric Generation Prompt → Lyrics Field</span>
+        <span class="prompt-hint">Click Generate Lyrics</span>
+      </div>
+      <div class="prompt-body prompt-body-tall" id="u-lyric">Write a male-perspective synth-pop song in the style of Antonoff-produced, confessionally honest 2014–2022 pop. Choose ONE of the following emotional modes and execute it fully: (A) Euphoric city-anthem rebirth — man arriving somewhere new, shedding old identity; (B) Anxious breathless love — relationship built on near-misses, asking if they're finally safe; (C) Late-night longing — man alone at 2am wishing an ex would return, specific and restless; (D) Gleeful revenge — man celebrating the downfall of someone who betrayed him, theatrical and cold; (E) Doomed beautiful love — cinematic narrative of a relationship that was wrong from the start but chosen anyway; (F) Quiet devastating tenderness — observing love from the outside, restrained and imagistic. Whichever mode you choose: lyrics must be hyper-specific with sensory detail rather than generic emotion words. The hook phrase should be the song's title and central image. Structure: two verses building narrative → pre-chorus adding tension → explosive or devastating chorus → second verse with new detail → chorus → bridge that recontextualizes everything → final chorus with a twist. Under 3:45. Male voice throughout. First line must hook immediately.</div>
+      <button class="copy-btn" onclick="cp('u-lyric',this)">Copy Universal Lyric Prompt</button>
+    </div>
+  </div>
+</main>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--  ALBUMS SECTION  -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div id="albums" class="section">
+<main>
+  <div class="intro-box">
+    <p>One style prompt and one lyric generation prompt per album — designed to capture the entire sonic and emotional world of that era in a single Suno generation. Each prompt accounts for the specific instruments Antonoff used, the thematic arc of the album, and the male-perspective reframe.</p>
+  </div>
+
+  <!-- 1989 -->
+  <div class="album-block">
+    <div class="album-header">
+      <div class="album-era">Album 01 · 2014</div>
+      <div class="album-name">1989</div>
+      <div class="album-desc">The full pop pivot. Juno-6 everywhere. 80s synth-pop done immaculately. Pure heartbreak through the lens of New York City reinvention. Bright, processed, wide. The album that made the Antonoff sound a cultural touchstone.</div>
+    </div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-album-style">Album Style Prompt → Style Field</span>
+        </div>
+        <div class="prompt-body" id="a-1989-style">Pure 80s synth-pop, Juno-6 arpeggios and pads, programmed drum machine with bright punchy snare, processed male vocal high in the mix with multitracked harmonies, no acoustic instruments — fully electronic, wide stereo field, New Wave-influenced production, 90–170 BPM depending on track, emotionally open and cinematic, Antonoff Brooklyn home-studio warmth, clear and polished mix, city-energy backdrop, bright and optimistic with melancholic undercurrent</div>
+        <button class="copy-btn" onclick="cp('a-1989-style',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-album-lyric">Album Lyric Generation Prompt → Lyrics Field</span>
+        </div>
+        <div class="prompt-body" id="a-1989-lyric">Write a 1989-era synth-pop song from a man's perspective. The emotional world: a man who has just moved to a new city, left behind a damaging relationship, and is figuring out who he is in the middle of the loudest and most anonymous place on earth. The tone swings between euphoric freedom and quiet aching longing — sometimes in the same song. Lyrics should be emotionally specific but imagistically broad — more about the feeling of a city, a new beginning, a late night, a window at 2am than about any one event. Instruments live in the lyrics as feelings: the bass as heartbeat, the synth as city lights, the drums as footsteps. Use the 80s pop structure: verse-prechorus-chorus-verse-chorus-bridge-chorus. Hook phrase should be city-connected or freedom-connected. Under 3:30.</div>
+        <button class="copy-btn" onclick="cp('a-1989-lyric',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- REPUTATION -->
+  <div class="album-block">
+    <div class="album-header">
+      <div class="album-era">Album 02 · 2017</div>
+      <div class="album-name">Reputation</div>
+      <div class="album-desc">The dark side. Maximalist, heavy, trap-influenced electropop. 808 bass drops. Weaponized production. An album about being burned by public betrayal and finding unexpected love in the wreckage. Antonoff's most dangerous work.</div>
+    </div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-album-style">Album Style Prompt → Style Field</span>
+        </div>
+        <div class="prompt-body" id="a-rep-style">Dark maximalist electropop, heavy 808 bass hits, trap-influenced drum programming, pulsating synth bass, modular synth accents, male vocal manipulated and multitracked — sometimes distorted or heavily processed, abrupt dynamic shifts from silence to bombast, industrial-pop atmosphere, cinematic villain energy, 120–160 BPM, Antonoff production with EDM and R&B elements, weaponized pop production, big dramatic pauses, emotionally complex revenge-to-love arc</div>
+        <button class="copy-btn" onclick="cp('a-rep-style',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-album-lyric">Album Lyric Generation Prompt → Lyrics Field</span>
+        </div>
+        <div class="prompt-body" id="a-rep-lyric">Write a Reputation-era dark electropop song from a man's perspective. The emotional world: a man who has been publicly humiliated or betrayed, has retreated completely from the world, built walls around himself, and in that isolation found an unexpected, intensely private love that no one else knows about. The song can be EITHER (a) the revenge half — cold, theatrical, identity-destruction, announcing that the old version of him is gone; OR (b) the love-in-the-dark half — intensely private, sensual, two people hiding from the world together. Either way the production should feel heavy and dark. Lyrics are sharp, specific, unapologetic. Nothing soft on the surface, but real feeling underneath. Include one moment of startling vulnerability in the bridge. Under 3:30.</div>
+        <button class="copy-btn" onclick="cp('a-rep-lyric',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOVER -->
+  <div class="album-block">
+    <div class="album-header">
+      <div class="album-era">Album 03 · 2019</div>
+      <div class="album-name">Lover</div>
+      <div class="album-desc">The technicolor exhale. Warm, pastel, joyful. Antonoff's production at its most inviting. Songs about being happily in love — and the specific, domestic, small-moment joy of that. Cruel Summer sits here, deceptively hidden as a bonus track.</div>
+    </div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-album-style">Album Style Prompt → Style Field</span>
+        </div>
+        <div class="prompt-body" id="a-lover-style">Warm pastel synth-pop, bright colorful production, acoustic-electronic hybrid with acoustic guitar over Juno synth bed, male vocal tender and open — no armor, unguarded warmth, euphoric chorus energy, 80–170 BPM range, Antonoff home-studio warmth dialed to maximum, light sparkly synth accents, no darkness in the production palette, celebratory love song atmosphere, layered cheerful harmonies, feels like summer and being completely happy, domestic and intimate scale</div>
+        <button class="copy-btn" onclick="cp('a-lover-style',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-album-lyric">Album Lyric Generation Prompt → Lyrics Field</span>
+        </div>
+        <div class="prompt-body" id="a-lover-lyric">Write a Lover-era warm, joyful pop song from a man who is completely, unguardedly happy in love. The emotional world: a man who spent years in difficult, complicated relationships and has finally found something simple and true. He is not afraid to sound sentimental. The lyrics are about the small domestic moments of being in love: cooking together at midnight, the way she laughs, staying in on a Friday because being home with her is better than anywhere else. OR: write the secret-summer version — a man who has fallen hard for someone he shouldn't have, the secret making it more electric, the summer making it urgent. Either way: no irony, no armor, no darkness. The music should feel like it's being played through an open window on a warm evening. Under 3:30.</div>
+        <button class="copy-btn" onclick="cp('a-lover-lyric',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOLKLORE -->
+  <div class="album-block">
+    <div class="album-header">
+      <div class="album-era">Album 04 · 2020</div>
+      <div class="album-name"><em>folklore</em></div>
+      <div class="album-desc">The pandemic pivot into indie folk and literary fiction. Recorded virtually. Piano, strings, muted drums, cottagecore atmosphere. Fictional characters and story arcs. Antonoff and Dessner working in parallel. The album that won the Grammy and changed everything.</div>
+    </div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-album-style">Album Style Prompt → Style Field</span>
+        </div>
+        <div class="prompt-body" id="a-folk-style">Indie folk-pop, piano-driven with muted acoustic guitar, soft orchestral strings, hushed brushed drum kit — no drum machine, male vocal intimate and literary — close-mic'd in a quiet room, reverb suggesting forest or cabin rather than city, lo-fi warmth, Antonoff-era emotional vulnerability, slow to mid tempo 70–100 BPM, long melodic lines, space and silence as instruments, narrative storytelling mode, cottagecore atmosphere, acoustic-first production with subtle synth ambience beneath</div>
+        <button class="copy-btn" onclick="cp('a-folk-style',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-album-lyric">Album Lyric Generation Prompt → Lyrics Field</span>
+        </div>
+        <div class="prompt-body" id="a-folk-lyric">Write a folklore-era indie folk song from a man's perspective — but NOT autobiographical. Write it as a character study or fictional narrative: a man telling someone else's story, or inhabiting a fictional character entirely. The emotional world is nostalgia, grief, the specific weight of past summers and old houses and people who are gone. Use literary, imagistic language: specific places (a lake, a back road, a screened porch), specific objects (a letter, a photograph, a song on the radio). The structure should be unhurried — three full verses with room to breathe, a chorus that feels like an exhale rather than a climax, and a bridge that recontextualizes the whole story. The most devastating moment should arrive quietly, without warning. Under 4:30. This is a slow, literary, aching song.</div>
+        <button class="copy-btn" onclick="cp('a-folk-lyric',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- EVERMORE -->
+  <div class="album-block">
+    <div class="album-header">
+      <div class="album-era">Album 05 · 2020</div>
+      <div class="album-name"><em>evermore</em></div>
+      <div class="album-desc">Folklore's darker, more autumnal twin. Released five months later. More Dessner-forward, more folk-rock, more grief. Where folklore is summer, evermore is November. Banjos, fiddles, denser orchestration. The last song before winter.</div>
+    </div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-album-style">Album Style Prompt → Style Field</span>
+        </div>
+        <div class="prompt-body" id="a-ever-style">Autumnal indie folk-rock, acoustic guitar and banjo interplay, fiddle accents, denser orchestration than folklore, brushed drums and occasional full kit, male vocal weathered and warm — deep autumn grain, melancholic minor key harmonies, 65–95 BPM, Antonoff-meets-National production warmth, November atmosphere — bare trees and cold rain, emotionally complex grief and acceptance themes, no electronic elements, organic instrumentation throughout, dense layered arrangements</div>
+        <button class="copy-btn" onclick="cp('a-ever-style',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-album-lyric">Album Lyric Generation Prompt → Lyrics Field</span>
+        </div>
+        <div class="prompt-body" id="a-ever-lyric">Write an evermore-era folk-rock song from a man's perspective. The emotional world is grief, ending, and complicated acceptance — the feeling of November, of something being over that you're not quite ready to name yet. The song can be about the end of a relationship, the end of a chapter of life, or watching someone you love suffer from a distance. The language should be dense and literary — imagery built from the natural world (bare trees, frost, rivers, smoke). The structure is folk: long unhurried verses, a chorus that feels like a weight settling rather than a burst of energy, a bridge that opens something painful that closes again before the final verse. Male vocal is deep and weathered. Include one moment of raw emotional confession in the bridge. This is the saddest song in the set. Under 4:30.</div>
+        <button class="copy-btn" onclick="cp('a-ever-lyric',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MIDNIGHTS -->
+  <div class="album-block">
+    <div class="album-header">
+      <div class="album-era">Album 06 · 2022</div>
+      <div class="album-name">Midnights</div>
+      <div class="album-desc">The return to synth-pop, but quieter and stranger than 1989. Bedroom pop and dream pop. Bleachers band members playing saxophones and clarinets. Flutes. Cool, smooth, nocturnal. An album about examining your own psyche at 3am. The self as subject.</div>
+    </div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-album-style">Album Style Prompt → Style Field</span>
+        </div>
+        <div class="prompt-body" id="a-mid-style">Midnights-era bedroom dream-pop, subdued synth-pop with smooth cool atmosphere, saxophone and clarinet accents over synth bed, slow drum machine — softer and less insistent than 1989, male vocal close-mic'd and confessional in a late-night haze, Juno pads blurring together, pitch-shifted vocal layers for eerie depth effect, 70–110 BPM, introspective and psychologically inward, no arena energy — intimate scale, cool tonal palette, 3am self-examination atmosphere, Antonoff Midnights sonic signature</div>
+        <button class="copy-btn" onclick="cp('a-mid-style',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-album-lyric">Album Lyric Generation Prompt → Lyrics Field</span>
+        </div>
+        <div class="prompt-body" id="a-mid-lyric">Write a Midnights-era bedroom pop song from a man's perspective. The emotional world: 3am self-examination — a man lying awake cataloguing his own flaws, fears, revenge fantasies, and half-remembered loves. This album is about the psyche at midnight, not about other people — it turns inward. The song should be EITHER: (a) self-critical and darkly funny — the narrator dissecting one specific flaw or failure of his own with uncomfortably honest precision; OR (b) nocturnal longing — a slow, hazy re-examination of a past love through the lens of who he is now. The language is cool, specific, internal. No big emotional explosions — everything is processed through a layer of late-night numbness. Include one line that is genuinely funny and devastating at the same time. Under 3:45. Cool, smooth, nocturnal.</div>
+        <button class="copy-btn" onclick="cp('a-mid-lyric',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+</main>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<!--  HOW TO USE  -->
+<!-- ═══════════════════════════════════════════════════════════════ -->
+<div id="howto" class="section">
+<main>
+  <div class="intro-box" style="max-width:700px;">
+    <p><strong>Step 1 — Go to Suno</strong><br>Open suno.com → click Create → switch to Custom Mode.</p>
+    <p><strong>Step 2 — Paste the Style Prompt</strong><br>Copy the Style prompt for the song or album you want → paste into the Style field. This controls instrumentation, tempo, production texture, and mood.</p>
+    <p><strong>Step 3 — Paste the Lyric Generation Prompt</strong><br>Copy the Lyric Generation Prompt → paste it into the Lyrics field → click "Generate Lyrics." Suno will write the actual song lyrics based on your brief. You don't write the lyrics — Suno does.</p>
+    <p><strong>Step 4 — Review and Regenerate</strong><br>Read the generated lyrics. If they don't feel right, click Generate Lyrics again — each regeneration produces a completely different set of lyrics from the same brief. You can regenerate as many times as you like.</p>
+    <p><strong>Step 5 — Create</strong><br>Once you're happy with the lyrics, click Create. Suno will generate two audio versions. Try both.</p>
+    <p><strong>Pro Tips</strong><br>
+    — The style prompt controls the SOUND. The lyric prompt controls the STORY. They work independently.<br>
+    — You can mix and match: take the Cruel Summer style prompt but use the London Boy lyric brief.<br>
+    — Regenerate lyrics 3–5 times before choosing — later generations often get more specific and interesting.<br>
+    — No artist names in either field — Suno flags them. Use genre and era descriptors only.<br>
+    — After generating audio, use Suno's "Extend" feature to add an outro or bridge if needed.
+    </p>
+  </div>
+</main>
+</div>
+
+<script>
+function showSection(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function cp(id, btn) {
+  const el = document.getElementById(id);
+  const original = btn.textContent;
+  navigator.clipboard.writeText(el.innerText).then(() => {
+    btn.textContent = '✓ Copied!';
+    btn.classList.add('ok');
+    setTimeout(() => {
+      btn.classList.remove('ok');
+      btn.textContent = original;
+    }, 2000);
+  });
+}
+</script>
+</body>
+</html>

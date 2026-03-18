@@ -1,0 +1,669 @@
+{
+  "id": "angels_airwaves",
+  "name": "Angels & Airwaves",
+  "genres": ["Alternative Rock", "Space Rock", "Post-Punk", "Synth Rock", "Atmospheric Rock"],
+  "era": "2005–present",
+  "color": "#5b8dee",
+  "bio": "Angels & Airwaves (ΛVΛ) is the side project of Tom DeLonge, formed after Blink-182 went on hiatus in 2005. DeLonge described the band as 'the most important rock band in the world,' claiming it would 'save people's lives' — a level of ambition that earned both ridicule and a fiercely devoted fanbase. The signature AVA sound: slow tempo (most songs under 100 BPM), vast reverb-soaked guitars, cinematic synthesizers, DeLonge's signature wide-vibrato tenor vocal, and lyrics obsessed with space, love, consciousness, and humanity's potential. The band is inseparable from DeLonge's broader multimedia universe: the Love film (2011), the Poet Anderson animated short film and novel (2014), and his UFO disclosure work through To The Stars Academy.",
+  "producer_notes": "Jeff 'Critter' Newell produced We Don't Need to Whisper and I-Empire, establishing the signature vast cathedral-reverb sound. The Love albums were self-produced. The Dream Walker introduced Aaron Rubin and Ilan Rubin as co-producers — a major shift to rawer alternative rock. Lifeforms (2021) was co-produced by DeLonge and Brad Delson of Linkin Park — a brighter, more guitar-forward sound. All albums on DeLonge's To The Stars label except Lifeforms (Rise Records). No artist names in Suno style prompts.",
+  "songs": [
+
+    {
+      "title": "Valkyrie Missile",
+      "album": "We Don't Need to Whisper",
+      "year": 2006,
+      "bpm": 90,
+      "vibe": "Album opener · space-age atmosphere · 6:39 runtime · vast reverb cathedral production",
+      "dna": "Opens the debut album at 6:39 — immediately establishing that AVA operates on a completely different scale than Blink-182. The title references the AGM-69 SKREET missile but functions as a metaphor for human potential launched into the unknown. Producer Jeff 'Critter' Newell's signature: every instrument drenched in vast reverb, the production sounding like it was recorded inside a cathedral on the surface of the moon. Slow tempo, wide-vibrato DeLonge vocal, layers of synthesizer and distorted guitar building over extended runtime.",
+      "style_prompt": "Vast atmospheric space-rock, 90 BPM, Jeff Critter Newell cathedral-reverb production, slow-building opener energy, Tom DeLonge wide-vibrato tenor vocal, layers of reverb-soaked distorted guitar, cinematic synthesizer pads, extended 6-minute runtime permitted, post-punk meets space rock, slow tempo with enormous sonic scale, 2006 debut AVA sound",
+      "lyric_prompt": "Write a slow, vast atmospheric space-rock song that opens an album — establishing a universe rather than just beginning a song. The lyric should feel like being launched into something enormous and unknown: space, potential, love, human consciousness. The language is cinematic and slightly grandiose — this band does not do restraint. The verses build a picture of something infinite. The chorus is the declaration of being part of something larger than yourself. Extended runtime permitted — let it breathe. Under 7 minutes."
+    },
+    {
+      "title": "Distraction",
+      "album": "We Don't Need to Whisper",
+      "year": 2006,
+      "bpm": 90,
+      "vibe": "Second track · slow atmospheric build · love as cosmic distraction",
+      "dna": "90 BPM. The second track on the debut, continuing the vast atmospheric sound established by Valkyrie Missile. The lyric uses distraction — being pulled from one's path by love — as a positive rather than negative force. A quintessential AVA slow-burn: patient, reverb-soaked, building.",
+      "style_prompt": "Slow atmospheric space-rock, 90 BPM, Jeff Critter Newell vast reverb production, DeLonge wide-vibrato vocal, reverb-drenched guitar layers, cinematic synth pads, love-as-cosmic-distraction lyric, slow patient build, 2006 debut AVA sound",
+      "lyric_prompt": "Write a slow atmospheric space-rock song about being completely distracted from everything by love — the way it overrides all other purposes and missions, pulls you from your path, and makes you grateful for the derailment. The narrator has found something that matters more than the plan. The language is vast and slightly cosmic — even ordinary love gets described in terms of stars and trajectories. Under 5:40."
+    },
+    {
+      "title": "Do It for Me Now",
+      "album": "We Don't Need to Whisper",
+      "year": 2006,
+      "bpm": 78,
+      "vibe": "Slowest WDNTW track · desperate plea · DeLonge most vulnerable debut performance",
+      "dna": "78 BPM — the slowest track on the debut. A desperate, direct plea — 'do it for me now.' DeLonge's most nakedly vulnerable performance on the album. The production is still vast but something more urgent and pleading exists underneath the reverb. One of the album's most emotionally direct moments.",
+      "style_prompt": "Slow desperate atmospheric rock, 78 BPM, slowest debut track, DeLonge vulnerable pleading vocal, Jeff Critter Newell vast reverb, desperate-plea lyric, urgency underneath the atmospheric production, most emotionally direct debut moment, under 4:35",
+      "lyric_prompt": "Write a slow, desperate rock song that is a direct urgent plea — asking someone (a person, the universe, love itself) to do something now, before it's too late. The urgency sits in tension with the vast slow production: the emotion is immediate even though the music breathes slowly. The narrator is not in control — they are asking, not demanding. Under 4:35."
+    },
+    {
+      "title": "The Adventure",
+      "album": "We Don't Need to Whisper",
+      "year": 2006,
+      "bpm": 70,
+      "vibe": "Lead single · leaked via fan hacking DeLonge's email · AVA's defining statement",
+      "dna": "The debut single — leaked after a fan hacked DeLonge's email, giving the band no choice but to release it. 70 BPM — the slowest of the WDNTW singles, which contributed to the culture-shock effect on Blink-182 fans expecting pop-punk. Peaked at number 4 on the Bubbling Under Hot 100. The Adventure established the AVA formula: slow vast build, multiple guitar layers, DeLonge's operatic vocal, lyrics about consciousness and human potential. Jeff Critter Newell produced.",
+      "style_prompt": "Slow anthemic space-rock, 70 BPM, Jeff Critter Newell vast cathedral production, DeLonge wide-vibrato tenor at his most operatic, multiple reverb-drenched guitar layers, cinematic synth pads, human-potential-and-consciousness lyric, slow vast build to enormous chorus, AVA defining sound statement",
+      "lyric_prompt": "Write the defining statement of this band's philosophy in song form — slow, vast, and completely certain that this music and this moment matter enormously. The lyric is about the adventure of human consciousness, love, and potential: the idea that life is an adventure worth taking, that love is the reason for everything, that waking up to what matters is the most important thing a person can do. The chorus should feel like being told the secret of the universe simply and directly. Under 5:15."
+    },
+    {
+      "title": "A Little's Enough",
+      "album": "We Don't Need to Whisper",
+      "year": 2006,
+      "bpm": 76,
+      "vibe": "Second single · intimate ballad within vast production · love sustains everything",
+      "dna": "Second single from the debut. One of the more intimate tracks on the album — the lyric arguing that a little love is enough to sustain everything. DeLonge at his most tender within the AVA context. The production still vast but the emotion is closer to the surface than on the more epic tracks.",
+      "style_prompt": "Slow intimate atmospheric rock, 76 BPM, Jeff Critter Newell vast production serving intimacy, DeLonge tender vocal within reverb landscape, a-little-love-sustains-everything lyric, gentle but enormous production scale, under 4:50",
+      "lyric_prompt": "Write a slow atmospheric rock song about the sufficiency of small love — the argument that a little love, honestly given, is enough to sustain a person through anything. The narrator doesn't need grand gestures. They need the specific, quiet, reliable presence of someone. The production should feel vast but the emotion should feel intimate and honest. Under 4:50."
+    },
+    {
+      "title": "The War",
+      "album": "We Don't Need to Whisper",
+      "year": 2006,
+      "bpm": 86,
+      "vibe": "Anti-war statement · love as the only weapon · DeLonge political consciousness",
+      "dna": "One of the debut's more overtly political moments. DeLonge uses 'the war' as both literal (the Iraq War was ongoing at the time) and metaphorical — the internal war, the war between fear and love. The production matches the content: heavy, dark, more aggressive than the surrounding album tracks.",
+      "style_prompt": "Atmospheric heavy space-rock, 86 BPM, Jeff Critter Newell production at its heaviest, DeLonge vocal more aggressive than usual, anti-war lyric with love-as-counterforce, darker production than surrounding album tracks, under 5:10",
+      "lyric_prompt": "Write an atmospheric heavy rock song about war — both the literal wars fought by governments and the internal war between fear and love, between giving up and holding on. The narrator argues that love is the only real weapon that matters. The tone is angry and idealistic simultaneously — furious at what the world is and certain of what it could be. Under 5:10."
+    },
+    {
+      "title": "The Gift",
+      "album": "We Don't Need to Whisper",
+      "year": 2006,
+      "bpm": 82,
+      "vibe": "Love as given gift · philosophical lyric · mid-album emotional core",
+      "dna": "The lyric frames love as a gift — something given rather than earned or taken. One of the more philosophically developed debut lyrics. A slower, more meditative track within the album. An acoustic version was released on the I-Empire vinyl bonus tracks.",
+      "style_prompt": "Slow meditative atmospheric rock, 82 BPM, Jeff Critter Newell reverb production, DeLonge philosophical vocal, love-as-gift lyric, meditative rather than anthemic energy, under 5:05",
+      "lyric_prompt": "Write a slow meditative atmospheric rock song about love as a gift — something given freely without condition or expectation of return. The narrator is trying to understand what love actually is, and arrives at the conclusion that it is the most fundamental act of giving. The tone is thoughtful rather than emotional. Under 5:05."
+    },
+    {
+      "title": "It Hurts",
+      "album": "We Don't Need to Whisper",
+      "year": 2006,
+      "bpm": 84,
+      "vibe": "Pain of love · honesty about the cost · third single",
+      "dna": "Third single from the debut. The most direct emotional admission on the album — it hurts. Despite the vast production, the lyric is simple and honest: love hurts, missing someone hurts, being alive hurts. The counterpoint to the album's more philosophical tracks. An 'It Hurts' short film was released as part of the early AVA multimedia project.",
+      "style_prompt": "Atmospheric honest rock, 84 BPM, Jeff Critter Newell vast production, DeLonge straightforward pain-admission vocal, love-hurts lyric within philosophical AVA framework, simple honest emotion inside enormous production, under 4:15",
+      "lyric_prompt": "Write an atmospheric rock song that is simply and directly honest: it hurts. Love hurts, absence hurts, trying to hold onto something that won't stay hurts. The narrator has dropped the philosophical framework and is just admitting the pain. Despite the vast production, the lyric should feel simple and unguarded. Under 4:15."
+    },
+    {
+      "title": "Good Day",
+      "album": "We Don't Need to Whisper",
+      "year": 2006,
+      "bpm": 84,
+      "vibe": "Counterintuitively hopeful · it will be a good day · affirmation within pain",
+      "dna": "One of the debut's more hopeful moments — the simple declaration that it will be a good day, despite or because of everything. A counterpoint to the heavier and more philosophical debut tracks. The production is slightly more open and bright than the surrounding songs.",
+      "style_prompt": "Atmospheric hopeful space-rock, 84 BPM, Jeff Critter Newell production slightly brighter than surrounding tracks, DeLonge affirmative vocal, it-will-be-a-good-day lyric, hopeful-within-enormous-scale, under 4:30",
+      "lyric_prompt": "Write an atmospheric rock song built on the simple but earnest declaration that today will be a good day — not because everything is fine but because the narrator has decided to meet it that way. The optimism is deliberate, not naive. Despite the vast slow production, the emotional core is warm and forward-facing. Under 4:30."
+    },
+    {
+      "title": "Start the Machine",
+      "album": "We Don't Need to Whisper",
+      "year": 2006,
+      "bpm": 84,
+      "vibe": "Album closer · the machine of human civilization · documentary shares this title",
+      "dna": "Closes the debut album. 'The machine' functions as a metaphor for human civilization, consciousness, and the whole enterprise of being alive. The AVA documentary film Start the Machine (2008) shares this title — testament to its importance within the band's mythology. A fitting closer: slower, more reflective, looking at the full scope of what the album has been about.",
+      "style_prompt": "Slow reflective album-closing atmospheric rock, 84 BPM, Jeff Critter Newell closing-statement production, DeLonge contemplative vocal, human-civilization-as-machine metaphor, album-closer emotional resolution, vast reverb, under 4:15",
+      "lyric_prompt": "Write a slow reflective closing song about the whole machine of human civilization — all of it, the love and the war, the dreams and the failures, the people and their connections. The narrator is stepping back and looking at the entire scope of what it means to be human and alive. The closing declaration should feel like the last word on something important. Under 4:15."
+    },
+
+    {
+      "title": "Call to Arms",
+      "album": "I-Empire",
+      "year": 2007,
+      "bpm": 94,
+      "vibe": "I-Empire opener · rallying call · new band lineup · bigger ambition",
+      "dna": "Opens I-Empire — the album recorded with new bassist Matt Wachter (replacing Ryan Sinn) joining DeLonge and David Kennedy. 'I-Empire' was DeLonge's concept of the individual as an empire unto themselves — one person capable of changing the world. Call to Arms establishes this philosophy immediately. The production remains vast but slightly more polished than the debut.",
+      "style_prompt": "Atmospheric rallying space-rock, 94 BPM, Jeff Critter Newell I-Empire production — slightly more polished than debut, DeLonge wide-vibrato rallying vocal, individual-as-empire philosophy lyric, reverb-soaked guitar and synth layers, album-opening call-to-action energy, under 5 minutes",
+      "lyric_prompt": "Write an atmospheric rock song that opens an album with a rallying call — addressing the individual directly and telling them they are more powerful than they know, that one person can be an empire, that waking up to your own potential is the most revolutionary act possible. The tone is inspiring and slightly grandiose. Under 5 minutes."
+    },
+    {
+      "title": "Everything's Magic",
+      "album": "I-Empire",
+      "year": 2007,
+      "bpm": 98,
+      "vibe": "Lead single · most requested on KROQ · most accessible AVA song · love makes everything magical",
+      "dna": "Lead single from I-Empire. Described as 'a synth-rock anthem that resonates with a refreshing spirit and inspired energy.' Became the most requested song on California radio station KROQ. The most radio-accessible AVA song — brighter, more upbeat, with a singalong hook that doesn't require the listener to be patient with a slow build. The central philosophy: when you're in love, everything is magic. Peaked at number 4 on the Bubbling Under Hot 100.",
+      "style_prompt": "Bright synth-rock anthem, 98 BPM, Jeff Critter Newell most radio-accessible production, DeLonge enthusiastic bright vocal, love-makes-everything-magical lyric, most upbeat AVA track, pulsing synth, melodic guitar lead, singalong hook, KROQ most-requested energy",
+      "lyric_prompt": "Write a bright synth-rock anthem about the specific magic of being in love — how it transforms ordinary things into something extraordinary, how every moment feels significant, how the world looks different when you're seen by someone who loves you. This is AVA's most accessible song: not slow and philosophical but immediately joyful and hooky. The chorus must be singable by 10,000 people. Under 4 minutes."
+    },
+    {
+      "title": "Breathe",
+      "album": "I-Empire",
+      "year": 2007,
+      "bpm": 98,
+      "vibe": "Second track · the act of breathing as metaphor · space between moments",
+      "dna": "98 BPM. The instruction to breathe — simply, consciously, right now — as a philosophical and practical act. One of the album's more meditative tracks despite the slightly higher BPM. The lyric explores the space between moments and the importance of being present.",
+      "style_prompt": "Meditative atmospheric space-rock, 98 BPM, Jeff Critter Newell I-Empire production, DeLonge contemplative vocal, breathing-as-conscious-act lyric, space-between-moments theme, reverb-soaked guitar layers, under 4:30",
+      "lyric_prompt": "Write an atmospheric rock song built on the instruction to breathe — simply, consciously, deliberately. The lyric explores what happens in that pause: the space between moments where everything becomes clear. The narrator is not in crisis — they are discovering the power of being present. Under 4:30."
+    },
+    {
+      "title": "Love Like Rockets",
+      "album": "I-Empire",
+      "year": 2007,
+      "bpm": 88,
+      "vibe": "Love as propulsive force · rocket metaphor · velocity and trajectory",
+      "dna": "The rocket metaphor: love that launches you forward, that propels rather than grounds. One of the album's more kinetic tracks despite the slow BPM — the production has a forward momentum that the debut largely avoided. DeLonge's lyrics here blend his two obsessions: space/rockets and love.",
+      "style_prompt": "Atmospheric kinetic space-rock, 88 BPM, Jeff Critter Newell I-Empire production, DeLonge space-and-love merged lyric, rocket-as-love-metaphor, forward-momentum production despite slow BPM, reverb-soaked cinematic, under 5:10",
+      "lyric_prompt": "Write an atmospheric rock song about love as a rocket — a propulsive force that launches you into something new, gives you trajectory, lifts you from the gravity of your old self. The rocket is a metaphor for both space exploration and the feeling of being in love. The lyric should blend DeLonge's obsessions: the cosmos and human connection. Under 5:10."
+    },
+    {
+      "title": "Sirens",
+      "album": "I-Empire",
+      "year": 2007,
+      "bpm": 86,
+      "vibe": "Mythology meets love song · siren as the irresistible call · DeLonge's literary reach",
+      "dna": "Uses the mythological sirens — the creatures whose song lured sailors to their deaths — as a metaphor for irresistible love. DeLonge at his most literary: pulling from Greek mythology to describe the experience of being unable to resist someone. The tension between danger and desire.",
+      "style_prompt": "Slow mythological atmospheric rock, 86 BPM, Jeff Critter Newell production, DeLonge literary-mythological lyric, siren-as-irresistible-love metaphor, tension between danger and desire, reverb-soaked vast production, under 4:30",
+      "lyric_prompt": "Write a slow atmospheric rock song using the siren myth — the irresistible call that draws sailors to their destruction — as a metaphor for love that you know is dangerous but cannot resist. The narrator knows what this will cost and moves toward it anyway. The beauty and the danger are inseparable. Under 4:30."
+    },
+    {
+      "title": "Secret Crowds",
+      "album": "I-Empire",
+      "year": 2007,
+      "bpm": 86,
+      "vibe": "Second single · secret communities of like-minded people · finding your people",
+      "dna": "Second single from I-Empire. About the feeling of discovering that there are secret crowds of people who think and feel like you — that you are not alone in your outsider status. The 'secret crowds' are the people who get it, who feel deeply, who refuse to be ordinary. One of AVA's most beloved tracks for its message of belonging to a tribe of searchers.",
+      "style_prompt": "Atmospheric uplifting space-rock, 86 BPM, Jeff Critter Newell I-Empire production, DeLonge vocal full of longing and connection, finding-your-tribe lyric, secret-crowds-of-like-minded-people theme, wide reverb guitar, synth pads, under 5:05",
+      "lyric_prompt": "Write an atmospheric rock song about the discovery that there are secret crowds of people who feel the way you do — who search, who ache, who refuse ordinary existence. The narrator has found their people, the ones who understand without explanation. The emotion is relief and recognition: you are not alone in your outsider-ness. Under 5:05."
+    },
+    {
+      "title": "Star of Bethlehem",
+      "album": "I-Empire",
+      "year": 2007,
+      "bpm": 84,
+      "vibe": "Brief interlude · ambient spiritual transition · 1:28 runtime",
+      "dna": "A brief 1:28 ambient interlude. The Star of Bethlehem as a navigation point — something to follow when you're lost. A spiritual moment within the album that functions as a palette cleanser between the more intense tracks.",
+      "style_prompt": "Brief ambient spiritual interlude, 84 BPM, 1:30 max, atmospheric synth and sparse guitar, spiritual navigation metaphor, palette-cleanser within album arc, meditative and brief",
+      "lyric_prompt": "Write a very brief (under 1:30) ambient spiritual song using a star as a navigation metaphor — the light you follow when you have no other guide. Minimal lyrics, maximum atmosphere. A moment of quiet within an album. Under 1:30."
+    },
+    {
+      "title": "True Love",
+      "album": "I-Empire",
+      "year": 2007,
+      "bpm": 91,
+      "vibe": "Direct declaration · true love as the point of everything · DeLonge's thesis",
+      "dna": "The title is DeLonge's thesis statement: true love is the point of everything. The most direct love declaration on I-Empire. Despite the grandiose philosophy that surrounds it on the album, this track cuts to the simple center: true love is real and it matters.",
+      "style_prompt": "Atmospheric direct space-rock, 91 BPM, Jeff Critter Newell I-Empire production, DeLonge direct tender vocal, true-love-as-the-point-of-everything thesis, reverb-soaked guitars, singalong hook within vast production, under 5 minutes",
+      "lyric_prompt": "Write an atmospheric rock song that is simply and directly about true love — the real thing, the kind that matters, the reason for everything. The narrator has stripped away philosophy and arrived at the simple center: true love exists and it is the point. The production should be vast but the message should be direct and clear. Under 5 minutes."
+    },
+    {
+      "title": "Lifeline",
+      "album": "I-Empire",
+      "year": 2007,
+      "bpm": 86,
+      "vibe": "Love as the thing that keeps you alive · urgent need · DeLonge most desperate",
+      "dna": "The lifeline: a person as the thing that keeps you alive when everything else would sink you. One of DeLonge's most emotionally urgent I-Empire performances — the need is more immediate than the album's philosophical posturing would typically allow.",
+      "style_prompt": "Atmospheric urgent space-rock, 86 BPM, Jeff Critter Newell production, DeLonge most urgent I-Empire vocal, person-as-lifeline lyric, survival-through-love theme, reverb-soaked guitars, under 4:30",
+      "lyric_prompt": "Write an atmospheric rock song about needing someone as a literal lifeline — the person whose existence is the only thing keeping you from going under. The urgency is real: this is not poetic metaphor but genuine emotional need. The narrator knows they are only alive because of this person. Under 4:30."
+    },
+    {
+      "title": "Jumping Rooftops",
+      "album": "I-Empire",
+      "year": 2007,
+      "bpm": 90,
+      "vibe": "Freedom and recklessness · youth and abandon · physical liberation",
+      "dna": "The physical act of jumping between rooftops as a metaphor for the reckless freedom of young love and youthful abandon. One of the album's more kinetic and playful tracks. The jump between rooftops is an act of trust and joy — you leap and you land.",
+      "style_prompt": "Atmospheric playful space-rock, 90 BPM, Jeff Critter Newell I-Empire production, DeLonge playful energetic vocal, rooftop-jumping freedom-and-youth metaphor, reckless abandon within vast production, under 4:30",
+      "lyric_prompt": "Write an atmospheric rock song using the act of jumping between rooftops as a metaphor for the reckless freedom of youth and love — the leap of faith, the space between buildings where you're briefly flying, the landing on the other side. The tone is joyful and slightly reckless. Under 4:30."
+    },
+    {
+      "title": "Rite of Spring",
+      "album": "I-Empire",
+      "year": 2007,
+      "bpm": 86,
+      "vibe": "Renewal and regeneration · Stravinsky reference · love as seasonal rebirth",
+      "dna": "References Stravinsky's The Rite of Spring — the ballet about seasonal sacrifice and renewal. Love as the rite of spring: something that renews and regenerates, that requires sacrifice and produces new life. DeLonge at his most classical in influence.",
+      "style_prompt": "Slow atmospheric renewal rock, 86 BPM, Jeff Critter Newell I-Empire production, DeLonge reflective vocal, Stravinsky-inspired seasonal-rebirth lyric, love-as-renewal theme, reverb-soaked orchestral feeling, under 4:30",
+      "lyric_prompt": "Write a slow atmospheric rock song about love as a rite of spring — the seasonal renewal, the sacrifice that enables new growth, the way love requires giving something up in order to become something new. The reference point is the idea of a ritual that transforms. Under 4:30."
+    },
+    {
+      "title": "Heaven",
+      "album": "I-Empire",
+      "year": 2007,
+      "bpm": 88,
+      "vibe": "Album closer · what heaven means on a personal scale · DeLonge's philosophy resolved",
+      "dna": "Closes I-Empire. Heaven as a concept DeLonge brings down from the cosmic to the personal: heaven is here, now, in love and connection. The philosophical journey of the album resolves in this closing track. I-Empire was DeLonge's attempt to argue that the individual human soul contains everything — and heaven is part of that.",
+      "style_prompt": "Slow atmospheric album-closing space-rock, 88 BPM, Jeff Critter Newell I-Empire closing production, DeLonge resolved-philosophical vocal, heaven-as-personal-experience rather than cosmic concept, reverb-soaked guitar and synth, under 5:15",
+      "lyric_prompt": "Write a slow atmospheric closing song that resolves an album's philosophical journey in the concept of heaven — but heaven brought down from the abstract to the personal: heaven is here, now, in love, in connection, in the present moment. The narrator has completed their search and arrived somewhere simple and profound. Under 5:15."
+    },
+
+    {
+      "title": "Et Ducit Mundum Per Luce",
+      "album": "Love",
+      "year": 2010,
+      "bpm": 116,
+      "vibe": "Love album intro · Latin title: 'He Leads the World Through Light' · 2:33 runtime · free download",
+      "dna": "Opens Love — the album DeLonge released for free on Valentine's Day 2010, downloaded 500,000 times in the first 48 hours, making it the most downloaded album in history at the time. The Latin title translates to 'He Leads the World Through Light.' A brief 2:33 instrumental or near-instrumental intro — setting the cinematic, spiritual scale of the album. Love was tied to a film of the same name by director William Eubank.",
+      "style_prompt": "Cinematic spiritual album intro, 116 BPM, 2:30 max runtime, DeLonge self-produced Love album, orchestral spaceship atmosphere, Latin-title spiritual gravitas, brief opening statement before the full album unfolds, wide reverb, under 2:35",
+      "lyric_prompt": "Write a very brief (under 2:35) cinematic opening statement for an album about love — a Latin-titled invocation that sets the spiritual and cosmic scale of everything that follows. Minimal lyrics if any, maximum atmosphere. The album is free, it is a gift, it leads the world through light. Under 2:35."
+    },
+    {
+      "title": "The Flight of Apollo",
+      "album": "Love",
+      "year": 2010,
+      "bpm": 80,
+      "vibe": "Apollo moon mission as love metaphor · DeLonge's dual obsessions united · 6:15 epic",
+      "dna": "One of AVA's greatest songs. 80 BPM, 6:15 runtime. The Apollo moon mission as an extended metaphor for love: the launch, the journey through darkness, the landing, the view of Earth from the moon — all mapped onto the experience of loving someone. DeLonge's two great obsessions — space exploration and love — fully united in one song. Self-produced Love album. Tied to the William Eubank film Love.",
+      "style_prompt": "Slow epic atmospheric space-rock, 80 BPM, DeLonge self-produced Love album, Apollo mission and love merged as metaphor, 6-minute extended runtime, vast reverb production, cinematic synthesizer, multiple guitar layers building to enormous climax, most ambitious AVA track",
+      "lyric_prompt": "Write a slow, epic atmospheric rock song using the Apollo moon mission as a complete extended metaphor for love — the launch (falling in love), the journey through darkness (the hard parts), the landing (commitment), and the view of Earth from the moon (the perspective love gives you). DeLonge's two obsessions: space and love, fully united. Extended runtime permitted. Under 6:20."
+    },
+    {
+      "title": "Young London",
+      "album": "Love",
+      "year": 2010,
+      "bpm": 70,
+      "vibe": "Slowest Love track · city as love landscape · London youth and possibility",
+      "dna": "70 BPM — one of the slowest tracks in the entire AVA catalog. Young London: the specific quality of youth in a particular city, the feeling of being young and in love in a place where everything seems possible. The Love film was shot partly in London.",
+      "style_prompt": "Very slow atmospheric city-love rock, 70 BPM, slowest Love track, DeLonge self-produced, London youth and possibility lyric, city-as-love-landscape, barely-moving tempo with enormous emotional weight, wide reverb, under 5:05",
+      "lyric_prompt": "Write a very slow atmospheric rock song about youth in a city — specifically the feeling of being young and in love in London, where the history of the streets and the promise of the future coexist. The narrator is somewhere between where they came from and where they're going, and the city holds them in that beautiful suspension. Under 5:05."
+    },
+    {
+      "title": "Shove",
+      "album": "Love",
+      "year": 2010,
+      "bpm": 100,
+      "vibe": "Fastest Love Part 1 track · urgency within philosophical album · 6:34 runtime",
+      "dna": "100 BPM — one of the faster Love tracks. 6:34 runtime. The word 'shove' suggesting a push forward — being propelled into something rather than choosing it slowly. A more urgent, kinetic energy within the Love album's typically meditative atmosphere.",
+      "style_prompt": "Urgent atmospheric space-rock, 100 BPM, DeLonge self-produced Love album, propelled-forward lyric energy, kinetic urgency within philosophical context, 6-minute extended runtime, multiple layers building, under 6:40",
+      "lyric_prompt": "Write an urgent atmospheric rock song about being shoved into something — propelled forward by love, circumstances, or the universe itself rather than choosing deliberately. The narrator didn't plan this but is moving fast in a direction they didn't expect. The urgency sits in tension with the philosophical production. Under 6:40."
+    },
+    {
+      "title": "Epic Holiday",
+      "album": "Love",
+      "year": 2010,
+      "bpm": 102,
+      "vibe": "Upbeat Love track · life as an epic holiday · joy and adventure",
+      "dna": "102 BPM — one of the brighter, more upbeat Love tracks. The concept of life as an epic holiday: temporary, extraordinary, worth celebrating. One of the more accessible Love tracks. Featured in the Love film.",
+      "style_prompt": "Upbeat atmospheric pop-rock, 102 BPM, DeLonge self-produced Love, life-as-epic-holiday lyric, brighter and more upbeat than surrounding Love tracks, wide reverb, melodic guitar lead, singalong hook, under 4:40",
+      "lyric_prompt": "Write an upbeat atmospheric rock song about life as an epic holiday — a temporary, extraordinary adventure worth every moment. The narrator has decided to treat existence as the most magnificent journey rather than a burden. The tone is joyful and grateful. Under 4:40."
+    },
+    {
+      "title": "Hallucinations",
+      "album": "Love",
+      "year": 2010,
+      "bpm": 154,
+      "vibe": "Fastest Love track at 154 BPM · love as altered consciousness · the only fast AVA moment",
+      "dna": "154 BPM — one of the fastest tracks in the entire AVA catalog and a complete anomaly within the Love album. Love as a hallucination: an altered state of consciousness. The speed mirrors the disorientation of being overwhelmed by feeling. Featured in the Love film as a high-energy counterpoint to the album's meditative flow.",
+      "style_prompt": "Fast disorienting atmospheric rock, 154 BPM, DeLonge self-produced Love album anomaly — fastest track by far, love-as-hallucination-altered-consciousness lyric, speed mirrors the disorientation of overwhelming feeling, kinetic energy unlike surrounding Love tracks, under 4:40",
+      "lyric_prompt": "Write a fast, disorienting rock song about love as an altered state of consciousness — a hallucination that feels more real than reality, that distorts your perception of everything, that makes you question what is actually happening. The speed is the point: this is what overwhelming feeling does to time. Under 4:40."
+    },
+    {
+      "title": "The Moon-Atomic (…Fragments and Fictions)",
+      "album": "Love",
+      "year": 2010,
+      "bpm": 90,
+      "vibe": "Most cinematic Love track · atomic and lunar imagery · 6:17 epic",
+      "dna": "90 BPM, 6:17 runtime. The most cinematically ambitious Love track. The moon-atomic: the moon as something both ancient and nuclear, natural and explosive. 'Fragments and Fictions' — the way memory works, the way love works, piecing together incomplete information. Tied to the Love film's most epic visual sequences.",
+      "style_prompt": "Epic cinematic atmospheric rock, 90 BPM, DeLonge self-produced Love, most cinematic track, atomic-and-lunar imagery, 6-minute extended runtime, multiple building layers, fragments-and-fictions memory-love lyric, enormous production scale",
+      "lyric_prompt": "Write a slow, epic, cinematic atmospheric rock song about the moon as something both ancient and explosive — the way love is both natural and atomic, both inevitable and destructive. The lyric should deal in fragments and fictions: the incomplete memories and invented stories that make up how we understand love. Extended runtime permitted. Under 6:20."
+    },
+    {
+      "title": "Clever Love",
+      "album": "Love",
+      "year": 2010,
+      "bpm": 108,
+      "vibe": "Love as intellectual construct · the cleverness and the feeling · philosophical love",
+      "dna": "108 BPM. 'Clever love' — love that is also intellectually sophisticated, that can be articulated and analyzed without diminishing the feeling. One of the Love album's more conceptually interesting titles. DeLonge examining the relationship between thinking about love and actually experiencing it.",
+      "style_prompt": "Mid-tempo philosophical atmospheric rock, 108 BPM, DeLonge self-produced Love, clever-love intellectual lyric, love examined through thought and feeling simultaneously, reverb-soaked melodic, under 4:30",
+      "lyric_prompt": "Write a mid-tempo atmospheric rock song about 'clever love' — the kind of love that is both intellectually sophisticated and deeply felt, that can survive being thought about, that remains real even when examined closely. The narrator is trying to articulate something that resists articulation. Under 4:30."
+    },
+    {
+      "title": "Soul Survivor (…2012)",
+      "album": "Love",
+      "year": 2010,
+      "bpm": 110,
+      "vibe": "Surviving the apocalypse through love · 2012 doomsday reference · survival anthem",
+      "dna": "110 BPM. The subtitle '…2012' references the widely feared December 21, 2012 Mayan calendar 'end of the world' date. The song is about surviving any apocalypse — real or metaphorical — because love is the only thing that matters. A survival anthem.",
+      "style_prompt": "Mid-tempo survival atmospheric rock, 110 BPM, DeLonge self-produced Love, soul-survivor-through-love lyric, 2012-doomsday reference, surviving-any-apocalypse-because-of-love, reverb-soaked, under 4:05",
+      "lyric_prompt": "Write a mid-tempo atmospheric rock song about surviving any apocalypse because love is the thing that survives everything. The narrator doesn't know what's coming but knows that love is what will last. The subtitle suggests a specific date but the emotion is timeless. Under 4:05."
+    },
+    {
+      "title": "Letters to God, Part II",
+      "album": "Love",
+      "year": 2010,
+      "bpm": 138,
+      "vibe": "Love album fast track · prayer and communication with the infinite · second letter",
+      "dna": "138 BPM — one of the faster Love tracks. Writing letters to God: DeLonge's ongoing conversation with the infinite, attempting communication with something larger than himself. 'Part II' suggests a continuing correspondence. The urgency of the higher BPM matches the urgency of prayer.",
+      "style_prompt": "Faster atmospheric space-rock, 138 BPM, DeLonge self-produced Love, prayer-and-communication-with-infinite lyric, letters-to-God correspondence theme, urgency of faith, reverb-soaked, under 4:10",
+      "lyric_prompt": "Write a faster atmospheric rock song framed as a letter to God — an honest, urgent communication with something infinite and possibly silent. The narrator is not certain they'll be heard but writes anyway. The urgency of the higher tempo matches the urgency of needing an answer. Under 4:10."
+    },
+    {
+      "title": "Some Origins of Fire",
+      "album": "Love",
+      "year": 2010,
+      "bpm": 132,
+      "vibe": "Love Part 1 closer · fire as origin and metaphor · where love comes from",
+      "dna": "132 BPM. Closes Love Part 1. Fire as origin: where love comes from, what started all of this, the first spark. 'Some Origins' — acknowledging that love has multiple sources, that it is not singular. A fitting close to the first Love album.",
+      "style_prompt": "Mid-fast atmospheric closing space-rock, 132 BPM, DeLonge self-produced Love Part 1 closer, fire-as-origin-of-love lyric, multiple-sources-of-love theme, building closing energy, reverb-soaked, under 5:25",
+      "lyric_prompt": "Write a mid-fast atmospheric rock closing song about the origins of fire — both literal and metaphorical — as the origins of love. Where did this begin? What lit this? The narrator is tracing love back to its source. Under 5:25."
+    },
+
+    {
+      "title": "Saturday Love",
+      "album": "Love: Part Two",
+      "year": 2011,
+      "bpm": 133,
+      "vibe": "Love Part 2 opener · Saturday as the day of love · weekend liberation",
+      "dna": "Opens Love: Part Two. 133 BPM. Saturday as the specific day associated with freedom, love, and escape from the working week. Love: Part Two was released in November 2011 — DeLonge claimed it was better than Part One. The album accompanied the Love film's theatrical release.",
+      "style_prompt": "Upbeat atmospheric space-rock, 133 BPM, DeLonge self-produced Love Part 2, Saturday-as-love-day lyric, weekend-liberation energy, brighter opener than Love Part 1, reverb-soaked guitar and synth, under 4:20",
+      "lyric_prompt": "Write an upbeat atmospheric rock song about Saturday — the specific day when everything opens up, when love becomes possible because the week has released its grip, when the person you love can be fully present. Saturday as its own emotional state. Under 4:20."
+    },
+    {
+      "title": "Surrender",
+      "album": "Love: Part Two",
+      "year": 2011,
+      "bpm": 70,
+      "vibe": "Love as surrender · giving up control · one of the most beloved Love Part 2 tracks",
+      "dna": "70 BPM — matching the slowness of Love Part 1's Young London. About surrender to love: the act of giving up control and letting something larger take over. One of the Love Part 2 tracks singled out by critics as particularly strong. The German review noted it as one of Love Part 2's better moments alongside 'My Heroine' and 'The Flight of Apollo.'",
+      "style_prompt": "Very slow surrender atmospheric rock, 70 BPM, DeLonge self-produced Love Part 2, love-as-surrender lyric, giving-up-control theme, vast reverb production, one of Love Part 2's most praised tracks, under 4:30",
+      "lyric_prompt": "Write a very slow atmospheric rock song about surrendering to love — the specific act of giving up control, of stopping the fight, of letting something larger than yourself take over. The narrator has been resisting and has finally stopped. The surrender is total and completely peaceful. Under 4:30."
+    },
+    {
+      "title": "Anxiety",
+      "album": "Love: Part Two",
+      "year": 2011,
+      "bpm": 134,
+      "vibe": "Love Part 2 faster track · anxiety of love and connection · DeLonge's mental health honesty",
+      "dna": "134 BPM. One of the faster Love Part 2 tracks. About the specific anxiety that comes with loving something: the fear of losing it, the vulnerability of being fully known. DeLonge being honest about the cost of openness. The music video was released. One of the more emotionally complex Love Part 2 tracks.",
+      "style_prompt": "Fast-tempo anxious atmospheric rock, 134 BPM, DeLonge self-produced Love Part 2, anxiety-of-love lyric — fear of losing what you love, vulnerability-of-being-known, kinetic energy within vast reverb production, under 5:05",
+      "lyric_prompt": "Write a fast-tempo atmospheric rock song about the anxiety that comes with loving someone — the specific fear of losing what you've found, the vulnerability of being fully known by another person, the way love creates its own particular terror. The narrator loves deeply and is terrified by that fact. Under 5:05."
+    },
+    {
+      "title": "My Heroine (It's Not Over)",
+      "album": "Love: Part Two",
+      "year": 2011,
+      "bpm": 154,
+      "vibe": "Fastest Love track · heroine as savior not drug · battle cry · not over",
+      "dna": "154 BPM — matches Hallucinations as the fastest Love tracks. The person addressed is a heroine — a savior. 'It's Not Over' as subtitle: the fight, the relationship, the hope, it's not over. DeLonge at his most urgent and defiant. One of the Love Part 2 tracks singled out as a standout.",
+      "style_prompt": "Fast urgent atmospheric rock, 154 BPM, DeLonge self-produced Love Part 2 standout, person-as-heroine lyric, it's-not-over defiance, urgency and defiance, fastest-Love-energy, reverb-soaked but kinetic, under 3:45",
+      "lyric_prompt": "Write a fast, urgent atmospheric rock song addressing someone as a heroine — a person who saves the narrator, who keeps the fight going, who proves it's not over. The energy is defiant and grateful simultaneously. It's not over: the relationship, the hope, the possibility of something better. Under 3:45."
+    },
+    {
+      "title": "Moon as My Witness",
+      "album": "Love: Part Two",
+      "year": 2011,
+      "bpm": 90,
+      "vibe": "Celestial witness to love · the moon watches everything · cosmic validation",
+      "dna": "90 BPM. The moon as witness: love declared under the moon, with the cosmos as the audience. DeLonge pulling space and love together again — the moon watches all love affairs. A promise made with the moon as witness.",
+      "style_prompt": "Slow atmospheric cosmic rock, 90 BPM, DeLonge self-produced Love Part 2, moon-as-witness lyric, love-declared-under-cosmic-witness, vast reverb, celestial-validation theme, under 4:25",
+      "lyric_prompt": "Write a slow atmospheric rock song about making a declaration of love with the moon as the witness — the cosmos as audience, the celestial as validation. The narrator is making a promise so serious they need the universe itself to hold it. Under 4:25."
+    },
+    {
+      "title": "Dry Your Eyes",
+      "album": "Love: Part Two",
+      "year": 2011,
+      "bpm": 112,
+      "vibe": "Comfort and encouragement · tender address to someone in pain",
+      "dna": "112 BPM. A tender address to someone in pain — 'dry your eyes.' The comfort given after loss or grief. One of the Love Part 2 tracks that brings DeLonge's philosophical universe down to a simple, human act of comfort.",
+      "style_prompt": "Mid-tempo comforting atmospheric rock, 112 BPM, DeLonge self-produced Love Part 2, dry-your-eyes comfort lyric, tender address to someone in pain, philosophical simplicity in service of human comfort, wide reverb, under 4:55",
+      "lyric_prompt": "Write a mid-tempo atmospheric rock song that is simply an act of comfort — drying the eyes of someone who has been crying. The narrator has found someone in pain and is telling them it will be okay. The philosophical universe is set aside: this is just one person comforting another. Under 4:55."
+    },
+    {
+      "title": "The Revelator",
+      "album": "Love: Part Two",
+      "year": 2011,
+      "bpm": 112,
+      "vibe": "Biblical revelation imagery · love as the revelation · seeing clearly for the first time",
+      "dna": "112 BPM. The Revelator as a title draws on Book of Revelation imagery — someone or something that reveals truth. Love as the revelator: the experience that finally shows you what is real, what matters, what has always been true. DeLonge at his most biblical.",
+      "style_prompt": "Mid-tempo revelatory atmospheric rock, 112 BPM, DeLonge self-produced Love Part 2, biblical-revelation-imagery, love-as-the-thing-that-reveals-truth, seeing clearly for first time, vast reverb, under 4:55",
+      "lyric_prompt": "Write a mid-tempo atmospheric rock song about love as a revelation — the experience that finally shows the narrator what is real and what matters, that illuminates everything they couldn't see before. The language draws on biblical revelation imagery without being preachy. Under 4:55."
+    },
+    {
+      "title": "One Last Thing",
+      "album": "Love: Part Two",
+      "year": 2011,
+      "bpm": 115,
+      "vibe": "Brief penultimate statement · 2:53 runtime · one final thing to say",
+      "dna": "115 BPM, 2:53 runtime. Brief penultimate track — the one last thing that needs to be said before the album ends. A more compact, direct statement within the epic Love framework.",
+      "style_prompt": "Brief direct atmospheric rock, 115 BPM, DeLonge Love Part 2, 3 minutes max, one-final-statement lyric, compact directness within AVA scale, under 2:55",
+      "lyric_prompt": "Write a brief, direct atmospheric rock song that is explicitly framed as the one last thing that needs to be said — the essential statement made at the end, after everything else has been covered. Under 2:55."
+    },
+    {
+      "title": "All That We Are",
+      "album": "Love: Part Two",
+      "year": 2011,
+      "bpm": 94,
+      "vibe": "Love Part 2 closer · total summation · everything we are is love",
+      "dna": "94 BPM, 5:35 runtime. Closes Love: Part Two — and therefore the entire Love double album. A total summation: all that we are. The philosophical journey of both Love albums resolves in this declaration. After exploring love from every angle across 22 tracks, this is the conclusion.",
+      "style_prompt": "Slow atmospheric closing space-rock, 94 BPM, DeLonge self-produced Love Part 2 closer, total-summation of double-album lyric, all-that-we-are declaration, enormous reverb production, closing statement for 22-track journey, under 5:40",
+      "lyric_prompt": "Write a slow, closing atmospheric rock song that summarizes everything — all that we are, all that love is, the complete picture. This closes a double album and needs to feel like the final word on 22 tracks of exploration. The declaration should be simple and enormous simultaneously: all that we are is love. Under 5:40."
+    },
+
+    {
+      "title": "Teenagers & Rituals",
+      "album": "The Dream Walker",
+      "year": 2014,
+      "bpm": 128,
+      "vibe": "Dream Walker opener · rawer sound · Ilan Rubin drums · no David Kennedy",
+      "dna": "Opens The Dream Walker — the album recorded by DeLonge and Ilan Rubin alone, without David Kennedy or Matt Wachter. A major stylistic shift toward rawer alternative rock. DeLonge said he wanted 'to do something that is a left turn from what people know of Angels and Airwaves.' 128 BPM — significantly faster than typical AVA. Part of the Poet Anderson multimedia concept exploring dreams.",
+      "style_prompt": "Raw alternative rock, 128 BPM, DeLonge and Ilan Rubin duo production — no third guitarist, rawer less-reverb-heavy than previous AVA albums, Dream Walker Poet Anderson concept, teenagers-and-rituals coming-of-age lyric, faster and more direct than Love era",
+      "lyric_prompt": "Write a rawer, more direct alternative rock song about the rituals of teenage life — the specific ceremonies and habits of adolescence, the way young people create meaning through repetition and community. This is a departure from the philosophical cosmic scale: more grounded, more physical, more direct. Part of a concept about dreams and the waking world. Under 4:30."
+    },
+    {
+      "title": "Paralyzed",
+      "album": "The Dream Walker",
+      "year": 2014,
+      "bpm": 104,
+      "vibe": "Lead single · promotional single · dream state paralysis · sleep paralysis metaphor",
+      "dna": "The promotional single for The Dream Walker, released to announce the album on October 6, 2014. About the experience of being paralyzed — both literal sleep paralysis and the metaphorical paralysis of fear and inaction. Ilan Rubin's drumming immediately distinguishes it from previous AVA — more muscular and precise.",
+      "style_prompt": "Mid-tempo raw alternative rock, 104 BPM, DeLonge and Ilan Rubin co-production, sleep-paralysis and metaphorical-paralysis lyric, rawer more muscular than Love era, Dream Walker Poet Anderson concept, promotional single energy, under 4:30",
+      "lyric_prompt": "Write a mid-tempo raw rock song about paralysis — both the literal experience of being unable to move in a dream state and the metaphorical paralysis of being frozen by fear or indecision. The narrator is trying to break free from a state that holds them. Under 4:30."
+    },
+    {
+      "title": "The Wolfpack",
+      "album": "The Dream Walker",
+      "year": 2014,
+      "bpm": 120,
+      "vibe": "First single · community of searchers · collective identity within the dream",
+      "dna": "First single from The Dream Walker, released Halloween 2014. The wolfpack: a collective identity, a community that moves together, that finds safety and power in numbers. Within the Poet Anderson dream concept, the wolfpack represents the community of dream walkers. Music video released November 14, 2014.",
+      "style_prompt": "Raw alternative rock single, 120 BPM, DeLonge and Ilan Rubin production, wolfpack-community lyric, collective-identity theme, Dream Walker concept, direct and raw compared to Love era, under 4:15",
+      "lyric_prompt": "Write a raw alternative rock song about the wolfpack — a community of searchers who move together, find strength in collective identity, and navigate the uncertain landscape in formation. The wolfpack is both literal and metaphorical: a tribe of people who understand each other. Under 4:15."
+    },
+    {
+      "title": "Tunnels",
+      "album": "The Dream Walker",
+      "year": 2014,
+      "bpm": 116,
+      "vibe": "Second single · navigating the underground · tunnels as dream pathways",
+      "dna": "Second single from The Dream Walker, released December 3, 2014. The tunnel as a dream symbol: the passage between states of consciousness, between waking and sleeping, between who you are and who you could be. The Poet Anderson concept uses the dream world as a literal navigable landscape.",
+      "style_prompt": "Raw alternative rock, 116 BPM, DeLonge and Ilan Rubin Dream Walker production, tunnel-as-dream-pathway lyric, passage-between-states-of-consciousness, rawer and more direct than Love era, under 4:30",
+      "lyric_prompt": "Write a raw rock song about tunnels — both literal underground passages and the dream-state tunnels between consciousness and the unknown. The narrator is moving through darkness toward something on the other side. The tunnel is both frightening and necessary. Under 4:30."
+    },
+    {
+      "title": "Kiss with a Spell",
+      "album": "The Dream Walker",
+      "year": 2014,
+      "bpm": 110,
+      "vibe": "Enchantment and magic of love · fairy tale register within dream concept",
+      "dna": "110 BPM. The kiss with a spell: love as enchantment, as magic, as something that changes reality. Within the dream-concept album, the spell-kiss is a dream logic — the kind of transformation that only happens in sleep. A more romantic track within the Dream Walker's rawer sound.",
+      "style_prompt": "Mid-tempo enchanted alternative rock, 110 BPM, DeLonge and Ilan Rubin Dream Walker production, spell-and-enchantment love lyric, fairy-tale magic within dream concept, rawer than Love era but romantically warmer, under 4 minutes",
+      "lyric_prompt": "Write a mid-tempo rock song about love as an enchantment — a kiss with a spell, a moment of magic that changes everything, that alters reality in the way only dreams can. The language pulls from fairy tale imagery within a rock framework. Under 4 minutes."
+    },
+    {
+      "title": "Mercenaries",
+      "album": "The Dream Walker",
+      "year": 2014,
+      "bpm": 118,
+      "vibe": "Fighters for hire in the dream landscape · mercenaries as metaphor for willpower",
+      "dna": "118 BPM. Within the Poet Anderson dream concept, mercenaries are those who fight for themselves in the dream landscape — hired warriors navigating a reality defined by their own will. A metaphor for self-determination and the fight to control your own narrative.",
+      "style_prompt": "Driving raw alternative rock, 118 BPM, DeLonge and Ilan Rubin Dream Walker production, mercenaries-as-self-determination lyric, fighting-for-your-own-narrative theme, rawer more muscular than Love era, under 4 minutes",
+      "lyric_prompt": "Write a driving raw rock song about mercenaries — fighters who answer to no authority but their own will, who navigate any landscape by their own code. Within a dream concept, mercenaries are the dreamers who refuse to be controlled by anyone else's reality. Under 4 minutes."
+    },
+    {
+      "title": "Bullets in the Wind",
+      "album": "The Dream Walker",
+      "year": 2014,
+      "bpm": 113,
+      "vibe": "Third single · bullets as futile weapons · words as weapons · dream ephemera",
+      "dna": "Third single from The Dream Walker. Bullets in the wind: actions and words that are pointless in certain contexts, that simply blow away without effect. The futility of certain kinds of force. Within the dream concept, bullets don't stop what needs to happen.",
+      "style_prompt": "Mid-tempo raw alternative rock, 113 BPM, DeLonge and Ilan Rubin Dream Walker production, bullets-in-wind futility lyric, ineffectiveness of force in certain contexts, rawer than Love era, under 4:20",
+      "lyric_prompt": "Write a mid-tempo raw rock song about the futility of bullets in the wind — actions, words, or force that simply disperse without effect because you cannot fight certain things that way. The narrator has realized that some battles require something other than weapons. Under 4:20."
+    },
+    {
+      "title": "The Disease",
+      "album": "The Dream Walker",
+      "year": 2014,
+      "bpm": 122,
+      "vibe": "Love as disease · consuming and spreading · Dream Walker faster track",
+      "dna": "122 BPM. Love or obsession as a disease: it spreads, consumes, alters the host. The darker register of love within the Dream Walker concept. A more aggressive track within the album.",
+      "style_prompt": "Raw driving alternative rock, 122 BPM, DeLonge and Ilan Rubin production, love-as-disease lyric, consuming-and-spreading obsession, darker register within Dream Walker, rawer and more aggressive, under 4:15",
+      "lyric_prompt": "Write a raw driving rock song about love or obsession as a disease — something that spreads, consumes, and alters everything it touches. The narrator is infected and doesn't know whether to fight it or give in. Under 4:15."
+    },
+    {
+      "title": "Tremors",
+      "album": "The Dream Walker",
+      "year": 2014,
+      "bpm": 118,
+      "vibe": "Aftershocks of love and loss · tremors as residual feeling",
+      "dna": "118 BPM. Tremors: the aftershocks that follow a major event. After love, after loss, after a seismic change in your life — the tremors continue. You feel them long after the main event. One of the Dream Walker's more emotionally resonant deep cuts.",
+      "style_prompt": "Driving atmospheric alternative rock, 118 BPM, DeLonge and Ilan Rubin Dream Walker production, tremors-as-aftershock lyric, residual-feeling-after-major-event theme, emotional weight within rawer production, under 4:20",
+      "lyric_prompt": "Write a driving rock song about tremors — the aftershocks that continue long after a major seismic event in your life. After love ends, after loss, after a fundamental change, you keep feeling the tremors. The ground has shifted and keeps shifting. Under 4:20."
+    },
+    {
+      "title": "Anomaly",
+      "album": "The Dream Walker",
+      "year": 2014,
+      "bpm": 110,
+      "vibe": "Dream Walker closer · the anomaly in the system · the unexplained element",
+      "dna": "110 BPM. Closes The Dream Walker. The anomaly: the thing that doesn't fit the system, that breaks the model, that cannot be explained by existing frameworks. Within the Poet Anderson concept, the dream walker is an anomaly in waking reality. DeLonge's persistent interest in the unexplained — UFOs, consciousness, the things science can't yet explain.",
+      "style_prompt": "Closing atmospheric alternative rock, 110 BPM, DeLonge and Ilan Rubin Dream Walker closing track, anomaly-as-the-unexplained lyric, dream-walker-as-impossible-element, DeLonge's interest in UFOs and consciousness, album-closing resolution of Poet Anderson concept",
+      "lyric_prompt": "Write a closing rock song about being the anomaly — the element that doesn't fit any existing model, the thing that cannot be explained by current frameworks, the dream walker who doesn't belong to waking reality alone. The narrator accepts and embraces their status as the unexplained element. Under 4 minutes."
+    },
+
+    {
+      "title": "Timebomb",
+      "album": "Lifeforms",
+      "year": 2021,
+      "bpm": 135,
+      "vibe": "Lifeforms opener · Brad Delson co-production · brighter more guitar-forward sound · explosive opener",
+      "dna": "Opens Lifeforms — the 2021 album co-produced with Brad Delson of Linkin Park. A significant shift back toward brighter, more guitar-driven alternative rock. Kerrang! described the album as containing 'some of the band's best work, with Tom in particular sounding invigorated and on fine form.' The timebomb metaphor: love or life as something that will inevitably explode.",
+      "style_prompt": "Bright driving alternative rock, 135 BPM, Brad Delson and DeLonge Lifeforms co-production, brighter more guitar-forward than Love era, timebomb-as-inevitable-explosion metaphor, DeLonge sounding invigorated Kerrang! noted, explosive opener energy, Rise Records 2021",
+      "lyric_prompt": "Write a bright, driving alternative rock opener about a timebomb — love or life as something built to explode, an inevitable detonation you can feel counting down. The narrator knows the explosion is coming and is choosing to stand there anyway. Brighter and more guitar-forward than previous AVA albums. Under 4 minutes."
+    },
+    {
+      "title": "Euphoria",
+      "album": "Lifeforms",
+      "year": 2021,
+      "bpm": 90,
+      "vibe": "State of pure joy · euphoria as destination · one of Lifeforms' standout tracks",
+      "dna": "90 BPM. Official music video released. Euphoria as a destination and a state of being: the pure joy of love and existence. One of the Lifeforms tracks with an official video, indicating its status as a standout. The Brad Delson production gives it a more polished radio quality than the Dream Walker era.",
+      "style_prompt": "Atmospheric euphoric alternative rock, 90 BPM, Brad Delson and DeLonge Lifeforms production, pure-joy-as-destination lyric, euphoria as a state of being, official music video track, polished radio quality within AVA framework, wide reverb guitars",
+      "lyric_prompt": "Write an atmospheric rock song about euphoria as a destination — the state of pure joy that love produces, the feeling of having arrived somewhere extraordinary. The narrator has found the thing they were searching for and the result is overwhelming happiness. Under 4:25."
+    },
+    {
+      "title": "Spellbound",
+      "album": "Lifeforms",
+      "year": 2021,
+      "bpm": 92,
+      "vibe": "Enchantment and being bound by love · official music video · Lifeforms standout",
+      "dna": "92 BPM. Official music video released. Being spellbound: completely enchanted and unable to break free. A classic AVA love concept — being bound to someone by something inexplicable. The Lifeforms production gives it more punch than the Love era equivalents.",
+      "style_prompt": "Atmospheric enchanted alternative rock, 92 BPM, Brad Delson and DeLonge Lifeforms production, spellbound-by-love lyric, inexplicable enchantment theme, official video track, more punch than Love era, wide reverb, under 4:20",
+      "lyric_prompt": "Write an atmospheric rock song about being completely spellbound — enchanted and unable to break free, held by something inexplicable. The narrator is not fighting it. Being spellbound is the most alive they've ever felt. Under 4:20."
+    },
+    {
+      "title": "No More Guns",
+      "album": "Lifeforms",
+      "year": 2021,
+      "bpm": 92,
+      "vibe": "Anti-violence statement · 2:40 shortest Lifeforms track · direct message",
+      "dna": "92 BPM, 2:40 runtime — shortest Lifeforms track. Direct, unambiguous anti-violence message. DeLonge addressing gun violence with characteristic bluntness. The brevity matches the directness.",
+      "style_prompt": "Direct short anti-violence alternative rock, 92 BPM, 2:40 max, DeLonge direct vocal, no-more-guns anti-violence message, Lifeforms Delson production, brevity and directness within AVA framework, under 2:45",
+      "lyric_prompt": "Write a short, direct rock song with an unambiguous anti-violence message — no more guns. The narrator is done with the euphemism and the debate: no more guns. Under 2:45."
+    },
+    {
+      "title": "Losing My Mind",
+      "album": "Lifeforms",
+      "year": 2021,
+      "bpm": 113,
+      "vibe": "Love as madness · official music video · going beautifully insane",
+      "dna": "113 BPM. Official music video released. Love as the thing that makes you lose your mind — in the best possible way. The beautiful madness of overwhelming feeling. One of the Lifeforms' more melodically accessible tracks.",
+      "style_prompt": "Mid-tempo melodic alternative rock, 113 BPM, Brad Delson and DeLonge Lifeforms production, love-as-beautiful-madness lyric, losing-your-mind-for-love theme, melodically accessible official video track, under 3:55",
+      "lyric_prompt": "Write a mid-tempo melodic rock song about going beautifully insane because of love — losing your mind in the best possible way. The narrator is fully aware they are not thinking rationally and is completely at peace with it. Under 3:55."
+    },
+    {
+      "title": "Automatic",
+      "album": "Lifeforms",
+      "year": 2021,
+      "bpm": 88,
+      "vibe": "Love as automatic response · instinctive and involuntary · body over mind",
+      "dna": "88 BPM. Love as automatic: a response you cannot control, an involuntary action. The body knows before the mind catches up. The Lifeforms production gives this a punchy, physical quality.",
+      "style_prompt": "Atmospheric punchy alternative rock, 88 BPM, Brad Delson and DeLonge Lifeforms production, love-as-automatic-involuntary-response lyric, body-over-mind theme, punchy physical quality, under 3:25",
+      "lyric_prompt": "Write an atmospheric rock song about love as an automatic response — involuntary, instinctive, happening before the mind can intervene. The narrator's body responds to this person before thought is possible. Under 3:25."
+    },
+    {
+      "title": "Restless Souls",
+      "album": "Lifeforms",
+      "year": 2021,
+      "bpm": 110,
+      "vibe": "Searching souls · always looking · Lifeforms visualizer track",
+      "dna": "110 BPM. Visualizer released. Restless souls: the people who cannot settle, who are always searching for something more, who find peace only in movement and seeking. An AVA anthem for their particular fanbase — the searchers.",
+      "style_prompt": "Mid-tempo searching atmospheric rock, 110 BPM, Brad Delson and DeLonge Lifeforms production, restless-souls-always-searching lyric, anthem for seekers, visualizer track, under 3:50",
+      "lyric_prompt": "Write a mid-tempo atmospheric rock song for the restless souls — the people who cannot settle, who are always searching for something more, who find peace only in movement and seeking. This is their anthem. Under 3:50."
+    },
+    {
+      "title": "Rebel Girl",
+      "album": "Lifeforms",
+      "year": 2021,
+      "bpm": 125,
+      "vibe": "Official music video · rebellious energy · female-addressed rock anthem",
+      "dna": "125 BPM. Official music video released. Peaked at number 49 on Rock & Alternative Airplay. About a rebellious girl — a woman who doesn't conform, who defies expectations, who is irresistible precisely because of her refusal to be ordinary. One of Lifeforms' more energetic tracks.",
+      "style_prompt": "Upbeat rebellious alternative rock, 125 BPM, Brad Delson and DeLonge Lifeforms production, rebel-girl lyric — woman who defies expectation, official video and charted single, Rock and Alternative Airplay, energetic within AVA framework",
+      "lyric_prompt": "Write an upbeat rock song about a rebel girl — a woman who refuses to conform, who defies every expectation, who is completely herself regardless of what anyone wants her to be. The narrator is in awe of her refusal to be ordinary. Under 3:50."
+    },
+    {
+      "title": "A Fire in a Nameless Town",
+      "album": "Lifeforms",
+      "year": 2021,
+      "bpm": 103,
+      "vibe": "Anonymous catastrophe · somewhere specific and everywhere · fire as transformation",
+      "dna": "103 BPM. The fire in a nameless town: a catastrophe that could be anywhere, that represents all catastrophes. The namelessness makes it universal. Fire as both destruction and transformation. One of the more literary Lifeforms titles.",
+      "style_prompt": "Mid-tempo literary atmospheric rock, 103 BPM, Brad Delson and DeLonge Lifeforms production, universal-catastrophe-in-anonymous-location lyric, namelessness-makes-it-universal, fire-as-transformation, under 3:35",
+      "lyric_prompt": "Write a mid-tempo atmospheric rock song about a fire in a nameless town — a catastrophe that could be anywhere and therefore is everywhere, that represents every small crisis that goes unrecorded. The narrator witnesses something specific but universal. Under 3:35."
+    },
+    {
+      "title": "Kiss & Tell",
+      "album": "Lifeforms",
+      "year": 2021,
+      "bpm": 85,
+      "vibe": "Lifeforms closer · official music video · secret love made public · confession",
+      "dna": "85 BPM. Official music video released. The phrase 'kiss and tell': confessing a secret love, making public what was private. Closes Lifeforms — and as the band's most recent studio album closer, functions as the current final word of the AVA catalog. DeLonge sounding invigorated per Kerrang!",
+      "style_prompt": "Slow atmospheric closing alternative rock, 85 BPM, Brad Delson and DeLonge Lifeforms closing track, kiss-and-tell confession lyric, secret-made-public theme, official video album closer, DeLonge on fine form, current final word of AVA catalog, under 4:10",
+      "lyric_prompt": "Write a slow atmospheric closing rock song about kissing and telling — confessing a secret love, making public what has been private, the moment when you stop protecting something and let it be known. This is the last song on the most recent album: it should feel like a final honest confession. Under 4:10."
+    }
+  ],
+  "albums": [
+    {
+      "title": "We Don't Need to Whisper",
+      "year": 2006,
+      "style_prompt": "Vast cathedral-reverb space rock debut, Jeff Critter Newell production, 70–90 BPM slow tempo, DeLonge wide-vibrato tenor vocal, multiple reverb-drenched guitar layers, cinematic synthesizer pads, extended runtimes 4–7 minutes, post-punk meets atmospheric rock, Blink-182 hiatus context, San Diego 2006, went gold in US and Canada",
+      "lyric_prompt": "Write a We Don't Need to Whisper-era AVA song: slow, vast, and completely earnest about love, humanity, and consciousness. The emotional world: a man who has left the world's biggest pop-punk band and is making the most important rock music ever made (his words). The lyric should be philosophical and grand without being cynical — DeLonge means every enormous word. Choose: love as the answer to war, the beauty of human potential, or the specific quality of someone who makes the world make sense. Extended runtime permitted. Under 6 minutes."
+    },
+    {
+      "title": "I-Empire",
+      "year": 2007,
+      "style_prompt": "Polished vast atmospheric rock, Jeff Critter Newell more refined than debut, 84–98 BPM, DeLonge wide-vibrato vocal at its most accessible, I-Empire individual-as-empire philosophy, everything's magic synth-rock energy, vast reverb but more radio-accessible, Matt Wachter bass addition, Geffen Records 2007",
+      "lyric_prompt": "Write an I-Empire-era AVA song around the central philosophy of the individual as an empire: one person who contains multitudes, who can change the world, who is their own universe. The emotional world: a band making their case to the mainstream that these slow, vast, earnest songs are the most important thing happening in rock. Choose: the individual's power to transform reality through love, the magic that love casts over everything, or the call to other restless souls to wake up to their own potential. Under 5 minutes."
+    },
+    {
+      "title": "Love / Love Part Two",
+      "year": 2010,
+      "style_prompt": "Self-produced cinematic space rock double album, DeLonge without Jeff Critter Newell, tied to William Eubank film Love, 70–154 BPM wide range, Valentine's Day 2010 free release most-downloaded-album-in-history, most ambitious AVA production, cosmos and love as unified subject, extended runtimes throughout",
+      "lyric_prompt": "Write a Love-era AVA song in the spirit of the double album tied to a film about a solitary astronaut. The emotional world: love examined from every angle — cosmic, personal, mythological, philosophical — across an album released for free on Valentine's Day as a gift to the world. Choose: the Apollo mission as love metaphor, love as the only thing that survives any apocalypse, or the specific surrender to something larger than yourself. Extended runtime permitted. Under 6 minutes."
+    },
+    {
+      "title": "The Dream Walker",
+      "year": 2014,
+      "style_prompt": "Rawer alternative rock, DeLonge and Ilan Rubin duo production, no David Kennedy no Matt Wachter, Aaron Rubin co-producer, 104–128 BPM faster than Love era, Poet Anderson multimedia concept — dreams as navigable landscape, less reverb-heavy more direct, To The Stars Records",
+      "lyric_prompt": "Write a Dream Walker-era AVA song within the Poet Anderson concept: a world where the dream landscape is navigable, where dream walkers move between sleeping and waking reality, where consciousness itself is a frontier. Rawer and more direct than the Love era. Choose: the tunnel between waking and dreaming, the wolfpack of like-minded dream explorers, or the anomaly who doesn't belong to ordinary reality. Under 4:30."
+    },
+    {
+      "title": "Lifeforms",
+      "year": 2021,
+      "style_prompt": "Invigorated guitar-forward alternative rock, Brad Delson co-production, brighter and punchier than Love era, 85–135 BPM range, Rise Records 2021, DeLonge post-UFO-disclosure-work energy, Kerrang! noted DeLonge on fine form, sci-fi alt-rock take, more immediate than Love era philosophy",
+      "lyric_prompt": "Write a Lifeforms-era AVA song: DeLonge returning from years of UFO disclosure work and multimedia projects, sounding invigorated (Kerrang!) and making brighter more guitar-forward rock. The emotional world: love and existence examined through a sci-fi lens — life in all its forms, the universe as a living thing, the specific joy of being alive right now. More immediate and less slow-burn than the Love era. Choose: euphoria as a destination, the restless souls who keep searching, or the rebel who refuses every ordinary framework. Under 4:30."
+    }
+  ]
+}

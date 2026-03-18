@@ -1,0 +1,101 @@
+{
+  "id": "ratm",
+  "name": "Rage Against the Machine",
+  "genres": ["Rap-Metal", "Funk-Metal", "Hip-Hop", "Alternative Metal"],
+  "era": "1991–2011",
+  "color": "#ffa502",
+  "bio": "Tom Morello, Zack de la Rocha, Tim Commerford, Brad Wilk. None of their albums were recorded with a click track — all have natural tempo drift. Mean tempo ~98 BPM. Morello identifies as a DJ using his guitar — using the kill switch rhythmically, imitating record scratching, employing a DigiTech Whammy pedal. De la Rocha combines rap verses with screamed slogans.",
+  "producer_notes": "Self-titled debut (1992): raw, producer Garth Richardson. Evil Empire (1996): Rick Rubin. Battle of Los Angeles (1999): Rick Rubin, tighter and more aggressive. Suno note: RATM content pushes hardest against content filters — frame as anti-authoritarian rather than explicitly radical.",
+  "songs": [
+    {
+      "title": "Wake Up",
+      "album": "Rage Against the Machine",
+      "year": 1992,
+      "bpm": 93,
+      "vibe": "The Matrix closing track · political awakening",
+      "dna": "Famous for ending The Matrix. Slow, heavy, hypnotic. The Ibanez DFL Flanger set to a slow sweep creates the distinctive swirling guitar intro texture. Builds through repeated escalation to de la Rocha's screamed finale. About political consciousness.",
+      "style_prompt": "Heavy hypnotic rap-metal, 93 BPM, slow flanger-sweep guitar intro building to slinky funk-metal verse riff, hip-hop vocal delivery in verses — conversational political rhyming, minimal sparse guitar during verses, Brad Wilk thunderous groove drumming, builds through escalation to screamed sloganeering climax, no click-track looseness, powerful and deliberate, political awakening lyric, under 6 minutes",
+      "lyric_prompt": "Write a slow, hypnotic rap-metal song about political awakening — the moment someone realizes that the systems around them are not neutral or benevolent but designed. The verses are delivered as controlled, rhyming observation — naming what is hidden in plain sight. The energy builds through the song as urgency increases. The climax is a repeated screamed call for people to open their eyes. The tone is not hopeless — it's enraged and certain that awareness itself is a revolutionary act. Under 6 minutes. The song that ends a movie about escaping a false reality."
+    },
+    {
+      "title": "Sleep Now in the Fire",
+      "album": "The Battle of Los Angeles",
+      "year": 1999,
+      "bpm": 96,
+      "vibe": "Wall Street confrontation · Michael Moore video",
+      "dna": "During filming of the Michael Moore-directed video, the band caused the New York Stock Exchange to close its doors. Morello's guitar riff is jabbing, rhythmic, almost industrial. Targets global capitalism and American empire.",
+      "style_prompt": "Industrial-funk rap-metal, 96 BPM, jabbing rhythmic guitar riff — almost percussive, no sustain, tight and aggressive, Brad Wilk thunderous pocket groove, de la Rocha-style rapid-fire political rap delivery in verses, sneering contemptuous chorus hook, BOLA-era tighter production than debut, Wall Street and empire as lyric target, under 3:30, relentless and locked in",
+      "lyric_prompt": "Write a jabbing, industrial rap-metal song targeting global financial power — the stock exchange, corporate empire, wealth that feeds on suffering. The verses are rapid-fire indictments delivered with contemptuous precision. The chorus is sardonic: addressing the powerful with a sneer, telling them to sleep comfortable in the fire they've built. The irony is cold: they profit while the world burns and call it civilization. Under 3:30. Every line is a specific accusation, not a general complaint."
+    },
+    {
+      "title": "Guerrilla Radio",
+      "album": "The Battle of Los Angeles",
+      "year": 1999,
+      "bpm": 98,
+      "vibe": "Morello wah guitar · anti-media anthem",
+      "dna": "Morello used his wah pedal prominently — creates the song's funky-aggressive texture. Tim Commerford's bass intro is one of the most recognizable in hard rock. Targets corporate media control.",
+      "style_prompt": "Bass-forward funk rap-metal, 98 BPM, prominent bass guitar intro and groove, wah-filtered guitar creating funky-aggressive texture, hip-hop verse delivery over metal groove, Brad Wilk thunderous pocket, anti-corporate-media lyric, simple powerful chorus hook — broadcast the truth, BOLA production clarity, under 3:30, the most groove-forward RATM energy, locked rhythmic pocket throughout",
+      "lyric_prompt": "Write a groove-forward rap-metal song about the power of independent, uncontrolled media — a pirate radio station, an uncensored signal cutting through corporate noise. The verses name what corporate media buries: who benefits from what gets covered, who gets silenced. The chorus is a rallying call to broadcast the truth regardless of who controls the dial. The tone is urgent and righteous rather than despairing. Under 3:30. The bass drives everything."
+    },
+    {
+      "title": "Bulls on Parade",
+      "album": "Evil Empire",
+      "year": 1996,
+      "bpm": 92,
+      "vibe": "Guitar-as-turntable scratch solo · military industrial complex",
+      "dna": "Morello uses his guitar's pickup selector toggle as a kill switch to imitate record scratching near the end. De la Rocha accompanied by an ingeniously minimal riff. Perhaps the finest distillation of the RATM sonic Molotov cocktail. Targets the military-industrial complex.",
+      "style_prompt": "Minimal-riff funk-metal, 92 BPM, hypnotically spare guitar riff — almost nothing, Brad Wilk thunderous groove, de la Rocha rapid-fire political rhyming over the pocket, guitar kill-switch scratch solo simulating a turntable, military-industrial complex as lyric target, Evil Empire era tighter production, under 3:50, the groove carries everything, guitar solo is the climax",
+      "lyric_prompt": "Write a funk-metal song targeting the military-industrial complex — the political machine that prioritizes weapons contracts over food, shelter, and shoes. Name the hypocrisy: leaders who claim family values while funding death. The verses are precise indictments delivered over a hypnotic minimal groove. The chorus is a single overwhelming image of what the machine produces. Include the phrase 'weapons not food' or equivalent as a central line. Under 3:50. The groove should feel like a march to the guillotine."
+    },
+    {
+      "title": "Killing in the Name",
+      "album": "Rage Against the Machine",
+      "year": 1992,
+      "bpm": 86,
+      "vibe": "UK Christmas #1 2009 · Whammy solo · escalating refusal climax",
+      "dna": "DigiTech Whammy on the guitar solo, Ibanez DFL Flanger on the intro. The closing escalation — repeated 'Fuck you I won't do what you tell me' building to a scream — is one of the most cathartic moments in rock history. Targets institutional racism and police brutality.",
+      "style_prompt": "Slow heavy groove rap-metal, 86 BPM, flanger-textured opening riff, Whammy-pedal distorted guitar solo, Brad Wilk thunderous slow pocket, escalating closing section — repeated defiant refusal building from spoken to full scream, institutional power and systemic racism as lyric core, most cathartic climax in the set, under 5:15, the chorus IS the escalation",
+      "lyric_prompt": "Write a slow, heavy rap-metal song about institutional power doing harm in the name of authority — systems that protect themselves while claiming to protect others. The verses name this contradiction with controlled, precise anger. The song must end with an escalating refusal section — a single defiant phrase repeated, starting quiet and spoken, building through the entire band to an absolute full-volume scream. This escalation IS the song's emotional point. The refusal to comply is the revolutionary act. Under 5:15. The most cathartic ending in the set."
+    },
+    {
+      "title": "Bullet in the Head",
+      "album": "Rage Against the Machine",
+      "year": 1992,
+      "bpm": 88,
+      "vibe": "Media lobotomy metaphor · cable-tap guitar effect",
+      "dna": "Morello created the distinctive guitar effect by tapping a pickup with the guitar's unplugged cable connector. Targets media hypnosis — television as a bullet in the head, destroying critical thought.",
+      "style_prompt": "Heavy aggressive debut-era rap-metal, 88 BPM, distinctive percussive guitar effect created by cable-tapping — industrial clicking texture, Brad Wilk relentless heavy groove, media-hypnosis lyric with controlled paranoid energy, de la Rocha rapid warning-delivery verses, warning chorus hook about passive consumption, under 5 minutes, debut album rawness and aggression",
+      "lyric_prompt": "Write a heavy rap-metal song about the media as a weapon of mass distraction — television, social media algorithms, entertainment that keeps people passive and manageable. The central metaphor is passive consumption as a self-inflicted wound. The verses name specific mechanisms of distraction. The chorus is a warning: this thing you think is entertainment is shaping your brain. The anger is directed at the system that designs the distraction AND at the willingness to accept it. Under 5 minutes."
+    },
+    {
+      "title": "Down Rodeo",
+      "album": "Evil Empire",
+      "year": 1996,
+      "bpm": 84,
+      "vibe": "Class war · Beverly Hills imagery",
+      "dna": "One of Evil Empire's longest and heaviest tracks. Brings the class war to Rodeo Drive. De la Rocha's verse delivery is at its most snarling. The song is about what happens when the excluded masses finally march on the places that exclude them.",
+      "style_prompt": "Slow seething heavy rap-metal, 84 BPM, particularly heavy guitar riff — snarling and low, Brad Wilk thunderous slow groove, de la Rocha most snarling delivery, class war lyric with wealthy enclave as central image, Evil Empire production weight, under 5:30, luxury district imagery contrasting with street-level fury, the most heavy and seething RATM energy",
+      "lyric_prompt": "Write a slow, seething rap-metal song about class war — specifically about bringing the rage of the excluded to the places that represent their exclusion: the luxury shopping district, the gated community, the private club. The lyric should contrast the specific details of wealth (specific stores, specific items, specific behaviors) with the fury of those kept outside. The chorus is about what happens when the gates finally come down. Snarling and specific. Under 5:30."
+    },
+    {
+      "title": "Freedom",
+      "album": "Rage Against the Machine",
+      "year": 1992,
+      "bpm": 98,
+      "vibe": "Debut album closer · Leonard Peltier dedication",
+      "dna": "Dedicated to Leonard Peltier. Builds from a quiet intro to an intense climax. De la Rocha screams 'freedom' repeatedly at the climax. The outro is abstract noise dissolving the song. One of their most hopeful-while-furious songs.",
+      "style_prompt": "Debut-era political rap-metal, 98 BPM, quiet textured intro building to full-band heavy groove, de la Rocha controlled rhyming verses building to screamed climax — freedom repeated at maximum intensity, dedication to a specific named injustice rather than abstract politics, Morello abstract noise outro dissolving into silence, under 6 minutes, hopeful fury rather than pure rage, the word FREEDOM as the climax",
+      "lyric_prompt": "Write a rap-metal song dedicated to a specific political prisoner or named injustice — not abstract, but a real person whose story illustrates a systemic wrong. The verses tell their story with precision: who they are, what was done to them, who benefits from their imprisonment. The song builds to a climax that repeats the word 'freedom' with increasing fury — not as a platitude but as a demand. End with a dissolving, abstract outro. Under 6 minutes. The most hopeful-while-furious song in the set."
+    },
+    {
+      "title": "Calm Like a Bomb",
+      "album": "The Battle of Los Angeles",
+      "year": 1999,
+      "bpm": 90,
+      "vibe": "Slow fuse energy · longest BOLA track",
+      "dna": "BOLA's longest track at 4:58. Entirely controlled fury in the first two thirds, then detonating completely in the final third. De la Rocha's delivery is at its most controlled in the verses. Morello's guitar work is particularly inventive — different textures building pressure.",
+      "style_prompt": "Controlled-pressure rap-metal, 90 BPM, most relentlessly locked RATM groove, de la Rocha most controlled verse delivery — fury contained and building, diverse Morello guitar textures building pressure through the song, the explosion comes in the final third and is total, BOLA production at its tightest, 4:30–5 minute runtime, the title IS the instruction for the emotional arc — calm then bomb",
+      "lyric_prompt": "Write a rap-metal song structured like a slow-burning fuse — entirely controlled in the first two thirds, then detonating completely in the final third. The verses are delivered calmly, precisely, with mathematical fury: cataloguing injustice, naming names, describing what has been done. The delivery is terrifyingly composed. Then the final section ignites — the control breaks, the bomb goes off, the screaming begins. The title concept IS the arc: calm like a bomb. Under 5 minutes. The contrast between the two halves is the entire point."
+    }
+  ]
+}

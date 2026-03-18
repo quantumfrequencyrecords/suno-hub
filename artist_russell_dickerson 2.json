@@ -1,0 +1,521 @@
+{
+  "id": "russell_dickerson",
+  "name": "Russell Dickerson",
+  "genres": ["Country-Pop", "Country", "Country-Soul", "Contemporary Country"],
+  "era": "2015–2025",
+  "color": "#e8943a",
+  "bio": "Born May 7, 1987 in Union City, Tennessee. Graduated from Belmont University with a degree in music. Signed with Triple Tigers Records in 2016. Has five Billboard Country Airplay number ones: 'Yours' (3× Platinum), 'Blue Tacoma' (2× Platinum), 'Every Little Thing' (Platinum), 'Love You Like I Used To' (2× Platinum), and 'Happen to Me.' Career total of 3 billion streams. Writes almost exclusively about his wife Kailey and their family. Described as 'the happy-side of country' — committed to feel-good reflection and emotional positivity when the genre trends dark. Co-produced with Casey Brown on early albums and Josh Kerr on later albums.",
+  "producer_notes": "Casey Brown — signature clean bright Nashville sheen on Yours and Southern Symphony; acoustic guitar, bouzouki, keyboards. Josh Kerr — co-produced self-titled and Famous Back Home; wider sonic range, 80s rock crunch and modern beats. All albums on Triple Tigers Records. R&B rhythms woven into bright country-pop throughout his catalog. Co-writes every song except two outside cuts on Famous Back Home.",
+  "songs": [
+
+    {
+      "title": "Every Little Thing",
+      "album": "Yours",
+      "year": 2017,
+      "bpm": 145,
+      "vibe": "Third #1 single · 3× Platinum · the small details that prove love",
+      "dna": "Third number one single from Yours and the album's biggest commercial breakthrough at the time. Platinum certified. The lyric is built on the same principle as 'Yours' — hyperspecific small details that accumulate into overwhelming love. 'Your blue eyes, your bedhead / Oh I'd die for you instead' — specific sensory details rather than generic romance. Produced by Casey Brown with his signature bright sheen. 145 BPM gives it an energetic uplift that suited radio perfectly.",
+      "style_prompt": "Bright uptempo country-pop, 145 BPM, acoustic guitar-driven with punchy drum groove, pedal steel accents, Casey Brown clean Nashville production, male tenor vocal earnest and joyful, layered harmonies on chorus, specific sensory-detail lyric style cataloguing small moments of love, singalong radio-ready hook, warm organic country warmth",
+      "lyric_prompt": "Write an uptempo country-pop song built on the principle that it's the small, specific, unremarkable details about someone that prove you love them — not grand gestures but the particular way they sleep, the sound of their laugh, the specific thing they do that no one else does. The narrator catalogues these details with delighted specificity. The chorus is the declaration: every little thing about you. Replace every generic romance line with a sensory-specific image. Under 3:30."
+    },
+    {
+      "title": "Yours",
+      "album": "Yours",
+      "year": 2017,
+      "bpm": 134,
+      "vibe": "Breakthrough #1 single · 3× Platinum · The Knot 'best first dance song'",
+      "dna": "Lead single from the debut album. First released independently July 23, 2015, serviced to radio April 24, 2017 after signing with Triple Tigers. Spent 39 weeks climbing to number 1. The Knot called it 'everything a first dance song should be.' Co-written by Dickerson, Casey Brown, and Parker Welling — the core writing team of his early catalog. B major, 134 BPM. Written about his wife Kailey — a man who was directionless before she gave him purpose.",
+      "style_prompt": "Warm devotion country-pop, 134 BPM, acoustic guitar-driven with soaring electric accents, pedal steel warmth, male tenor vocal earnest and full-hearted, sweeping emotional chorus with layered harmonies, Casey Brown polished Nashville production, first-dance energy but not slow — upbeat heartfelt, R&B vocal phrasing over country instrumentation, deeply romantic without sentimentality",
+      "lyric_prompt": "Write a deeply romantic country-pop song from a man declaring complete joyful belonging to the woman he loves. Before her he was directionless and lost — she gave him a reason, an anchor, a home. The chorus is a pure declaration of devotion: she is everything he belongs to. Lyrically specific and tender — not generic romance but the particular way she makes him feel rooted. The bridge is a moment of overwhelming gratitude, almost speechless. This is a first-dance song that also works as an anthem. Avoid clichés — replace every generic love lyric with a specific image. Under 3:40."
+    },
+    {
+      "title": "Blue Tacoma",
+      "album": "Yours",
+      "year": 2017,
+      "bpm": 138,
+      "vibe": "Second #1 single · 2× Platinum · truck as love symbol · carefree country joy",
+      "dna": "Second number one from Yours, 2× Platinum. The Blue Tacoma functions as a symbol of freedom and love — the truck where everything happened, where everything was possible. Casey Brown production with his signature bright country-pop sheen. Infectious, carefree, summer energy. More uptempo and playful than 'Yours,' showing range within the debut album.",
+      "style_prompt": "Carefree uptempo country-pop, 138 BPM, bright acoustic guitar and electric guitar interplay, Casey Brown clean Nashville production, male vocal charming and playful, truck-as-freedom-symbol lyric, summer carefree energy, pedal steel accents, singalong chorus, R&B rhythmic influence in the groove, warm major key",
+      "lyric_prompt": "Write a carefree country-pop song where a truck becomes the central symbol of freedom and love — the vehicle where everything important happened, where life felt most open and possible. The narrator catalogues all the memories tied to this truck and the person who rode in it with him. The tone is playful and sun-soaked — this is summer and possibility, not wistfulness. The chorus is the declaration of what that truck means to him. Under 3:30."
+    },
+    {
+      "title": "Billions",
+      "album": "Yours",
+      "year": 2017,
+      "bpm": 128,
+      "vibe": "Scale of love as cosmic concept · deep cut Yours album",
+      "dna": "Album track from Yours exploring the cosmic scale of love — 'billions and billions' as a way of describing something too large for conventional expression. A deeper cut on the debut, less radio-friendly than the singles but showcasing the lyrical ambition that earned Dickerson his reputation as a songwriter. Casey Brown production.",
+      "style_prompt": "Mid-tempo cosmic-scale love country-pop, 128 BPM, Casey Brown production, acoustic-forward with warm electric accents, male vocal earnest and reaching for something large, pedal steel warmth, chorus builds to expansive declaration of love's scale, major key warmth",
+      "lyric_prompt": "Write a country-pop song that tries to describe the scale of love using the largest numbers and largest concepts available — billions of stars, billions of years, the incomprehensible vastness of the universe as the only adequate comparison for how this person makes the narrator feel. The tone is earnest and slightly awestruck. The verses build from small specific moments to the cosmic chorus declaration. Under 3:30."
+    },
+    {
+      "title": "All Fall Down",
+      "album": "Yours",
+      "year": 2017,
+      "bpm": 125,
+      "vibe": "Vulnerability in love · admitting you fall hard · Yours deep cut",
+      "dna": "Album track from Yours about the vulnerability of falling completely in love — acknowledging that when you love someone this much, you fall completely. More introspective than the uptempo singles. Shows the emotional range of the debut album.",
+      "style_prompt": "Mid-tempo vulnerable country-pop, 125 BPM, acoustic-forward Casey Brown production, male vocal tender and honest, falling-completely-in-love lyric, pedal steel warmth, layered harmonies building on chorus, warm major key, intimate emotional scale",
+      "lyric_prompt": "Write a mid-tempo country-pop song about the vulnerability of loving someone so deeply that you fall completely — acknowledging that this kind of love makes you helpless in the best way. The narrator is confessing this vulnerability with honesty rather than bravado. The verses describe what it feels like to fall this hard. The chorus is the admission: I just fall down for you. Under 3:30."
+    },
+    {
+      "title": "Float",
+      "album": "Yours",
+      "year": 2017,
+      "bpm": 126,
+      "vibe": "Being lifted by love · weightlessness metaphor · Yours album mid-track",
+      "dna": "Album track using the physical sensation of floating as a metaphor for how love makes you feel — weightless, lifted, free from gravity. One of the more lyrically imaginative tracks on Yours. Casey Brown production.",
+      "style_prompt": "Warm mid-tempo country-pop, 126 BPM, weightlessness-of-love metaphor, Casey Brown production, acoustic guitar lead, pedal steel, male vocal light and lifted — the vocal should feel like it's floating, layered harmonies, major key joy",
+      "lyric_prompt": "Write a country-pop song using the sensation of floating — being lifted off the ground, weightless, free from gravity — as a central metaphor for how this person makes you feel. The verses describe the physical sensation of being lifted. The chorus is the declaration of what causes it. The production and vocal performance should feel as light and buoyant as the lyric. Under 3:30."
+    },
+    {
+      "title": "MGNO (My Girl's Night Out)",
+      "album": "Yours",
+      "year": 2017,
+      "bpm": 125,
+      "vibe": "Playful devotion · secure love · happy for her freedom",
+      "dna": "MGNO stands for My Girl's Night Out. A man who is home alone while his wife/girlfriend is out with her friends and rather than insecurity or jealousy, feels pure adoration watching her be free and happy. Secure, charming, slightly self-aware about how besotted he is. Casey Brown production on the Yours album.",
+      "style_prompt": "Warm playful country-pop, 125 BPM, bright acoustic guitar lead, pedal steel accents, punchy mid-tempo drum groove, male vocal charming and utterly secure — no jealousy just adoration, Casey Brown clean Nashville production, slightly humorous but genuinely loving, singalong-ready chorus, secure-in-love energy",
+      "lyric_prompt": "Write a playful warm country-pop song from a man whose girlfriend or wife is out with her friends for the night — and rather than feeling jealous, he is completely genuinely happy for her. He's home alone, probably on the couch, thinking about how much he loves watching her be happy and free. The tone is secure, charming, a little self-aware. The chorus is a celebration of her night out. Include a verse about imagining what she and her friends are doing, delivered with warmth and humor. The bridge is the moment she comes home. Under 3:15."
+    },
+    {
+      "title": "Would You Love Me",
+      "album": "Yours",
+      "year": 2017,
+      "bpm": 120,
+      "vibe": "Hypothetical love question · what if circumstances were different",
+      "dna": "Album track posing the hypothetical — would you love me if things were different, if I were different, if we had met under different circumstances? A deeper question about the nature of the love they have. Slower and more reflective than the album's uptempo tracks.",
+      "style_prompt": "Mid-tempo reflective country-pop, 120 BPM, Casey Brown production, acoustic guitar, pedal steel warmth, male vocal questioning and tender, hypothetical-love lyric, layered harmonies, warm major key, intimate and personal",
+      "lyric_prompt": "Write a reflective country-pop song built on a series of hypothetical questions: would you love me if I were different, if we had met under different circumstances, if I hadn't had this particular past? The narrator is marveling at the specificity of love — that it is this person and not some other version of either of them. The chorus is the central question held gently. Under 3:30."
+    },
+    {
+      "title": "Low Key",
+      "album": "Yours",
+      "year": 2017,
+      "bpm": 118,
+      "vibe": "Quiet intimate love · staying home · preferring each other to the world",
+      "dna": "The low-key preference for staying home with her over going out — the specific joy of preferring the company of one person to everything else the world offers. A quieter, more intimate track on the Yours album.",
+      "style_prompt": "Laid-back intimate country-pop, 118 BPM, understated Casey Brown production, acoustic guitar, male vocal warm and content, staying-home-with-her lyric, pedal steel, nothing-else-matters-but-you theme, low-key energy that matches the lyric",
+      "lyric_prompt": "Write a laid-back country-pop song about preferring to stay home with one person over everything else the world offers — not because the narrator is antisocial but because being with her is simply better than anywhere else they could be. The tone is quietly euphoric — deeply content rather than dramatically romantic. The verses describe all the things they could be doing but choose not to because this is better. The chorus is the low-key declaration. Under 3:30."
+    },
+    {
+      "title": "You Look Like a Love Song",
+      "album": "Yours",
+      "year": 2017,
+      "bpm": 122,
+      "vibe": "Meta-romantic · she IS the love song · songwriter's perspective on his muse",
+      "dna": "A meta-romantic conceit from a songwriter's perspective — she doesn't just inspire love songs, she IS a love song. The lyric bends back on itself: the narrator is a songwriter and the woman he loves has become indistinguishable from the songs she inspires. One of the more creatively interesting Yours deep cuts.",
+      "style_prompt": "Mid-tempo meta-romantic country-pop, 122 BPM, Casey Brown production, acoustic guitar, male vocal delighted and playful, songwriter-perspective lyric — she is the love song not just the inspiration, pedal steel, warm major key, singalong hook",
+      "lyric_prompt": "Write a meta-romantic country-pop song from a songwriter's perspective — the woman he loves has become so intertwined with his music that she doesn't just inspire love songs, she IS one. The narrator describes her in the language of music: she has verses, a hook, a bridge, a key that makes everything resolve. The chorus is the declaration that she looks like a love song to him. Under 3:30."
+    },
+    {
+      "title": "Twentysomething",
+      "album": "Yours",
+      "year": 2017,
+      "bpm": 130,
+      "vibe": "Young love and the twenties · making it work in your twenties",
+      "dna": "The specific experience of being in your twenties and figuring out love and life simultaneously — broke, uncertain, but having each other. A relatable portrait of early adult life.",
+      "style_prompt": "Upbeat nostalgic country-pop, 130 BPM, Casey Brown production, acoustic-forward, male vocal warm and slightly nostalgic, twenties-era young love lyric — broke but happy, pedal steel, singalong chorus, major key warmth and optimism",
+      "lyric_prompt": "Write an upbeat country-pop song about being in your twenties and figuring out love and life at the same time — broke, uncertain, not sure where you're going, but having each other and that being enough. The tone is warmly nostalgic for a time that was hard but felt full of possibility. The verses describe the specific broke-twenties details: the cheap apartment, the secondhand furniture, the big dreams. The chorus is the joy of having chosen each other through all of it. Under 3:30."
+    },
+
+    {
+      "title": "Never Get Old",
+      "album": "Southern Symphony",
+      "year": 2020,
+      "bpm": 148,
+      "vibe": "Album opener · foot-stomping uptempo · moments that never get old",
+      "dna": "Opens Southern Symphony with immediate energy. A lyric video was released on Vevo in advance of the album. Foot-stomping uptempo country jam — the reviewer for Entertainment Focus called it 'an example of Dickerson at his best.' The moments that never get old: specific moments shared with someone you love that remain as fresh as the first time.",
+      "style_prompt": "Foot-stomping uptempo country-pop, 148 BPM, Casey Brown production, bright acoustic and electric guitar drive, punchy snare, male vocal energetic and warm, specific-shared-moments lyric that never gets old, layered harmonies, singalong chorus, Southern Symphony opening energy",
+      "lyric_prompt": "Write a foot-stomping uptempo country-pop song about the specific moments shared with someone you love that never get old no matter how many times you repeat them: the same song, the same restaurant, the same inside joke, the same Saturday morning ritual. The narrator catalogues these moments with specific detail. The chorus is the declaration that they never get old. High energy from the first second. Under 3:30."
+    },
+    {
+      "title": "Home Sweet",
+      "album": "Southern Symphony",
+      "year": 2020,
+      "bpm": 121,
+      "vibe": "Home = wherever she is · humble beginnings · B major",
+      "dna": "B major, 121 BPM. The opening verse: 'Touching down from a six-night honeymoon / Sun-kissed kids, still drunk on love / Went from all-inclusive margaritas in Malibu / To praying we could pay rent this month.' The chorus: 'Home sweet, you and me / Ain't got much but we got all we need.' Core idea: home isn't a place, it's her. Warm and domestic, celebrating the simple life together.",
+      "style_prompt": "Warm domestic country-pop, 121 BPM, bright acoustic guitar, pedal steel warmth, hand claps, male vocal tender and content, Casey Brown production, home-is-a-person lyric, simple-life-celebration energy, porch-swing Sunday atmosphere, layered harmonies on chorus",
+      "lyric_prompt": "Write a warm domestic country-pop song built on the idea that home is not a place — it's a person. A man who has traveled, struggled financially, moved around, and through it all found that wherever she is, that's home. Contrast moments of not-quite-having-it-together (tight on money, a small apartment, long drives) with the feeling of total contentment when they're together. The chorus is a simple joyful declaration: home sweet, you and me, ain't got much but we got all we need. Include a verse about a specific humble moment. Under 3:30."
+    },
+    {
+      "title": "All Yours, All Night",
+      "album": "Southern Symphony",
+      "year": 2020,
+      "bpm": 140,
+      "vibe": "Soaring devotion anthem · Dickerson's strongest vocal Southern Symphony",
+      "dna": "Described by the Entertainment Focus reviewer as 'the kind of soaring anthem Dickerson excels at' and as 'shows off his vocals.' An all-yours devotion declaration that functions as one of the Southern Symphony album's most vocally ambitious tracks. Casey Brown production at its most polished.",
+      "style_prompt": "Soaring uptempo devotion country-pop, 140 BPM, Casey Brown polished production, male vocal at its most powerful range — built to show off the upper register, electric guitar soar, pedal steel, sweeping chorus with full harmonies, all-night devotion declaration, major key grandeur",
+      "lyric_prompt": "Write a soaring uptempo devotion anthem declaring that the narrator is completely, entirely, unreservedly theirs — tonight and every night. The lyric should have a scale that matches the vocal ambition: this is a big declaration, not a quiet one. The verses build the case, detailing what 'all yours' means in specific terms. The chorus is the declaration at full volume. Include a bridge where the narrator describes what having her means to the rest of his life. Under 3:30."
+    },
+    {
+      "title": "Love You Like I Used To",
+      "album": "Southern Symphony",
+      "year": 2020,
+      "bpm": 136,
+      "vibe": "Fourth #1 single · 2× Platinum · lead single · long-term love that stays fresh",
+      "dna": "Lead single from Southern Symphony and fourth number one. 2× Platinum. The central idea is the promise that in a long marriage, love doesn't have to fade — he still loves her exactly the way he did at the beginning. A counter-narrative to the cultural assumption that love inevitably cools over time. Casey Brown production. Became a country radio staple throughout 2020-2021.",
+      "style_prompt": "Warm mid-tempo devotion country-pop, 136 BPM, Casey Brown polished Southern Symphony production, male vocal earnest and romantic, long-marriage-stays-fresh lyric, acoustic guitar, pedal steel warmth, layered harmonies on chorus, radio-ready hook, major key warmth",
+      "lyric_prompt": "Write a warm country-pop song about long-term love that refuses to fade — the specific and deliberate choice to love your partner the way you did when everything was new. The narrator is pushing back against the assumption that love inevitably cools after years together. The verses describe specific current moments that feel as electric as early love. The chorus is the promise: I still love you like I used to. Under 3:30."
+    },
+    {
+      "title": "Forever for a Little While",
+      "album": "Southern Symphony",
+      "year": 2020,
+      "bpm": 122,
+      "vibe": "Traditional country phrasing · contradictory title · impermanence of youth",
+      "dna": "The title is deliberately contradictory — forever for a little while — capturing the feeling that certain moments feel eternal while also being fleeting. More traditional country production than some Southern Symphony tracks. A lyric about the specific quality of young love that feels like forever even though it doesn't last.",
+      "style_prompt": "Mid-tempo traditional-leaning country-pop, 122 BPM, more organic traditional production than typical Dickerson — fiddle accents, acoustic guitar, male vocal warm and slightly nostalgic, forever-but-fleeting lyric, pedal steel, Casey Brown production with traditional country lean, under 3:30",
+      "lyric_prompt": "Write a country-pop song built on the paradox of 'forever for a little while' — the specific quality of love that feels eternal in the moment but is actually finite. The narrator is reflecting on a love (or a moment, or a summer) that felt like it would last forever but didn't, and finding the beauty in the fact that it felt that way. The chorus holds the paradox with warmth rather than sadness. Under 3:30."
+    },
+    {
+      "title": "It's About Time",
+      "album": "Southern Symphony",
+      "year": 2020,
+      "bpm": 142,
+      "vibe": "Florida Georgia Line feature · contemporary pop/hip-hop fusion · long-awaited collaboration",
+      "dna": "Long-awaited collaboration with Tyler Hubbard and Brian Kelley of Florida Georgia Line. Described as 'contemporary pop/hip-hop fusion' by critics — the most genre-diverse Southern Symphony track. The three vocalists trading verses and chorus sections. A celebration of timing — things coming together at exactly the right moment.",
+      "style_prompt": "Contemporary country-pop with hip-hop fusion, 142 BPM, three-vocal collaboration energy, modern production with hip-hop rhythmic influence, Florida Georgia Line-style vocal tag-team, Casey Brown with more contemporary production sheen, uptempo celebration of right-time-right-place, singalong hook",
+      "lyric_prompt": "Write an uptempo contemporary country-pop song with hip-hop production influence about timing — things coming together at exactly the right moment, meeting the right person at the right time, the pieces of life clicking into place. The tone is celebratory and slightly swagger-inflected. Three different vocalists could trade verses. The chorus is the declaration: it's about time. Under 3:30."
+    },
+    {
+      "title": "Honey",
+      "album": "Southern Symphony",
+      "year": 2020,
+      "bpm": 128,
+      "vibe": "Sweet nickname as whole song · domestic warmth · mid-album warm spot",
+      "dna": "A song built around the endearment 'honey' — exploring all the ways that one word between two people contains the entire history of their relationship. A warm mid-album track that gives the Southern Symphony record a breather between more uptempo songs.",
+      "style_prompt": "Warm mid-tempo country-pop, 128 BPM, honey-sweet production — acoustic guitar, soft drum groove, pedal steel, Casey Brown production, male vocal gentle and loving, one-word-endearment lyric exploring the full history of a relationship, under 3:30, domestic warmth",
+      "lyric_prompt": "Write a warm country-pop song built entirely around the word 'honey' as an endearment — exploring all the different contexts and tones in which that one word is used between two people who love each other: the everyday, the tender, the desperate, the joyful. The narrator describes how the same word contains entire worlds depending on how it's said. Under 3:30."
+    },
+    {
+      "title": "Southern Symphony",
+      "album": "Southern Symphony",
+      "year": 2020,
+      "bpm": 115,
+      "vibe": "Album title track · childhood growing up · sole mid-tempo Southern Symphony",
+      "dna": "The album's title track and its most reflective moment. Dickerson described it as 'a trip from all the way back to my childhood growing up in a little cornfield and tobacco town to life now with Kails and our little Remington.' The sole mid-tempo track on an album full of energy — a quiet, biographical centerpiece. Produced by Casey Brown.",
+      "style_prompt": "Reflective mid-tempo country-pop, 115 BPM, Casey Brown production, acoustic guitar-forward, male vocal warm and biographical, cornfield-and-tobacco-town small-town-upbringing lyric, pedal steel, gentle drum groove, journey-from-childhood-to-now narrative, southern imagery throughout, under 3:30",
+      "lyric_prompt": "Write a reflective mid-tempo country song structured as a biographical journey — from growing up in a small cornfield and tobacco town through the years to the present, where the narrator has a wife he loves and children who run to the door when he comes home. The tone is warm and grateful, not nostalgic for something lost but appreciative of what was and what became. The title metaphor: the whole of his life is a southern symphony — not a single note but a composition. Under 3:30."
+    },
+    {
+      "title": "Come to Jesus",
+      "album": "Southern Symphony",
+      "year": 2020,
+      "bpm": 138,
+      "vibe": "Religious faith woven into love song · Dickerson's Christian identity · catchy hook",
+      "dna": "Devout Christian Dickerson weaves his faith naturally into a love and life song — 'come to Jesus' as both a spiritual concept and a moment of arriving at clarity about what matters. Described by the Entertainment Focus reviewer as 'one of the best examples of Dickerson's knack for a catchy radio hook.' The natural intersection of his faith and his love for Kailey.",
+      "style_prompt": "Upbeat faith-meets-love country-pop, 138 BPM, Casey Brown bright production, acoustic guitar, pedal steel warmth, male vocal earnest and joyful, Christian faith organically woven into love song, come-to-Jesus moment as lyric anchor, singalong hook, major key uplift",
+      "lyric_prompt": "Write an upbeat country-pop song where 'come to Jesus' serves as the central lyric concept — a moment of arriving at clarity and truth about what matters most in life. The narrator has had a come-to-Jesus moment about love, family, and faith, and the song describes what that moment of clarity revealed. Christian faith is present but organic, not preachy. The chorus is the moment of arrival. Under 3:30."
+    },
+    {
+      "title": "Waiting for You",
+      "album": "Southern Symphony",
+      "year": 2020,
+      "bpm": 130,
+      "vibe": "80s-tinged album closer · saxophone solo · Entertainment Focus 'finest track'",
+      "dna": "Entertainment Focus reviewer called it 'the finest track' on Southern Symphony and predicted 'if it's a single, expect to see Dickerson making further strides.' Features an unexpected saxophone solo. 80s-tinged production — the synth and saxophone give it a different sonic character than any other Dickerson track. The closing song of the album.",
+      "style_prompt": "80s-tinged country-pop album closer, 130 BPM, unexpected saxophone solo, Casey Brown production with 80s pop influence, synth accents under acoustic guitar, male vocal warm and hopeful, waiting-for-you devotion lyric, retro shimmer production, album-closer emotional weight, most sonically unusual Dickerson track",
+      "lyric_prompt": "Write an 80s-tinged country-pop song about the anticipation of waiting for someone — the specific quality of time spent knowing they're coming, holding the space for them, making everything ready. The 80s production influence should be felt in the lyric rhythm: a slightly more cinematic, dramatic quality than typical country-pop. Include a saxophone-solo break in the arrangement. The closing song of an album — it should feel like a resolution. Under 3:30."
+    },
+
+    {
+      "title": "Blame It on Being Young",
+      "album": "Russell Dickerson",
+      "year": 2022,
+      "bpm": 142,
+      "vibe": "Self-titled opener · youthful mistakes · charming self-absolution",
+      "dna": "Opens the self-titled album. Co-written with Josh Kerr and Parker Welling. About blaming youthful mistakes on simply being young — a charming, self-aware retrospective on the dumb things done before he knew better. Sets the tone for an album that spans 'from when I was 16 to when I became a dad.'",
+      "style_prompt": "Uptempo charming country-pop, 142 BPM, Josh Kerr co-production, wider sonic range than Yours era, male vocal charming and self-aware, youthful-mistakes-absolution lyric, bright guitar drive, modern production with acoustic warmth, singalong hook, self-titled album opener energy",
+      "lyric_prompt": "Write an uptempo charming country-pop song about blaming youthful mistakes on simply being young — a warm, self-aware, slightly amused retrospective on all the dumb things done before the narrator knew any better. The tone is not apologetic but charming — these mistakes made him who he is. The verses catalogue specific youthful foolishness with affection. The chorus is the absolution: blame it on being young. Under 3:30."
+    },
+    {
+      "title": "Sorry",
+      "album": "Russell Dickerson",
+      "year": 2022,
+      "bpm": 120,
+      "vibe": "Genuine warm apology · co-written with Ashley Gorley · small consistent failures in relationship",
+      "dna": "Co-written with Hunter Phelps, Ashley Gorley, and Ben Johnson. Dickerson's genuine warm apology song to his wife — not for dramatic failures but for the small consistent ways he lets her down: being distracted, taking her for granted, putting other things first. Not groveling, not dramatic — just honest. Casey Brown on background vocals.",
+      "style_prompt": "Warm mid-tempo apology country-pop, 120 BPM, Josh Kerr production, acoustic guitar-forward, pedal steel tenderness, male tenor vocal sincere and gentle — not dramatic just honest, soft drum groove, clean Nashville production, apology-for-small-consistent-failures lyric, layered harmonies, intimate scale",
+      "lyric_prompt": "Write a genuine warm country-pop apology song from a man who knows he messed up — not dramatically, but in the small consistent ways that wear on a relationship: being distracted, taking her for granted, putting other things first. He's not groveling — just being honest and asking to do better. The chorus is a direct specific apology that names what he did wrong rather than a generic 'I'm sorry.' The bridge reminds him (and her) why she's worth becoming better for. Under 3:30."
+    },
+    {
+      "title": "She Likes It",
+      "album": "Russell Dickerson",
+      "year": 2022,
+      "bpm": 140,
+      "vibe": "2× Platinum · Jake Scott duet · lead single · soul-R&B fusion · fastest rising single",
+      "dna": "2× Platinum. Lead single from the self-titled album and his fastest-rising song at the time. Features Jake Scott — Dickerson discovered Scott online and encouraged him to join a songwriting session. Described as 'slinky, soul-infused.' The most R&B-influenced Dickerson production. Billboard noted it as highlighting 'an intersection that highlights his range of musical abilities.' A song about doing things specifically because she likes them.",
+      "style_prompt": "Slinky soul-infused country-pop duet, 140 BPM, R&B groove underpinning country-pop, two male vocal blend, Josh Kerr production with modern soul influence, most R&B-forward Dickerson track, funky rhythmic feel, warm electric guitar, acoustic warmth, doing-things-because-she-likes-it lyric",
+      "lyric_prompt": "Write a slinky soul-infused country-pop song with two male vocalists about doing things — specific things — because she likes them. The narrator has discovered that her happiness is his happiness, and there's a specific joy in doing the things that make her light up. The tone has R&B swagger mixed with country warmth. The verses catalogue specific things done because she likes them. The chorus is the declaration. Under 3:30."
+    },
+    {
+      "title": "I Still Believe",
+      "album": "Russell Dickerson",
+      "year": 2022,
+      "bpm": 126,
+      "vibe": "Faith anthem · Dickerson's Christian conviction · mid-album declaration",
+      "dna": "Co-written with Parker Welling, Matt Jenkins, and Zach Crowell. Dickerson's faith anthem — a declaration of continued Christian belief. As a devout Christian who grew up in the faith, this is an authentic expression of conviction rather than a commercial faith-radio calculation.",
+      "style_prompt": "Faith declaration country-pop, 126 BPM, Josh Kerr production, acoustic guitar, pedal steel, male vocal earnest and convicted, still-believing Christian faith lyric, warm major key, layered harmonies, anthem-scale chorus, personal faith authentically expressed",
+      "lyric_prompt": "Write a personal faith declaration country-pop song from a man who still believes — not despite everything but through everything. The song should feel like authentic conviction, not a calculated radio pitch. The verses describe what has been survived and what has been doubted, and the chorus declares that through all of it, belief remains. The tone is strong and grateful, not preachy or defensive. Under 3:30."
+    },
+    {
+      "title": "Big Wheels",
+      "album": "Russell Dickerson",
+      "year": 2022,
+      "bpm": 144,
+      "vibe": "Gravel road guarantee · never getting beyond your raising · rural identity pride",
+      "dna": "Co-written with Ashley Gorley, Hunter Phelps, and Ben Johnson. 'Big Wheels' revs up a gravel road guarantee that he'll never get beyond his raising — about rural identity and the pride of staying true to where you came from even as success grows. One of the self-titled album's more uptempo, chest-thumping tracks.",
+      "style_prompt": "Uptempo rural-identity country-pop, 144 BPM, Josh Kerr production, gravel-road energy, electric guitar drive, pedal steel, male vocal proud and grounded, staying-true-to-your-raising lyric, chest-thumping energy, singalong hook, country pride",
+      "lyric_prompt": "Write an uptempo country-pop song about rural identity and staying true to where you came from — the gravel road, the small town, the raised-right upbringing — no matter how far success takes you. The narrator is making a guarantee: he'll never get beyond his raising. The verses describe specific images of that upbringing. The chorus is the proud declaration. Under 3:30."
+    },
+    {
+      "title": "I Remember",
+      "album": "Russell Dickerson",
+      "year": 2022,
+      "bpm": 138,
+      "vibe": "Specific memory recall · hyperspecific love-memory snapshots · forever-young fun",
+      "dna": "Co-written with Alysa Vanderheym, Chris Ryan, Logan Turner, and Matt McGinn. Described as capturing 'forever-young fun like a country-pop polaroid.' About the specific memories encoded from falling in love — the exact details of particular moments with her. A love-memory song built on hyperspecific recall.",
+      "style_prompt": "Upbeat love-memory country-pop, 138 BPM, Josh Kerr production, bright acoustic and electric guitar, male vocal vivid and specific, hyperspecific-memory recall lyric — exact details of particular love moments, layered harmonies, singalong chorus, major key warmth, polaroid-snapshot energy",
+      "lyric_prompt": "Write an upbeat country-pop song built on hyperspecific memory recall — the exact details of particular moments from falling in love: the specific song playing, the specific thing she was wearing, the specific thing she said, the specific way the light fell. The narrator has encoded these details permanently and they remain as vivid as the day they happened. The chorus is the declaration: I remember everything. Under 3:30."
+    },
+    {
+      "title": "I Wonder",
+      "album": "Russell Dickerson",
+      "year": 2022,
+      "bpm": 128,
+      "vibe": "What-if after a relationship ends · haunted by alternate timeline · single from self-titled",
+      "dna": "Co-written with Jon Nite and Casey Brown. Described by Apple Music as 'Dickerson ponders what could have been had he and his now-wife not reconciled a breakup while dating.' A rare Dickerson perspective on uncertainty and the roads not taken — what would his life look like if that reconciliation hadn't happened? One of the self-titled album's most emotionally nuanced tracks.",
+      "style_prompt": "Mid-tempo reflective country-pop, 128 BPM, Josh Kerr production, acoustic guitar, pedal steel, male vocal searching and slightly haunted, alternate-timeline what-if lyric, layered harmonies building on chorus, warm major key with emotional undercurrent",
+      "lyric_prompt": "Write a reflective country-pop song about being haunted by the question of what life would look like if a specific moment had gone differently — specifically if a relationship had not been reconciled after a breakup. The narrator is grateful for the life he has but can't help wondering about the alternate timeline. The tone is not regret but a kind of tender wondering. The chorus holds the question: I wonder. Under 3:30."
+    },
+    {
+      "title": "God Gave Me a Girl",
+      "album": "Russell Dickerson",
+      "year": 2022,
+      "bpm": 142,
+      "vibe": "Fifth #1 single · fatherhood · birth of daughter · seeing Kailey as a mother",
+      "dna": "Fifth number one single. Inspired by the birth of his child and seeing his wife Kailey sing to her. G major, 142 BPM. About becoming a father and the overwhelming, immediate, permanent love for a daughter. Dickerson said individual tracks were inspired by 'the birth of his child and seeing his wife, Kailey, sing to her.' Different from his wife songs — this is bigger and more reverent.",
+      "style_prompt": "Uplifting high-energy fatherhood country-pop, 142 BPM, Josh Kerr production with extra lift and grandeur, bright electric and acoustic guitar blend, big drum production, male vocal full and reverent — more powerful than usual tender mode, soaring chorus with wide harmonies, G major bright and open, daughter-devotion emotional core",
+      "lyric_prompt": "Write an uplifting country-pop song from a new father to his daughter. He didn't fully understand what he was capable of feeling until the moment she arrived. The tone is reverent and overwhelmed with love — genuinely awestruck. The chorus is a declaration of fatherly devotion using the 'God gave me' concept — the idea that she is a gift he didn't earn. Include a verse about watching her sleep, or her small hands, or hearing her laugh for the first time. The bridge is about watching her mother with her and being undone by both of them. Under 3:15."
+    },
+    {
+      "title": "All the Same Friends",
+      "album": "Russell Dickerson",
+      "year": 2022,
+      "bpm": 136,
+      "vibe": "Shared social world of a long relationship · community built together",
+      "dna": "Co-written with Ashley Gorley and Chase McGill. About the specific phenomenon of a long relationship where you and your partner have the same friends — the shared social world that becomes inseparable from the relationship itself. A chest-thumping Dickerson track about communal belonging.",
+      "style_prompt": "Uptempo community-of-love country-pop, 136 BPM, Josh Kerr production, electric and acoustic guitar drive, male vocal warm and inclusive, shared-social-world lyric, pedal steel accents, singalong chorus, major key warmth, chest-thumping energy",
+      "lyric_prompt": "Write an uptempo country-pop song about the shared social world of a long relationship — the friends who are now your friends because of her, the community you've built together, the people who know both of you so well that separating you would be impossible. The narrator is marveling at how completely she's woven into every part of his life including the people in it. The chorus is the celebration of all the same friends. Under 3:30."
+    },
+    {
+      "title": "Beers to the Summer",
+      "album": "Russell Dickerson",
+      "year": 2022,
+      "bpm": 144,
+      "vibe": "Summer celebration anthem · toast to the good times · carefree seasonal energy",
+      "dna": "Co-written with Matt Jenkins and Mark Holman. Described as capturing 'forever-young fun like a country-pop polaroid.' A toast to summer — the specific joy of that season and everything it represents: freedom, warmth, time with friends and the person you love. An acoustic version was included on the deluxe edition.",
+      "style_prompt": "Uptempo summer celebration country-pop, 144 BPM, Josh Kerr production, bright guitar energy, outdoor festival feel, male vocal carefree and joyful, summer-toast lyric, hand claps, singalong chorus, major key sunshine, arms-in-the-air energy",
+      "lyric_prompt": "Write an uptempo country-pop celebration song that raises a toast to summer — the specific freedom and warmth of that season, the late nights, the lake days, the concerts, the windows-down drives. The narrator is cataloguing everything summer means: specific summer details that feel universally relatable. The chorus is the toast. Under 3:30."
+    },
+    {
+      "title": "She's Why",
+      "album": "Russell Dickerson",
+      "year": 2022,
+      "bpm": 122,
+      "vibe": "Playful mature relationship · the specific why behind everything · Josh Kerr",
+      "dna": "Co-written with Josh Kerr and Sean Douglas. Described as capturing 'the playful side of a mature relationship.' About the specific ways she is the reason behind everything — why he does things, why he is who he is, why everything matters. Playful rather than solemn. Shown off Dickerson's lighter lyrical touch.",
+      "style_prompt": "Playful mid-tempo relationship country-pop, 122 BPM, Josh Kerr production, acoustic guitar, pedal steel, male vocal warm and slightly teasing, she-is-the-why-behind-everything lyric, layered harmonies, playful but genuine, major key warmth",
+      "lyric_prompt": "Write a playful country-pop song about all the specific ways she is the reason behind everything the narrator does and is — she's why he bothers, she's why he tries, she's why he comes home, she's why he can't stop smiling at nothing. The tone is warm and slightly teasing — the playful side of a long, secure relationship. The chorus is the declaration of why. Under 3:30."
+    },
+    {
+      "title": "18",
+      "album": "Russell Dickerson",
+      "year": 2022,
+      "bpm": 134,
+      "vibe": "80s-pop production · imagining going back to when you met · romantic time travel",
+      "dna": "Co-written with Josh Kerr, Illsey Juber, and Ashley Gorley. Described as tapping into 'pulsating 80s pop, using the throwback energy to imagine going back in romantic time.' About wishing you could go back to being 18 and meeting her again — not because anything is wrong but because it was so good you want to re-experience it.",
+      "style_prompt": "80s-influenced country-pop, 134 BPM, Josh Kerr production with 80s pop throwback — synth shimmer, electric guitar, reverb-drenched production, male vocal nostalgic and romantic, wanting-to-relive-meeting-you lyric, pulsating 80s energy in country framework, layered harmonies",
+      "lyric_prompt": "Write an 80s-influenced country-pop song about the romantic wish to go back to being 18 and meet her again — not because anything is wrong now but because the beginning was so electric, so charged with possibility, that the narrator wants to live it again. The production should have an 80s pop shimmer — synth touches, reverb-heavy atmosphere — even within a country framework. The chorus is the wish: take me back to 18. Under 3:30."
+    },
+    {
+      "title": "Over and Over",
+      "album": "Russell Dickerson",
+      "year": 2022,
+      "bpm": 128,
+      "vibe": "Repeating joy · choosing her again every day · daily renewal of love",
+      "dna": "Co-written with Josh Kerr, Parker Welling, and Jordan Reynolds. About choosing her over and over — the active daily choice that long love requires. An acoustic version was included on the Afterparty Deluxe edition. One of the self-titled album's more tender tracks.",
+      "style_prompt": "Mid-tempo tender devotion country-pop, 128 BPM, Josh Kerr production, acoustic guitar warmth, pedal steel, male vocal earnest and deliberate, daily-choice-of-love lyric, layered harmonies building chorus, major key warmth, intimate emotional register",
+      "lyric_prompt": "Write a tender country-pop song about the active daily choice to love someone — the recognition that love is not passive but something you choose over and over, every day. The narrator is making this choice consciously and with full gratitude. The verses describe specific moments of making that choice. The chorus is the declaration: I'd choose you over and over. Under 3:30."
+    },
+    {
+      "title": "Drink to This",
+      "album": "Russell Dickerson",
+      "year": 2022,
+      "bpm": 136,
+      "vibe": "Toast to the good life · celebrating ordinary moments · Ashley Gorley co-write",
+      "dna": "Co-written with Zach Crowell, Ashley Gorley, and Parker Welling. An acoustic version was included on the Afterparty Deluxe. A toast to the good life — the specific moments worth raising a glass to. Similar energy to 'Beers to the Summer' but more intimate and personal rather than seasonal.",
+      "style_prompt": "Uptempo celebration country-pop, 136 BPM, Josh Kerr production, bright guitar drive, male vocal warm and celebratory, toast-to-good-life lyric, specific ordinary moments worth raising a glass, pedal steel, singalong chorus, major key joy",
+      "lyric_prompt": "Write an uptempo country-pop toast song — not a generic party song but a specific celebration of the ordinary moments that make life worth raising a glass to: the Tuesday nights, the front porch conversations, the small victories. The narrator is cataloguing the specific things in his life that deserve a toast. The chorus is the raising of the glass. Under 3:30."
+    },
+    {
+      "title": "Just Like Your Mama",
+      "album": "Russell Dickerson",
+      "year": 2022,
+      "bpm": 118,
+      "vibe": "Album closer · letter to son Remington · features son's voice · Lori McKenna co-write",
+      "dna": "Co-written with Lori McKenna — a Grammy-winning songwriter known for emotional precision. Dedicated to Dickerson's young son Remington — the album closes with a special appearance by the toddler himself. The lyric: 'Just like your mama / No bull and no drama / You'll know who you are / And you'll know who you aint.' Described as 'incredibly moving' — the most emotionally resonant album closer in Dickerson's catalog.",
+      "style_prompt": "Sparse emotionally moving album-closing country-pop, 118 BPM, Lori McKenna-influenced lyrical precision, acoustic guitar-forward with spare arrangement, male vocal tender and addressed to a child, letter-to-son lyric with special child cameo, pedal steel warmth, Casey Brown background vocals, most emotionally moving Dickerson track",
+      "lyric_prompt": "Write a sparse emotionally moving country-pop song addressed from a father to his young son — a letter about who the narrator hopes his son will become, specifically that he will be like his mother: no bull, no drama, knowing who he is and who he isn't, keeping his golden heart on his sleeve, not letting the world take his shine. The final verse should be addressed to both the son and, implicitly, the mother: you're better than my wildest dreams, just like your mama. A toddler's voice can be heard briefly. Under 3:30."
+    },
+
+    {
+      "title": "Dust",
+      "album": "Famous Back Home",
+      "year": 2025,
+      "bpm": 120,
+      "vibe": "Album opener · nod to David Lee Murphy's Dust on the Bottle · fleeting romance memory",
+      "dna": "Opens Famous Back Home. A nod to David Lee Murphy's iconic 'Dust on the Bottle' — 'She's on my mind, like dust on the bottle.' A wistful narrative about a fleeting romance that lingers in memory. Apple Music review: Dickerson's 'smooth croon' on 'a wistful narrative about lost romance.' One of his most emotionally complex openers. Co-written with Josh Kerr and John Byron.",
+      "style_prompt": "Wistful opening country-pop, 120 BPM, Josh Kerr co-production, warm acoustic guitar, nod to 90s country classic Dust on the Bottle in lyric, male vocal smooth and aching, fleeting-romance-memory lyric, pedal steel, Famous Back Home production — country-soul foundation with modern warmth, opening album tone-setter",
+      "lyric_prompt": "Write a wistful country-pop song about a fleeting romance that lingers in memory — not a long relationship but a brief connection that left a dust of memory you can't quite shake. The central image is dust on a bottle: the way certain memories coat everything, light but persistent. The tone is more complex than typical Dickerson — there is ache here, not just warmth. Nod to classic 90s country imagery. Under 3:30."
+    },
+    {
+      "title": "Sippin' on Top of the World",
+      "album": "Famous Back Home",
+      "year": 2025,
+      "bpm": 148,
+      "vibe": "Stadium-ready anthem · outside cut · Dickerson career first · cans-up energy",
+      "dna": "One of the first two outside cuts (songs he didn't write) in Dickerson's career. Written by Travis Wood, Casey Brown, and Hunter Phelps. Described as a 'full-throttle weekend anthem bursting with joy and freedom,' a 'stadium-ready anthem,' and 'cans-up energy.' Windows-down road-trip energy. Celebrates the thrill of the simple life.",
+      "style_prompt": "Full-throttle stadium-ready anthem country-pop, 148 BPM, Josh Kerr production, Famous Back Home country-soul with modern muscle, male vocal euphoric and free, windows-down weekend anthem lyric, electric guitar drive, pedal steel, biggest chorus of the Famous Back Home album, arms-in-the-air energy",
+      "lyric_prompt": "Write a full-throttle weekend anthem — a song about the specific joy of the best days: the road trip, the lake, the friends, the ice-cold drink, feeling on top of the world for no more reason than that the sun is out and life is good. The tone is euphoric and completely unironic. The verses catalogue the specific elements of this day. The chorus is the declaration of being on top of the world. Stadium-scale singalong energy. Under 3:30."
+    },
+    {
+      "title": "Happen to Me",
+      "album": "Famous Back Home",
+      "year": 2025,
+      "bpm": 168,
+      "vibe": "Fifth #1 single · biggest streaming debut · palm-muted 80s-rock guitars · Girls Just Want to Have Fun co-writer",
+      "dna": "Co-written with Chase McGill, Jessie Jo Dillon, Chris LaCorte, and Robert Hazard — who wrote Cyndi Lauper's 'Girls Just Want to Have Fun.' Features palm-muted guitars and a spontaneous rocker energy. Dickerson's highest debut on Billboard Hot 100 and fastest-rising single. Fifth number one single. 'Happen to Me' marked the biggest streaming debut of Dickerson's career.",
+      "style_prompt": "Uptempo arena country-pop, 168 BPM, palm-muted electric guitar driving rhythm, punchy snare, danceable modern country-pop-rock hybrid, male vocal energetic and charismatic, 80s pop-rock influence from Girls Just Want to Have Fun co-writer, singalong anthemic chorus, high-energy throughout, Famous Back Home biggest radio hit",
+      "lyric_prompt": "Write a fast danceable country-pop anthem from a man who is genuinely amazed that the most incredible woman he's ever seen chose him. Joyful disbelieving gratitude — the kind where you keep thinking how did I get this lucky? The chorus is a big singalong explosion about how she happened to him — like a force of nature he didn't see coming. The production has 80s pop-rock energy: palm-muted guitars, spontaneous rocker feel. Under 3:20. The most danceable stadium-ready song in the set."
+    },
+    {
+      "title": "Worth Your Wild",
+      "album": "Famous Back Home",
+      "year": 2025,
+      "bpm": 152,
+      "vibe": "Funky 80s pop-country · Lionel Richie influence · third single · danceable swagger",
+      "dna": "Third single from Famous Back Home. Described as 'funky, Lionel Richie-style 80s pop-country.' Co-written with Parker Welling and Casey Brown. An arena-ready danceable track about being worth someone's wildness — worth the chase, worth the risk, worth going wild for. The Lionel Richie influence gives it an unusual funk-pop quality for a Nashville production.",
+      "style_prompt": "Funky 80s pop-country, 152 BPM, Lionel Richie-influenced funk-pop under country production, Josh Kerr Famous Back Home production, male vocal charming and swaggering, being-worth-her-wildness lyric, danceable groove, 80s funk guitar, singalong hook, most funk-influenced Dickerson track",
+      "lyric_prompt": "Write a funky 80s-influenced country-pop song about being worth someone's wildness — worth the chase, worth the risk, worth throwing caution to the wind for. The narrator is making the case that she should go wild for him because he's worth it. The tone has genuine Lionel Richie funk-pop swagger mixed with country warmth. The chorus is the declaration of worth. Under 3:30."
+    },
+    {
+      "title": "Heard It in a Country Song",
+      "album": "Famous Back Home",
+      "year": 2025,
+      "bpm": 132,
+      "vibe": "90s country tribute · barbecue stains · grape snow cones · watermelon crawl Easter eggs",
+      "dna": "Co-written with Chase McGill, Chris LaCorte, and Parker Welling. Described as 'a love letter to country music itself, laced with lyrical Easter eggs.' References 90s country song imagery: barbecue stains, grape snow cones, watermelon crawl. '90s-inspired hooks and Dickerson's roots-R&B groove.' A meta-country song about country music's own imagery.",
+      "style_prompt": "90s-tribute country-pop with R&B groove, 132 BPM, Josh Kerr production, 90s country-influenced production shimmer, male vocal warm and nostalgic, lyrical Easter eggs referencing 90s country imagery — barbecue, grape snow cones, summer specifics, beachside instrumentation, swagger-filled throwback with modern polish",
+      "lyric_prompt": "Write a swagger-filled country-pop love letter to country music itself — a song packed with Easter-egg references to classic 90s country imagery: the barbecue stains, the snow cones, the tailgates, the specific sensory details that define the genre. The narrator heard all of life's important moments in a country song first. The chorus is the declaration: I heard it in a country song. The production should have a 90s country shimmer under modern R&B groove. Under 3:30."
+    },
+    {
+      "title": "Sunrise in My Silverado",
+      "album": "Famous Back Home",
+      "year": 2025,
+      "bpm": 138,
+      "vibe": "Magic-hour anthem · golden-hour truck song · box-wine energy",
+      "dna": "Co-written with Chase McGill, Hunter Phelps, and Casey Brown. Described as shimmering 'like a magic-hour anthem with a box-wine buzz.' One of the Famous Back Home up-tempo highlights fusing 80s pop influences with golden-hour country charm. The Silverado as a vehicle for an iconic golden-hour moment.",
+      "style_prompt": "Golden-hour uptempo country-pop, 138 BPM, Josh Kerr production with 80s pop shimmer, magic-hour truck-song energy, male vocal golden and warm, box-wine-buzz carefree feeling, electric guitar shimmer, pedal steel, Famous Back Home country-soul with modern muscle, singalong hook",
+      "lyric_prompt": "Write a golden-hour country-pop song about a perfect sunrise or sunset seen from the cab of a truck — the specific feeling of that magic-hour light, the box-wine buzz, the person beside you, everything feeling suspended and perfect. The narrator is describing one of those specific moments where time feels different. The chorus is the celebration of that feeling. Under 3:30."
+    },
+    {
+      "title": "For a Truck",
+      "album": "Famous Back Home",
+      "year": 2025,
+      "bpm": 126,
+      "vibe": "Derailed plans and romantic destiny · a truck as the unlikely catalyst",
+      "dna": "Co-written with Blake Pendergrass and Casey Brown. Described as offering 'a tale of derailed plans and romantic destiny.' A story song about how a broken-down truck or a truck-related circumstance derailed original plans but led to meeting someone. The truck as the unexpected catalyst of destiny.",
+      "style_prompt": "Mid-tempo story-song country-pop, 126 BPM, Casey Brown production on Famous Back Home, acoustic guitar-forward, pedal steel warmth, male vocal narrative and warm, derailed-plans-lead-to-destiny lyric, truck as romantic catalyst, warm major key, storytelling verse structure building to chorus declaration",
+      "lyric_prompt": "Write a country-pop story song about derailed plans that led to romantic destiny — specifically how a truck (breaking down, being borrowed, being in the wrong place at the right time) became the unlikely catalyst for meeting the person who changed everything. The verses tell the story of the derailment with specific narrative detail. The chorus is the realization that what seemed like bad luck was actually destiny. Under 3:30."
+    },
+    {
+      "title": "Love That I Love You",
+      "album": "Famous Back Home",
+      "year": 2025,
+      "bpm": 128,
+      "vibe": "Soul-mate memories with rhythmic roots · R&B-influenced groove · long love",
+      "dna": "Co-written with Casey Brown, Ashley Gorley, and Chris LaCorte. Described as pairing 'soul-mate memories with surge of rhythmic roots.' An R&B-influenced groove under country warmth. About the specific love of loving this particular person — the meta-awareness of loving them.",
+      "style_prompt": "R&B-influenced country-pop, 128 BPM, rhythmic roots groove, Josh Kerr and Casey Brown Famous Back Home production, soul-mate-memories lyric, male vocal warm with R&B inflection, the-love-of-loving-you theme, electric guitar with soul texture, pedal steel, singalong hook",
+      "lyric_prompt": "Write an R&B-grooved country-pop song about the specific love of loving this particular person — the meta-awareness of how much the narrator loves the fact that he loves her. Soul-mate memories with a rhythmic swagger. The verses describe specific memories that confirm this is it. The chorus is the declaration: I love that I love you. Under 3:30."
+    },
+    {
+      "title": "Never Leave",
+      "album": "Famous Back Home",
+      "year": 2025,
+      "bpm": 78,
+      "vibe": "Vince Gill feature · outside cut · stripped-down plea · demo-style intimacy",
+      "dna": "One of the first two outside cuts in Dickerson's career — written by Josh Miller, Greylan James, and Matt Roy. Features Vince Gill, who Apple Music describes lending his vocals to this 'stripped-down plea for redemption.' The demo-style intimate production is unusual for Dickerson. Vince Gill's legendary voice gives it a gravity and authenticity that elevates the track.",
+      "style_prompt": "Stripped-down intimate country-pop plea, 78 BPM, demo-style production — intentionally sparse and raw, Vince Gill-style country legend male harmony vocal, acoustic guitar only or near-only, male vocal at most vulnerable and pleading, plea-for-redemption lyric, Famous Back Home most intimate track, under 3:30",
+      "lyric_prompt": "Write a stripped-down spare country-pop song that is a direct plea to someone not to leave — to give one more chance to do better, to be better, to become the person who deserves them. The tone is the most vulnerable and unguarded in the entire Dickerson catalog: no production armor, no uptempo energy, just one man asking one person not to go. A country legend's voice harmonizes on the chorus. Under 3:30."
+    },
+    {
+      "title": "Bones",
+      "album": "Famous Back Home",
+      "year": 2025,
+      "bpm": 128,
+      "vibe": "Unconditional love tribute · lasting love at the deepest level · pre-album single",
+      "dna": "Pre-album single. Co-written with Parker Welling, Chris LaCorte, and Chris McGill. A tribute to lasting unconditional love — the kind that goes down to the bones, that is structural to who you are. The album's tribute to love that endures everything.",
+      "style_prompt": "Mid-tempo lasting-love country-pop, 128 BPM, Josh Kerr production, acoustic guitar and warm electric, pedal steel, male vocal tender and certain, love-at-the-bones structural level lyric, layered harmonies building chorus, Famous Back Home country-soul warmth, major key depth",
+      "lyric_prompt": "Write a mid-tempo country-pop song about love that goes down to the bones — the kind of love that is structural, that you feel at the deepest physical level, that has become part of how you are built. The narrator is trying to describe unconditional lasting love and the only adequate metaphor is that it's in his bones. The verses describe what that kind of love looks like in practice. The chorus is the declaration of its depth. Under 3:30."
+    },
+    {
+      "title": "16 and Me",
+      "album": "Famous Back Home",
+      "year": 2025,
+      "bpm": 95,
+      "vibe": "Letter to 16-year-old self · Famous Back Home theme · small-town dreams reframed",
+      "dna": "Co-written with Andy Albert, Chris LaCorte, and Cole Taylor. Reflects on growing up and looking back — the Famous Back Home album's central theme applied autobiographically. A letter to his 16-year-old self about what fame and success really mean. Dickerson quote: 'Growing up in a small town, I had this idea I'm going to make it out of here... But then you have a family and it's like, Actually, all I want to do is be famous at home.'",
+      "style_prompt": "Warm nostalgic country-pop with Famous Back Home modern muscle, 95 BPM, acoustic guitar with subtle lush synth bed, 80s-influenced production touches, Josh Kerr production, male vocal sincere and reflective — looking back as a content man, small-town growing-up imagery, bittersweet-hopeful nostalgic tone, letter-to-younger-self structure",
+      "lyric_prompt": "Write a warm nostalgic country-pop song structured as a letter from a man to his 16-year-old self. He speaks from genuine specific contentment: a wife he loves completely, kids who run to the door when he gets home. He tells his younger self what's coming — not to prepare him but to reassure him. He thought famous meant big stages and everybody knowing his name — turns out it means being famous at home. Include specific small-town teenage details. The chorus is a warm address to that younger self. Under 3:30."
+    },
+    {
+      "title": "Famous Back Home",
+      "album": "Famous Back Home",
+      "year": 2025,
+      "bpm": 112,
+      "vibe": "Album title track and closer · reflective living-the-dream ballad · family-first realization",
+      "dna": "Album title track and closer. Co-written with Casey Brown and Parker Welling. Described as 'an emotional high point, as Dickerson celebrates the home life he's built with his family over the trappings of fame and commercial success.' Apple Music review: 'the title track closes out the LP as an emotional high point.' The journey comes full circle — the biggest stage he ever wanted was always just his front door.",
+      "style_prompt": "Reflective album-closing ballad country-pop, 112 BPM, Casey Brown and Josh Kerr production, acoustic guitar-forward, warm pedal steel, male vocal emotional and full-circle, famous-at-home-over-famous-everywhere lyric, layered harmonies building to emotional chorus, Famous Back Home album title emotional resolution, tender balladry",
+      "lyric_prompt": "Write a reflective country-pop closing ballad about the realization that the only fame that matters is being famous at home — with your kids who run to the door, with your wife who knows you completely. The narrator has built a career, played big stages, and had his name known — and the thing that moves him most is when he comes home and his kids come running. The journey comes full circle. The chorus is the declaration of what famous really means to him. The most emotionally resonant song in the catalog. Under 4 minutes."
+    }
+  ],
+  "albums": [
+    {
+      "title": "Yours",
+      "year": 2017,
+      "style_prompt": "Bright warm country-pop debut, Casey Brown signature clean polished production, acoustic guitar-forward with electric accents, pedal steel warmth, male tenor vocal earnest and romantic, 118–145 BPM range, R&B rhythmic influence woven throughout, devotion-and-love lyric throughout, first-dance-to-tailgate energy, 2017 Triple Tigers Nashville sound",
+      "lyric_prompt": "Write a Yours-era Russell Dickerson song: earnest, devotional, and hyperspecific about the details that prove love. The emotional world is a man who found the person who made everything make sense — before her, directionless; with her, complete. Choose one angle: (A) pure devotion cataloguing the small specific things about her; (B) the first-time feeling of falling completely; (C) the specific joy of being hers and having her be his. Use sensory-specific imagery — replace every generic romance line with a particular true-feeling detail. Under 3:40."
+    },
+    {
+      "title": "Southern Symphony",
+      "year": 2020,
+      "style_prompt": "Polished bright country-pop sophomore album, Casey Brown production at its most confident, wider genre range than Yours — from foot-stomping uptempo to 80s-tinged closers with saxophone, R&B groove influence throughout, pedal steel and acoustic guitar foundation, male tenor vocal at its most polished, Florida Georgia Line collaboration track, 115–148 BPM range, 2020 Triple Tigers Nashville sound",
+      "lyric_prompt": "Write a Southern Symphony-era Russell Dickerson song: more mature and self-assured than the Yours era, still deeply romantic but now also encompassing fatherhood, small-town biography, and faith. The emotional world: a man who has built the life he dreamed of and is making specific sense of it. Choose one angle: (A) the domestic joy of a life built together; (B) the biographical journey from cornfield hometown to the life he has now; (C) faith woven organically into love and family. Under 3:30."
+    },
+    {
+      "title": "Russell Dickerson",
+      "year": 2022,
+      "style_prompt": "Self-titled country-pop with wider sonic range, Josh Kerr co-production — more electric guitar drive and 80s pop influence than Casey Brown era, 15 tracks spanning from teen years to fatherhood, soul-infused R&B influence at its peak (She Likes It with Jake Scott), modern Nashville production with organic country warmth, 118–144 BPM range, 2022 Triple Tigers",
+      "lyric_prompt": "Write a self-titled-era Russell Dickerson song: the widest creative range of his catalog, spanning from youthful mistakes to fatherhood. Dickerson: 'It's from when I was 16 to when I became a dad. That's just Russell Dickerson.' Choose one angle: (A) a youthful mistake recalled with warm self-awareness; (B) the soulful R&B-country blend of She Likes It-era production; (C) the tender fatherhood revelation of God Gave Me a Girl. Under 3:30."
+    },
+    {
+      "title": "Famous Back Home",
+      "year": 2025,
+      "style_prompt": "Fourth album country-pop with most adventurous sonic range, Josh Kerr and Casey Brown co-production, country-soul foundation with 80s rock crunch and modern beats, palm-muted guitars, Lionel Richie funk influence, Vince Gill collaboration, first two outside cuts in Dickerson's career, 78–168 BPM range, RussellMania Tour energy captured in studio, Triple Tigers 2025",
+      "lyric_prompt": "Write a Famous Back Home-era Russell Dickerson song: the most confident and creatively free album of his career. The emotional world: a man who has made it but realized being famous back home — with his family — is the only fame that matters. Choose one angle: (A) a full-throttle stadium-ready anthem (like Happen to Me energy); (B) a tender realization about what fame and success really mean to a family man; (C) a golden-hour truck-and-love celebration (like Sunrise in My Silverado energy). Use the wider sonic palette: 80s rock, funk, modern beats. Under 3:30."
+    }
+  ]
+}

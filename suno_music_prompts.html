@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instant Hit Generator — Suno Prompt Guide 2018–2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --border: #1e1e2e;
+    --text: #e8e8f0;
+    --muted: #6b6b80;
+    --country: #c8922a;
+    --prog: #7c4dff;
+    --poppunk: #e91e63;
+    --altrock: #00bfa5;
+    --accent: #f5f5dc;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  header {
+    padding: 60px 40px 40px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(124,77,255,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(42px, 7vw, 90px);
+    letter-spacing: 4px;
+    line-height: 1;
+    color: var(--accent);
+    text-transform: uppercase;
+  }
+
+  header p {
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .tag-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  .tag {
+    padding: 4px 12px;
+    border-radius: 2px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .tag-country { background: rgba(200,146,42,0.15); color: var(--country); border: 1px solid rgba(200,146,42,0.3); }
+  .tag-prog    { background: rgba(124,77,255,0.15); color: var(--prog);    border: 1px solid rgba(124,77,255,0.3); }
+  .tag-punk    { background: rgba(233,30,99,0.15);  color: var(--poppunk); border: 1px solid rgba(233,30,99,0.3); }
+  .tag-alt     { background: rgba(0,191,165,0.15);  color: var(--altrock); border: 1px solid rgba(0,191,165,0.3); }
+
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 40px 80px;
+  }
+
+  /* GENRE SECTION */
+  .genre-section {
+    margin-bottom: 80px;
+    border-left: 3px solid;
+    padding-left: 28px;
+  }
+
+  .genre-section.country { border-color: var(--country); }
+  .genre-section.prog    { border-color: var(--prog); }
+  .genre-section.poppunk { border-color: var(--poppunk); }
+  .genre-section.altrock { border-color: var(--altrock); }
+
+  .genre-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .genre-header h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 38px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .genre-section.country .genre-header h2 { color: var(--country); }
+  .genre-section.prog    .genre-header h2 { color: var(--prog); }
+  .genre-section.poppunk .genre-header h2 { color: var(--poppunk); }
+  .genre-section.altrock .genre-header h2 { color: var(--altrock); }
+
+  .genre-header span {
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* YEAR TABLE */
+  .year-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .year-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 16px;
+    border-radius: 4px;
+  }
+
+  .year-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .song-list {
+    list-style: none;
+  }
+
+  .song-list li {
+    font-size: 11px;
+    color: #c0c0d0;
+    padding: 2px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .song-list li:last-child { border-bottom: none; }
+
+  .song-list li span { color: var(--muted); }
+
+  /* DNA SECTION */
+  .dna-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 24px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+  }
+
+  .dna-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .dna-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+  }
+
+  .dna-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .dna-item .dna-label {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .dna-item .dna-value {
+    font-size: 12px;
+    color: var(--text);
+  }
+
+  /* PROMPT BOXES */
+  .prompt-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 8px;
+  }
+
+  @media (max-width: 700px) {
+    .prompt-container { grid-template-columns: 1fr; }
+    main { padding: 24px 20px 60px; }
+    header { padding: 40px 20px 30px; }
+  }
+
+  .prompt-box {
+    background: #0d0d14;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .prompt-box-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .prompt-box-header .label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .char-count {
+    font-size: 9px;
+    color: var(--muted);
+  }
+
+  .prompt-text {
+    padding: 16px;
+    font-size: 11px;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    color: #d0d0e8;
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  .copy-btn {
+    display: block;
+    width: calc(100% - 32px);
+    margin: 12px 16px;
+    padding: 8px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+
+  .copy-btn:hover {
+    border-color: var(--text);
+    color: var(--text);
+  }
+
+  .copy-btn.copied {
+    border-color: #4caf50;
+    color: #4caf50;
+  }
+
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 60px 0;
+  }
+
+  .intro-text {
+    margin-bottom: 48px;
+    max-width: 720px;
+  }
+
+  .intro-text p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.9;
+    margin-bottom: 8px;
+  }
+
+  .suno-rules {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin-bottom: 48px;
+  }
+
+  .suno-rules h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 3px;
+    font-size: 20px;
+    color: var(--accent);
+    margin-bottom: 12px;
+  }
+
+  .rules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+  }
+
+  .rule-item {
+    font-size: 11px;
+    color: #a0a0b8;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .rule-item::before {
+    content: '→';
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+
+  .highlight-country { color: var(--country); }
+  .highlight-prog    { color: var(--prog); }
+  .highlight-punk    { color: var(--poppunk); }
+  .highlight-alt     { color: var(--altrock); }
+
+  /* scrollbar */
+  .prompt-text::-webkit-scrollbar { width: 4px; }
+  .prompt-text::-webkit-scrollbar-track { background: transparent; }
+  .prompt-text::-webkit-scrollbar-thumb { background: var(--border); }
+
+  .prompt-full {
+    grid-column: 1 / -1;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Instant Hit<br>Generator</h1>
+  <p>2018–2025 · Genre DNA Analysis · Suno AI Prompt System</p>
+  <div class="tag-row">
+    <span class="tag tag-country">Country</span>
+    <span class="tag tag-prog">Progressive Rock</span>
+    <span class="tag tag-punk">Pop Punk</span>
+    <span class="tag tag-alt">Alternative Rock</span>
+  </div>
+</header>
+
+<main>
+
+  <div class="intro-text">
+    <p>This guide distills the sonic DNA of the most-charted songs across four genres from 2018 to 2025, identifies what made each era's hits uniquely magnetic, and translates those patterns into optimized Suno AI prompts engineered for maximum impact.</p>
+    <p>Each genre gives you two prompts: a <strong style="color:var(--text)">Style Prompt</strong> (paste into Suno's Style field) and a <strong style="color:var(--text)">Lyric Generation Prompt</strong> (paste into the Lyrics field and click "Generate Lyrics"). Suno writes the actual lyrics — you can regenerate as many times as you want for endless unique songs from the same formula.</p>
+  </div>
+
+  <div class="suno-rules">
+    <h3>Suno AI Rules & Limits</h3>
+    <div class="rules-grid">
+      <div class="rule-item">STEP 1: Paste the Style Prompt into Suno's Style field (Custom Mode).</div>
+      <div class="rule-item">STEP 2: Paste the Lyric Generation Prompt into the Lyrics field, then click "Generate Lyrics" — Suno writes the lyrics for you.</div>
+      <div class="rule-item">STEP 3: Review Suno's generated lyrics, tweak any lines you want, then hit Create.</div>
+      <div class="rule-item">Regenerate as many times as you like — each generation produces a unique song from the same prompt.</div>
+      <div class="rule-item">Style prompt: front-load genre + mood — Suno truncates from the end if too long.</div>
+      <div class="rule-item">No artist or band names in either field — use genre/era/mood descriptors only.</div>
+      <div class="rule-item">Lyric generation prompts work best when they describe emotion, structure, tone, imagery, and runtime — not specific words or lines.</div>
+      <div class="rule-item">After generating, you can re-prompt "Generate Lyrics" multiple times to get different lyric interpretations of the same prompt.</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!--  COUNTRY  -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="genre-section country">
+    <div class="genre-header">
+      <h2>Country</h2>
+      <span>2018 – 2025 Top Hits Analysis</span>
+    </div>
+
+    <div class="year-grid">
+      <div class="year-card">
+        <div class="year-label">2018</div>
+        <ul class="song-list">
+          <li>Meant to Be <span>— Bebe Rexha &amp; FGL</span></li>
+          <li>Body Like a Back Road <span>— Sam Hunt</span></li>
+          <li>Yours <span>— Russell Dickerson</span></li>
+          <li>Tequila <span>— Dan + Shay</span></li>
+          <li>Simple <span>— Florida Georgia Line</span></li>
+          <li>Rich Girl <span>— Maren Morris</span></li>
+          <li>Speechless <span>— Dan + Shay</span></li>
+          <li>Beautiful Crazy <span>— Luke Combs</span></li>
+          <li>Woman Like You <span>— Lee Brice</span></li>
+          <li>Up Down <span>— Morgan Wallen</span></li>
+        </ul>
+      </div>
+      <div class="year-card">
+        <div class="year-label">2019</div>
+        <ul class="song-list">
+          <li>Beautiful Crazy <span>— Luke Combs</span></li>
+          <li>10,000 Hours <span>— Dan + Shay &amp; Bieber</span></li>
+          <li>The Git Up <span>— Blanco Brown</span></li>
+          <li>Girl <span>— Maren Morris</span></li>
+          <li>Even If It Breaks <span>— Tyler Rich</span></li>
+          <li>Simple <span>— Florida Georgia Line</span></li>
+          <li>Beer Never Broke My Heart <span>— Luke Combs</span></li>
+          <li>God's Country <span>— Blake Shelton</span></li>
+          <li>Callin' Baton Rouge <span>— Garth Brooks</span></li>
+          <li>Don't Call Me Up <span>— Mabel</span></li>
+        </ul>
+      </div>
+      <div class="year-card">
+        <div class="year-label">2020</div>
+        <ul class="song-list">
+          <li>I Hope <span>— Gabby Barrett</span></li>
+          <li>The Bones <span>— Maren Morris</span></li>
+          <li>10,000 Hours <span>— Dan + Shay &amp; Bieber</span></li>
+          <li>Chasin' You <span>— Morgan Wallen</span></li>
+          <li>Nobody But You <span>— Blake &amp; Gwen</span></li>
+          <li>One Man Band <span>— Old Dominion</span></li>
+          <li>Got What I Got <span>— Jason Aldean</span></li>
+          <li>Die From a Broken Heart <span>— Maddie &amp; Tae</span></li>
+          <li>More Hearts Than Mine <span>— Ingrid Andress</span></li>
+          <li>Til You Can't <span>— Cody Johnson</span></li>
+        </ul>
+      </div>
+      <div class="year-card">
+        <div class="year-label">2021</div>
+        <ul class="song-list">
+          <li>Wasted on You <span>— Morgan Wallen</span></li>
+          <li>Sand in My Boots <span>— Morgan Wallen</span></li>
+          <li>Fancy Like <span>— Walker Hayes</span></li>
+          <li>You Should Probably Leave <span>— Chris Stapleton</span></li>
+          <li>Heartless <span>— Diplo &amp; Morgan Wallen</span></li>
+          <li>Half of My Hometown <span>— Kelsea Ballerini</span></li>
+          <li>Never Wanted to Be That Girl <span>— Carly Pearce</span></li>
+          <li>Forever After All <span>— Luke Combs</span></li>
+          <li>Starting Over <span>— Chris Stapleton</span></li>
+          <li>7 Summers <span>— Morgan Wallen</span></li>
+        </ul>
+      </div>
+      <div class="year-card">
+        <div class="year-label">2022</div>
+        <ul class="song-list">
+          <li>As It Was <span>— Harry Styles (crossover)</span></li>
+          <li>Wasted on You <span>— Morgan Wallen</span></li>
+          <li>You Proof <span>— Morgan Wallen</span></li>
+          <li>Watermelon Moonshine <span>— Lainey Wilson</span></li>
+          <li>Rock and a Hard Place <span>— Bailey Zimmermann</span></li>
+          <li>Fancy Like <span>— Walker Hayes</span></li>
+          <li>Til You Can't <span>— Cody Johnson</span></li>
+          <li>Beer Can't Fix <span>— Thomas Rhett</span></li>
+          <li>Never Wanted to Be That Girl <span>— Carly Pearce</span></li>
+          <li>Something in the Orange <span>— Zach Bryan</span></li>
+        </ul>
+      </div>
+      <div class="year-card">
+        <div class="year-label">2023</div>
+        <ul class="song-list">
+          <li>Fast Car <span>— Luke Combs</span></li>
+          <li>I Remember Everything <span>— Zach Bryan &amp; Kacey</span></li>
+          <li>Last Night <span>— Morgan Wallen</span></li>
+          <li>White Horse <span>— Chris Stapleton</span></li>
+          <li>Save Me the Trouble <span>— Dan + Shay</span></li>
+          <li>Thought You Should Know <span>— Morgan Wallen</span></li>
+          <li>Heart Like a Truck <span>— Lainey Wilson</span></li>
+          <li>Buy Dirt <span>— Jordan Davis</span></li>
+          <li>Ring on Every Finger <span>— BRELAND</span></li>
+          <li>Cowgirls <span>— Morgan Wallen</span></li>
+        </ul>
+      </div>
+      <div class="year-card">
+        <div class="year-label">2024</div>
+        <ul class="song-list">
+          <li>A Bar Song (Tipsy) <span>— Shaboozey</span></li>
+          <li>I Had Some Help <span>— Post Malone &amp; Wallen</span></li>
+          <li>Texas Hold 'Em <span>— Beyoncé</span></li>
+          <li>Love Somebody <span>— Morgan Wallen</span></li>
+          <li>I Am Not Okay <span>— Jelly Roll</span></li>
+          <li>You Look Like You Love Me <span>— Ella Langley &amp; Green</span></li>
+          <li>Out of Oklahoma <span>— Lainey Wilson</span></li>
+          <li>Pour Me a Drink <span>— Post Malone &amp; Blake</span></li>
+          <li>I Never Lie <span>— Zach Top</span></li>
+          <li>Dirt Cheap <span>— Zach Bryan</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dna-box">
+      <h3>What Made Them Hits — Country DNA 2018–2025</h3>
+      <div class="dna-grid">
+        <div class="dna-item">
+          <span class="dna-label">Hook Architecture</span>
+          <span class="dna-value">Anthemic, sing-along choruses with a single repeated hook word or phrase ("Beautiful Crazy," "Fancy Like," "Tipsy"). The title IS the hook.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Lyrical Theme</span>
+          <span class="dna-value">Small-town nostalgia, late nights, whiskey, truck beds, and a specific woman. Emotional specificity drives connection — dirt roads, back porch, porch lights.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Production Trend</span>
+          <span class="dna-value">Shift from slick pop-country (2018–20) to raw, authentic singer-songwriter feel (2022–25). Acoustic guitar, warm bass, steel guitar returned. Less trap-influenced after 2021.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Vocal Style</span>
+          <span class="dna-value">Gritty male baritone (Wallen, Bryan, Stapleton) or emotional female mid-range (Morris, Wilson). Raw imperfection > technical polish.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Song Structure</span>
+          <span class="dna-value">Verse-Pre-Chorus-Chorus with explosive dynamic drop into the chorus. Bridge as emotional peak. Under 4 minutes.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Crossover Formula</span>
+          <span class="dna-value">2024 era: featuring pop/hip-hop artists (Post Malone, Beyoncé) broke every record. Genre crossover = mega streams.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Key Instruments</span>
+          <span class="dna-value">Acoustic guitar lead, pedal steel, warm electric rhythm guitar, punchy kick drum, subtle banjo or mandolin accents.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">TikTok Factor</span>
+          <span class="dna-value">Walker Hayes' "Fancy Like" exploded via dance trends. Songs with a physical hook or viral-ready chorus are now essential.</span>
+        </div>
+      </div>
+    </div>
+
+    <p style="color:var(--muted); font-size:11px; margin-bottom:12px; letter-spacing:1px; text-transform:uppercase;">— Suno Prompts: Country —</p>
+    <div class="prompt-container">
+      <div class="prompt-box">
+        <div class="prompt-box-header">
+          <span class="label highlight-country">Style Prompt → paste into Style field</span>
+          <span class="char-count">≤ 500 chars</span>
+        </div>
+        <div class="prompt-text" id="country-style">Outlaw country-pop, warm acoustic guitar, pedal steel lead, punchy kick drum, gritty male baritone vocal, raw emotional energy, small-town nostalgia, dusty Southern atmosphere, intimate verse building to explosive sing-along chorus, subtle banjo accents, organic production, 95 BPM, melancholic undertone with hopeful resolution, whiskey-soaked late-night feel, modern radio-ready mix, authentic storytelling warmth</div>
+        <button class="copy-btn" onclick="copyText('country-style', this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-box">
+        <div class="prompt-box-header">
+          <span class="label highlight-country">Lyric Generation Prompt → paste into Generate Lyrics field</span>
+          <span class="char-count">Paste → click Generate Lyrics</span>
+        </div>
+        <div class="prompt-text" id="country-lyrics">Write a modern country song about a man who left his small hometown and the woman he loved behind, returning years later to find everything the same except her. Use hyper-specific Southern imagery: gravel roads, porch lights, barn gates, fireflies, jukeboxes. The tone is aching nostalgia with a bittersweet acceptance — not rage, not hope, just longing. The title and hook phrase should be a single evocative image (a place name, a sensory memory, a physical object). Structure: two intimate verses with conversational storytelling, a pre-chorus that builds tension, an anthemic singalong chorus that repeats the hook phrase, a quieter bridge with a moment of honest self-reflection, then a final chorus. Keep the language plain and direct — no flowery metaphors, just specific true-feeling details that make the listener feel like they've lived it. Under 4 minutes.</div>
+        <button class="copy-btn" onclick="copyText('country-lyrics', this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!--  PROGRESSIVE ROCK  -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="genre-section prog">
+    <div class="genre-header">
+      <h2>Progressive Rock</h2>
+      <span>2018 – 2025 Top Hits Analysis</span>
+    </div>
+
+    <div class="year-grid">
+      <div class="year-card">
+        <div class="year-label">2018–2019</div>
+        <ul class="song-list">
+          <li>The Raven That Refused to Sing <span>— Steven Wilson</span></li>
+          <li>The Sound of Muzak <span>— Porcupine Tree</span></li>
+          <li>Luminol <span>— Steven Wilson</span></li>
+          <li>Permanating <span>— Yes</span></li>
+          <li>Ascending / Descending <span>— Karnivool</span></li>
+          <li>Pale Communion <span>— Opeth</span></li>
+          <li>Atlas Hands <span>— Benjamin Francis</span></li>
+          <li>Sanctify <span>— Haken</span></li>
+          <li>Dysphoria <span>— Leprous</span></li>
+          <li>The Great Divide <span>— Wheel</span></li>
+        </ul>
+      </div>
+      <div class="year-card">
+        <div class="year-label">2020–2021</div>
+        <ul class="song-list">
+          <li>Dignified &amp; Old <span>— Porcupine Tree</span></li>
+          <li>30 Pieces of Silver <span>— Riverside</span></li>
+          <li>Darker Days <span>— Voyager</span></li>
+          <li>Patience for the Grieving <span>— Tesseract</span></li>
+          <li>Sleepwalking <span>— Haken</span></li>
+          <li>Caelum <span>— Leprous</span></li>
+          <li>Intermezzo <span>— Opeth (Blackwater Park)</span></li>
+          <li>Neon Sky <span>— Animals as Leaders</span></li>
+          <li>A Darkening Sky <span>— Bent Knee</span></li>
+          <li>The Struggle <span>— Periphery</span></li>
+        </ul>
+      </div>
+      <div class="year-card">
+        <div class="year-label">2022–2023</div>
+        <ul class="song-list">
+          <li>Harridan <span>— Porcupine Tree</span></li>
+          <li>Of the New Day <span>— Porcupine Tree</span></li>
+          <li>Herd Culling <span>— Porcupine Tree</span></li>
+          <li>Clockwork <span>— Haken</span></li>
+          <li>Deadzone <span>— Riverside</span></li>
+          <li>Castaway <span>— Leprous</span></li>
+          <li>The Last Milestone <span>— Wheel</span></li>
+          <li>In Ashes <span>— Tesseract</span></li>
+          <li>Ghost <span>— Opeth</span></li>
+          <li>Transcending Time <span>— Frost*</span></li>
+        </ul>
+      </div>
+      <div class="year-card">
+        <div class="year-label">2024–2025</div>
+        <ul class="song-list">
+          <li>Rats (Return to the Road) <span>— Porcupine Tree</span></li>
+          <li>The Endless Knot <span>— Steven Wilson</span></li>
+          <li>Woodcut <span>— Big Big Train</span></li>
+          <li>Panorama <span>— Hällas</span></li>
+          <li>Something Wicked <span>— Haken</span></li>
+          <li>In Twos <span>— Leprous</span></li>
+          <li>Gravedigger <span>— Opeth</span></li>
+          <li>Trepanning <span>— Devin Townsend</span></li>
+          <li>Mirror Image <span>— Wheel</span></li>
+          <li>Aphelion <span>— Coma Ecliptic era revival</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dna-box">
+      <h3>What Made Them Hits — Progressive Rock DNA 2018–2025</h3>
+      <div class="dna-grid">
+        <div class="dna-item">
+          <span class="dna-label">Song Architecture</span>
+          <span class="dna-value">Multi-part suites (7–12 min) OR emotionally accessible tracks (4–6 min) with extended instrumental passages. The "Porcupine Tree format" — pop accessibility with compositional depth — dominated the 2022 era.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Emotional Core</span>
+          <span class="dna-value">Unlike classic prog's conceptual abstraction, 2018–2025 prog leans into personal vulnerability: grief, isolation, disconnection from modern society, existential dread. Deeply human.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Production Signature</span>
+          <span class="dna-value">Pristine mix with weight: thunderous low-end, crystalline highs, wide stereo field. Analog warmth fused with modern clarity. No digital harshness.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Key Instruments</span>
+          <span class="dna-value">7-string guitars, Hammond organ, Mellotron, polyrhythmic drumming (odd time signatures), fretless bass, synthesizer pads layered with real strings.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Vocal Approach</span>
+          <span class="dna-value">Clean, melodic, introspective. Steven Wilson / Gavin Harrison school: restraint over showmanship. Falsetto moments for emotional peaks. No growling — accessibility is king.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Dynamic Range</span>
+          <span class="dna-value">Quiet/loud contrast is essential. Songs typically start sparse and intimate, build through layered arrangement to a crushing climax, then resolve quietly.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Lyrical World</span>
+          <span class="dna-value">Political commentary (Porcupine Tree's Closure/Continuation), psychological introspection, technological alienation, grief. Dense, literary, layered meaning.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Genre Hybrid Trend</span>
+          <span class="dna-value">Djent-prog (Tesseract, Periphery) + atmospheric post-rock + jazz harmony = the 2020s progressive sound. Less retro-worship, more forward-looking fusion.</span>
+        </div>
+      </div>
+    </div>
+
+    <p style="color:var(--muted); font-size:11px; margin-bottom:12px; letter-spacing:1px; text-transform:uppercase;">— Suno Prompts: Progressive Rock —</p>
+    <div class="prompt-container">
+      <div class="prompt-box">
+        <div class="prompt-box-header">
+          <span class="label highlight-prog">Style Prompt → paste into Style field</span>
+          <span class="char-count">≤ 500 chars</span>
+        </div>
+        <div class="prompt-text" id="prog-style">Modern progressive rock, cinematic dynamics, 7-string guitar riffs, Mellotron pads, polyrhythmic drumming in 7/8 and 4/4, fretless bass, Hammond organ swells, clean introspective male vocals with emotional falsetto, quiet intimate verse exploding to crushing orchestral chorus, wide stereo mix, analog warmth, psychological alienation themes, 85 BPM main feel with metric modulation, post-rock atmosphere, contemporary prog production</div>
+        <button class="copy-btn" onclick="copyText('prog-style', this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-box">
+        <div class="prompt-box-header">
+          <span class="label highlight-prog">Lyric Generation Prompt → paste into Generate Lyrics field</span>
+          <span class="char-count">Paste → click Generate Lyrics</span>
+        </div>
+        <div class="prompt-text" id="prog-lyrics">Write a modern progressive rock song exploring psychological alienation in the digital age — the feeling of dissolving into signal and noise, where screens replace human connection and identity becomes performance. The tone is introspective, literary, and haunting — not angry, more like a person witnessing their own fragmentation from a distance. Use abstract yet precise imagery: frequencies, static, transmission, glass, the architecture of the mind. Structure should feel like a journey: a sparse, philosophical opening verse; a layered second verse adding tension; a massive emotionally devastating chorus that lands like a tidal wave; a complex bridge that reframes the entire song's meaning; a whispered or falsetto outro that resolves into quiet ambiguity. Lyrics should reward repeated listening — dense enough to contain multiple interpretations. Avoid simple rhyme schemes; use near-rhyme and internal rhyme for a more sophisticated feel. 5 to 8 minutes of content.</div>
+        <button class="copy-btn" onclick="copyText('prog-lyrics', this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!--  POP PUNK  -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="genre-section poppunk">
+    <div class="genre-header">
+      <h2>Pop Punk</h2>
+      <span>2018 – 2025 Top Hits Analysis</span>
+    </div>
+
+    <div class="year-grid">
+      <div class="year-card">
+        <div class="year-label">2018–2019</div>
+        <ul class="song-list">
+          <li>Easier <span>— 5 Seconds of Summer</span></li>
+          <li>Monster <span>— Yungblud &amp; Halsey</span></li>
+          <li>Teeth <span>— 5SOS</span></li>
+          <li>Kill or Be Killed <span>— Muse</span></li>
+          <li>Emo Girl <span>— Grandson</span></li>
+          <li>The Death of Peace of Mind <span>— Bad Omens</span></li>
+          <li>Nervous <span>— Yungblud</span></li>
+          <li>Valentine <span>— 5SOS</span></li>
+          <li>Lovely (live era) <span>— Billie Eilish</span></li>
+          <li>Punk Was a Religious Cult <span>— Jack Kays</span></li>
+        </ul>
+      </div>
+      <div class="year-card">
+        <div class="year-label">2020–2021</div>
+        <ul class="song-list">
+          <li>my ex's best friend <span>— Machine Gun Kelly</span></li>
+          <li>bloody valentine <span>— Machine Gun Kelly</span></li>
+          <li>Good 4 U <span>— Olivia Rodrigo</span></li>
+          <li>PARAMORE (Driver's License era)</span></li>
+          <li>1 Thing <span>— Yungblud</span></li>
+          <li>Death Bed <span>— Powfu</span></li>
+          <li>You're Such a <span>— Gracie Abrams</span></li>
+          <li>All I Want <span>— Olivia Rodrigo</span></li>
+          <li>Brutal <span>— Olivia Rodrigo</span></li>
+          <li>Enough for You <span>— Olivia Rodrigo</span></li>
+        </ul>
+      </div>
+      <div class="year-card">
+        <div class="year-label">2022–2023</div>
+        <ul class="song-list">
+          <li>VOID <span>— Blink-182</span></li>
+          <li>EDGING <span>— Blink-182</span></li>
+          <li>A New Beginning <span>— Waterparks</span></li>
+          <li>The Loneliest <span>— Maneskin</span></li>
+          <li>Stressed Out <span>— Twenty One Pilots (legacy)</span></li>
+          <li>Smells Like Me <span>— KennyHoopla</span></li>
+          <li>Serotonin <span>— girl in red</span></li>
+          <li>Bloody Mary <span>— Lady Gaga (viral pop punk remix)</span></li>
+          <li>Punk Tactics <span>— Meet Me at the Altar</span></li>
+          <li>Devastate <span>— Neck Deep</span></li>
+        </ul>
+      </div>
+      <div class="year-card">
+        <div class="year-label">2024–2025</div>
+        <ul class="song-list">
+          <li>ONE MORE TIME <span>— Blink-182</span></li>
+          <li>EDGING <span>— Blink-182</span></li>
+          <li>Landmines <span>— Sum 41</span></li>
+          <li>Girl <span>— Maisie Peters (pop punk lean)</span></li>
+          <li>So High School <span>— Taylor Swift (pop punk moments)</span></li>
+          <li>Broken <span>— Meet Me at the Altar</span></li>
+          <li>Burn It Down <span>— Paramore revival era</span></li>
+          <li>Sick of Losing Soulmates <span>— Dodie</span></li>
+          <li>Funeral for a Friend <span>— Ethel Cain inspired</span></li>
+          <li>Saturday <span>— Yungblud</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dna-box">
+      <h3>What Made Them Hits — Pop Punk DNA 2018–2025</h3>
+      <div class="dna-grid">
+        <div class="dna-item">
+          <span class="dna-label">The 2020 Revival Formula</span>
+          <span class="dna-value">Machine Gun Kelly's Tickets to My Downfall reignited mainstream interest. TikTok #poppunk reached 400M views by 2021. The formula: classic 2000s pop punk energy + modern production sheen + hip-hop cadence influence.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Olivia Rodrigo Effect</span>
+          <span class="dna-value">"Good 4 U" became rock's first Hot 100 #1 in years (2021). Template: female vocal, sarcastic bitter anger, Paramore-influenced guitar crunch, revenge narrative, anthemic scream chorus.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Lyrical Blueprint</span>
+          <span class="dna-value">Ex-relationship bitterness, social anxiety, suburban alienation, feeling misunderstood. Gen Z-specific: therapy language, mental health openness, self-awareness mixed with self-destruction.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Production Traits</span>
+          <span class="dna-value">Crunchy distorted power chords, four-on-the-floor or half-time drum feel, bass-heavy low end, vocals mixed slightly forward and raw, bright guitar tone, gang vocal backing choruses.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Song Structure</span>
+          <span class="dna-value">Verse (soft, almost spoken) → Pre-chorus (building tension) → EXPLOSIVE chorus. The dynamic contrast is maximal. Short — 2:30 to 3:15. TikTok-era hooks in the first 10 seconds.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Vocal Styles</span>
+          <span class="dna-value">Female: bratty, sardonic, emotionally raw (Rodrigo model). Male: earnest whine, emo sincerity, occasional rap cadence. Both: unpolished emotion over technical perfection.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Diversity Surge</span>
+          <span class="dna-value">2021+ wave brought unprecedented racial/gender diversity: Meet Me at the Altar (POC, female-fronted), girl in red, KennyHoopla. The genre's gatekeeping collapsed.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Nostalgia Coding</span>
+          <span class="dna-value">2022–25 saw legacy acts (Blink-182, Sum 41) return to form with reunion-era mega hits. Nostalgia + fresh production = guaranteed streaming numbers.</span>
+        </div>
+      </div>
+    </div>
+
+    <p style="color:var(--muted); font-size:11px; margin-bottom:12px; letter-spacing:1px; text-transform:uppercase;">— Suno Prompts: Pop Punk —</p>
+    <div class="prompt-container">
+      <div class="prompt-box">
+        <div class="prompt-box-header">
+          <span class="label highlight-punk">Style Prompt → paste into Style field</span>
+          <span class="char-count">≤ 500 chars</span>
+        </div>
+        <div class="prompt-text" id="punk-style">Modern pop punk revival, female vocal lead, sardonic bitter emotional delivery, crunchy distorted power chords, tight four-on-the-floor punk drumming, bright guitar tone, bass-forward mix, quiet vulnerable verse exploding into anthemic gang-vocal chorus, 2020s production clarity with raw punk attitude, 168 BPM, Gen Z therapy-speak lyrics, revenge energy, suburban alienation, Paramore-influenced guitar crunch, TikTok-era hook-first structure</div>
+        <button class="copy-btn" onclick="copyText('punk-style', this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-box">
+        <div class="prompt-box-header">
+          <span class="label highlight-punk">Lyric Generation Prompt → paste into Generate Lyrics field</span>
+          <span class="char-count">Paste → click Generate Lyrics</span>
+        </div>
+        <div class="prompt-text" id="punk-lyrics">Write a modern pop punk song from the perspective of a young woman who is done being the "too much" girl in a relationship — fully healed, sarcastically triumphant, and slightly embarrassed by how good she feels now. The tone is biting, witty, and emotionally honest in a Gen Z way: she references therapy, self-awareness, and the specific exhausting patterns of the relationship. The language should feel like how a 22-year-old actually talks — casual, sharp, a little dark-funny. The hook must be instantly memorable and singalong-ready, with a twist of irony. Structure: soft almost-spoken first verse → building pre-chorus → explosive power-chord chorus with gang vocal energy → second verse with more specific detail → same chorus → bridge that escalates to the emotional peak, slightly screamed or belted → final chorus with an added punch line or twist. Total runtime under 3:15. The very first line must hook immediately — no slow build in the opening.</div>
+        <button class="copy-btn" onclick="copyText('punk-lyrics', this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!--  ALTERNATIVE ROCK  -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <div class="genre-section altrock">
+    <div class="genre-header">
+      <h2>Alternative Rock</h2>
+      <span>2018 – 2025 Top Hits Analysis</span>
+    </div>
+
+    <div class="year-grid">
+      <div class="year-card">
+        <div class="year-label">2018–2019</div>
+        <ul class="song-list">
+          <li>Natural <span>— Imagine Dragons</span></li>
+          <li>Origins <span>— Imagine Dragons</span></li>
+          <li>High Hopes <span>— Panic! at the Disco</span></li>
+          <li>Bohemian Rhapsody (revival) <span>— Queen</span></li>
+          <li>Fall Out Boy <span>— Champion era</span></li>
+          <li>Wasted Times <span>— The Weeknd (alt lean)</span></li>
+          <li>ME! <span>— Taylor Swift &amp; Brendon Urie</span></li>
+          <li>Sunflower <span>— Post Malone (crossover)</span></li>
+          <li>Beautiful Ghosts <span>— Taylor Swift</span></li>
+          <li>Death of a Bachelor <span>— Panic! era legacy</span></li>
+        </ul>
+      </div>
+      <div class="year-card">
+        <div class="year-label">2020–2021</div>
+        <ul class="song-list">
+          <li>Heat Waves <span>— Glass Animals</span></li>
+          <li>Dreaming of Better Days <span>— Glass Animals</span></li>
+          <li>Levitating <span>— Dua Lipa (alt crossover)</span></li>
+          <li>astronaut in the ocean <span>— Masked Wolf</span></li>
+          <li>Arcade <span>— Duncan Laurence</span></li>
+          <li>drivers license <span>— Olivia Rodrigo</span></li>
+          <li>Wellerman <span>— alt cover era</span></li>
+          <li>Peaches <span>— Bieber (alt crossover)</span></li>
+          <li>Solar Power <span>— Lorde</span></li>
+          <li>Happier Than Ever <span>— Billie Eilish</span></li>
+        </ul>
+      </div>
+      <div class="year-card">
+        <div class="year-label">2022–2023</div>
+        <ul class="song-list">
+          <li>Heat Waves <span>— Glass Animals (peak #1)</span></li>
+          <li>Running Up That Hill <span>— Kate Bush (Stranger Things)</span></li>
+          <li>Something in the Orange <span>— Zach Bryan</span></li>
+          <li>I Remember Everything <span>— Zach Bryan</span></li>
+          <li>Unholy <span>— Sam Smith (crossover)</span></li>
+          <li>Anti-Hero <span>— Taylor Swift</span></li>
+          <li>End of Beginning <span>— Djo</span></li>
+          <li>Flowers <span>— Miley Cyrus (alt rock lean)</span></li>
+          <li>Rich Flex <span>— Drake (alt crossover)</span></li>
+          <li>Quevedo <span>— Bizarrap (alt)</span></li>
+        </ul>
+      </div>
+      <div class="year-card">
+        <div class="year-label">2024–2025</div>
+        <ul class="song-list">
+          <li>I Remember Everything <span>— Zach Bryan (year-end #1)</span></li>
+          <li>End of Beginning <span>— Djo (TikTok resurgence)</span></li>
+          <li>Landmines <span>— Sum 41</span></li>
+          <li>Too Sweet <span>— Hozier</span></li>
+          <li>Pink Skies <span>— Zach Bryan</span></li>
+          <li>What Was I Made For <span>— Billie Eilish</span></li>
+          <li>Guilty as Sin? <span>— Taylor Swift</span></li>
+          <li>Espresso <span>— Sabrina Carpenter (alt crossover)</span></li>
+          <li>BIRDS OF A FEATHER <span>— Billie Eilish</span></li>
+          <li>Good Luck, Babe! <span>— Chappell Roan</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dna-box">
+      <h3>What Made Them Hits — Alternative Rock DNA 2018–2025</h3>
+      <div class="dna-grid">
+        <div class="dna-item">
+          <span class="dna-label">The Dominant Sound Shift</span>
+          <span class="dna-value">2018: Stadium rock, Imagine Dragons-style bombast. 2020: Dreamlike indie-pop (Glass Animals). 2022–25: Singer-songwriter folk-rock crossover (Zach Bryan, Hozier). The "authentic loner" aesthetic won.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">TikTok Resurrection Factor</span>
+          <span class="dna-value">"Heat Waves" spent 91 weeks on the Hot 100 — first rock song to #1 in years. Djo's "End of Beginning" went viral 2 years after release. Alt rock hits now have indefinite shelf lives via algorithmic rediscovery.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Production Language</span>
+          <span class="dna-value">Lo-fi warmth, cassette tape texture, reverb-saturated guitars, intimate vocal placement, subtle electronic elements layered under acoustic instrumentation. The "bedroom recorded in a big studio" paradox.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Lyrical Mode</span>
+          <span class="dna-value">Hyper-specific emotional memory ("Heat Waves" — missing someone while they're asleep nearby). The more personal and specific the lyric, the more universal the connection. Abstract becomes intimate.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Structural Innovation</span>
+          <span class="dna-value">Non-standard structures breaking the verse-chorus formula. Slow-burn builds without a traditional chorus (Hozier, Zach Bryan). The "journey" song replaced the "hook" song in prestige alt rock.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Vocal Intimacy</span>
+          <span class="dna-value">Close-mic'd, breathy, confessional. Billie Eilish established the whisper-close vocal as dominant. Imperfection (cracks, breathiness) = emotional authenticity = streaming gold.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">Genre Blur</span>
+          <span class="dna-value">2022–25 alt rock hits are indistinguishable from country (Zach Bryan), indie pop (Djo), or dream-pop (Glass Animals). The genre became a feeling, not a sound.</span>
+        </div>
+        <div class="dna-item">
+          <span class="dna-label">The Nostalgia Trigger</span>
+          <span class="dna-value">Kate Bush's "Running Up That Hill" — 37-year-old song became 2022's song of the summer. Alt listeners crave emotional memory. Nostalgia coding (80s synths, 90s flannel textures) dominates production.</span>
+        </div>
+      </div>
+    </div>
+
+    <p style="color:var(--muted); font-size:11px; margin-bottom:12px; letter-spacing:1px; text-transform:uppercase;">— Suno Prompts: Alternative Rock —</p>
+    <div class="prompt-container">
+      <div class="prompt-box">
+        <div class="prompt-box-header">
+          <span class="label highlight-alt">Style Prompt</span>
+          <span class="char-count">≤ 500 chars</span>
+        </div>
+        <div class="prompt-text" id="alt-style">Modern alternative rock, intimate close-mic vocal, reverb-saturated atmospheric guitar, warm lo-fi texture, subtle electronic undercurrent, confessional singer-songwriter feel, slow-burn emotional build without traditional chorus, cassette warmth fused with modern clarity, 72 BPM dreamlike pulse, nostalgic 80s synth undertones, hyper-specific personal imagery, whisper-to-climax dynamic arc, indie folk-rock crossover, emotionally devastating resolution, 2020s bedroom-studio aesthetic</div>
+        <button class="copy-btn" onclick="copyText('alt-style', this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-box">
+        <div class="prompt-box-header">
+          <span class="label highlight-alt">Lyric Generation Prompt → paste into Generate Lyrics field</span>
+          <span class="char-count">Paste → click Generate Lyrics</span>
+        </div>
+        <div class="prompt-text" id="alt-lyrics">Write a modern alternative rock song about the specific grief of not being able to move on — not dramatic heartbreak, but the quiet, embarrassing, mundane version: leaving someone's coffee cup unwashed, keeping the window at the same temperature, sitting in a parking lot listening to a song all the way through. The emotional truth is: the narrator knows they should move on, can intellectually describe exactly what moving on looks like, and still cannot do it. The tone is honest, slightly wry, and achingly specific — more observed than felt in the moment. Use hyper-specific sensory details rather than general emotion words. The song should not have a traditional chorus — instead it should build through accumulation, each verse adding weight until the final section breaks open emotionally. The very best line should be saved for last. Imagery should feel cinematic: low light, still objects, empty rooms, the quality of afternoon air. The language is simple but the emotional architecture is complex. Around 4 minutes.</div>
+        <button class="copy-btn" onclick="copyText('alt-lyrics', this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+function copyText(id, btn) {
+  const el = document.getElementById(id);
+  const text = el.innerText;
+  const originalText = btn.textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✓ Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.classList.remove('copied');
+      btn.textContent = originalText;
+    }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>

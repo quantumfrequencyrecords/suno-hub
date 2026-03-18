@@ -1,0 +1,472 @@
+{
+  "id": "avicii",
+  "name": "Avicii",
+  "genres": ["Progressive House", "EDM", "Dance-Pop", "Folk-EDM", "Melodic House"],
+  "era": "2008–2018",
+  "color": "#f5a623",
+  "bio": "Tim Bergling (1989–2018), known as Avicii, was the Swedish DJ and producer who took electronic music to Top 40 radio. Self-taught from age 16, he built a sound that fused four-on-the-floor house beats with folk, country, gospel, and pop melody — a genre-defying hybrid that made him one of the most streamed artists of the 2010s. He was influenced equally by Eric Prydz and Daft Punk on the electronic side and by Etta James, Ray Charles, Mumford & Sons, and Of Monsters and Men on the melodic side. He died by suicide in April 2018, aged 28. All profits from his posthumous album TIM go to the Tim Bergling Foundation for mental health awareness. Three studio albums: True (2013), Stories (2015), TIM (2019).",
+  "producer_notes": "Avicii self-produced all key material. Signature: euphoric four-on-the-floor kick drum, vocal chops or featured singers with emotional soul/folk qualities, ascending melodic synth leads, key changes in the final chorus for emotional lift. He sampled deeply from soul and gospel. Collaborators: Vargas & Lagola (key TIM era partners), Aloe Blacc (Wake Me Up, SOS), Mike Einziger of Incubus (acoustic guitar on Wake Me Up). No artist names in Suno style prompts — use genre/era descriptors.",
+  "songs": [
+
+    {
+      "title": "Levels",
+      "album": "Levels (Single)",
+      "year": 2011,
+      "bpm": 126,
+      "vibe": "Generation-defining EDM anthem · Etta James gospel sample · Grammy nominated",
+      "dna": "Progressive house track built around a synth lead motif. The vocal sample was lifted from Etta James's 'Something's Got a Hold on Me' (1962) — Avicii discovered it via Pretty Lights and was drawn to its timeless and raw quality. Premiered on Pete Tong's BBC Radio 1 Essential Mix December 2010. Reached top 10 in 13+ countries. Grammy nominated Best Dance Recording 2013. Featured in the Arrow TV pilot. Billboard called it 'the dance anthem of the summer festival season 2011.' Flo Rida sampled it for his hit 'Good Feeling' — bringing it to pop radio a second time.",
+      "style_prompt": "Euphoric progressive house EDM, 126 BPM, ascending melodic synth lead hook, four-on-the-floor kick drum, gospel-soul female vocal sample chopped into breakdown, sweeping synth build to euphoric drop, no vocals in verses — purely instrumental drive, uplifting C major, festival anthem energy, wide stadium production, warm analog synth tone, tension-build-release structure, 2011 progressive house sound",
+      "lyric_prompt": "Write a lyric generation prompt for a euphoric EDM anthem built on the feeling of pure elevation — a moment where everything in life clicks and you feel an overwhelming rush of joy you have never felt before. The lyric should be minimal and anthemic: short, chantable phrases that work over a pulsing four-on-the-floor beat. The emotional core is the feeling described in classic gospel and soul — being seized by an inexplicable good feeling that lifts you above everything. Structure: brief verse setting the scene → chorus built on the central feeling phrase → second verse → final drop with hook returning. Under 3:30. The hook must be singable by 50,000 people simultaneously."
+    },
+    {
+      "title": "Fade Into Darkness",
+      "album": "Fade Into Darkness (Single)",
+      "year": 2011,
+      "bpm": 128,
+      "vibe": "Samples Penguin Cafe Orchestra · emotional progressive house · Leona Lewis controversy",
+      "dna": "Samples 'Perpetuum Mobile' by Penguin Cafe Orchestra (1987) — an unusual classical source for EDM. This sample was at the center of the 'Collide' controversy when Leona Lewis used it without crediting Avicii; the dispute was settled out of court and Collide became a joint release. Features vocals from Andreas Moe. Demonstrates Avicii's early ability to blend classical and orchestral sources into house music. Premiered at Ultra Music Festival 2011.",
+      "style_prompt": "Early progressive house, 128 BPM, orchestral classical string motif sampled and woven into house production, four-on-the-floor kick, male emotional tenor vocal, ascending melodic line building to euphoric drop, tension between classical restraint and EDM energy, warm nostalgic production, major key uplift, 2011 pre-True Avicii sound, emotional and cinematic",
+      "lyric_prompt": "Write a song about the fear of losing yourself — of slowly fading away from who you are because of circumstances, relationships, or the relentless pace of life. The narrator stands at the edge of that disappearance and is fighting against it. The verses describe the feeling of fading: things that once mattered becoming distant, the self becoming harder to find. The chorus is the defiant refusal to disappear — or the poignant acknowledgment that it's happening anyway. Include a bridge where a moment of clarity cuts through the fog. The language should feel cinematic and slightly orchestral in its imagery. Under 3:30."
+    },
+
+    {
+      "title": "Wake Me Up",
+      "album": "True",
+      "year": 2013,
+      "bpm": 124,
+      "vibe": "Folk-EDM crossover · Aloe Blacc vocal · topped charts in 20+ countries",
+      "dna": "Avicii's boldest genre experiment: a country/folk-acoustic song transformed into an EDM crossover hit. Features vocals by Aloe Blacc and acoustic guitar performed by Mike Einziger of Incubus. Initially divided critics but topped charts in over 20 countries, became one of the most-streamed songs of the decade, and opened the door for all genre-bending EDM. D major, 124 BPM. Debuted number 1 in the UK. Over 2.5 billion Spotify streams.",
+      "style_prompt": "Folk-EDM crossover, 124 BPM, acoustic guitar-forward intro transforming into massive four-on-the-floor drop, warm soul-gospel male tenor vocal, acoustic guitar by rock guitarist, organic folk texture in verses contrasting with electronic euphoria in chorus, major key, warm and emotional, strummed acoustic guitar over house beat, anthemic singalong chorus, 2013 genre-defying True-era sound",
+      "lyric_prompt": "Write a song about feeling lost and searching for direction in life — not knowing where you belong, feeling like you're sleepwalking through the wrong existence, and the desperate wish to be woken up to your real purpose and real feelings. The verses feel folk and intimate, the chorus erupts with EDM intensity. The emotional core is yearning for self-discovery. The chorus hook should be a chantable call about waking up and feeling something real. Include a bridge about the journey not yet complete but the direction finally clear. Under 4:15."
+    },
+    {
+      "title": "You Make Me",
+      "album": "True",
+      "year": 2013,
+      "bpm": 123,
+      "vibe": "Pure house energy · Salvatore Ganacci collaboration · electro-house euphoria",
+      "dna": "The most purely electronic track on True — a departure from the album's folk-crossover experiments. Co-written with Salvatore Ganacci. Released as the second single from True. Electro-house energy more aligned with his pre-True DJ set sound. Features a heavy filtered lead synth build typical of peak-era Avicii festival productions. Reached number 2 in the UK Singles Chart.",
+      "style_prompt": "Euphoric electro-house, 123 BPM, heavy filtered lead synth build, four-on-the-floor kick, female vocal lead, major key festival energy, most purely electronic True album track, 2013 peak-era festival EDM, wide synth bass, driving sidechained groove, hands-in-the-air uplift",
+      "lyric_prompt": "Write a euphoric house anthem about the transformative effect someone has on you — how their presence makes you feel things you didn't know you could feel, makes you more alive, more free, more yourself. The lyric should be joyful and slightly breathless. The verses describe specific moments of feeling transformed. The chorus is the declaration of what they do to you — pure euphoric feeling expressed simply and anthemically. Under 3:55. Pure festival energy."
+    },
+    {
+      "title": "Hey Brother",
+      "album": "True",
+      "year": 2013,
+      "bpm": 128,
+      "vibe": "Country-folk EDM hybrid · Dan Tyminski vocal · banjo and fiddle over house beat",
+      "dna": "Features vocals from Dan Tyminski — the voice of George Clooney's character in O Brother, Where Art Thou? Incorporates banjo, fiddle, and acoustic guitar into a progressive house framework. The lyric addresses sibling devotion and unconditional loyalty. One of Avicii's most emotionally direct True songs. Reached number 6 on UK Singles Chart.",
+      "style_prompt": "Country-folk progressive house hybrid, 128 BPM, banjo and fiddle over four-on-the-floor kick drum, acoustic guitar strumming, powerful male country-soul tenor vocal, sibling devotion lyric, organic folk instrumentation in verses transforming into EDM drop, warm major key, anthemic chorus with gospel energy, bluegrass meets festival EDM",
+      "lyric_prompt": "Write a song about unconditional loyalty and devotion between two people — framed as sibling love but applicable to any profound bond. Earnest and direct: no irony, pure feeling. The verses describe the depth of the bond: growing up together, being there through hard times, protecting each other. The chorus is a declaration — no matter what, I will always be there. The production fuses country-folk acoustic warmth with EDM energy. Include one verse about distance and still being present emotionally. Under 3:30."
+    },
+    {
+      "title": "Addicted To You",
+      "album": "True",
+      "year": 2013,
+      "bpm": 126,
+      "vibe": "80s-influenced pop-house · Audra Mae vocal · chart hit in Germany and Belgium",
+      "dna": "Features Audra Mae on vocals — a country-influenced singer whose voice gives the track unusual warmth for EDM. 80s new wave and classic pop influences more apparent here than on any other True track. The production has a retro shimmer under the house kick. Reached number 3 in Germany and Belgium. One of the True album's most pop-forward tracks.",
+      "style_prompt": "80s-influenced pop-house, 126 BPM, retro shimmer synth pads, four-on-the-floor kick, warm female country-pop vocal lead, classic pop melodic structure inside EDM framework, major key euphoria, nostalgic production, less aggressive than festival EDM — more radio-pop warmth, layered harmonies on chorus, 2013 progressive house with 80s gloss",
+      "lyric_prompt": "Write a song about being completely addicted to someone — not in a toxic way, but in the way where you simply cannot imagine life without them and don't want to. The tone is warm and slightly breathless — overwhelmed by the feeling rather than analyzing it. The verses describe specific moments of that addiction: thinking about them constantly, everything reminding you of them. The chorus is a declaration of helpless devotion — and the narrator doesn't want to be cured. Include 80s pop influences: a big anthemic hook with backing harmonies. Under 3:30."
+    },
+    {
+      "title": "Dear Boy",
+      "album": "True",
+      "year": 2013,
+      "bpm": 125,
+      "vibe": "Deeper melodic house · extended 7:59 runtime · fan favourite · patient progressive structure",
+      "dna": "One of Avicii's most musically sophisticated True tracks and a consistent fan favourite despite not being a major single. A slower-burn progressive house track with extended instrumental sections and a delayed vocal payoff. Demonstrates his mastery of tension and release over longer structures. At 7:59 it is the longest track on True. The patient build — nearly five minutes before the drop — was unusually restrained for commercial EDM.",
+      "style_prompt": "Melodic progressive house, 125 BPM, extended atmospheric build — most of the track is instrumental, delayed vocal entry, lush synth pads, four-on-the-floor drive, warm house bassline, ethereal male vocal when it arrives, major key emotional uplift, deep progressive structure, patient 7-minute tension build to euphoric release",
+      "lyric_prompt": "Write a song addressed to someone going through a hard time who needs to be reminded of their worth — tender and encouraging, not patronizing. The narrator sees this person's potential more clearly than they see it themselves. The verses describe what the narrator observes: the person's resilience, their kindness, the way they underestimate themselves. The chorus is an uplift — a declaration of belief in them. The lyric should be sparse and land with weight — every word earns its place. Include one bridge where the narrator shares their own vulnerability. Under 4 minutes."
+    },
+    {
+      "title": "Liar Liar",
+      "album": "True",
+      "year": 2013,
+      "bpm": 124,
+      "vibe": "Mac Davis vocal · classic country storytelling in EDM framework",
+      "dna": "Features legendary country songwriter Mac Davis on vocals. Mac Davis wrote 'A Little Less Conversation' and 'In the Ghetto' for Elvis Presley, making this one of the more surprising True collaborations. His authentic country rasp gives the track a genuinely weathered feel unusual for EDM. The lyric is a classic cheating/lying narrative delivered in the old-school country tradition.",
+      "style_prompt": "Country-EDM hybrid, 124 BPM, classic country rasp vocal lead — authentically weathered not polished pop, four-on-the-floor building under acoustic country texture, True-era Avicii folk-EDM approach, major key, cheating/lying narrative in old-school country tradition, organic country warmth building to electronic chorus drop",
+      "lyric_prompt": "Write a song in the classic country storytelling tradition about catching someone in a lie — the slow accumulation of evidence, the confrontation, the moment of admission. The narrator is not angry — they are tired and a little heartbroken, telling the story plainly. The vocal should feel authentic and weathered, not polished pop. The chorus is the simple declaration: liar, liar. Include specific details that make the lie feel real. The production sits between country acoustic and EDM drop. Under 4 minutes."
+    },
+    {
+      "title": "Shame On Me",
+      "album": "True",
+      "year": 2013,
+      "bpm": 125,
+      "vibe": "Agnes vocal · self-recrimination and regret · mid-album emotional dip",
+      "dna": "Features Agnes — a Swedish pop singer. One of the True album's more introspective tracks, sitting at the emotional midpoint of the album where the tone shifts from euphoric to more reflective. The lyric is about self-recrimination — the narrator blaming themselves for the failure of a relationship. Agnes's voice has an unusual plaintive quality that suits the subject matter.",
+      "style_prompt": "Introspective pop-house, 125 BPM, Swedish female pop vocal lead with plaintive quality, True-era Avicii production — warmer and less aggressive than festival tracks, mid-tempo with emotional weight, minor emotional undertone, self-recrimination lyric, house groove with organic warmth",
+      "lyric_prompt": "Write a song about self-recrimination — the narrator fully owning their role in the failure of a relationship, refusing to blame the other person. The tone is honest and tired, not dramatic. The verses catalogue the specific things the narrator did wrong: the moments of selfishness, the times they didn't show up, the small betrayals that accumulated. The chorus is the admission of responsibility. Under 4:15."
+    },
+    {
+      "title": "Lay Me Down",
+      "album": "True",
+      "year": 2013,
+      "bpm": 127,
+      "vibe": "Adam Lambert vocal · epic progressive house · swelling theatrical EDM",
+      "dna": "Features Adam Lambert — his theatrical vocal range gives the track a distinctly operatic quality unusual for EDM. One of the True album's most sonically ambitious tracks with a sweeping progressive house production. Lambert's vocal performance is the most theatrically dramatic on the album. The track builds to one of Avicii's most epic drops.",
+      "style_prompt": "Epic progressive house with theatrical vocal, 127 BPM, Adam Lambert-style operatic male tenor range, sweeping building production, four-on-the-floor escalating to massive theatrical drop, major key grandeur, True-era Avicii ambition, orchestral-feeling synth swells, most dramatically scored True track",
+      "lyric_prompt": "Write a song about the complete surrender to love — laying down every wall, every defense, every pretense, because this person has made all of it unnecessary. The tone is theatrical and emotionally enormous — this is not a quiet love song, it's an aria. The verses build toward the moment of surrender. The chorus is the act itself — laying down, fully open, fully trusting. Adam Lambert-style: big emotions delivered with full theatrical commitment. Under 5 minutes."
+    },
+    {
+      "title": "Hope There's Someone",
+      "album": "True",
+      "year": 2013,
+      "bpm": 126,
+      "vibe": "Antony and the Johnsons cover · Linnea Henriksson vocal · most haunting True moment",
+      "dna": "A cover of Antony and the Johnsons' 2005 Mercury Prize-winning song 'Hope There's Someone.' Features Swedish singer Linnea Henriksson on vocals. The original is one of the most haunting songs of the 2000s — about the fear of dying alone. Avicii transforms it into a progressive house production while preserving the lyric's existential weight. One of the most sonically ambitious and emotionally serious moments on True.",
+      "style_prompt": "Haunting progressive house cover, 126 BPM, delicate ethereal Swedish female vocal, four-on-the-floor underlying a fragile melody, True-era Avicii production serving rather than overwhelming the emotional weight, major key but existentially serious lyric about fear of dying alone, slowly building drop that feels almost reverent, extended 6-minute runtime",
+      "lyric_prompt": "Write a song about the most fundamental human fear — the fear of dying alone, without someone to witness your life and hold your hand at the end. The tone is not morbid but nakedly honest and searingly tender. The verses describe the specific loneliness of that fear: waking up at 3am and reaching for someone who isn't there. The chorus is the hope itself — the prayer that there will be someone. The most emotionally serious and haunting song in the set. Under 6:30."
+    },
+    {
+      "title": "Heart Upon My Sleeve",
+      "album": "True",
+      "year": 2013,
+      "bpm": 126,
+      "vibe": "MØ and Dan Reynolds vocal · True album closer · vulnerability anthem",
+      "dna": "Features MØ and Dan Reynolds of Imagine Dragons (a different version appears on TIM featuring only Imagine Dragons). The True version features both artists. The True album closer — a vulnerability anthem about being completely open with someone. At 126 BPM it sits firmly in the sweet spot of Avicii's melodic house range. One of the more pop-forward True tracks with a strong hook.",
+      "style_prompt": "Pop-house vulnerability anthem, 126 BPM, female and male vocal alternating, emotional openness as lyric theme, True-era Avicii warm production, major key, four-on-the-floor, catchy hook-forward structure, melodic lead synth, True album closer energy — summary of the album's emotional journey",
+      "lyric_prompt": "Write a song about complete emotional vulnerability — wearing your heart on your sleeve, showing someone exactly who you are without hiding anything. The narrator has decided to stop protecting themselves and just be completely open. The verses describe what that openness feels like: terrifying and liberating simultaneously. The chorus is the declaration of openness. Include a moment where the vulnerability is met with warmth rather than rejection. Under 4:45."
+    },
+
+    {
+      "title": "Waiting For Love",
+      "album": "Stories",
+      "year": 2015,
+      "bpm": 129,
+      "vibe": "Stories lead single · Simon Aldred vocal · Sunday morning warmth to festival drop",
+      "dna": "One of the defining songs of the Stories era. Features vocals from Simon Aldred of Cherry Ghost. 129 BPM. Built around the contrast between quiet Sunday morning domesticity in the verses and the euphoric festival drop in the chorus. Avicii described the Stories album as being about the journey of life through its stories. Reached number 4 in the UK.",
+      "style_prompt": "Warm melodic house, 129 BPM, intimate acoustic-feeling verse with warm male indie-folk vocal, contrasting with euphoric festival drop on chorus, four-on-the-floor kick, ascending synth lead on drop, major key emotional warmth, soft Sunday morning atmosphere in verses building to festival energy, Stories-era warmer more melodic Avicii production",
+      "lyric_prompt": "Write a song about the beautiful in-between state of waiting — the uncertainty before something transformative arrives: love, purpose, a moment that changes everything. The narrator is in the quiet period before the breakthrough, and there is a warm acceptance in the waiting. The verses describe the quiet ordinary days of that waiting period. The chorus erupts into the certainty that it is coming — the faith that the waiting will be worth it. Include imagery of Sunday morning quiet contrasted with the enormity of what is approaching. Under 3:45."
+    },
+    {
+      "title": "Talk to Myself",
+      "album": "Stories",
+      "year": 2015,
+      "bpm": 108,
+      "vibe": "Gavin DeGraw vocal · talking through absence · slower introspective Stories track",
+      "dna": "Features Gavin DeGraw. One of the slower, more introspective Stories tracks at 108 BPM. About the experience of missing someone so profoundly that you find yourself talking to them as if they were still present. Gavin DeGraw's soulful voice gives it a blues-adjacent warmth unusual for the album. One of Stories' more emotionally direct tracks.",
+      "style_prompt": "Mid-tempo soulful pop-house, 108 BPM, Gavin DeGraw-style soulful male vocal, blues-adjacent warmth in EDM framework, Stories-era Avicii slower introspective production, absence and longing as lyric theme, warm groove with emotional weight, major key but melancholic feeling",
+      "lyric_prompt": "Write a song about missing someone so profoundly that you talk to them even when they're not there — filling the silence with one-sided conversations, imagining their responses. The narrator is not delusional — they know the person isn't there — but the habit of speaking to them is the last remnant of the relationship. The verses catalogue specific moments of these conversations: in the car, late at night, looking at something that would have made them laugh. The chorus is the admission of what's happening. Under 4 minutes."
+    },
+    {
+      "title": "Touch Me",
+      "album": "Stories",
+      "year": 2015,
+      "bpm": 116,
+      "vibe": "Vargas & Lagola vocal · longing for physical connection · warm production",
+      "dna": "Features Vargas & Lagola (Vincent Pontare and Salem Al Fakir) — Swedish songwriting duo who would become key TIM collaborators. One of the more mid-tempo Stories tracks. About the longing for physical connection — the specific ache of wanting to be touched by someone. Warm, sensual production that sits somewhere between pop-house and tropical house.",
+      "style_prompt": "Warm mid-tempo pop-house, 116 BPM, Vargas and Lagola-style Swedish pop male vocal, warm sensual production, longing for physical connection lyric, Stories-era Avicii warm palette, four-on-the-floor with tropical warmth, melodic lead synth, major key warmth",
+      "lyric_prompt": "Write a song about the specific ache of wanting to be physically close to someone — not just emotional connection but the hunger for their physical presence, their touch. The tone is warm and honest rather than overtly sexual. The verses describe the distance and what makes it hard: the remembered feeling of closeness, the everyday moments that trigger the longing. The chorus is the simple direct statement of desire. Under 4 minutes."
+    },
+    {
+      "title": "Ten More Days",
+      "album": "Stories",
+      "year": 2015,
+      "bpm": 138,
+      "vibe": "Zac Brown vocal · country gospel EDM · counting down to reunion",
+      "dna": "Features Zac Brown of the Zac Brown Band — bringing authentic country star power to the Stories album. The most overtly country-inflected Stories track, continuing the True-era folk-EDM experiment with a different angle. 138 BPM — one of the faster Stories tracks. The lyric is about counting down the days until you can be with someone again.",
+      "style_prompt": "Country-EDM hybrid, 138 BPM, Zac Brown-style authentic country male vocal, faster Stories track, country guitar texture over four-on-the-floor kick, warm major key, countdown-to-reunion lyric, gospel-inflected chorus, Stories-era Avicii country experiment continuing the True tradition",
+      "lyric_prompt": "Write a song about counting down the days until you can be with someone again — the specific anticipation of reunion, the way every day feels simultaneously too slow and somehow precious because it brings you closer. The verses describe the current situation of separation: what you're doing, how you're managing, what reminds you of them. The chorus is the countdown itself — specific, hopeful, urgent. Include a bridge where the day finally arrives. Under 4:05."
+    },
+    {
+      "title": "For a Better Day",
+      "album": "Stories",
+      "year": 2015,
+      "bpm": 135,
+      "vibe": "Alex Ebert vocal · child abuse and healing · most emotionally serious Stories track",
+      "dna": "Written by Avicii and Alex Ebert of Edward Sharpe and the Magnetic Zeros. The most emotionally serious Stories track — about child abuse, survival, and the hope for healing. Alex Ebert's ethereal vocal quality gives it a tender, aching feel. The lyric tells a specific story of a survivor finding a way forward. Avicii said this was one of his most personally meaningful tracks. Official video depicted child trafficking and abuse awareness.",
+      "style_prompt": "Emotionally serious melodic house, 135 BPM, Alex Ebert-style ethereal indie-folk male vocal, tender and aching production, child-abuse-survival-and-healing lyric, Stories-era Avicii warm production serving difficult content, four-on-the-floor but gentle, major key hope through pain, most emotionally serious Stories track",
+      "lyric_prompt": "Write a song about surviving childhood trauma and finding a way toward healing — about a child or young person who endured something terrible but who holds onto the promise of a better day ahead. The tone is tender and hopeful rather than dark — this is the survivor's perspective, not the wound's perspective. The verses describe the experience in delicate but honest terms. The chorus is the promise: there will be a better day. Include an adult perspective looking back on the child they were. Under 3:30."
+    },
+    {
+      "title": "Broken Arrows",
+      "album": "Stories",
+      "year": 2015,
+      "bpm": 116,
+      "vibe": "Zac Brown vocal · darkness and light duality · deep cut fan favourite",
+      "dna": "Features Zac Brown again in his second Stories appearance. One of the most beloved deep cuts on Stories. The broken arrows metaphor — things aimed at a target that didn't reach it, paths not taken — is used to address the duality of darkness and light, of loss and resilience. The lyric 'I've seen the darkness in the light' is one of the most quoted lines from the album. Reached number 14 in the US on the Dance chart.",
+      "style_prompt": "Mid-tempo emotional melodic house, 116 BPM, Zac Brown authentic country vocal, darkness-and-light duality lyric, G major key, Stories-era warm production, broken arrows as resilience metaphor, four-on-the-floor with emotional weight, ascending hook on chorus",
+      "lyric_prompt": "Write a song using broken arrows as a central metaphor — things that were aimed true but didn't reach their target: missed opportunities, failed relationships, paths not taken. The narrator has been one of those broken arrows and is finding a way to be whole again. The lyric should explore the duality of darkness and light — that you can see the darkness even inside the light, but also find light inside the darkness. The chorus is the declaration of not walking alone through this. Under 3:52."
+    },
+    {
+      "title": "True Believer",
+      "album": "Stories",
+      "year": 2015,
+      "bpm": 123,
+      "vibe": "Matisyahu vocal · faith and conviction · most genre-diverse Stories track",
+      "dna": "Features Matisyahu — the Hasidic Jewish reggae-rap artist. The most genre-diverse Stories track: reggae, rap, and EDM in one production. Matisyahu's vocal style — a blend of beatboxing, rap, and singing — gives the track a unique texture. About the conviction of belief and the strength that comes from it. One of the more unusual collaborations in the Avicii catalog.",
+      "style_prompt": "Reggae-rap EDM hybrid, 123 BPM, Matisyahu-style Hasidic reggae-rap-singing vocal blend, most genre-diverse Stories track, four-on-the-floor under reggae influence, faith and conviction lyric, Stories-era warm production, major key uplift, unusual vocal beatbox-sing texture",
+      "lyric_prompt": "Write a song about the strength that comes from deep conviction — being a true believer in something larger than yourself, whether that's a spiritual faith, a love, a cause, or a vision for the world. The tone is uplifting and certain, not preachy. The verses describe what it feels like to hold that belief even when the world pushes back. The chorus is the declaration of belief. Include a reggae-influenced lyric rhythm. Under 4:48."
+    },
+    {
+      "title": "City Lights",
+      "album": "Stories",
+      "year": 2015,
+      "bpm": 128,
+      "vibe": "Wyclef Jean vocal · city as dreamscape · longest Stories track at 6:28",
+      "dna": "Features Wyclef Jean. Longest Stories track at 6:28. G minor key — one of the few minor-key tracks on an album otherwise dominated by major keys. About the city as a dreamscape of possibility and lost souls. Wyclef's Caribbean-inflected delivery gives it a warm global feel. The extended length allows for a longer build and more atmospheric development than typical Avicii tracks.",
+      "style_prompt": "Extended atmospheric melodic house, 128 BPM, Wyclef Jean-style Caribbean-inflected male vocal, G minor key — rare minor key for Avicii, city-as-dreamscape lyric, Stories-era production with extended 6-minute development, warm global production, atmospheric build before euphoric drop, lost-souls-in-the-city theme",
+      "lyric_prompt": "Write a song about a city at night as a dreamscape — a place where every light in every window represents a story, a longing, a life. The narrator moves through this city feeling both part of something enormous and utterly alone. The verses describe specific images: the neon reflections, the strangers who brush past, the sense of infinite possibility and infinite loneliness coexisting. The chorus is the paradox of the city: everything and nothing, together and alone. Under 6:30."
+    },
+    {
+      "title": "Pure Grinding",
+      "album": "Stories",
+      "year": 2015,
+      "bpm": 104,
+      "vibe": "Hip-hop-soul-EDM collision · Earl St. Clair vocal · most urban Stories track",
+      "dna": "Features Kristoffer Fogelmark and Earl St. Clair — the most hip-hop-influenced track in Avicii's studio album catalog. Described as a collision of hip-hop, soul and electronic sounds. More urban and groove-oriented than typical Avicii. D major, 104 BPM — the slower tempo gives it a more menacing, grinding groove. One of the more experimental Stories tracks.",
+      "style_prompt": "Hip-hop soul EDM collision, 104 BPM, grinding groove, D major, male hip-hop-soul vocal, most urban Avicii production, four-on-the-floor with hip-hop swagger, bass-heavy menacing groove, Stories-era production pushed toward urban territory, soul-inflected hook",
+      "lyric_prompt": "Write a song about the relentless daily grind — the hard work, the hustle, the pure grinding effort of building something when everything is against you. The tone has hip-hop swagger: confident, uncompromising, proud of the struggle. The verses describe the specific effort and sacrifice. The chorus is the declaration of what you're grinding toward and why it's worth it. More urban and groove-oriented than typical EDM. Under 2:55."
+    },
+    {
+      "title": "Sunset Jesus",
+      "album": "Stories",
+      "year": 2015,
+      "bpm": 105,
+      "vibe": "Alex Ebert vocal · aspiration and upward mobility · billboard as symbol",
+      "dna": "Features Alex Ebert again in his second Stories appearance. The lyric's central image is of someone on a bus looking up at a billboard and seeing a face that could be theirs — the longing for upward mobility and recognition. 'Staring at the billboard from the bus / Looking at the faces, thinking that could be any one of us.' One of the more aspirational Stories tracks.",
+      "style_prompt": "Warm aspirational melodic house, 105 BPM, Alex Ebert ethereal indie-folk vocal, upward-mobility and aspiration lyric, Stories-era Avicii warm production, G major, four-on-the-floor with organic warmth, billboard-as-aspiration imagery, gentle euphoric drop",
+      "lyric_prompt": "Write a song about aspiration and the longing to become more than your current circumstances allow — looking up at those who have made it and believing that could be you. The central image is a bus, a billboard, faces of people who seem to have everything, and the honest ambition to reach that place. The tone is hopeful and unashamed of wanting more. The chorus is the prayer for hope on the journey. Include a verse about giving back when you get there. Under 4:24."
+    },
+    {
+      "title": "Can't Catch Me",
+      "album": "Stories",
+      "year": 2015,
+      "bpm": 80,
+      "vibe": "Slowest Stories track · Shadow Child vocal · running from the past",
+      "dna": "Slowest track on Stories at 80 BPM. Features Shadow Child on vocals. About running from the past — the feeling of finally outrunning the things that have been chasing you. The slower tempo gives it a more brooding, introspective quality compared to the rest of the album.",
+      "style_prompt": "Slow brooding pop-house, 80 BPM, G# major, slowest Stories track, male vocal with brooding introspective quality, running-from-the-past lyric, Stories-era Avicii slower atmospheric production, minimal four-on-the-floor, emotionally heavy despite major key",
+      "lyric_prompt": "Write a song about finally outrunning the things that have been chasing you — old mistakes, old pain, old versions of yourself. The narrator has been running for a long time and has finally reached a point where the past can't catch them anymore. The verses describe what was chasing them: specific regrets, specific failures, specific losses. The chorus is the declaration of freedom — you can't catch me anymore. Under 4 minutes."
+    },
+    {
+      "title": "Somewhere in Stockholm",
+      "album": "Stories",
+      "year": 2015,
+      "bpm": 128,
+      "vibe": "Axwell vocal · Swedish homeland tribute · emotional numbness and alcohol",
+      "dna": "Features Axwell of Swedish House Mafia — a rare collaboration between two of Sweden's biggest EDM exports. The lyric contains one of the most quoted Avicii lines: 'I'm from a place where we never openly show our emotions / We drown our sorrows in bottomless bottles and leave them to float in the ocean.' A rare moment of cultural self-examination — the Swedish emotional reserve and relationship with alcohol — delivered with raw honesty.",
+      "style_prompt": "Anthemic melodic house, 128 BPM, G major, Axwell-style Swedish EDM vocal energy, Swedish cultural emotional-reserve lyric — rare cultural self-examination, Stories-era warm production, four-on-the-floor, bottles-and-oceans imagery, emotional numbness as subject matter, festival-scale anthem",
+      "lyric_prompt": "Write a song about a cultural or personal tendency to suppress emotions and drown sorrows rather than face them — specifically the Nordic/Scandinavian relationship with emotional reserve and alcohol as a coping mechanism. The narrator recognizes this pattern in themselves and their people, delivering it with honest self-awareness rather than shame. The central image is of sorrows drowned in bottles, left to float in the ocean. The chorus is the acknowledgment of this pattern — and perhaps the beginning of changing it. Under 3:22."
+    },
+    {
+      "title": "Trouble",
+      "album": "Stories",
+      "year": 2015,
+      "bpm": 116,
+      "vibe": "Wayne Hector vocal · drawn to dangerous love · shortest Stories track",
+      "dna": "Features Wayne Hector — Irish songwriter and vocalist. Shortest Stories track at 2:51. A minor key emotional track — about knowing someone is trouble but being unable to stay away. A major key but with a darker emotional undercurrent. One of the Stories album's more vulnerable tracks about being drawn to someone who isn't good for you.",
+      "style_prompt": "Mid-tempo vulnerable pop-house, 116 BPM, A major, warm male pop vocal, knowing-they're-trouble-but-can't-stay-away lyric, Stories-era production, short under 3 minutes, four-on-the-floor with emotional weight, major key with darker emotional undercurrent",
+      "lyric_prompt": "Write a short song about being drawn irresistibly to someone you know is trouble — knowing it will end badly, knowing you should stay away, and choosing to go anyway. The tone is honest and a little helpless: not celebrating self-destruction, just acknowledging it. The verses describe the specific qualities that make them irresistible despite being dangerous. The chorus is the admission. Under 2:55."
+    },
+    {
+      "title": "Gonna Love Ya",
+      "album": "Stories",
+      "year": 2015,
+      "bpm": 100,
+      "vibe": "Vargas & Lagola vocal · album closer · quiet devotion promise",
+      "dna": "Features Vargas & Lagola. Stories album closer. A quieter, more restrained closing track than most Avicii productions. The lyric is a simple, direct promise of love. D# minor key gives it a more melancholic quality than typical Avicii closers. Works as a tonal resolution to the album's journey — after all the stories told, the closing promise.",
+      "style_prompt": "Quiet restrained pop-house album closer, 100 BPM, D# minor, Vargas and Lagola warm Swedish vocal, simple direct devotion promise lyric, Stories-era production at its most restrained, four-on-the-floor but quiet, minor key melancholy under simple love declaration, closing-statement feel",
+      "lyric_prompt": "Write a quiet, restrained song that functions as an album-closing promise — a simple declaration that after everything, the narrator is going to love someone fully and completely. The tone is gentle and certain rather than dramatic. The verses acknowledge the journey that has brought them here. The chorus is the promise itself — 'gonna love ya' — simple, direct, completely meant. Under 4 minutes. The quiet resolution after a long journey."
+    },
+
+    {
+      "title": "Friend of Mine",
+      "album": "AVĪCI (01) EP",
+      "year": 2017,
+      "bpm": 120,
+      "vibe": "AVICI EP opener · Vargas & Lagola · guitar-driven live-band aesthetic",
+      "dna": "Opens the AVĪCI (01) EP — Avicii's final studio release before his death. The EP marked a stylistic shift toward organic, guitar-driven productions with live instrumentation. Features Vargas & Lagola who co-wrote most of the EP. The 'friend of mine' lyric explores how relationships evolve over time — specifically the transformative nature of close friendship.",
+      "style_prompt": "Guitar-driven organic pop-house, 120 BPM, live-band aesthetic — real guitar prominent, Vargas and Lagola warm Swedish vocal, AVICI EP final-era Avicii sound, organic rather than purely electronic, warm four-on-the-floor, friendship-and-transformation lyric, warm major key, intimate production scale",
+      "lyric_prompt": "Write a song about a deep friendship that has changed you — the specific way one person's presence in your life has made you better, different, more fully yourself. The narrator is addressing this friend directly: listing the specific ways they have transformed each other over time. The chorus is the declaration of what this friendship means. Include a verse about a specific moment when the friendship proved itself. Under 4 minutes."
+    },
+    {
+      "title": "Lonely Together",
+      "album": "AVĪCI (01) EP",
+      "year": 2017,
+      "bpm": 120,
+      "vibe": "Rita Ora feature · melancholic club anthem · shared loneliness",
+      "dna": "Features Rita Ora. One of Avicii's most commercially successful late-period tracks. 120 BPM — slightly slower, giving it a more melancholic, late-night feel. The theme explores two lonely people choosing to be lonely together rather than apart — finding comfort in shared emptiness. The production has a darker, more nocturnal quality than earlier work. Debuted at number 1 in Sweden.",
+      "style_prompt": "Melancholic melodic house, 120 BPM, darker late-night production, female pop vocal lead with emotional edge, four-on-the-floor but slower and more introspective, minor key undertones under pop-EDM structure, two-people-in-shared-loneliness lyric, 2017 AVICI era more emotionally complex, nocturnal club atmosphere, bittersweet rather than euphoric",
+      "lyric_prompt": "Write a song about two people who are both deeply lonely finding each other and choosing to be lonely together — sharing their solitude rather than suffering it alone. This is not a happy love story; it's a realistic one: two people who don't have what they truly need but have found something real in each other's company. The verses establish both perspectives: their individual loneliness, the moment they recognize it in each other. The chorus is the decision — let's not fix this, let's just be in it together. Include a bridge where the nature of this connection is questioned and then accepted. Under 3:30."
+    },
+    {
+      "title": "You Be Love",
+      "album": "AVĪCI (01) EP",
+      "year": 2017,
+      "bpm": 114,
+      "vibe": "Billy Raffoul vocal · role division in relationship · organic guitar-house",
+      "dna": "Features Billy Raffoul — a Canadian rock-influenced singer-songwriter. The guitar-forward AVICI EP aesthetic at its most rock-adjacent. The lyric is about the division of roles in a relationship — you be love, I'll be the strength; a negotiation of what each person brings. Billy Raffoul's rawer rock vocal distinguishes it from the polished pop of earlier Avicii collaborations.",
+      "style_prompt": "Organic rock-adjacent pop-house, 114 BPM, Billy Raffoul raw rock-influenced male vocal, guitar-forward AVICI EP aesthetic, role-division-in-relationship lyric, warmer and rawer than peak Avicii EDM, four-on-the-floor with live rock energy, major key emotional directness",
+      "lyric_prompt": "Write a song about the negotiation of roles in a relationship — the conscious decision about what each person will be for the other. You be the love, I'll be the strength; you be the warmth, I'll be the foundation. The lyric is a tender negotiation of interdependence. The verses describe what each person needs and what they can give. The chorus is the agreement — a contract of mutual support. Under 4 minutes."
+    },
+    {
+      "title": "Without You",
+      "album": "AVĪCI (01) EP",
+      "year": 2017,
+      "bpm": 126,
+      "vibe": "Sandro Cavazza · late-era introspection · number 1 in Sweden",
+      "dna": "Features Sandro Cavazza — a frequent final-years collaborator. The AVĪCI era represented a move toward more introspective, emotionally vulnerable production. Less festival-focused, more quietly devastating. About being unable to function without a specific person and the specific emptiness of that absence. Debuted at number 1 in Sweden.",
+      "style_prompt": "Late-era melodic house, 126 BPM, warm intimate production less festival-focused than True era, Sandro Cavazza warm male vocal, four-on-the-floor but softer, introspective personal rather than anthemic, 2017 AVICI EP sound — mature emotionally sophisticated, quiet devastating EDM",
+      "lyric_prompt": "Write a song about the specific emptiness of life without one particular person — not dramatic heartbreak but the quiet pervasive way their absence changes everything. Every ordinary thing reminds you of them. The world still functions but feels fundamentally wrong. The verses catalogue specific moments of daily life hollowed out by their absence. The chorus is the central admission: without this person, the narrator is diminished — not destroyed, just incomplete. The tone is mature and honest, not teenage. Include a bridge where the narrator considers whether this dependency is healthy and decides it doesn't matter. Under 3:45."
+    },
+    {
+      "title": "What Would I Change It To",
+      "album": "AVĪCI (01) EP",
+      "year": 2017,
+      "bpm": 117,
+      "vibe": "AlunaGeorge vocal · questioning identity and change · introspective EP closer",
+      "dna": "Features AlunaGeorge (Aluna Francis). The most introspective AVICI EP track — asking what you would change about yourself if you could. The question turns out to have a complicated answer: maybe nothing, or maybe everything. AlunaGeorge's distinctive electronic-soul vocal style gives it a unique texture in the Avicii catalog.",
+      "style_prompt": "Introspective electronic-soul house, 117 BPM, AlunaGeorge-style electronic-soul female vocal, AVICI EP organic production, identity and self-questioning lyric, major key but contemplative feeling, four-on-the-floor with soul texture, what-would-I-change existential question",
+      "lyric_prompt": "Write a song built on the question 'what would I change it to?' — if you could change who you are, what would you actually change? The narrator explores this question honestly: the things they would change (the fears, the flaws, the damage), and then discovers that the answer is more complicated than expected. Maybe the things you'd change are also the things that made you who you are. The chorus is the question itself, held open. Under 4 minutes."
+    },
+
+    {
+      "title": "Peace of Mind",
+      "album": "TIM",
+      "year": 2019,
+      "bpm": 126,
+      "vibe": "TIM opener · Vargas & Lagola · best TIM production per critics",
+      "dna": "Opens TIM. Features Vargas & Lagola who are credited by critics as delivering the best production on the posthumous album. Critics noted it as 'one of the few TIM songs that feels most like a classic Avicii track.' The lyric is about finding peace of mind — calming the internal noise and finding stillness. The opening track sets an aspirational tone for the posthumous album.",
+      "style_prompt": "Classic Avicii-feeling posthumous melodic house, 126 BPM, Vargas and Lagola warm Swedish male vocal, TIM opening statement energy, four-on-the-floor, ascending melodic synth, peace-of-mind and internal stillness lyric, warm major key, best TIM production — feels most like peak Avicii",
+      "lyric_prompt": "Write a song about finding peace of mind — the specific experience of quieting the internal noise, the worries, the racing thoughts, and finding stillness. The narrator has been searching for this peace and describes what the search has looked like: the attempts that didn't work, the unexpected moment when stillness finally arrived. The chorus is the arrival at peace. Include the idea that peace isn't the absence of problems but the ability to hold them without being destroyed by them. Under 3:01."
+    },
+    {
+      "title": "Heaven",
+      "album": "TIM",
+      "year": 2019,
+      "bpm": 124,
+      "vibe": "Posthumous · Simon Aldred vocal · searching for belonging and peace",
+      "dna": "From TIM. Features Simon Aldred of Cherry Ghost — the vocalist from Waiting For Love. Released posthumously. Written about searching for a place that feels like home — a state of peace and belonging. Given the context of Avicii's death, the song carries additional weight. Warm and emotionally generous production typical of his later Aldred collaborations.",
+      "style_prompt": "Warm melodic house, 124 BPM, Simon Aldred English indie-folk male vocal warm and searching, four-on-the-floor with emotional gentleness, ascending melodic synth hook, major key warmth, TIM-era posthumous production, searching-for-peace lyric, festival scale but intimate emotional register",
+      "lyric_prompt": "Write a song about searching for a place — physical or emotional — that finally feels like home. The narrator has been moving through the world feeling like a visitor everywhere, belonging nowhere, until they discover what heaven means to them: a specific person, a specific moment, a specific feeling of peace. The verses catalogue the search and the longing. The chorus is the moment of arrival — the declaration that this, finally, is heaven. Include a bridge where the narrator reflects on how long the search took. Under 3:30."
+    },
+    {
+      "title": "SOS",
+      "album": "TIM",
+      "year": 2019,
+      "bpm": 126,
+      "vibe": "Aloe Blacc reunion · posthumous · cry for help as euphoric anthem · mental health anthem",
+      "dna": "From TIM. Features Aloe Blacc — the vocalist from Wake Me Up — making it a poignant reunion. Written about needing help and being unable to ask for it — widely interpreted as autobiographical given Avicii's documented struggles with anxiety and the pressures of fame. Reached number 1 on US Hot Dance/Electronic Songs. All album profits go to the Tim Bergling Foundation for mental health awareness.",
+      "style_prompt": "Emotional melodic house, 126 BPM, soul-gospel male tenor vocal, four-on-the-floor kick, ascending melodic synth hook, major key but emotionally complex, posthumous TIM production — polished and emotionally raw simultaneously, cry-for-help lyric inside euphoric EDM framework, festival energy serving a vulnerable message",
+      "lyric_prompt": "Write a song about needing help and being unable to ask for it — sending a distress signal that no one around you can read. The narrator is surrounded by people and completely alone in their struggle. The verses describe specific ways this struggle manifests: performing normalcy, the exhaustion of hiding, moments where the mask almost slips. The chorus is the SOS itself — the honest cry for help that the narrator can only express in song, not in person. The production is euphoric EDM, creating powerful tension with the lyric's vulnerability. Include a bridge where the narrator imagines what it would feel like to actually be saved. Under 3:45."
+    },
+    {
+      "title": "Tough Love",
+      "album": "TIM",
+      "year": 2019,
+      "bpm": 126,
+      "vibe": "Agnes and Vargas & Lagola · female vocal TIM lead single · resilience through hardship",
+      "dna": "Features Agnes and Vargas & Lagola. One of TIM's two lead singles alongside SOS. Agnes is a Swedish pop singer best known for the 2008 hit 'Release Me.' The lyric is about resilience — the tough love that life sometimes shows you, making you stronger through difficulty. Reached number 9 on Hot Dance/Electronic Songs.",
+      "style_prompt": "Resilience-themed melodic house TIM lead single, 126 BPM, Agnes-style Swedish pop female vocal bright and clear, four-on-the-floor, ascending melodic hook, major key strength-through-difficulty lyric, TIM-era Vargas and Lagola production, warm but purposeful production",
+      "lyric_prompt": "Write a song about resilience — the 'tough love' that difficult experiences show you, making you stronger and more capable than you knew. The tone is grateful for the hardship, not resentful of it. The verses describe specific difficulties that turned out to be teachers. The chorus is the realization: this was tough love, not punishment. Include a bridge where the narrator reflects on who they've become because of what they went through. Under 3:28."
+    },
+    {
+      "title": "Bad Reputation",
+      "album": "TIM",
+      "year": 2019,
+      "bpm": 120,
+      "vibe": "Joe Janiak vocal · owning your story · defiant self-acceptance",
+      "dna": "Features Joe Janiak — an American vocalist. About owning your reputation rather than being defined by it — taking back the narrative that others have created about you. Defiant self-acceptance in the face of judgment. One of TIM's more upbeat, assertive tracks.",
+      "style_prompt": "Upbeat defiant pop-house, 120 BPM, Joe Janiak warm male pop vocal, owning-your-story and self-acceptance lyric, TIM-era warm production, four-on-the-floor, assertive major key energy, defiant rather than defensive",
+      "lyric_prompt": "Write a song about taking back your own narrative — owning the 'bad reputation' others have given you rather than being defined by their judgment. The narrator has decided that their reputation, whatever it is, belongs to them and they're not apologizing for it. The verses describe specific judgments and the narrator's response to each. The chorus is the declaration of ownership: this is my reputation, I own it. Under 3:27."
+    },
+    {
+      "title": "Ain't a Thing",
+      "album": "TIM",
+      "year": 2019,
+      "bpm": 122,
+      "vibe": "Bonn vocal · dismissing obstacles · upbeat defiance",
+      "dna": "Features Bonn — a British vocalist who also appears on Freak. About dismissing obstacles and challenges as 'ain't a thing' — the defiant minimization of what stands in the way. More upbeat and assertive than many TIM tracks. One of the more straightforwardly positive productions on the posthumous album.",
+      "style_prompt": "Upbeat defiant pop-house, 122 BPM, Bonn warm British male pop vocal, obstacles-dismissal defiant lyric, TIM-era warm production, four-on-the-floor, major key, positive energy, nothing-can-stop-me attitude",
+      "lyric_prompt": "Write a song about dismissing every obstacle that life throws in your path with defiant confidence — nothing is going to stop you, every challenge is 'ain't a thing.' The tone is confident and energetic rather than aggressive. The verses list the specific things that have tried to stop the narrator. The chorus is the dismissal: it ain't a thing. Under 3:03."
+    },
+    {
+      "title": "Hold the Line",
+      "album": "TIM",
+      "year": 2019,
+      "bpm": 120,
+      "vibe": "A R I Z O N A vocal · holding position through difficulty · anthemic perseverance",
+      "dna": "Features indie-pop trio A R I Z O N A. About holding the line — maintaining your position and integrity through difficulty and pressure. One of TIM's more anthemic tracks with an arena-scale feel. A R I Z O N A's melodic indie-pop vocal style gives it a more indie-inflected feel than typical Avicii collaborations.",
+      "style_prompt": "Anthemic perseverance pop-house, 120 BPM, A R I Z O N A indie-pop trio vocal, holding-position-through-difficulty lyric, TIM-era production with indie-pop inflection, four-on-the-floor, major key, arena-scale feel, stand-your-ground theme",
+      "lyric_prompt": "Write a song about holding the line — maintaining your integrity, your position, your values, under enormous pressure to abandon them. The narrator is being pushed from every direction and choosing to stay put. The verses describe the specific pressures and temptations to give ground. The chorus is the declaration: I will hold the line. Include a bridge where the cost of holding the line is acknowledged and accepted. Under 2:53."
+    },
+    {
+      "title": "Freak",
+      "album": "TIM",
+      "year": 2019,
+      "bpm": 125,
+      "vibe": "Bonn vocal · embracing difference · the outsider owning their otherness",
+      "dna": "Features Bonn again in his second TIM appearance. About embracing being different — taking the word 'freak' and making it a badge of pride rather than an insult. One of the more playful and upbeat TIM tracks. The self-acceptance theme fits within the broader TIM album narrative about mental health and self-worth.",
+      "style_prompt": "Playful upbeat pop-house, 125 BPM, Bonn warm British male pop vocal, outsider-embracing-difference lyric, TIM-era warm production, four-on-the-floor, major key pride, freak-as-badge-of-honour, self-acceptance and difference celebration",
+      "lyric_prompt": "Write a song about embracing being different — taking the things that make you weird, unusual, or a 'freak' and wearing them as a badge of pride. The narrator has been told they're too much, too strange, too different, and has decided to celebrate that rather than hide it. The verses describe specific ways they are 'freakish' with affection and pride. The chorus is the declaration: yes, I'm a freak, and that's exactly right. Under 3:01."
+    },
+    {
+      "title": "Excuse Me Mr Sir",
+      "album": "TIM",
+      "year": 2019,
+      "bpm": 122,
+      "vibe": "Vargas & Lagola · addressing authority and power · second-best TIM production per critics",
+      "dna": "Features Vargas & Lagola. Critics noted this as one of the better TIM productions alongside Peace of Mind. About addressing those in power with a challenge — the 'excuse me' as a deceptively polite confrontation. One of the more subtly political TIM tracks. Vargas & Lagola's production here is warmer and more classic-feeling Avicii.",
+      "style_prompt": "Warm anthemic pop-house, 122 BPM, Vargas and Lagola warm Swedish vocal, deceptively-polite confrontation-of-power lyric, TIM-era production at its most classic-Avicii-feeling, four-on-the-floor, major key, addressing-authority theme with polite defiance",
+      "lyric_prompt": "Write a song about addressing power with deceptively polite defiance — the 'excuse me, sir' that is actually a challenge. The narrator is speaking to those in power or authority and, beneath the polite form, delivering a pointed confrontation. The verses describe what the narrator wants to say. The chorus is the polite but unmistakably challenging address. Under 3:09."
+    },
+    {
+      "title": "Heart Upon My Sleeve",
+      "album": "TIM",
+      "year": 2019,
+      "bpm": 126,
+      "vibe": "Imagine Dragons version · TIM version different from True · vulnerability returned",
+      "dna": "The TIM version features Imagine Dragons (Dan Reynolds) — different from the True version which featured MØ and Dan Reynolds together. This version has a more rock-inflected energy reflecting Imagine Dragons' arena-rock style. The lyric remains the same vulnerability anthem but with a more powerful, guitar-driven intensity.",
+      "style_prompt": "Rock-inflected arena pop-house, 126 BPM, Imagine Dragons arena-rock male vocal, vulnerability anthem with more rock power than True version, four-on-the-floor with rock guitar, major key, heart-on-sleeve emotional openness, TIM posthumous version more intense than True original",
+      "lyric_prompt": "Write a song about complete emotional vulnerability — wearing your heart on your sleeve, showing someone exactly who you are without any protection. The narrator has decided to stop protecting themselves and just be completely open. The verses build toward the moment of surrender. The chorus is the act itself — fully open, fully trusting. Rock-inflected energy: this is not a quiet confession but a declaration. Under 4:16."
+    },
+    {
+      "title": "Never Leave Me",
+      "album": "TIM",
+      "year": 2019,
+      "bpm": 120,
+      "vibe": "Joe Janiak vocal · fear of abandonment · plea for permanence",
+      "dna": "Features Joe Janiak in his second TIM appearance. About the fear of being left — asking someone to stay, to never leave. The lyric is more vulnerable and pleading than most Avicii productions. One of TIM's more nakedly emotional tracks.",
+      "style_prompt": "Vulnerable emotional pop-house, 120 BPM, Joe Janiak warm male pop vocal, fear-of-abandonment and plea-for-permanence lyric, TIM-era warm production, four-on-the-floor, major key, nakedly emotional rather than anthemic",
+      "lyric_prompt": "Write a song about the fear of being left — asking someone to stay, to never leave, to be a permanent presence. The narrator is not manipulative but genuinely vulnerable: they know how much this person means to them and are honest about their fear of loss. The verses describe what this person brings and what their absence would mean. The chorus is the plea: never leave me. Include a bridge where the narrator acknowledges that this ask may be too much, and makes it anyway. Under 2:53."
+    },
+    {
+      "title": "Fades Away",
+      "album": "TIM",
+      "year": 2019,
+      "bpm": 120,
+      "vibe": "Noonie Bao vocal · TIM closing track · bittersweet farewell with swelling orchestral production",
+      "dna": "Features Noonie Bao — an Avicii veteran vocalist. The TIM album closer. Described by critics as a 'sad but appropriate way to end Tim.' Noonie Bao bids farewell with swelling orchestral heft. The lyric 'Don't you love it how it all / It all just fades away' serves as a poignant closing statement — both about things fading and about Avicii himself. All profits from TIM go to the Tim Bergling Foundation.",
+      "style_prompt": "Bittersweet orchestral closing melodic house, 120 BPM, Noonie Bao Swedish female vocal — emotional and clear, swelling orchestral production underneath house beat, TIM album closer energy — farewell and acceptance, major key but emotionally bittersweet, fading-away as central metaphor, most orchestrally scored TIM track",
+      "lyric_prompt": "Write a closing song about the bittersweet nature of things fading away — not only the bad things but everything, including the things you love most. The lyric should be the most emotionally generous and accepting song in the set: acknowledging that everything fades, that this is the nature of life, and finding something beautiful in that. The narrator is at peace with impermanence. The chorus is the gentle acknowledgment: don't you love it how it all just fades away. Include a bridge that feels like a final farewell. Under 4 minutes. The last song on the last album."
+    }
+  ],
+  "albums": [
+    {
+      "title": "True",
+      "year": 2013,
+      "style_prompt": "Genre-defying folk-EDM crossover debut, four-on-the-floor house kick under acoustic guitar and banjo, gospel-soul vocal or featured singer with emotional warmth, ascending melodic synth lead on drops, major key euphoric uplift, festival anthem scale with folk instrumentation, 123–128 BPM, warm analog production, 2013 True-era sound — the album that took EDM to country radio and pop radio simultaneously",
+      "lyric_prompt": "Write a True-era Avicii song that blends country-folk imagery and emotional directness with EDM energy. The emotional world: searching for identity, longing for belonging, or the euphoric rush of finally feeling free. The verses should feel folk-intimate — acoustic, honest, conversational. The chorus should explode with EDM energy and festival singalong power. The lyric should work equally at a campfire or at a 50,000-person festival. Use imagery from both worlds. Include a bridge that reframes the central emotion. Under 4 minutes."
+    },
+    {
+      "title": "Stories",
+      "year": 2015,
+      "style_prompt": "Mature melodic house, warmer and more diverse than True, guitar-driven melodic hooks over four-on-the-floor beats, featured vocalists with wide emotional range — country stars, reggae artists, soul singers, hip-hop, 105–138 BPM with True Believer outlier at 80 BPM, Stories-era warmth and diversity — less folk-crossover more pop-house-country-soul blend, intimate verse energy building to festival chorus",
+      "lyric_prompt": "Write a Stories-era Avicii song about a moment in life that becomes a defining story — an experience that shapes who you are. The emotional world of Stories: living fully, seizing the present, the wisdom of experiences lived. Verses should feel narrative and warm. The chorus should be a universal declaration about time, memory, or presence. Think of the lyric as something an older person would say to their younger self with deep affection and zero regret. Under 3:45."
+    },
+    {
+      "title": "AVĪCI (01) EP",
+      "year": 2017,
+      "style_prompt": "Late-era organic guitar-driven pop-house EP, 114–126 BPM, live instrumentation aesthetic — real guitar prominent, Vargas and Lagola warm Swedish production, less festival-focused than True and Stories, intimate organic scale, introspective and emotionally vulnerable subject matter, 2017 final-era Avicii sound before his death",
+      "lyric_prompt": "Write an AVICI EP-era Avicii song in the emotional register of his final work: honest, vulnerable, searching. The EP was about friendship, shared loneliness, identity, and emotional openness. Choose one: (A) a song about a transformative friendship; (B) two lonely people finding each other; (C) a negotiation of roles and needs within a close bond. Verses feel intimate and personal. The chorus achieves emotional release. Under 4 minutes."
+    },
+    {
+      "title": "TIM",
+      "year": 2019,
+      "style_prompt": "Late-era posthumous melodic house, emotionally raw and vulnerable production completed by Vargas and Lagola, 120–126 BPM, Avicii's final vision — elements of psychedelia, organic warmth, more introspective than True or Stories, warm bittersweet production, all profits to Tim Bergling Foundation for mental health awareness",
+      "lyric_prompt": "Write a TIM-era Avicii song in the emotional register of his final and most honest work. TIM was about needing help, finding love, seeking belonging, and confronting isolation. Choose one: (A) a cry for help that only comes out as a song; (B) the search for a place or person that feels like home; (C) the awareness of one's own fragility and the courage to admit it. The verses should feel personal and specific. The chorus should achieve the emotional release that the verses build toward. Under 3:45."
+    }
+  ]
+}

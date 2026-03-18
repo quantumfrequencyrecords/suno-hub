@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Punk Machine — Blink-182 · Green Day · RATM Suno Prompts</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Barlow+Condensed:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #060608;
+    --surface: #0d0d12;
+    --card: #111116;
+    --border: #1e1e28;
+    --text: #d8d8e8;
+    --muted: #4e4e68;
+    --dim: #28283a;
+    --accent: #f0f0e8;
+    /* Blink-182 */
+    --blink: #ff4757;
+    --blink-soft: rgba(255,71,87,0.10);
+    --blink-border: rgba(255,71,87,0.22);
+    /* Green Day */
+    --gd: #a8e063;
+    --gd-soft: rgba(168,224,99,0.08);
+    --gd-border: rgba(168,224,99,0.22);
+    /* RATM */
+    --ratm: #ffa502;
+    --ratm-soft: rgba(255,165,2,0.08);
+    --ratm-border: rgba(255,165,2,0.22);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    line-height: 1.75;
+  }
+
+  /* HEADER */
+  header {
+    padding: 60px 48px 44px;
+    border-bottom: 2px solid var(--border);
+    position: relative; overflow: hidden;
+    background: linear-gradient(180deg, #0a0a10 0%, var(--bg) 100%);
+  }
+  header::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--blink) 0%, var(--gd) 50%, var(--ratm) 100%);
+  }
+  .header-bands {
+    display: flex; gap: 0; align-items: flex-end; flex-wrap: wrap;
+  }
+  .band-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5.5vw, 72px);
+    letter-spacing: 3px;
+    line-height: 1;
+    padding: 0 20px 0 0;
+  }
+  .band-title.blink { color: var(--blink); }
+  .band-title.gd    { color: var(--gd); }
+  .band-title.ratm  { color: var(--ratm); }
+  .band-sep {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px; color: var(--dim); line-height: 1;
+    padding: 0 16px 0 0; align-self: flex-end;
+  }
+  .header-meta {
+    margin-top: 16px;
+    font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* NAV */
+  .nav-bar {
+    display: flex; gap: 0; border-bottom: 1px solid var(--border);
+    overflow-x: auto; position: sticky; top: 0;
+    background: #070709; z-index: 100; padding: 0 48px;
+  }
+  .nav-tab {
+    padding: 12px 16px; font-size: 10px; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--muted); cursor: pointer;
+    border: none; border-bottom: 2px solid transparent;
+    background: none; font-family: 'Share Tech Mono', monospace;
+    white-space: nowrap; transition: all 0.15s;
+  }
+  .nav-tab:hover { color: var(--text); }
+  .nav-tab.active.b-tab { color: var(--blink); border-bottom-color: var(--blink); }
+  .nav-tab.active.g-tab { color: var(--gd);    border-bottom-color: var(--gd); }
+  .nav-tab.active.r-tab { color: var(--ratm);  border-bottom-color: var(--ratm); }
+
+  /* SECTIONS */
+  .section { display: none; }
+  .section.active { display: block; }
+  main { max-width: 1200px; margin: 0 auto; padding: 40px 48px 100px; }
+  @media (max-width: 700px) {
+    main { padding: 24px 18px 80px; }
+    header { padding: 44px 18px 34px; }
+    .nav-bar { padding: 0 12px; }
+  }
+
+  /* INTRO */
+  .intro-box {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 3px; padding: 20px 24px; margin-bottom: 32px;
+  }
+  .intro-box p { color: var(--muted); font-size: 11px; line-height: 1.9; margin-bottom: 6px; }
+  .intro-box p:last-child { margin-bottom: 0; }
+  .intro-box strong { color: var(--text); }
+
+  /* ARTIST BAND HEADER */
+  .band-header {
+    display: flex; align-items: center; gap: 14px;
+    padding: 12px 18px; border-radius: 3px; margin-bottom: 28px;
+  }
+  .band-header.blink { background: var(--blink-soft); border: 1px solid var(--blink-border); }
+  .band-header.gd    { background: var(--gd-soft);    border: 1px solid var(--gd-border); }
+  .band-header.ratm  { background: var(--ratm-soft);  border: 1px solid var(--ratm-border); }
+  .band-header h2 {
+    font-family: 'Bebas Neue', sans-serif; font-size: 24px; letter-spacing: 3px;
+  }
+  .band-header.blink h2 { color: var(--blink); }
+  .band-header.gd    h2 { color: var(--gd); }
+  .band-header.ratm  h2 { color: var(--ratm); }
+  .band-header p { font-size: 11px; color: var(--muted); }
+
+  /* SONG BLOCK */
+  .song-block {
+    margin-bottom: 44px; padding-bottom: 44px;
+    border-bottom: 1px solid var(--border);
+  }
+  .song-block:last-of-type { border-bottom: none; }
+
+  .song-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 12px; }
+  .song-num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 38px;
+    color: var(--dim); line-height: 1; flex-shrink: 0; min-width: 44px; text-align: right;
+  }
+  .song-meta { flex: 1; }
+  .song-title {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 22px;
+    font-weight: 800; color: var(--accent); line-height: 1.1; text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .song-pills { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+  .pill {
+    font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 2px 8px; border-radius: 2px;
+  }
+  .pill-b { background: var(--blink-soft); color: var(--blink); border: 1px solid var(--blink-border); }
+  .pill-g { background: var(--gd-soft);    color: var(--gd);    border: 1px solid var(--gd-border); }
+  .pill-r { background: var(--ratm-soft);  color: var(--ratm);  border: 1px solid var(--ratm-border); }
+
+  .song-dna {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 3px; padding: 12px 16px; margin-bottom: 12px;
+    font-size: 11px; color: var(--muted); line-height: 1.8;
+  }
+  .song-dna strong { color: var(--text); }
+
+  /* PROMPT PAIR */
+  .prompt-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 700px) { .prompt-pair { grid-template-columns: 1fr; } }
+
+  .prompt-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 3px; overflow: hidden;
+  }
+  .prompt-card-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 8px 12px; border-bottom: 1px solid var(--border); gap: 6px;
+  }
+  .prompt-type { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; }
+  .type-bs { color: var(--blink); }
+  .type-bl { color: color-mix(in srgb, var(--blink) 80%, white); }
+  .type-gs { color: var(--gd); }
+  .type-gl { color: color-mix(in srgb, var(--gd) 80%, white); }
+  .type-rs { color: var(--ratm); }
+  .type-rl { color: color-mix(in srgb, var(--ratm) 80%, white); }
+  .prompt-hint { font-size: 9px; color: var(--dim); letter-spacing: 1px; }
+  .prompt-body {
+    padding: 12px; font-size: 11px; line-height: 1.85;
+    color: #b8b8d0; white-space: pre-wrap;
+    max-height: 220px; overflow-y: auto;
+  }
+  .copy-btn {
+    display: block; width: calc(100% - 24px); margin: 8px 12px 10px;
+    padding: 6px; background: transparent; border: 1px solid var(--border);
+    color: var(--muted); font-family: 'Share Tech Mono', monospace;
+    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+    cursor: pointer; border-radius: 2px; transition: all 0.15s;
+  }
+  .copy-btn:hover { border-color: var(--text); color: var(--text); }
+  .copy-btn.ok { border-color: #7bed9f; color: #7bed9f; }
+
+  /* SCROLLBAR */
+  .prompt-body::-webkit-scrollbar { width: 3px; }
+  .prompt-body::-webkit-scrollbar-track { background: transparent; }
+  .prompt-body::-webkit-scrollbar-thumb { background: var(--dim); }
+
+  .section-gap { margin-top: 48px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-bands">
+    <span class="band-title blink">Blink-182</span>
+    <span class="band-sep">·</span>
+    <span class="band-title gd">Green Day</span>
+    <span class="band-sep">·</span>
+    <span class="band-title ratm">RATM</span>
+  </div>
+  <div class="header-meta">Per-Song Suno Style + Lyric Generation Prompt System · 36 Songs · 3 Bands</div>
+</header>
+
+<div class="nav-bar">
+  <button class="nav-tab active b-tab" onclick="show('blink',this,'b-tab')">Blink-182 (19)</button>
+  <button class="nav-tab g-tab" onclick="show('gd',this,'g-tab')">Green Day (7)</button>
+  <button class="nav-tab r-tab" onclick="show('ratm',this,'r-tab')">Rage Against the Machine (9)</button>
+</div>
+
+<!-- ═══════════════════════════════════════ BLINK-182 ═══════════════ -->
+<div id="blink" class="section active">
+<main>
+  <div class="intro-box">
+    <p><strong>Blink-182's sonic DNA:</strong> Mark Hoppus and Tom DeLonge alternate lead vocal on most tracks — a vocal tag team where some songs belong to Tom, some to Mark, and key tracks like "Feeling This" and "I Miss You" alternate them. Travis Barker's drumming is the engine — aggressive, precise, fills everywhere. The band spans from their classic pop-punk era through their self-titled mature album, which used vintage gear and experimental analog techniques recorded in a rented mansion converted into a musical laboratory. Their 2023 reunion album brought Tom back and fused their classic sound with modern production.</p>
+    <p><strong>How to use:</strong> Paste the Style prompt → Style field. Paste the Lyric Generation prompt → Lyrics field → click Generate Lyrics.</p>
+  </div>
+  <div class="band-header blink">
+    <h2>Blink-182</h2>
+    <p>Pop-punk · Skate-punk · Emo · 1992–2025 · 19 songs</p>
+  </div>
+
+  <!-- 01 PRETTY LITTLE GIRL -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">01</div>
+      <div class="song-meta">
+        <div class="song-title">Pretty Little Girl</div>
+        <div class="song-pills">
+          <span class="pill pill-b">Neighborhoods (2011)</span>
+          <span class="pill pill-b">~140 BPM</span>
+          <span class="pill pill-b">Hip-hop crossover · Yelawolf feature</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Features Yelawolf — only the second time a Blink song had guest vocals. Yelawolf shows up at the end. Blink's most overt hip-hop crossover — Travis Barker's drumming naturally bridges the genres. Modern pop-punk with electronic elements, pulsing synth bed, melodic Tom DeLonge verse leading into a harder hip-hop bridge. The lyric is classic Blink obsession over a girl — wanting something you can't quite have.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="b01s">Modern pop-punk with hip-hop crossover elements, 140 BPM, clean melodic punk verses with pulsing electronic synth bed, Travis Barker-style aggressive precise drumming, distorted power chord rhythm guitar, melodic male tenor lead vocal, hip-hop rap section in bridge over drum track, modern polished production, punch and clarity in low end, singalong chorus with layered harmonies, suburban obsession energy</div>
+        <button class="copy-btn" onclick="cp('b01s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="b01l">Write a modern pop-punk song about a guy who is completely fixated on a girl who is out of his league — or at least he thinks so. Melodic verses set the obsession scene: he sees her everywhere, she doesn't notice, he can't stop. The chorus is a punchy declaration of wanting her. The bridge should switch energy dramatically — a rapped or spoken section from a different voice describing her from the outside with specific swagger. Classic Blink tone: self-deprecating, lovesick, but more self-aware than teenage. Under 3:20.</div>
+        <button class="copy-btn" onclick="cp('b01l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 EDGING -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">02</div>
+      <div class="song-meta">
+        <div class="song-title">Edging</div>
+        <div class="song-pills">
+          <span class="pill pill-b">One More Time... (2023)</span>
+          <span class="pill pill-b">~148 BPM</span>
+          <span class="pill pill-b">Reunion album anthem · Tom + Mark dual vocal</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> The reunion album's defining statement. Fast, anthemic, Tom and Mark trading vocals on a song literally about the tension of almost reaching something — emotionally charged, reunion-metaphor-loaded. Production is the most polished Blink has ever sounded while still hitting like classic pop-punk. The chorus is enormous. Travis's drumming is at its most technically impressive.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="b02s">Anthemic modern pop-punk, 148 BPM, dual male vocal trading verses — one higher melodic tenor, one deeper punk delivery, technically precise explosive drum fills, heavily distorted rhythm power chords, massive layered chorus with gang vocals, clean modern production with raw punk energy underneath, tension-and-release song structure, emotionally charged reunion energy, wide stereo mix, punchy bass</div>
+        <button class="copy-btn" onclick="cp('b02s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="b02l">Write a fast, anthemic pop-punk song built on the metaphor of being perpetually almost there — almost saying the right thing, almost getting back together, almost making it work — the feeling of prolonged emotional tension without release. The song should have two distinct voices alternating: one more melodic and searching, one more raw and direct. The chorus is the eruption of that tension — all the things almost said, finally half-said. The lyrics have double meaning throughout: the relationship tension and the band's own history of breakup and reunion. Under 3:15.</div>
+        <button class="copy-btn" onclick="cp('b02l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 MUTT -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">03</div>
+      <div class="song-meta">
+        <div class="song-title">Mutt</div>
+        <div class="song-pills">
+          <span class="pill pill-b">Enema of the State (1999)</span>
+          <span class="pill pill-b">~181 BPM</span>
+          <span class="pill pill-b">Fast skate-punk · Classic era</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Classic Enema of the State era — 181 BPM, blistering tempo, loud/fast California punk. Mark Hoppus lead vocal, sarcastic and self-deprecating. The song is about a girl who dates terrible guys — and the narrator wondering why she won't date him instead. Jerry Finn production: super bright, compressed, slamming. Quintessential late-90s pop-punk aggression with tight melody.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="b03s">Blistering late-90s pop-punk, 181 BPM, Mark Hoppus-style bass-forward vocal delivery, Jerry Finn-style super compressed bright production, power chord barrage, insanely fast drumming with snappy snare, no complex arrangements — speed and hooks, slightly sarcastic/self-deprecating male vocal, short under 2:30, loud and fast from the first second, singalong punk chorus, California skate-punk energy</div>
+        <button class="copy-btn" onclick="cp('b03s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="b03l">Write a fast, sarcastic pop-punk song from a guy who watches a girl he likes constantly date terrible, toxic guys — and he can't understand why she won't notice him instead. The tone is self-deprecating and slightly bitter but mostly just perplexed and annoyed. The chorus is a direct observation about the pattern. Short, fast, under 2:30. No emotional depth required — this is pure pop-punk frustration delivered at maximum BPM. Late 90s slang and attitude welcome.</div>
+        <button class="copy-btn" onclick="cp('b03l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 ALIENS EXIST -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">04</div>
+      <div class="song-meta">
+        <div class="song-title">Aliens Exist</div>
+        <div class="song-pills">
+          <span class="pill pill-b">Enema of the State (1999)</span>
+          <span class="pill pill-b">~188 BPM</span>
+          <span class="pill pill-b">Tom DeLonge UFO obsession in pop-punk form</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> 188 BPM — among Blink's fastest. Tom DeLonge lead vocal (his area 51/UFO obsession predates his post-Blink alien work by decades). Classic Enema production — Jerry Finn bright and punchy. The lyric is literally about believing in aliens and government cover-ups, delivered with full Tom DeLonge sincerity. Unique in their catalog: a conspiracy theory song that somehow works as earnest pop-punk.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="b04s">Blazing fast late-90s pop-punk, 188 BPM, Tom DeLonge-style nasally sincere tenor vocal — earnest not sarcastic, super bright compressed Jerry Finn production, blistering power chord drive, tight fast drumming, under 2:20, conspiracy/paranoia lyric delivered with absolute sincerity, singalong hook chorus, California punk guitar tone, no electronics — pure guitars bass drums</div>
+        <button class="copy-btn" onclick="cp('b04l',this)">Copy Lyric Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="b04l">Write a blazing fast pop-punk song delivered with complete earnest sincerity about believing in aliens, government cover-ups, and things the authorities don't want you to know. The singer is not joking — he genuinely believes all of it and wants you to understand. The tone is not paranoid-angry but passionate and desperate to convince. The chorus is a declaration of belief. Include specific references to Area 51, black helicopters, unexplained lights. Under 2:20. This song should feel like the most sincere punk song about extraterrestrials ever written.</div>
+        <button class="copy-btn" onclick="cp('b04l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 GHOST ON THE DANCE FLOOR -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">05</div>
+      <div class="song-meta">
+        <div class="song-title">Ghost on the Dance Floor</div>
+        <div class="song-pills">
+          <span class="pill pill-b">Neighborhoods (2011)</span>
+          <span class="pill pill-b">103 BPM</span>
+          <span class="pill pill-b">Gothic haunted atmosphere · Tom DeLonge lead</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> 103 BPM — one of their slower, more atmospheric tracks. Tom DeLonge lead vocal in his most ethereal mode. The Neighborhoods album had Tom and Mark recording separately and digitally merging their work — leading to a more spacious, atmospheric sound. Ghost on the Dance Floor is the album's most haunting track: electronic elements, post-rock atmosphere, a sense of loss and the supernatural. Written about a deceased friend.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="b05s">Atmospheric post-punk, 103 BPM, spacious reverb-heavy production, electronic synth bed under distorted guitars, haunting male tenor vocal with wide reverb — ethereal and ghostly, post-rock dynamics, grief and the supernatural as emotional core, dance floor imagery meets funeral atmosphere, wide stereo field, angular guitar lines, builds to emotional climax, Blink-182 meets Angels and Airwaves aesthetic</div>
+        <button class="copy-btn" onclick="cp('b05s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="b05l">Write a haunting atmospheric pop-punk song about seeing someone who is gone — a friend who died — everywhere you go, especially in places they used to love. The singer can't stop sensing their presence, particularly on a dance floor or at a venue where they used to be together. The tone is grief filtered through the supernatural — not horror, but aching longing. The chorus is the central image: seeing their ghost in a specific place. Include the moment where the narrator realizes the ghost isn't real, and the crash of that realization. Under 4 minutes. Slow, atmospheric, devastating.</div>
+        <button class="copy-btn" onclick="cp('b05l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 EVEN IF SHE FALLS -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">06</div>
+      <div class="song-meta">
+        <div class="song-title">Even If She Falls</div>
+        <div class="song-pills">
+          <span class="pill pill-b">Neighborhoods (2011)</span>
+          <span class="pill pill-b">~145 BPM</span>
+          <span class="pill pill-b">Mark Hoppus lead · Faithful love anthem</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Mark Hoppus lead on this upbeat, earnest devotion anthem — a more mature take on love than classic Blink. The Neighborhoods production: fuller, more layered than early work. The message is simple: I'll be here for you no matter what. More emotional sincerity than comedy, representing where the band had grown to by 2011.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="b06s">Upbeat earnest pop-punk devotion anthem, 145 BPM, Mark Hoppus-style warm bass-forward delivery, bright layered production, distorted rhythm guitars, tight punchy drumming, emotionally sincere male vocal — no comedy, genuine love song in punk packaging, layered harmonies on chorus, full-bodied modern pop-punk production, devotion and loyalty as lyric core</div>
+        <button class="copy-btn" onclick="cp('b06s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="b06l">Write a sincere, upbeat pop-punk devotion song about a guy who is committed to standing by someone he loves through anything — her failures, her worst days, her doubts about herself. The tone is mature and genuine — no jokes, no irony. Pop-punk packaging around real emotional commitment. The chorus is a direct declaration of unconditional presence. Include verses about specific ways she struggles and specific ways he shows up. Under 3:15.</div>
+        <button class="copy-btn" onclick="cp('b06l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 ANTHEM PT 2 -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">07</div>
+      <div class="song-meta">
+        <div class="song-title">Anthem Part Two</div>
+        <div class="song-pills">
+          <span class="pill pill-b">Take Off Your Pants and Jacket (2001)</span>
+          <span class="pill pill-b">~155 BPM</span>
+          <span class="pill pill-b">Anti-authoritarian youth anthem</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> One of Blink's most politically charged moments — anti-authority, anti-conformity, rebellious youth energy. Fast, driving, gang-vocal chorus. Tom and Mark alternating on a song that tells kids to ignore authority and live how they want. Simple, direct, loud. Pure Warped Tour anthemic energy with a rare hint of political consciousness for pre-hiatus Blink.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="b07s">Fast anti-authoritarian pop-punk anthem, 155 BPM, dual vocal trading verses, massive gang-vocal chorus screaming, driving power chords, Travis Barker relentless drumming, youth rebellion energy, simple direct lyrics — no subtlety, this is a fist-pump anthem, Warped Tour crowd energy, layered shouted backing vocals, under 2:45, aggressive bright production</div>
+        <button class="copy-btn" onclick="cp('b07s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="b07l">Write a fast, loud pop-punk youth rebellion anthem — a direct address to kids telling them to ignore authority figures, conform to nothing, make their own rules. The tone is earnest and angry rather than comedic. The chorus should be the kind of lyric 10,000 people scream at once with fists in the air. Include specific authority targets: parents, teachers, society's expectations. Two vocalists trading verses. Under 2:45. Loud. Fast. No nuance required.</div>
+        <button class="copy-btn" onclick="cp('b07l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 08 ALL THE SMALL THINGS -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">08</div>
+      <div class="song-meta">
+        <div class="song-title">All the Small Things</div>
+        <div class="song-pills">
+          <span class="pill pill-b">Enema of the State (1999)</span>
+          <span class="pill pill-b">~148 BPM</span>
+          <span class="pill pill-b">Pop-punk's defining MTV hit</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> The song that put pop-punk on MTV. Tom DeLonge lead, Jerry Finn production at its most irresistible. The "na na na" section. Super bright, clean, hook-forward. Deceptively simple: the entire point is that small romantic gestures matter. The MTV video parody of boy bands was perfectly timed. Structurally perfect — 2:47 of pure hook-delivery-hook.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="b08s">Irresistibly catchy pop-punk, 148 BPM, super bright Jerry Finn-style compressed production, Tom DeLonge-style sincere tenor lead vocal, hooky singalong na-na-na section, short and perfectly structured under 2:50, romantic gesture lyrics delivered with complete earnestness, fast drumming with snappy snare, layered melodic guitar harmonics on lead, no fat — every second is a hook</div>
+        <button class="copy-btn" onclick="cp('b08s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="b08l">Write a perfectly compact pop-punk love song celebrating the small, everyday things a person does for you — the kind of gestures that prove love without grand declarations. The lyric should catalogue specific small acts (leaving notes, saying goodnight, remembering things). The chorus is a hooky singalong declaration — include a "na na na" or similar chantable section. Keep it under 2:50. Every line should be instantly singable. This is about perfecting the hook, not exploring emotion. The world's most irresistible simple love song.</div>
+        <button class="copy-btn" onclick="cp('b08l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 09 THE ROCK SHOW -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">09</div>
+      <div class="song-meta">
+        <div class="song-title">The Rock Show</div>
+        <div class="song-pills">
+          <span class="pill pill-b">Take Off Your Pants and Jacket (2001)</span>
+          <span class="pill pill-b">~151 BPM</span>
+          <span class="pill pill-b">Classic Blink meet-at-a-show story</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Mark Hoppus lead vocal. The quintessential Blink narrative song — meets a girl at a rock show, she's out of his league, he can't stop thinking about her. Simple story delivered at driving tempo. Quintessential TOYPAJ production — super punchy, fast, hooks everywhere. The video's animated version cemented the song as a defining Blink artifact.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="b09s">Driving pop-punk narrative, 151 BPM, Mark Hoppus-style warm bass vocal lead, super punchy TOYPAJ-era production, fast clean guitar power chords, narrative storytelling verses building to hook explosion chorus, tight precise drumming, meet-at-a-concert atmosphere, under 3 minutes, bright and energetic throughout, singalong chorus with layered gang vocals</div>
+        <button class="copy-btn" onclick="cp('b09s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="b09l">Write a driving pop-punk narrative song about meeting a girl at a rock show — she's cooler and more beautiful than anyone he's ever seen, he spends the whole show staring at her, finally talks to her, and is completely destroyed in the best way. The song should move like the story — fast, propulsive, specific details about the venue, the crowd, the songs playing. The chorus is the declaration of what she did to him in that one night. Under 3 minutes. Pure fun, no angst.</div>
+        <button class="copy-btn" onclick="cp('b09l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10 FIRST DATE -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">10</div>
+      <div class="song-meta">
+        <div class="song-title">First Date</div>
+        <div class="song-pills">
+          <span class="pill pill-b">Take Off Your Pants and Jacket (2001)</span>
+          <span class="pill pill-b">~154 BPM</span>
+          <span class="pill pill-b">Pre-date anxiety played for laughs</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Tom DeLonge lead, fast, nervous energy perfectly matched by tempo. The video showed fictional future versions of the characters. Quintessential Blink comedy-mixed-with-sincerity: the guy is genuinely nervous but the delivery is self-aware and funny. The chorus is almost innocent in how earnestly it describes wanting the date to go well.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="b10s">Fast nervous-energy pop-punk, 154 BPM, Tom DeLonge-style sincere tenor lead, super bright punchy production, driving power chord rhythm, first-date jitters translated into tempo, funny-but-sincere vocal delivery, under 2:30, comedic self-awareness with genuine underlying feeling, singalong chorus, TOYPAJ-era Blink brightness and speed</div>
+        <button class="copy-btn" onclick="cp('b10s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="b10l">Write a fast, funny pop-punk song from a guy preparing for and going on a first date — the nervous energy, the overthinking, the awkward moments, and the genuine hopefulness underneath it all. The humor comes from the specific ridiculous things he worries about. The chorus is sincere: underneath all the nerves, he really likes her. Under 2:30. This should make someone laugh and feel tender at the same time.</div>
+        <button class="copy-btn" onclick="cp('b10l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11 CAROUSEL -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">11</div>
+      <div class="song-meta">
+        <div class="song-title">Carousel</div>
+        <div class="song-pills">
+          <span class="pill pill-b">Buddha EP (1993) / Cheshire Cat (1994)</span>
+          <span class="pill pill-b">~184 BPM</span>
+          <span class="pill pill-b">Early Blink chaos · Mark lead</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> One of the earliest Blink recordings — raw, chaotic, Mark Hoppus lead vocal. Pre-Jerry Finn production, lo-fi and aggressive. The classic early San Diego skatepunk sound before they became radio-ready. 184 BPM, sloppy-perfect, the kind of song that sounds like three guys playing in a garage at maximum volume.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="b11s">Raw early skate-punk, 184 BPM, lo-fi garage production — sloppy and perfect, Mark Hoppus-style nasal bass vocal lead, simple two-chord power chord aggression, chaotic drum fills everywhere, under 2 minutes, no polished production — raw and loud, early 90s San Diego punk energy, trebly guitar tone, genuine teenage urgency</div>
+        <button class="copy-btn" onclick="cp('b11s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="b11l">Write a raw, chaotic early skate-punk song — simple, fast, barely under control. The theme is circular frustration: being stuck in the same patterns, the same mistakes, going around and around like a carousel. The lyrics should feel like a teenager wrote them — genuine, unpolished, angry at nothing specific but angry at everything. Under 1:45. No sophistication required. Just urgency, volume, and teenage feeling.</div>
+        <button class="copy-btn" onclick="cp('b11l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12 TURPENTINE -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">12</div>
+      <div class="song-meta">
+        <div class="song-title">Turpentine</div>
+        <div class="song-pills">
+          <span class="pill pill-b">One More Time... (2023)</span>
+          <span class="pill pill-b">~130 BPM</span>
+          <span class="pill pill-b">Emotional reunion-era depth · post-pandemic</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> From the 2023 reunion album — one of the deeper, more emotionally raw cuts. Turpentine represents the mature, heavier, more introspective side of One More Time. Written in the context of Tom's return after years away, Travis's recovery from his plane crash, and the band processing what they'd been through. More angular, less poppy than classic Blink.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="b12s">Modern emotionally heavy pop-punk, 130 BPM, more angular production than classic Blink, introspective male vocals alternating between controlled and raw, heavier guitar distortion with less brightness, mid-tempo with emotional weight, modern production clarity, reunion and survival themes, processing loss and return, layered harmonies, under 3:30, less comedy more raw vulnerability</div>
+        <button class="copy-btn" onclick="cp('b12s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="b12l">Write a raw, emotionally heavy pop-punk song about surviving something that nearly destroyed you — a friendship, a near-death, a long estrangement — and finding your way back to it. The tone is older and heavier than classic Blink, the comedy is gone. What remains is gratitude filtered through pain. The chorus is about what's left when turpentine burns everything away — the essential thing that couldn't be destroyed. Under 3:30. The most emotionally honest Blink song in the set.</div>
+        <button class="copy-btn" onclick="cp('b12l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 13 ONE NIGHT STAND -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">13</div>
+      <div class="song-meta">
+        <div class="song-title">One Night Stand</div>
+        <div class="song-pills">
+          <span class="pill pill-b">Dogs Eating Dogs EP (2012)</span>
+          <span class="pill pill-b">~150 BPM</span>
+          <span class="pill pill-b">Post-hiatus Tom DeLonge lead · darker tone</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> From the post-reunion Dogs Eating Dogs EP. Tom DeLonge lead with a slightly darker, more confessional tone than pre-hiatus material. The subject matter is more adult — a one-night stand and the complicated morning-after feelings. Shows the band's maturation beyond pure teenage pop-punk while still fundamentally sounding like Blink.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="b13s">Post-hiatus Blink pop-punk, 150 BPM, Tom DeLonge-style sincere tenor lead — slightly darker than Enema era, adult subject matter in punk packaging, distorted rhythm guitars with some atmospheric texture, Travis Barker precise driving drumming, confessional morning-after emotional core, under 3 minutes, still melodic and punchy but with more emotional weight than classic Blink</div>
+        <button class="copy-btn" onclick="cp('b13s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="b13l">Write a pop-punk song about the complicated feeling after a one-night stand — not bragging, not regret exactly, but the specific discomfort of lying next to a stranger and wondering how you got here. The verses are honest and specific about the morning after. The chorus is the complicated emotional statement — wanting more but knowing this wasn't meant to be more. Adult Blink tone: still punchy and melodic but genuinely honest. Under 3 minutes.</div>
+        <button class="copy-btn" onclick="cp('b13l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 14 STORY OF A LONELY GUY -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">14</div>
+      <div class="song-meta">
+        <div class="song-title">Story of a Lonely Guy</div>
+        <div class="song-pills">
+          <span class="pill pill-b">Take Off Your Pants and Jacket (2001)</span>
+          <span class="pill pill-b">~127 BPM</span>
+          <span class="pill pill-b">Mark Hoppus lead · emotionally vulnerable</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Mark Hoppus lead, slightly slower than typical TOYPAJ fare. One of Blink's more emotionally direct songs — genuine loneliness and romantic failure, not played for laughs. The production is slightly more restrained than the album's faster tracks, giving the emotion room to breathe. Represents the sincere side of Mark's writing.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="b14s">Mid-tempo earnest pop-punk, 127 BPM, Mark Hoppus-style warm emotionally direct bass vocal, TOYPAJ production slightly restrained for emotional space, distorted rhythm guitar, sincere loneliness as lyric core — no comedy, chorus builds to emotional release, under 3 minutes, genuine heartache in pop-punk packaging, harmonies adding warmth on chorus</div>
+        <button class="copy-btn" onclick="cp('b14s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="b14l">Write a sincere, emotionally direct pop-punk song about genuine loneliness — not funny, not ironic. A guy who keeps falling for people who don't love him back, who spends Friday nights alone, who watches others connect effortlessly while he can't. The tone is honest without being self-pitying. The chorus is a direct statement of the loneliness. The bridge is the moment he asks what's wrong with him — and leaves it unanswered. Under 3 minutes.</div>
+        <button class="copy-btn" onclick="cp('b14l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 15 STAY TOGETHER FOR THE KIDS -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">15</div>
+      <div class="song-meta">
+        <div class="song-title">Stay Together for the Kids</div>
+        <div class="song-pills">
+          <span class="pill pill-b">Take Off Your Pants and Jacket (2001)</span>
+          <span class="pill pill-b">~142 BPM</span>
+          <span class="pill pill-b">Blink's most emotionally serious pre-hiatus song</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> One of the most emotionally serious songs in the pre-hiatus catalog. Tom DeLonge lead. Written about parents staying in failing marriages for children's sake — and the damage that does. Builds from a quiet intro to an explosive climax. Unique in its structure: almost a mini-suite. Production is more dynamic than typical Blink, with a genuine quiet-loud arc.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="b15s">Emotionally serious pop-punk with dynamic structure, 142 BPM, quiet restrained verse building to explosive distorted climax, Tom DeLonge-style earnest tenor lead — no comedy, genuine anger and pain, TOYPAJ production at its most dynamic, divorce and childhood damage as lyric core, builds from near acoustic to full band explosion, under 3:30, the most emotionally heavy pre-hiatus Blink energy</div>
+        <button class="copy-btn" onclick="cp('b15s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="b15l">Write a pop-punk song from the perspective of a child or teenager watching their parents' failing marriage — seeing through the performance of "staying together for the kids" and knowing it's making everything worse, not better. The anger is directed at the situation, not at the parents specifically — just at the lie of pretending. The song builds from quiet observation to an explosive chorus of frustration. Include specific domestic images: empty dinners, separate rooms, the performance of normalcy. Under 3:30.</div>
+        <button class="copy-btn" onclick="cp('b15l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 16 FEELING THIS -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">16</div>
+      <div class="song-meta">
+        <div class="song-title">Feeling This</div>
+        <div class="song-pills">
+          <span class="pill pill-b">Blink-182 self-titled (2003)</span>
+          <span class="pill pill-b">173 BPM</span>
+          <span class="pill pill-b">Tom and Mark alternating · mature production</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> The self-titled album transformed a rented mansion into a musical laboratory using vintage gear and experimental analog techniques. Feeling This is the album's flagship single — Tom and Mark alternating vocals, one of their key vocal tag-team tracks. 173 BPM, explosive, the most technically advanced Blink production up to that point. Two distinct narrative voices: Tom's verse about a one-night encounter, Mark's chorus about genuine feeling.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="b16s">Explosive mature pop-punk, 173 BPM, two distinct male vocal personalities alternating — one punchy and direct, one melodic and earnest, vintage analog production warmth with modern energy, technically advanced drumming with syncopated fills, dual narrative lyric structure, layered guitar textures, under 3 minutes, the most sonically sophisticated Blink energy, genuine emotional complexity</div>
+        <button class="copy-btn" onclick="cp('b16s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="b16l">Write a pop-punk song with two distinct vocal/lyric narratives that intertwine: Voice 1 tells the physical, immediate story of a night together — specific, direct, slightly detached. Voice 2 tells the emotional interior — what's actually being felt, the genuine connection underneath. The two voices should meet and harmonize in the chorus, where both truths land simultaneously. The song should feel like two sides of the same experience. Under 3 minutes. Structurally adventurous.</div>
+        <button class="copy-btn" onclick="cp('b16l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 17 I MISS YOU -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">17</div>
+      <div class="song-meta">
+        <div class="song-title">I Miss You</div>
+        <div class="song-pills">
+          <span class="pill pill-b">Blink-182 self-titled (2003)</span>
+          <span class="pill pill-b">110 BPM</span>
+          <span class="pill pill-b">Gothic Cure-influenced ballad · 1B+ Spotify streams</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Composed in B major, 110 BPM. All acoustic instruments: piano, cello, acoustic bass guitar, and a "brushstroked hip-hop groove." Directly inspired by The Cure's "The Love Cats." The song explores vulnerability and heartache — the fear of emotional loss and unreciprocated feelings. DeLonge said: "The song's more about the vulnerability and kind of heart-wrenching pain you feel when you're in love and when you're a guy and you're trying to tell a girl, 'Don't waste your time on me.'" Over one billion Spotify streams.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="b17s">Gothic acoustic pop-punk ballad, 110 BPM, Cure-influenced dark romanticism, acoustic instruments only — piano, cello, acoustic bass, brushstroke hip-hop drum groove, male tenor vocal in wide reverb — earnest and slightly theatrical, Tom and Mark alternating narrative voices, haunted mansion atmosphere, B major melancholy, vulnerability and pre-emptive heartbreak as lyric core, under 3:50, both beautiful and aching</div>
+        <button class="copy-btn" onclick="cp('b17s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="b17l">Write a gothic acoustic ballad about the pre-emptive heartbreak of loving someone while believing they've already mentally left — telling them "don't waste your time on me, you've already given up on me in your head." The tone is both vulnerable and somewhat theatrical — more Tim Burton than emo. The instrumentation is acoustic and orchestral, not punk. Include Halloween/gothic imagery that serves the emotional metaphor without being campy. Two vocal perspectives alternating. The most emotionally devastating song in the Blink catalog. Under 3:50.</div>
+        <button class="copy-btn" onclick="cp('b17l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 18 WISHING WELL -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">18</div>
+      <div class="song-meta">
+        <div class="song-title">Wishing Well</div>
+        <div class="song-pills">
+          <span class="pill pill-b">Neighborhoods (2011)</span>
+          <span class="pill pill-b">99 BPM</span>
+          <span class="pill pill-b">Atmospheric slow-burn · Mark Hoppus lead</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> 99 BPM — among the slowest in their catalog. Mark Hoppus lead in atmospheric, post-rock territory. Neighborhoods era: Tom and Mark recording separately, producing a more space-and-reverb driven sound. Wishing Well is one of the album's quieter, more emotionally contemplative tracks — wishing for something that can't happen.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="b18s">Atmospheric slow pop-punk, 99 BPM, spacious reverb-heavy Neighborhoods production, Mark Hoppus warm contemplative vocal, post-rock guitar textures, wide stereo field, emotional wishing and longing as core, builds slowly to full-band climax, under 4 minutes, more atmosphere than aggression, wistful and aching rather than angry</div>
+        <button class="copy-btn" onclick="cp('b18s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="b18l">Write a slow, atmospheric pop-punk song about wanting something you know you can't have — not a person, but a version of the past, or a version of yourself, or a second chance at something specific that's already gone. The wishing-well metaphor: you keep making the wish, knowing it won't be granted. The tone is wistful and slow — no aggression. The chorus is the wish itself, stated plainly. Under 4 minutes. Let it breathe.</div>
+        <button class="copy-btn" onclick="cp('b18l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 19 RECKLESS ABANDON -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">19</div>
+      <div class="song-meta">
+        <div class="song-title">Reckless Abandon</div>
+        <div class="song-pills">
+          <span class="pill pill-b">Take Off Your Pants and Jacket (2001)</span>
+          <span class="pill pill-b">~210 BPM</span>
+          <span class="pill pill-b">Fastest Blink song · Tom lead · pure chaos</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Among Blink's fastest songs ever — pure reckless speed and chaos. Tom DeLonge lead. A song that essentially IS its title: no brakes, no structure, just velocity. TOYPAJ era at maximum aggression. The lyric theme matches the production: doing stupid things and not caring. Classic Blink adolescent-freedom energy distilled to its rawest form.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="b19s">Maximum speed pop-punk, 210 BPM or faster, absolute fastest possible tempo, Tom DeLonge barely-controlled yelling lead vocal, drums sounding like a car crash at speed, wall of distorted power chords, under 1:45, no subtlety — pure velocity, adolescent freedom-and-chaos energy, sounds like it could fall apart at any second but doesn't, Warped Tour mosh pit energy</div>
+        <button class="copy-btn" onclick="cp('b19s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-bl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="b19l">Write the fastest, most chaotic pop-punk song possible — a celebration of doing stupid things at high speed and not caring about consequences. Driving too fast, staying out all night, breaking things, laughing at everything. The song itself should feel like it's barely under control. No emotional depth. No metaphors. Pure adolescent reckless joy. Under 1:45. If it's longer than 1:45 it's too slow.</div>
+        <button class="copy-btn" onclick="cp('b19l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+</main>
+</div>
+
+<!-- ═══════════════════════════════════════ GREEN DAY ══════════════ -->
+<div id="gd" class="section">
+<main>
+  <div class="intro-box">
+    <p><strong>Green Day's sonic DNA:</strong> Their sound is described as "often hard-driving and aggressive" with heavy use of power chords combined with "strong pop melodic sensibility." Producer Rob Cavallo shaped their major-label sound from Dookie through American Idiot. American Idiot — their "punk rock opera" — follows a fictional anti-hero named Jesus of Suburbia and expresses the disillusionment of a generation shaped by 9/11 and the Iraq War. Billie Joe Armstrong is one of rock's most efficient songwriters: three chords, maximum impact, every word earning its place.</p>
+  </div>
+  <div class="band-header gd">
+    <h2>Green Day</h2>
+    <p>Punk rock · Pop-punk · Punk opera · 1987–2025 · 7 songs</p>
+  </div>
+
+  <!-- GD01 JESUS OF SUBURBIA -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">01</div>
+      <div class="song-meta">
+        <div class="song-title">Jesus of Suburbia</div>
+        <div class="song-pills">
+          <span class="pill pill-g">American Idiot (2004)</span>
+          <span class="pill pill-g">9:08 runtime · 5 movements</span>
+          <span class="pill pill-g">Bohemian Rhapsody ambition in punk form</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Green Day's second longest song at 9 minutes 8 seconds, structured in five distinct movements. Armstrong said it was written as an attempt at "the 'Bohemian Rhapsody' of the future." The opening bars with their guitar-voice call-and-response structure evoke David Bowie's "Moonage Daydream." Each section has its own distinct tempo, feel, and emotional register — from acoustic intro to punk explosion to mid-tempo storytelling to outro.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-gs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="gd01s">Multi-movement punk rock opera, 5 distinct sections at varying tempos 80–184 BPM, opens with sparse acoustic guitar-voice call-and-response, builds through melodic storytelling to full punk explosion, Bowie-influenced glam rock elements under punk structure, Billie Joe Armstrong style sneer-to-anthem vocal arc, Rob Cavallo production clarity, suburban alienation narrative, cinematic scope in punk packaging, 7–9 minute runtime permitted</div>
+        <button class="copy-btn" onclick="cp('gd01s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-gl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="gd01l">Write a multi-movement punk rock epic — five distinct sections that tell a complete story arc. A suburban teenager: I. Describes his miserable town and diet of media and medication — angry, staccato, spoken-word intro; II. Announces he's leaving — melodic and searching; III. Arrives in the city and finds it just as hollow — punk explosion; IV. Considers what he's lost and what he's become — quieter reflection; V. A defiant declaration that he owns his alienation — full-band outro. Total runtime 7–9 minutes. Each section should feel like a different song that connects to the same story.</div>
+        <button class="copy-btn" onclick="cp('gd01l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GD02 AMERICAN IDIOT -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">02</div>
+      <div class="song-meta">
+        <div class="song-title">American Idiot</div>
+        <div class="song-pills">
+          <span class="pill pill-g">American Idiot (2004)</span>
+          <span class="pill pill-g">184 BPM</span>
+          <span class="pill pill-g">Defining protest anthem of the 2000s</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Released two months before George W. Bush was reelected, it became protest art. 184 BPM, 2:54 of pure compressed fury. The opening palm-muted guitar riff is instantly recognizable. Rob Cavallo production: enormous in the mix, the band sounds like a freight train. The lyric targets media manipulation, jingoism, and the "redneck agenda." Billie Joe's vocal delivery goes from sneering verse to screaming chorus with no warm-up required.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-gs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="gd02s">Blazing protest punk anthem, 184 BPM, opening palm-muted guitar riff under sneering political vocal, enormous Rob Cavallo production — everything sounds bigger than it should, Billie Joe Armstrong sneer-to-scream vocal arc, under 3 minutes, no-fat punk compression, media manipulation and political outrage as lyric core, freight-train momentum, gang-vocal chorus screamed, anti-authoritarian fury delivered with pop precision</div>
+        <button class="copy-btn" onclick="cp('gd02s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-gl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="gd02l">Write a blazing 184 BPM protest punk anthem — the defining political statement of a disillusioned generation. Target: media manipulation, manufactured patriotism, political leaders who treat the public as idiots to be managed. The tone is contemptuous of conformity and blind nationalism. The chorus is a screamed rejection — refusing to be part of the machine. Include the word "idiot" used to describe both the powerful and the compliant. Under 3 minutes. Maximum compression, maximum fury. Every word loaded.</div>
+        <button class="copy-btn" onclick="cp('gd02l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GD03 WAKE ME UP WHEN SEPTEMBER ENDS -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">03</div>
+      <div class="song-meta">
+        <div class="song-title">Wake Me Up When September Ends</div>
+        <div class="song-pills">
+          <span class="pill pill-g">American Idiot (2004)</span>
+          <span class="pill pill-g">~104 BPM</span>
+          <span class="pill pill-g">Grief ballad · Armstrong's father's death</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Written about Armstrong's father, who died of cancer when Billie was 10. One of the quietest, most nakedly emotional songs in the punk canon. Starts with clean acoustic guitar, builds through two verse-chorus cycles with increasing intensity, culminates in a full electric climax, then returns to the opening acoustic figure. Rob Cavallo lets the dynamic do the work — maximum restraint until maximum release.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-gs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="gd03s">Dynamic grief ballad, 104 BPM, opens with clean acoustic guitar — delicate and exposed, male vocal raw with loss, builds through two cycles adding electric guitar and drums, culminates in full-band electric explosion at the climax, then strips back to acoustic close, Rob Cavallo quiet-loud-quiet production arc, genuine grief not performed grief, autumn and loss imagery, under 4:45, the most emotionally devastating Green Day energy</div>
+        <button class="copy-btn" onclick="cp('gd03s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-gl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="gd03l">Write a grief ballad about losing a parent young — not dramatized or poeticized, just raw and honest. September as the month of the loss. The song asks to be allowed to skip the month entirely — to sleep through the anniversary of losing them. The emotional arc: quiet description of the ongoing loss → building toward the anniversary → full emotional release at the climax → quiet return to the beginning. Use autumn imagery organically. The most restrained and most devastating moment should be the last line. Under 4:45.</div>
+        <button class="copy-btn" onclick="cp('gd03l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GD04 GOOD RIDDANCE -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">04</div>
+      <div class="song-meta">
+        <div class="song-title">Good Riddance (Time of Your Life)</div>
+        <div class="song-pills">
+          <span class="pill pill-g">Nimrod (1997)</span>
+          <span class="pill pill-g">~84 BPM</span>
+          <span class="pill pill-g">Accidental anthem · acoustic only</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Written as an angry breakup song, misread as a sentimental anthem — and Armstrong decided to let the misreading stand. Acoustic guitar only with subtle violin. 84 BPM, 2:33. Deceptively simple: three chords, one perspective, one question. The most universally applicable Blink/Green Day adjacent song ever written, played at graduations and funerals. Armstrong's vocal is direct and conversational — no performance, just saying it.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-gs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="gd04s">Sparse acoustic punk ballad, 84 BPM, acoustic guitar only with subtle violin, conversational male vocal — no performance, just direct honest delivery, under 2:40, bittersweet ambiguity between anger and sentimentality, three-chord simplicity, the most universally resonant energy possible, graduation-and-goodbye atmosphere, nothing wasted — every word essential</div>
+        <button class="copy-btn" onclick="cp('gd04s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-gl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="gd04l">Write a sparse acoustic song with radical ambiguity — it can be read as an angry send-off or a bittersweet farewell, and both readings are equally valid. The central lyric question should be about unpredictability and choices made at crossroads. The tone is direct, conversational, not sentimental in the traditional way — more resigned acceptance. Under 2:40. Three chords. No fat. The most deceptively simple song in the set — every single word must earn its place. This should be played at both breakups and graduations.</div>
+        <button class="copy-btn" onclick="cp('gd04l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GD05 BASKET CASE -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">05</div>
+      <div class="song-meta">
+        <div class="song-title">Basket Case</div>
+        <div class="song-pills">
+          <span class="pill pill-g">Dookie (1994)</span>
+          <span class="pill pill-g">186 BPM</span>
+          <span class="pill pill-g">Anxiety as pop-punk · the Dookie breakthrough</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> 186 BPM — pure Dookie-era aggression. Written by Armstrong about his anxiety disorder before he was diagnosed — he wrote it to figure out what was wrong with him. The result is anxiety portrayed from the inside: fast, chaotic, self-aware but unable to stop. The verse is rushed and anxious, the chorus is the moment of desperate naming. Rob Cavallo Dookie production: bright, fast, enormous snare, the song that made Green Day stars.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-gs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="gd05s">Anxiety-driven Dookie-era punk, 186 BPM, Rob Cavallo bright enormous-snare production, vocal delivery rushed and anxious in verses — the words come too fast, chorus erupts into desperate naming, under 3 minutes, guitar tone bright and trebly, bass prominent, anxiety from the inside as lyric structure — self-aware but unable to stop, the most energetically anxious Green Day energy</div>
+        <button class="copy-btn" onclick="cp('gd05s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-gl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="gd05l">Write a fast punk song about anxiety from the inside — not describing anxiety from outside but the experience of living in it. The verses should feel rushed, the thoughts tumbling over each other. The chorus is the desperate attempt to name what's happening: "am I paranoid or am I just anxious / am I crazy or is this just Tuesday?" The self-awareness doesn't help — the narrator knows what's happening and can't stop it. Under 2:45. Written by someone who didn't have the diagnosis yet, just the experience.</div>
+        <button class="copy-btn" onclick="cp('gd05l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GD06 HOLIDAY -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">06</div>
+      <div class="song-meta">
+        <div class="song-title">Holiday</div>
+        <div class="song-pills">
+          <span class="pill pill-g">American Idiot (2004)</span>
+          <span class="pill pill-g">234 BPM half-time feel / ~117 BPM full</span>
+          <span class="pill pill-g">Anti-war anthem · marching energy</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> The march-rhythm opening. Anti-war, anti-Bush, anti-media compliance. The production has a military snare quality — the beat of war repurposed as protest. American Idiot's average BPM is 124 with tempos ranging 69–234. Holiday sits at the more driving end — march tempo doubled. The breakdown section "This is the dawning of the rest of our lives" provides the most anthemic moment. Live, it's one of the biggest crowd moments in modern rock.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-gs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="gd06s">Anti-war protest punk with military march energy, 117 BPM marching tempo, snare-driven rhythm suggesting a march turned protest, Billie Joe Armstrong contemptuous sneering vocal, Rob Cavallo enormous production, political outrage at war and media compliance, massive singalong breakdown section, under 3:50, driving relentless energy, punk power chords over march beat, crowd-participation anthem</div>
+        <button class="copy-btn" onclick="cp('gd06s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-gl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="gd06l">Write a punk anthem that uses the word "holiday" sarcastically — a holiday from reality, from truth, from having to think about what your government is doing in your name. The song targets war, propaganda, blind patriotism. The tone is furious contempt, not sad resignation. Include a breakdown section that shifts from verse cynicism to a massive crowd-participation moment about resistance and solidarity. The military march rhythm should be felt in the lyric cadence. Under 3:50.</div>
+        <button class="copy-btn" onclick="cp('gd06l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GD07 21 GUNS -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">07</div>
+      <div class="song-meta">
+        <div class="song-title">21 Guns</div>
+        <div class="song-pills">
+          <span class="pill pill-g">21st Century Breakdown (2009)</span>
+          <span class="pill pill-g">~69 BPM</span>
+          <span class="pill pill-g">Slowest Green Day hit · Butch Vig production</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> From their second rock opera, 21st Century Breakdown, produced by Butch Vig. 69 BPM — Green Day's slowest major single. Piano opens the track. The dynamic is radical for them: starts almost as a piano ballad, builds to a full-band stadium rock climax. The "21 guns" metaphor references a military honor guard — surrender, death, sacrifice. Armstrong's vocal is at its most naked and powerful here.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-gs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="gd07s">Slow-build stadium punk ballad, 69 BPM, opens with solo piano — exposed and fragile, Billie Joe Armstrong-style raw tenor builds from intimate to enormous, Butch Vig production adding weight and scale, full-band climax with massive singalong chorus, military honor imagery reframed as personal sacrifice, under 5:30, the most dynamically ambitious Green Day energy, surrender as the theme</div>
+        <button class="copy-btn" onclick="cp('gd07s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-gl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="gd07l">Write a slow-build stadium punk ballad about surrender — not defeat, but the conscious, dignified choice to lay down what you've been fighting for because the fight has cost too much. The 21-gun salute as central metaphor: honoring what's being let go. The song should move from intimate piano confession to full-band cathartic release. The central question: when does fighting for something become destroying it? The chorus is the moment of beautiful surrender — arms open, white flag raised with dignity. Under 5:30. The biggest, slowest, most cinematic song in the set.</div>
+        <button class="copy-btn" onclick="cp('gd07l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+</main>
+</div>
+
+<!-- ═══════════════════════════════════════ RATM ═══════════════════ -->
+<div id="ratm" class="section">
+<main>
+  <div class="intro-box">
+    <p><strong>RATM's sonic DNA:</strong> Recorded without a click track — all albums have natural tempo drift. The mean tempo is around 98 BPM, the true mode is 84–90 BPM. Most songs are slow, which is a big part of their distinctive heavy sound. Tom Morello identifies as a DJ using his guitar — using the kill switch rhythmically (as on "Bulls on Parade"), imitating record scratching, and employing a DigiTech Whammy pedal that he credits with opening "very new sonic possibilities." Zack de la Rocha's vocal mode combines rap verses with screamed slogans.</p>
+    <p><strong>Important Suno note:</strong> RATM's sound pushes against Suno's content filters more than any other band in this set — political content and de la Rocha-style sloganeering may require framing as anti-authoritarian rather than explicitly radical. The lyric prompts below are calibrated for this.</p>
+  </div>
+  <div class="band-header ratm">
+    <h2>Rage Against the Machine</h2>
+    <p>Rap-metal · Funk-metal · Hip-hop · Punk · 1991–2011 · 9 songs</p>
+  </div>
+
+  <!-- RATM01 WAKE UP -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">01</div>
+      <div class="song-meta">
+        <div class="song-title">Wake Up</div>
+        <div class="song-pills">
+          <span class="pill pill-r">Rage Against the Machine (1992)</span>
+          <span class="pill pill-r">~93 BPM</span>
+          <span class="pill pill-r">The Matrix closing track · political awakening</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Famous for ending The Matrix. Slow, heavy, hypnotic. The Morello guitar line in the verse is minimal and slinky — funk-influenced, sparse. The song builds through repeated escalation to de la Rocha's screamed finale. Lyrically it's about political consciousness — waking up to the true nature of power structures. The Ibanez DFL Flanger set to a slow sweep creates the song's distinctive swirling guitar intro texture.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-rs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="r01s">Heavy hypnotic rap-metal, 93 BPM, slow flanger-sweep guitar intro building to slinky funk-metal verse riff, hip-hop vocal delivery in verses — conversational political rhyming, minimal sparse guitar during verses, Brad Wilk thunderous groove drumming, builds through escalation to screamed sloganeering climax, no click-track looseness, powerful and deliberate, political awakening lyric, under 6 minutes</div>
+        <button class="copy-btn" onclick="cp('r01s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-rl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="r01l">Write a slow, hypnotic rap-metal song about political awakening — the moment someone realizes that the systems around them are not neutral or benevolent but designed. The verses are delivered as controlled, rhyming observation — naming what is hidden in plain sight. The energy builds through the song as urgency increases. The climax is a repeated screamed call for people to open their eyes. The tone is not hopeless — it's enraged and certain that awareness itself is a revolutionary act. Under 6 minutes. The song that ends a movie about escaping a false reality.</div>
+        <button class="copy-btn" onclick="cp('r01l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RATM02 SLEEP NOW IN THE FIRE -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">02</div>
+      <div class="song-meta">
+        <div class="song-title">Sleep Now in the Fire</div>
+        <div class="song-pills">
+          <span class="pill pill-r">The Battle of Los Angeles (1999)</span>
+          <span class="pill pill-r">~96 BPM</span>
+          <span class="pill pill-r">Wall Street confrontation · Michael Moore video</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> During filming of the video directed by Michael Moore, the band caused the New York Stock Exchange to close its doors. Moore's instruction: "No matter what happens, don't stop playing." Morello's guitar riff is jabbing, rhythmic, and almost industrial. The song targets global capitalism and American empire. The chorus is a sneering condemnation. Battle of Los Angeles production: tighter and more aggressive than previous albums.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-rs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="r02s">Industrial-funk rap-metal, 96 BPM, jabbing rhythmic guitar riff — almost percussive, no sustain, tight and aggressive, Brad Wilk thunderous pocket groove, de la Rocha-style rapid-fire political rap delivery in verses, sneering contemptuous chorus hook, BOLA-era tighter production than debut, Wall Street and empire as lyric target, under 3:30, relentless and locked in</div>
+        <button class="copy-btn" onclick="cp('r02s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-rl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="r02l">Write a jabbing, industrial rap-metal song targeting global financial power — the stock exchange, corporate empire, wealth that feeds on suffering. The verses are rapid-fire indictments delivered with contemptuous precision. The chorus is sardonic: addressing the powerful with a sneer, telling them to sleep comfortable in the fire they've built. The irony is cold: they profit while the world burns and call it civilization. Under 3:30. Every line is a specific accusation, not a general complaint.</div>
+        <button class="copy-btn" onclick="cp('r02l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RATM03 GUERRILLA RADIO -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">03</div>
+      <div class="song-meta">
+        <div class="song-title">Guerrilla Radio</div>
+        <div class="song-pills">
+          <span class="pill pill-r">The Battle of Los Angeles (1999)</span>
+          <span class="pill pill-r">~98 BPM</span>
+          <span class="pill pill-r">Morello wah guitar · anti-media anthem</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Morello used his wah pedal prominently on Guerrilla Radio — the wah-filtered guitar creates the song's signature funky-aggressive texture. The bass intro is one of the most recognizable in hard rock. Tim Commerford's bass is the foundation. The song targets corporate media control. The chorus is a simple, powerful call for alternative broadcasting — independent voices, uncensored truth.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-rs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="r03s">Bass-forward funk rap-metal, 98 BPM, prominent bass guitar intro and groove, wah-filtered guitar creating funky-aggressive texture, hip-hop verse delivery over metal groove, Brad Wilk thunderous pocket, anti-corporate-media lyric, simple powerful chorus hook — broadcast the truth, BOLA production clarity, under 3:30, the most groove-forward RATM energy, locked rhythmic pocket throughout</div>
+        <button class="copy-btn" onclick="cp('r03s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-rl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="r03l">Write a groove-forward rap-metal song about the power of independent, uncontrolled media — a pirate radio station, an uncensored signal cutting through corporate noise. The verses name what corporate media buries: who benefits from what gets covered, who gets silenced. The chorus is a rallying call to broadcast the truth regardless of who controls the dial. The tone is urgent and righteous rather than despairing. Under 3:30. The bass drives everything.</div>
+        <button class="copy-btn" onclick="cp('r03l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RATM04 BULLS ON PARADE -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">04</div>
+      <div class="song-meta">
+        <div class="song-title">Bulls on Parade</div>
+        <div class="song-pills">
+          <span class="pill pill-r">Evil Empire (1996)</span>
+          <span class="pill pill-r">~92 BPM</span>
+          <span class="pill pill-r">Guitar-as-turntable scratch solo · military industrial complex</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> De la Rocha accompanied by an ingeniously minimal Morello riff. Near the end, Morello blasts off a career-defining guitar solo in which he replicates the sound of a record scratching. Morello used his guitar's pickup selector toggle as a kill switch on Bulls on Parade to imitate scratching. The lyric targets the military-industrial complex: weapons over food, politicians pretending to be pro-family with a "pocket full of shells." Perhaps the finest distillation of the RATM sonic Molotov cocktail.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-rs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="r04s">Minimal-riff funk-metal, 92 BPM, hypnotically spare guitar riff — almost nothing, Brad Wilk thunderous groove, de la Rocha rapid-fire political rhyming over the pocket, guitar kill-switch scratch solo simulating a turntable, military-industrial complex as lyric target, Evil Empire era tighter production, under 3:50, the groove carries everything, guitar solo is the climax</div>
+        <button class="copy-btn" onclick="cp('r04s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-rl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="r04l">Write a funk-metal song targeting the military-industrial complex — the political machine that prioritizes weapons contracts over food, shelter, and shoes. Name the hypocrisy: leaders who claim family values while funding death. The verses are precise indictments delivered over a hypnotic minimal groove. The chorus is a single overwhelming image of what the machine produces. Include the phrase "weapons not food" or equivalent as a central line. Under 3:50. The groove should feel like a march to the guillotine.</div>
+        <button class="copy-btn" onclick="cp('r04l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RATM05 KILLING IN THE NAME -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">05</div>
+      <div class="song-meta">
+        <div class="song-title">Killing in the Name</div>
+        <div class="song-pills">
+          <span class="pill pill-r">Rage Against the Machine (1992)</span>
+          <span class="pill pill-r">~86 BPM</span>
+          <span class="pill pill-r">UK Christmas #1 (2009) · Whammy solo · "F*** you I won't do what you tell me"</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> After the song was done, a record label executive asked "So is that the direction you're heading in?" Morello used the DigiTech Whammy on the guitar solo, and the Ibanez DFL Flanger on the intro. The closing escalation — the repeated "Fuck you I won't do what you tell me" building to a scream — is one of the most cathartic moments in rock history. The groove is slow and heavy. The song targets institutional racism and police brutality.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-rs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="r05s">Slow heavy groove rap-metal, 86 BPM, flanger-textured opening riff, Whammy-pedal distorted guitar solo, Brad Wilk thunderous slow pocket, escalating closing section — repeated defiant refusal building from spoken to full scream, institutional power and systemic racism as lyric core, most cathartic climax in the set, under 5:15, the chorus IS the escalation</div>
+        <button class="copy-btn" onclick="cp('r05s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-rl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="r05l">Write a slow, heavy rap-metal song about institutional power doing harm in the name of authority — systems that protect themselves while claiming to protect others. The verses name this contradiction with controlled, precise anger. The song must end with an escalating refusal section — a single defiant phrase repeated, starting quiet and spoken, building through the entire band to an absolute full-volume scream. This escalation IS the song's emotional point. The refusal to comply is the revolutionary act. Under 5:15. The most cathartic ending in the set.</div>
+        <button class="copy-btn" onclick="cp('r05l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RATM06 BULLET IN THE HEAD -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">06</div>
+      <div class="song-meta">
+        <div class="song-title">Bullet in the Head</div>
+        <div class="song-pills">
+          <span class="pill pill-r">Rage Against the Machine (1992)</span>
+          <span class="pill pill-r">~88 BPM</span>
+          <span class="pill pill-r">Media lobotomy metaphor · cable-tap guitar effect</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Morello created the song's distinctive guitar effect by tapping a pickup with the guitar's unplugged cable connector. The song targets media hypnosis — television as a bullet in the head, destroying critical thought. One of RATM's most paranoid and aggressive debut tracks. Heavy, slower, relentless. The chorus is a warning about passive media consumption.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-rs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="r06s">Heavy aggressive debut-era rap-metal, 88 BPM, distinctive percussive guitar effect created by cable-tapping — industrial clicking texture, Brad Wilk relentless heavy groove, media-hypnosis lyric with controlled paranoid energy, de la Rocha rapid warning-delivery verses, warning chorus hook about passive consumption, under 5 minutes, debut album rawness and aggression</div>
+        <button class="copy-btn" onclick="cp('r06s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-rl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="r06l">Write a heavy rap-metal song about the media as a weapon of mass distraction — television, social media algorithms, entertainment that keeps people passive and manageable. The central metaphor is passive consumption as a self-inflicted wound. The verses name specific mechanisms of distraction. The chorus is a warning: this thing you think is entertainment is shaping your brain. The anger is directed at the system that designs the distraction AND at the willingness to accept it. Under 5 minutes.</div>
+        <button class="copy-btn" onclick="cp('r06l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RATM07 DOWN RODEO -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">07</div>
+      <div class="song-meta">
+        <div class="song-title">Down Rodeo</div>
+        <div class="song-pills">
+          <span class="pill pill-r">Evil Empire (1996)</span>
+          <span class="pill pill-r">~84 BPM</span>
+          <span class="pill pill-r">Class war · Beverly Hills imagery · 5:20 runtime</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> One of Evil Empire's longest and heaviest tracks. The lyric brings the class war to Rodeo Drive — the wealthy enclave as symbol of everything wrong. De la Rocha's verse delivery is at its most snarling, the guitar riff is particularly heavy. The song is about what happens when the excluded masses finally march on the places that exclude them. Slow, heavy, seething.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-rs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="r07s">Slow seething heavy rap-metal, 84 BPM, particularly heavy guitar riff — snarling and low, Brad Wilk thunderous slow groove, de la Rocha most snarling delivery, class war lyric with wealthy enclave as central image, Evil Empire production weight, under 5:30, luxury district imagery contrasting with street-level fury, the most heavy and seething RATM energy</div>
+        <button class="copy-btn" onclick="cp('r07s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-rl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="r07l">Write a slow, seething rap-metal song about class war — specifically about bringing the rage of the excluded to the places that represent their exclusion: the luxury shopping district, the gated community, the private club. The lyric should contrast the specific details of wealth (specific stores, specific items, specific behaviors) with the fury of those kept outside. The chorus is about what happens when the gates finally come down. Snarling and specific. Under 5:30.</div>
+        <button class="copy-btn" onclick="cp('r07l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RATM08 FREEDOM -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">08</div>
+      <div class="song-meta">
+        <div class="song-title">Freedom</div>
+        <div class="song-pills">
+          <span class="pill pill-r">Rage Against the Machine (1992)</span>
+          <span class="pill pill-r">~98 BPM</span>
+          <span class="pill pill-r">Debut album closer · Leonard Peltier dedication</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> The debut album's closer. Dedicated to Leonard Peltier, the Native American activist who RATM campaigned to free. The song builds from a quiet intro to one of the most intense climaxes on the debut. The political content is specific: a named prisoner, a named injustice. De la Rocha screams "freedom" repeatedly at the climax. The outro is abstract noise and guitar texture dissolving the song. One of their most hopeful-while-furious songs.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-rs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="r08s">Debut-era political rap-metal, 98 BPM, quiet textured intro building to full-band heavy groove, de la Rocha controlled rhyming verses building to screamed climax — freedom repeated at maximum intensity, dedication to a specific named injustice rather than abstract politics, Morello abstract noise outro dissolving into silence, under 6 minutes, hopeful fury rather than pure rage, the word FREEDOM as the climax</div>
+        <button class="copy-btn" onclick="cp('r08s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-rl">Lyric Generation → Lyrics Field</span><span class="prompt-hint">Generate Lyrics</span></div>
+        <div class="prompt-body" id="r08l">Write a rap-metal song dedicated to a specific political prisoner or named injustice — not abstract, but a real person whose story illustrates a systemic wrong. The verses tell their story with precision: who they are, what was done to them, who benefits from their imprisonment. The song builds to a climax that repeats the word "freedom" with increasing fury — not as a platitude but as a demand. End with a dissolving, abstract outro. Under 6 minutes. The most hopeful-while-furious song in the set.</div>
+        <button class="copy-btn" onclick="cp('r08l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RATM09 CALM LIKE A BOMB -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">09</div>
+      <div class="song-meta">
+        <div class="song-title">Calm Like a Bomb</div>
+        <div class="song-pills">
+          <span class="pill pill-r">The Battle of Los Angeles (1999)</span>
+          <span class="pill pill-r">~90 BPM</span>
+          <span class="pill pill-r">Longest BOLA track · slow fuse energy · 4:58</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> BOLA's longest track at 4:58. The title is the concept: contained, controlled fury — like a bomb that hasn't exploded yet. De la Rocha's delivery is at its most controlled in the verses, saving the explosion for the final third. Morello's guitar work here is particularly inventive — different textures building pressure. The groove is RATM's most relentless locked pocket.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header"><span class="prompt-type type-rs">Style → Style Field</span><span class="prompt-hint">≤500 chars</span></div>
+        <div class="prompt-body" id="r09s">Controlled-pressure rap-metal, 90 BPM, most relentlessly locked RATM groove, de la Rocha most controlled verse delivery — fury contained and building, diverse Morello guitar textures building pressure through the song, the explosion comes in the final third and is total, BOLA production at its tightest, 4:30–5 minute runtime, the title IS the instruction for the emotional arc — calm then bomb</div>
+        <button class="copy-btn" onclick="cp('r09s',this)">Copy Style</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-type type-rl" style="padding:8px 12px; display:block; border-bottom: 1px solid var(--border); font-size:9px; letter-spacing:2px; text-transform:uppercase; color:color-mix(in srgb, var(--ratm) 80%, white);">Lyric Generation → Lyrics Field</div>
+        <div class="prompt-body" id="r09l">Write a rap-metal song structured like a slow-burning fuse — entirely controlled in the first two thirds, then detonating completely in the final third. The verses are delivered calmly, precisely, with mathematical fury: cataloguing injustice, naming names, describing what has been done. The delivery is terrifyingly composed. Then the final section ignites — the control breaks, the bomb goes off, the screaming begins. The title concept IS the arc: calm like a bomb. Under 5 minutes. The contrast between the two halves is the entire point.</div>
+        <button class="copy-btn" onclick="cp('r09l',this)">Copy Lyric Prompt</button>
+      </div>
+    </div>
+  </div>
+</main>
+</div>
+
+<script>
+function show(id, btn, cls) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active','b-tab','g-tab','r-tab'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active', cls);
+  window.scrollTo(0,0);
+}
+function cp(id, btn) {
+  const el = document.getElementById(id);
+  const orig = btn.textContent;
+  navigator.clipboard.writeText(el.innerText).then(() => {
+    btn.textContent = '✓ Copied';
+    btn.classList.add('ok');
+    setTimeout(() => { btn.classList.remove('ok'); btn.textContent = orig; }, 2000);
+  });
+}
+</script>
+</body>
+</html>

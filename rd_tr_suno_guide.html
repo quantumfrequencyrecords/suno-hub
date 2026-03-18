@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RD & TR — Suno Prompt System</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #07090d;
+    --surface: #0e1118;
+    --card: #12151e;
+    --border: #1a1e2a;
+    --text: #dde2ef;
+    --muted: #525870;
+    --dim: #2e3345;
+    --accent: #f0ead6;
+    --rd: #e8943a;       /* Russell Dickerson — warm amber */
+    --rd-soft: rgba(232,148,58,0.12);
+    --rd-border: rgba(232,148,58,0.25);
+    --tr: #4ab8c4;       /* Thomas Rhett — teal/turquoise */
+    --tr-soft: rgba(74,184,196,0.10);
+    --tr-border: rgba(74,184,196,0.25);
+    --spotify: #1db954;
+    --spotify-soft: rgba(29,185,84,0.10);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  /* HEADER */
+  header {
+    padding: 64px 48px 48px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: -60px;
+    width: 460px; height: 460px;
+    background: radial-gradient(circle, rgba(232,148,58,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; right: -40px;
+    width: 380px; height: 380px;
+    background: radial-gradient(circle, rgba(74,184,196,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .header-grid { display: flex; gap: 48px; flex-wrap: wrap; align-items: flex-end; }
+  .header-artist h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 7vw, 82px);
+    letter-spacing: 4px;
+    line-height: 0.92;
+  }
+  .header-artist.rd h1 { color: var(--rd); }
+  .header-artist.tr h1 { color: var(--tr); }
+  .header-divider {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 60px;
+    color: var(--dim);
+    line-height: 0.92;
+    align-self: flex-end;
+    padding-bottom: 4px;
+  }
+  .header-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    margin-top: 6px;
+  }
+  .header-artist.rd .header-sub { color: color-mix(in srgb, var(--rd) 60%, var(--muted)); }
+  .header-artist.tr .header-sub { color: color-mix(in srgb, var(--tr) 60%, var(--muted)); }
+  .header-meta {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 24px;
+  }
+
+  /* NAV */
+  .nav-bar {
+    display: flex; gap: 0;
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    position: sticky; top: 0;
+    background: var(--bg); z-index: 100;
+    padding: 0 48px;
+  }
+  .nav-tab {
+    padding: 13px 18px;
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--muted); cursor: pointer;
+    border: none; border-bottom: 2px solid transparent;
+    background: none; font-family: 'DM Mono', monospace;
+    white-space: nowrap; transition: color 0.2s, border-color 0.2s;
+  }
+  .nav-tab:hover { color: var(--text); }
+  .nav-tab.active.rd-tab { color: var(--rd); border-bottom-color: var(--rd); }
+  .nav-tab.active.tr-tab { color: var(--tr); border-bottom-color: var(--tr); }
+  .nav-tab.active.sp-tab { color: var(--spotify); border-bottom-color: var(--spotify); }
+
+  /* SECTIONS */
+  .section { display: none; }
+  .section.active { display: block; }
+  main { max-width: 1200px; margin: 0 auto; padding: 44px 48px 100px; }
+
+  @media (max-width: 720px) {
+    main { padding: 28px 20px 80px; }
+    header { padding: 44px 20px 36px; }
+    .nav-bar { padding: 0 16px; }
+  }
+
+  /* INTRO BOX */
+  .intro-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin-bottom: 36px;
+  }
+  .intro-box p { color: var(--muted); font-size: 12px; line-height: 1.9; margin-bottom: 8px; }
+  .intro-box p:last-child { margin-bottom: 0; }
+  .intro-box strong { color: var(--text); }
+
+  /* ARTIST LABEL BAND */
+  .artist-band {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 32px; padding: 12px 20px;
+    border-radius: 4px;
+  }
+  .artist-band.rd { background: var(--rd-soft); border: 1px solid var(--rd-border); }
+  .artist-band.tr { background: var(--tr-soft); border: 1px solid var(--tr-border); }
+  .artist-band h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px; letter-spacing: 3px;
+  }
+  .artist-band.rd h2 { color: var(--rd); }
+  .artist-band.tr h2 { color: var(--tr); }
+  .artist-band p { font-size: 11px; color: var(--muted); }
+
+  /* SONG BLOCK */
+  .song-block {
+    margin-bottom: 52px;
+    padding-bottom: 52px;
+    border-bottom: 1px solid var(--border);
+  }
+  .song-block:last-of-type { border-bottom: none; }
+
+  .song-header {
+    display: flex; align-items: flex-start; gap: 18px;
+    margin-bottom: 16px;
+  }
+  .song-num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 44px;
+    color: var(--dim); line-height: 1; flex-shrink: 0; min-width: 50px;
+    text-align: right;
+  }
+  .song-meta { flex: 1; }
+  .song-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px; font-weight: 600; color: var(--accent); line-height: 1.2;
+  }
+  .song-pills {
+    display: flex; gap: 8px; flex-wrap: wrap; margin-top: 5px;
+  }
+  .pill {
+    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 2px;
+  }
+  .pill-rd { background: var(--rd-soft); color: var(--rd); border: 1px solid var(--rd-border); }
+  .pill-tr { background: var(--tr-soft); color: var(--tr); border: 1px solid var(--tr-border); }
+
+  .song-dna {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 4px; padding: 14px 18px; margin-bottom: 14px;
+    font-size: 11px; color: var(--muted); line-height: 1.8;
+  }
+  .song-dna strong { color: var(--text); }
+
+  /* NOTE BOX */
+  .note-box {
+    background: rgba(255,180,50,0.05); border: 1px solid rgba(255,180,50,0.2);
+    border-radius: 4px; padding: 12px 16px; margin-bottom: 14px;
+    font-size: 11px; color: #a89060; line-height: 1.7;
+  }
+
+  /* PROMPT PAIR */
+  .prompt-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 700px) { .prompt-pair { grid-template-columns: 1fr; } }
+
+  .prompt-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px; overflow: hidden;
+  }
+  .prompt-card-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 9px 14px; border-bottom: 1px solid var(--border); gap: 8px;
+  }
+  .prompt-type {
+    font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 500;
+  }
+  .type-rd-style { color: var(--rd); }
+  .type-rd-lyric { color: color-mix(in srgb, var(--rd) 70%, white); }
+  .type-tr-style { color: var(--tr); }
+  .type-tr-lyric { color: color-mix(in srgb, var(--tr) 70%, white); }
+  .prompt-hint { font-size: 9px; color: var(--dim); letter-spacing: 1px; text-transform: uppercase; }
+  .prompt-body {
+    padding: 14px; font-size: 11px; line-height: 1.85;
+    color: #c0c8dc; white-space: pre-wrap;
+    max-height: 240px; overflow-y: auto;
+  }
+  .copy-btn {
+    display: block; width: calc(100% - 28px); margin: 8px 14px 12px;
+    padding: 7px; background: transparent; border: 1px solid var(--border);
+    color: var(--muted); font-family: 'DM Mono', monospace;
+    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+    cursor: pointer; border-radius: 2px; transition: all 0.2s;
+  }
+  .copy-btn:hover { border-color: var(--text); color: var(--text); }
+  .copy-btn.ok { border-color: var(--spotify); color: var(--spotify); }
+
+  /* SCROLLBAR */
+  .prompt-body::-webkit-scrollbar { width: 3px; }
+  .prompt-body::-webkit-scrollbar-track { background: transparent; }
+  .prompt-body::-webkit-scrollbar-thumb { background: var(--dim); }
+
+  hr.divider { border: none; border-top: 1px solid var(--border); margin: 60px 0; }
+
+  /* SPOTIFY SECTION */
+  .spotify-hero {
+    background: var(--spotify-soft);
+    border: 1px solid rgba(29,185,84,0.25);
+    border-radius: 6px; padding: 28px 32px; margin-bottom: 36px;
+  }
+  .spotify-hero h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px; letter-spacing: 3px; color: var(--spotify); margin-bottom: 10px;
+  }
+  .spotify-hero p { font-size: 12px; color: #88c8a0; line-height: 1.9; margin-bottom: 8px; }
+  .spotify-hero p:last-child { margin-bottom: 0; }
+  .spotify-hero strong { color: #b8e8c8; }
+
+  .workaround-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px; margin-top: 24px;
+  }
+  .workaround-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 4px; padding: 20px;
+  }
+  .workaround-card .wc-num {
+    font-family: 'Bebas Neue', sans-serif; font-size: 36px;
+    color: var(--spotify); line-height: 1; margin-bottom: 8px;
+  }
+  .workaround-card h3 { font-size: 12px; color: var(--text); margin-bottom: 8px; letter-spacing: 1px; text-transform: uppercase; }
+  .workaround-card p { font-size: 11px; color: var(--muted); line-height: 1.8; }
+  .workaround-card .wc-tip {
+    margin-top: 10px; padding: 8px 12px;
+    background: rgba(29,185,84,0.06); border: 1px solid rgba(29,185,84,0.15);
+    border-radius: 3px; font-size: 10px; color: #6ab882;
+  }
+
+  .spotify-prompt-pair {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px;
+  }
+  @media (max-width: 700px) { .spotify-prompt-pair { grid-template-columns: 1fr; } }
+
+  .sp-prompt-card {
+    background: var(--card); border: 1px solid rgba(29,185,84,0.2); border-radius: 4px; overflow: hidden;
+  }
+  .sp-prompt-card .prompt-card-header { border-color: rgba(29,185,84,0.15); }
+  .type-sp { color: var(--spotify); }
+  .type-sp-lyric { color: #7ed9a0; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-grid">
+    <div class="header-artist rd">
+      <h1>Russell<br>Dickerson</h1>
+      <div class="header-sub">Country-Pop Romantic · 2015–2025</div>
+    </div>
+    <div class="header-divider">&amp;</div>
+    <div class="header-artist tr">
+      <h1>Thomas<br>Rhett</h1>
+      <div class="header-sub">Genre-Blending Country-Pop-R&amp;B · 2013–2025</div>
+    </div>
+  </div>
+  <div class="header-meta">Per-Song Suno Prompt System · Style &amp; Lyric Generation Prompts · Spotify Workarounds</div>
+</header>
+
+<div class="nav-bar">
+  <button class="nav-tab active rd-tab" onclick="show('rd',this,'rd-tab')">Russell Dickerson</button>
+  <button class="nav-tab tr-tab" onclick="show('tr',this,'tr-tab')">Thomas Rhett</button>
+  <button class="nav-tab sp-tab" onclick="show('sp',this,'sp-tab')">🎵 Spotify &amp; You</button>
+</div>
+
+<!-- ═══════════════════════════════════════ RUSSELL DICKERSON ══════ -->
+<div id="rd" class="section active">
+<main>
+  <div class="intro-box">
+    <p><strong>Russell Dickerson's sonic signature:</strong> He slyly incorporates modern R&B rhythms into bright, tuneful mainstream country-pop — warm acoustic guitar layered over modern production, emotive tenor vocals, and lyrics rooted in domestic romantic love. His songs are almost exclusively about his wife Kailey and their life together. The production style pairs organic country instruments (acoustic guitar, pedal steel) with contemporary pop sheen. His recent era infuses a country-soul foundation with lush synth, distorted 80s rock crunch, and thumping modern beats.</p>
+    <p><strong>Note on "MGNO":</strong> This doesn't match a known Russell Dickerson title — it may be an abbreviation I can't confirm. The prompts cover all the other songs you listed. If you can clarify the full title, I'll add it.</p>
+  </div>
+
+  <!-- 1. WHAT A LIFE -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">01</div>
+      <div class="song-meta">
+        <div class="song-title">What a Life</div>
+        <div class="song-pills">
+          <span class="pill pill-rd">Famous Back Home (2025)</span>
+          <span class="pill pill-rd">~130 BPM</span>
+          <span class="pill pill-rd">Celebratory love anthem</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Uptempo country-pop with warm acoustic guitar, lush modern production, punchy drums. Emotionally: pure gratitude and wonder at a life better than he ever imagined — his wife, his family, his career. The tone is joyful disbelief. Not a wedding song — more like a "how is this my life?" anthem. Wide open chorus, vocal harmonies, feels like a celebration with your arms wide open.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-rd-style">Style → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="rd01s">Warm country-pop, bright acoustic guitar lead, lush modern production, punchy drum machine, male tenor vocal open and joyful, pedal steel accents, layered backing harmonies on chorus, 130 BPM, arms-wide-open anthem energy, clean polished mix with organic country warmth, celebratory gratitude tone, wide dynamic chorus, R&amp;B-influenced vocal runs, feel-good and unguarded throughout</div>
+        <button class="copy-btn" onclick="cp('rd01s',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-rd-lyric">Lyric Generation → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="rd01l">Write a joyful, upbeat country-pop anthem from a man who can barely believe how good his life has turned out — his wife, his kids, his friendships, the simple moments that make ordinary days feel extraordinary. The tone is genuine, warm disbelief: not bragging, just grateful shock. He catalogues specific small moments (morning coffee, kids laughing, coming home) that add up to something overwhelming. The chorus should be a wide-open declaration — something like "what a life" as the central phrase — delivered with arms-spread joy. No irony, no darkness. Verses are conversational storytelling, chorus is anthemic singalong. Under 3:30.</div>
+        <button class="copy-btn" onclick="cp('rd01l',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. YOURS -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">02</div>
+      <div class="song-meta">
+        <div class="song-title">Yours</div>
+        <div class="song-pills">
+          <span class="pill pill-rd">Yours EP / Album (2017)</span>
+          <span class="pill pill-rd">134 BPM</span>
+          <span class="pill pill-rd">First dance / devotion anthem</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> 134 BPM, B major, high energy and danceable. Warm acoustic guitar-driven production with a soaring chorus. Written about his wife Kailey — the transformative power of being fully in love. The song became a huge hit partly because wedding website The Knot called it "everything a first dance song should be." Lyrically it's about a man who was lost before he found her — she gave him direction, purpose, identity. The chorus is a declaration of complete belonging.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-rd-style">Style → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="rd02s">Warm devotion country-pop, 134 BPM, acoustic guitar-driven with soaring electric accents, pedal steel warmth, male tenor vocal earnest and full-hearted, sweeping emotional chorus with layered harmonies, polished Nashville production with organic instruments, first-dance energy but not slow — upbeat heartfelt, clean bright mix, deeply romantic without being sappy, declarative chorus hook, R&amp;B vocal phrasing over country instrumentation</div>
+        <button class="copy-btn" onclick="cp('rd02s',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-rd-lyric">Lyric Generation → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="rd02l">Write a deeply romantic country-pop song from a man declaring complete, joyful belonging to the woman he loves. Before her, he was directionless and lost — she gave him a reason, an anchor, a home. The chorus is a pure declaration of devotion: she is everything he belongs to and everything he is. Lyrically: specific and tender — not generic romance, but the particular way she makes him feel rooted. The bridge should be a moment of overwhelming gratitude, almost speechless. This is a first-dance song that also works as an anthem. Avoid clichés — replace every generic love lyric with a specific image. Under 3:40.</div>
+        <button class="copy-btn" onclick="cp('rd02l',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. 16 ME -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">03</div>
+      <div class="song-meta">
+        <div class="song-title">16 Me</div>
+        <div class="song-pills">
+          <span class="pill pill-rd">Famous Back Home (2025)</span>
+          <span class="pill pill-rd">~95 BPM</span>
+          <span class="pill pill-rd">Growing up &amp; looking back — co-written RD, Andy Albert, Chris LaCorte, Cole Taylor</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> From the Famous Back Home album (Aug 2025), "16 Me" reflects on growing up and looking back — quintessential Dickerson nostalgic mode, filtered through the lens of a man who now has a wife, kids, and a full life. The Famous Back Home production palette infuses country-soul with lush synth and 80s-rock textures, so this nostalgia song has warmth and modern muscle simultaneously. The emotional core: writing a letter to his 16-year-old self — equal parts encouragement and gentle warning that the good stuff is coming, just not how you'd expect. Deep within this album's theme of being "famous back home," growing up in a small town dreaming of more, then realizing home was the dream all along.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-rd-style">Style → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="rd03s">Warm nostalgic country-pop with modern muscle, 95 BPM, acoustic guitar forward with subtle lush synth bed underneath, pedal steel warmth, 80s-influenced production touches, male tenor vocal sincere and reflective — looking back as a content man, layered harmonies building on chorus, clean polished Nashville mix, small-town growing-up imagery, bittersweet-hopeful nostalgic tone, feels like a letter to your younger self from a place of genuine happiness, conversational verse building to emotional open chorus</div>
+        <button class="copy-btn" onclick="cp('rd03s',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-rd-lyric">Lyric Generation → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="rd03l">Write a warm nostalgic country-pop song structured as a letter from a man to his 16-year-old self — but not a generic "it gets better" message. He speaks from a place of genuine, specific contentment: a wife he loves completely, kids who run to the door when he gets home, a career he built from nothing. He tells his younger self what's coming — not to prepare him, but to reassure him that the small-town dreams were never wrong, just the destination was different than he imagined. He thought "famous" meant big stages and everybody knowing his name — turns out it means being famous in his own home. Include specific small-town teenage details (the truck, Friday nights, the girl he liked, the dream of leaving). The chorus is warm address to that younger self. Under 3:30.</div>
+        <button class="copy-btn" onclick="cp('rd03l',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. HAPPEN TO ME -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">04</div>
+      <div class="song-meta">
+        <div class="song-title">Happen to Me</div>
+        <div class="song-pills">
+          <span class="pill pill-rd">Famous Back Home (2025)</span>
+          <span class="pill pill-rd">~168 BPM</span>
+          <span class="pill pill-rd">Arena-pop energy, danceable</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> The uptempo anthem features palm-muted guitars — a Cyndi Lauper "Girls Just Want to Have Fun" co-writer contributed. There's an arena-ready explosiveness. Fast, energetic, danceable, modern country-pop with pop-rock influence. The central emotion: amazement that this woman chose him. A higher-energy, more stadium-ready Dickerson than his usual ballad mode.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-rd-style">Style → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="rd04s">Uptempo arena country-pop, 168 BPM, palm-muted electric guitar driving rhythm, punchy snare, danceable modern country-pop-rock hybrid, male vocal energetic and charismatic, bright production with 80s pop-rock influence, singalong anthemic chorus with layered harmonies, high-energy throughout — no slow moments, big stadium feel within country framework, irresistible rhythmic momentum, joyful amazement emotional core</div>
+        <button class="copy-btn" onclick="cp('rd04s',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-rd-lyric">Lyric Generation → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="rd04l">Write a fast, danceable country-pop anthem from a man who is genuinely amazed that the most incredible woman he's ever seen chose him. The emotional core: joyful, slightly disbelieving gratitude — the kind of feeling where you keep thinking "how did I get this lucky?" The chorus is a big, singalong explosion about how she happened to him — like a force of nature he didn't see coming. Verses are energetic and narrative: how they met, the specific moment he realized he was done for. High energy throughout — no slow moments. Under 3:20. This is the most danceable, stadium-ready song in the set.</div>
+        <button class="copy-btn" onclick="cp('rd04l',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. SORRY -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">05</div>
+      <div class="song-meta">
+        <div class="song-title">Sorry</div>
+        <div class="song-pills">
+          <span class="pill pill-rd">Russell Dickerson</span>
+          <span class="pill pill-rd">~120 BPM</span>
+          <span class="pill pill-rd">Romantic apology, co-written with Charles Kelley</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Co-written by Charles Kelley, Casey Brown, and Russell Dickerson. Key of B Major, 120 BPM. This is Dickerson's "I messed up and I know it" song — a genuine, warm apology to his wife, delivered with the same earnest warmth as his love songs. Not dramatic or self-flagellating — just honest. The production is warm mid-tempo country-pop with his trademark acoustic-forward sound.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-rd-style">Style → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="rd05s">Warm mid-tempo country-pop apology ballad, 120 BPM, acoustic guitar-forward, pedal steel tenderness, male tenor vocal sincere and gentle — not dramatic, just honest, soft drum groove, clean Nashville production, emotionally open without being overwrought, layered harmonies adding warmth on chorus, intimate scale, feels like a man sitting across from his partner genuinely owning his mistake, resolution and love underneath the apology</div>
+        <button class="copy-btn" onclick="cp('rd05s',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-rd-lyric">Lyric Generation → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="rd05l">Write a genuine, warm country-pop apology song from a man who knows he messed up — not dramatically, but in the small consistent ways that wear on a relationship: being distracted, taking her for granted, putting other things first. He's not groveling — he's just being honest and asking her to let him do better. The chorus is a direct, specific apology that names what he did wrong rather than generic "I'm sorry." Verses give specific examples of his failures, delivered with self-aware clarity. The bridge is the moment he reminds her (and himself) why she's worth becoming better for. Under 3:30. Warm, tender, honest.</div>
+        <button class="copy-btn" onclick="cp('rd05l',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. HOME SWEET -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">06</div>
+      <div class="song-meta">
+        <div class="song-title">Home Sweet</div>
+        <div class="song-pills">
+          <span class="pill pill-rd">Southern Symphony (2020)</span>
+          <span class="pill pill-rd">121 BPM</span>
+          <span class="pill pill-rd">Home = wherever she is</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> B Major, 121 BPM. The opening verse goes: "Touching down from a six-night honeymoon / Sun-kissed kids, still drunk on love / Went from all-inclusive margaritas in Malibu / To praying we could pay rent this month." The chorus: "Home sweet, you and me / Ain't got much but we got all we need." The core idea: home isn't a place, it's her. Warm and domestic, celebrating the simple life together.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-rd-style">Style → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="rd06s">Warm domestic country-pop, 121 BPM, bright acoustic guitar, pedal steel warmth, male vocal tender and content, mid-tempo feel-good groove, layered harmonies on chorus, clean Nashville production, simple-life celebration energy, porch swing Sunday atmosphere, sounds like coming home after a long trip, love-is-home thematic core, no ambition — just gratitude for the ordinary, under 3:30</div>
+        <button class="copy-btn" onclick="cp('rd06s',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-rd-lyric">Lyric Generation → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="rd06l">Write a warm, domestic country-pop song built on the idea that home is not a place — it's a person. A man who has traveled, struggled financially, moved around, and through it all found that wherever she is, that's home. The song should contrast moments of not-quite-having-it-together (tight on money, a small apartment, long drives) with the feeling of total contentment when they're together. The chorus is a simple, joyful declaration using "home sweet" or equivalent as the central hook. Include a verse about a specific humble moment — maybe coming home from a trip and realizing the small apartment feels like a palace because she's in it. Under 3:30. Pure warmth, no ambition, just love.</div>
+        <button class="copy-btn" onclick="cp('rd06l',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. GOD GAVE ME A GIRL -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">07</div>
+      <div class="song-meta">
+        <div class="song-title">God Gave Me a Girl</div>
+        <div class="song-pills">
+          <span class="pill pill-rd">Russell Dickerson (Self-Titled, 2022)</span>
+          <span class="pill pill-rd">142 BPM</span>
+          <span class="pill pill-rd">Fatherhood / daughter devotion</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> 142 BPM, G major, high energy. Inspired by the birth of his child and seeing his wife Kailey sing to her. The song is about becoming a father and the overwhelming, immediate, permanent love for a daughter. Different from his wife songs — this is bigger and more reverent. The production has extra lift to it.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-rd-style">Style → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="rd07s">Uplifting high-energy country-pop, 142 BPM, bright electric and acoustic guitar blend, big drum production, male vocal full and reverent — more powerful than his usual tender mode, soaring chorus with wide harmonies, production has extra lift and grandeur, G major bright and open, fatherhood-devotion emotional core, overwhelmingly warm, feels like holding your child for the first time, under 3:15, joyful and slightly awestruck</div>
+        <button class="copy-btn" onclick="cp('rd07s',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-rd-lyric">Lyric Generation → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="rd07l">Write an uplifting country-pop song from a new father to his daughter. The emotional core: he didn't fully understand what he was capable of feeling until the moment she arrived — and now everything in his life is reorganized around protecting and loving her. The tone is reverent and overwhelmed with love, not sentimental in a Hallmark way but genuinely awestruck. He thanks whatever put her in his life. The chorus is a declaration of fatherly devotion using the "God gave me" concept — the idea that she is a gift he didn't earn. Include a verse about watching her sleep, or her small hands, or hearing her laugh for the first time. Under 3:15. Big, bright, joyful.</div>
+        <button class="copy-btn" onclick="cp('rd07l',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. MGNO — MY GIRL'S NIGHT OUT -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">08</div>
+      <div class="song-meta">
+        <div class="song-title">MGNO (My Girl's Night Out)</div>
+        <div class="song-pills">
+          <span class="pill pill-rd">Yours Album (2017)</span>
+          <span class="pill pill-rd">~125 BPM</span>
+          <span class="pill pill-rd">Playful devotion — loving her freedom from a distance</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Confirmed: MGNO is an initialism for "My Girl's Night Out" from the debut Yours album (2017). Quintessential early Dickerson — warm, playful, and completely devoted. The concept is a man who is home alone while his wife/girlfriend is out with her friends, and rather than insecurity or jealousy, he feels pure adoration watching her be free and happy. It's a loving, slightly funny song about being secure in love — knowing she's going to come home to him. The Yours album production: warm acoustic-forward Nashville country-pop, Casey Brown's signature clean bright mix.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-rd-style">Style → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="rd08s">Warm playful country-pop, 125 BPM, bright acoustic guitar lead, pedal steel accents, punchy mid-tempo drum groove, male vocal charming and utterly secure — no jealousy, just adoration, layered harmonies on chorus, clean Casey Brown-style Nashville production, slightly humorous but genuinely loving tone, feels like a man happily home alone knowing she'll come back, lighthearted with real love underneath, singalong-ready chorus</div>
+        <button class="copy-btn" onclick="cp('rd08s',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-rd-lyric">Lyric Generation → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="rd08l">Write a playful, warm country-pop song from a man whose girlfriend or wife is out with her friends for the night — and rather than feeling jealous or left out, he is completely, genuinely happy for her. He's home alone, probably watching TV or sitting on the porch, thinking about how much he loves watching her be happy and free. The tone is secure, charming, a little self-aware about how besotted he is. The chorus is a celebration of her night out — he wants her to have the best time, knowing she's coming home to him. Include a verse about imagining what she and her friends are doing right now, delivered with warmth and humor rather than anxiety. The bridge is the moment she texts him or comes home and it's even better than the waiting. Under 3:15. Light, playful, genuinely loving.</div>
+        <button class="copy-btn" onclick="cp('rd08l',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+</main>
+</div>
+
+<!-- ═══════════════════════════════════════ THOMAS RHETT ══════════ -->
+<div id="tr" class="section">
+<main>
+  <div class="intro-box">
+    <p><strong>Thomas Rhett's sonic signature:</strong> He combines country, pop, R&B and even hip-hop — modern pop, R&B, and hip-hop elements are woven throughout, while his Georgia twang signals reverence for country's oldest traditions. His songs fall into two production buckets: warm polished country-pop ballads ("Die a Happy Man," "Unforgettable") and unorthodox genre-bending experiments ("Crash and Burn," "Life Changes"). His fans truly love a story, and an honest one. Unlike Dickerson who writes almost exclusively about his wife, Rhett writes across a much broader range: nostalgia, biographical life chapters, attraction, devotion, and self-reflection.</p>
+  </div>
+
+  <!-- 1. AFTER ALL THE BARS ARE CLOSED -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">01</div>
+      <div class="song-meta">
+        <div class="song-title">After All the Bars Are Closed</div>
+        <div class="song-pills">
+          <span class="pill pill-tr">About a Woman (2024)</span>
+          <span class="pill pill-tr">~118 BPM</span>
+          <span class="pill pill-tr">Nostalgic bar-night love story</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> The foundational electric guitar required a pickup. The chorus phrases start on the second beat of a measure, building from musical pickups — structurally clever. The production tried a range of styles including "extremely Western, like if Midland had a baby," and the final version has a human-presence drum feel from drummer Jerry Roe, with pedal steel waterfall intro. Rhett describes it as something that "teleports you and makes you feel nostalgic, but also want to dance and want to be with the person you love."</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-tr-style">Style → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="tr01s">Nostalgic modern country-pop, 118 BPM, live drummer with human-feel snare, pedal steel waterfall intro, electric guitar pickup-driven riff, warm dancing-and-longing duality, male vocal smooth and narrative, chorus phrases building on off-beat pickups for rhythmic anticipation, modern country production with Western vintage undertone, makes you want to dance and ache simultaneously, closing-time atmosphere, intimate yet anthemic, clean polished Nashville mix</div>
+        <button class="copy-btn" onclick="cp('tr01s',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-tr-lyric">Lyric Generation → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="tr01l">Write a nostalgic country-pop song about a man who meets a woman at a bar near closing time and the story of where that night leads — not just a pickup, but the beginning of something real. The tone makes you want to dance and ache at the same time. The song should feel like a memory being recalled from years later, so there's a golden-haze nostalgia over everything. The chorus should be built on musical anticipation — phrases that start just before the beat. Include specific details: the last song on the jukebox, her laugh, driving somewhere after. The bridge should fast-forward: years later, he realizes that night changed everything. Under 3:30.</div>
+        <button class="copy-btn" onclick="cp('tr01l',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. LOOK WHAT GOD GAVE HER -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">02</div>
+      <div class="song-meta">
+        <div class="song-title">Look What God Gave Her</div>
+        <div class="song-pills">
+          <span class="pill pill-tr">Center Point Road (2019)</span>
+          <span class="pill pill-tr">~120 BPM</span>
+          <span class="pill pill-tr">Double-platinum bubbly country-pop devotion</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> "Look What God Gave Her" disguises a deep ballad about gratitude and love inside a bubbly, country-pop tune with one of the catchiest hooks in his catalog. The double-platinum single blends personal touches with a more universal appreciation — a deep feeling delivered in the most accessible, bouncy production. Bright, upbeat, almost effortlessly catchy.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-tr-style">Style → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="tr02s">Bubbly bright country-pop, 120 BPM, bouncy guitar-driven groove, punchy drum machine, male vocal charming and warm — utterly delighted, irresistible singalong chorus, deep gratitude disguised inside effortless production, layered harmonies, polished Nashville sheen, sounds easy but hits deep, acoustic and electric guitar blend, wide open mix, hooks-first structure, joyful awe emotional core</div>
+        <button class="copy-btn" onclick="cp('tr02s',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-tr-lyric">Lyric Generation → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="tr02l">Write a bubbly, irresistible country-pop song where a man expresses awe at the woman he loves — cataloguing everything about her with joyful disbelief, and crediting something bigger than himself (fate, luck, the universe, God) for putting her in his path. The tone is charming and completely besotted — but the depth of the feeling is real underneath the bouncy production. The chorus is instantly singable, built on the central idea of the title: someone or something gave him this incredible person. Verses are specific and observational — the way she moves, her voice, the way she doesn't even know how remarkable she is. The catchiest hook in the set. Under 3:15.</div>
+        <button class="copy-btn" onclick="cp('tr02l',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. LIFE CHANGES -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">03</div>
+      <div class="song-meta">
+        <div class="song-title">Life Changes</div>
+        <div class="song-pills">
+          <span class="pill pill-tr">Life Changes (2017)</span>
+          <span class="pill pill-tr">88 BPM</span>
+          <span class="pill pill-tr">Autobiographical pop mishmash — humblebrag done right</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Anchored by affected electric guitar, methodical piano chords, and drum machine — eventually real drums, a steel-guitar-sounding instrument, and even a horn set. The I-iii-vi-IV chord structure is unusual, and the minor chords and bright instruments co-exist far better than they have any right to. It's a total mishmash of sounds that establishes an upbeat, positive mood. The narrator stands in the background while still being the center of attention — his wife and kids get the spotlight, keeping him relatable and sympathetic.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-tr-style">Style → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="tr03s">Upbeat genre-mishmash country-pop, 88 BPM, affected electric guitar, methodical piano chords, drum machine transitioning to live drums, subtle horn accents, unexpected minor chords under bright upbeat production, male vocal earnest and slightly surprised at his own life, autobiographical storytelling structure, each verse a new chapter of life, bouncy feel despite emotional weight, sounds chaotically assembled but works perfectly, under 3:15</div>
+        <button class="copy-btn" onclick="cp('tr03s',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-tr-lyric">Lyric Generation → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="tr03l">Write an autobiographical country-pop song structured as a series of life chapters — each verse is a different age or era: being 18 and clueless, meeting the woman who changed everything, getting married, becoming a father. The tone is genuine surprise and gratitude — the narrator sounds like a man who keeps being amazed that his own life turned out this well. The key is to make it relatable: he's not bragging, he's sharing, and he keeps giving the spotlight to the people in his life rather than himself. The chorus is a joyful declaration that life keeps surprising him. Include at least one specific detail that makes the listener feel like they know him. Pop structure but with country warmth. Under 3:15.</div>
+        <button class="copy-btn" onclick="cp('tr03l',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. UNFORGETTABLE -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">04</div>
+      <div class="song-meta">
+        <div class="song-title">Unforgettable</div>
+        <div class="song-pills">
+          <span class="pill pill-tr">Life Changes (2017)</span>
+          <span class="pill pill-tr">~120 BPM</span>
+          <span class="pill pill-tr">Hyper-specific first encounter — double platinum</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Starting with the exact date (October 14), Rhett recalls small-but-sweet details like the night's mango-rita drink or doing the Running Man dance, while the hook expands the memory from her blue jeans to her shoes. Elsewhere in the chorus, a well-placed Coldplay reference drops. Notably, those specific details were completely made up — they just felt true. Smooth, breezy, R&B-influenced country-pop.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-tr-style">Style → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="tr04s">Smooth breezy country-pop with R&amp;B influence, 120 BPM, warm groove-driven production, male vocal silky and charming, hyper-specific lyrical detail — exact dates, drinks, dances, clothes, songs, layered harmonies on chorus, polished Nashville production with pop sheen, sounds like a perfect summer night recalled from years later, golden memory atmosphere, chorus built around expanding the central image outward, under 3:20</div>
+        <button class="copy-btn" onclick="cp('tr04s',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-tr-lyric">Lyric Generation → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="tr04l">Write a smooth, breezy country-pop song about a man recalling a specific unforgettable night when he met a woman — with hyper-specific details: the exact date, what she was drinking, the song that was playing, what she was wearing down to her shoes, a specific dance or moment. The specificity is what makes it universal — the more precise the detail, the more every listener feels it. The chorus expands outward from those specific details into the bigger emotional statement: everything about her, from the small things to the whole, was unforgettable. Include a pop culture or music reference naturally woven in. Under 3:20. Smooth, warm, golden.</div>
+        <button class="copy-btn" onclick="cp('tr04l',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. CRASH AND BURN -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">05</div>
+      <div class="song-meta">
+        <div class="song-title">Crash and Burn</div>
+        <div class="song-pills">
+          <span class="pill pill-tr">Tangled Up (2015)</span>
+          <span class="pill pill-tr">~138 BPM</span>
+          <span class="pill pill-tr">Doo-wop meets modern country-pop — tambourine banger</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> Smashing together country specialties with modern pop and retro doo-wop sounds, the song delivers a winning combo regardless of the doomed romance in the lyrics. Notable for its radical production shift — a tambourine-fueled pop banger. The central tension: two people who are wrong for each other but can't help choosing each other anyway. Upbeat production masking a complicated emotional situation.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-tr-style">Style → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="tr05s">Retro doo-wop meets modern country-pop, 138 BPM, tambourine-forward percussion, bouncy rhythm, male vocal charming and knowing — a man who knows this is a bad idea and does it anyway, bright upbeat production masking complicated emotional content, retro pop production elements over Nashville country base, singalong anthemic chorus, hand claps, warm vintage warmth with modern polish, under 3:20, irresistibly fun despite the crash-and-burn premise</div>
+        <button class="copy-btn" onclick="cp('tr05s',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-tr-lyric">Lyric Generation → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="tr05l">Write an upbeat, bouncy country-pop song about a man in a relationship that he knows is probably going to end badly — and he's choosing to enjoy the ride anyway. The tone is self-aware and charming: he can see the crash coming from a mile away, names it directly, and jumps in anyway because she's worth it. The production should feel retro-pop-fun, which creates a compelling tension against the crash-and-burn premise. The chorus is an irresistible, singalong declaration of choosing chaos. Include a pre-chorus that builds the inevitability, then a chorus that explodes into embracing it. Upbeat rhythm throughout — this should feel like the most fun you've ever had making a bad decision. Under 3:20.</div>
+        <button class="copy-btn" onclick="cp('tr05l',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. US SOMEDAY -->
+  <div class="song-block">
+    <div class="song-header">
+      <div class="song-num">06</div>
+      <div class="song-meta">
+        <div class="song-title">Us Someday</div>
+        <div class="song-pills">
+          <span class="pill pill-tr">Thomas Rhett (unreleased/deep cut)</span>
+          <span class="pill pill-tr">~85 BPM</span>
+          <span class="pill pill-tr">Future-tense romantic ballad</span>
+        </div>
+      </div>
+    </div>
+    <div class="song-dna"><strong>Sonic DNA:</strong> A more tender, hopeful track — projecting forward into a future together. Where most Rhett songs look back or celebrate the present, this one looks ahead. The production is warm and slightly more restrained, acoustic-leaning. The emotional mode: a man painting a picture of the future life he wants to build with her — children, front porches, decades from now.</div>
+    <div class="prompt-pair">
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-tr-style">Style → Style Field</span>
+          <span class="prompt-hint">≤500 chars</span>
+        </div>
+        <div class="prompt-body" id="tr06s">Warm acoustic country-pop ballad, 85 BPM, acoustic guitar and piano blend, pedal steel tenderness, male vocal sincere and hopeful — projecting forward into the future, gentle drum groove, layered harmonies building on chorus, more restrained than Rhett's uptempo work, emotionally open and forward-looking, future-tense romantic imagery, porch-and-grandkids atmosphere, under 3:45, heartfelt without being saccharine</div>
+        <button class="copy-btn" onclick="cp('tr06s',this)">Copy Style Prompt</button>
+      </div>
+      <div class="prompt-card">
+        <div class="prompt-card-header">
+          <span class="prompt-type type-tr-lyric">Lyric Generation → Lyrics Field</span>
+          <span class="prompt-hint">Click Generate Lyrics</span>
+        </div>
+        <div class="prompt-body" id="tr06l">Write a tender country-pop ballad from a man imagining the future he wants to build with the woman he loves — not looking back, not celebrating now, but projecting forward. He sees their kids growing up, the front porch they'll eventually have, the decades ahead of them, growing old together. The tone is hopeful and specific — he's not just saying "I want a future with you," he's describing exactly what that future looks like in small, real details. The chorus is the declaration of that shared future: "us someday" as a concept — the long view, the life-length view. The bridge should be a moment of quiet awe at the scope of what they're building. Under 3:45. Warm, slow, hopeful.</div>
+        <button class="copy-btn" onclick="cp('tr06l',this)">Copy Lyric Generation Prompt</button>
+      </div>
+    </div>
+  </div>
+
+</main>
+</div>
+
+<!-- ═══════════════════════════════════════ SPOTIFY SECTION ═══════ -->
+<div id="sp" class="section">
+<main>
+  <div class="spotify-hero">
+    <h2>Your Spotify Liked Songs — Can I Access Them?</h2>
+    <p><strong>Short answer: Not directly, right now.</strong> I don't currently have a Spotify connector active in this conversation. I can see tools available to me — calendar, Gmail, reminders — but Spotify is not currently connected.</p>
+    <p><strong>However, there are three practical workarounds</strong> that let us achieve the same goal — building Suno prompts from your actual liked songs library:</p>
+  </div>
+
+  <div class="workaround-grid">
+    <div class="workaround-card">
+      <div class="wc-num">01</div>
+      <h3>Paste Your Liked Songs List</h3>
+      <p>Export or copy your Spotify liked songs (or just type a batch of 10–20 at a time) and paste them into a message to me. I'll research each one, extract the sonic DNA, and generate Style + Lyric Generation prompts for every song. You can do this in batches — just say "here are 15 more songs."</p>
+      <div class="wc-tip">How to get your list: Spotify → Your Library → Liked Songs → select all → copy track names, or use a free tool like Exportify (exportify.net) to download as a CSV.</div>
+    </div>
+    <div class="workaround-card">
+      <div class="wc-num">02</div>
+      <h3>Tell Me Your Playlists</h3>
+      <p>Instead of individual songs, tell me the names of your Spotify playlists and roughly what artists are in them. I can build a genre/mood profile from that and generate a master prompt set covering your overall taste — a universal style prompt and lyric brief that captures your vibe across everything you like.</p>
+      <div class="wc-tip">Just say something like: "My main playlist has Morgan Wallen, Zach Bryan, Russell Dickerson, Thomas Rhett, Dan + Shay, and Kelsea Ballerini" — that's enough for me to work with.</div>
+    </div>
+    <div class="workaround-card">
+      <div class="wc-num">03</div>
+      <h3>Suno's Own Spotify Feature</h3>
+      <p>Suno has a "Personalize" feature in some versions that can connect to Spotify and analyze your listening history to influence its generation style. Check your Suno account settings under Profile → Personalize or Taste Profile. This is separate from what I can do — it's built into Suno directly.</p>
+      <div class="wc-tip">If you're on Suno Pro or Premier, this feature may already be available to you. It won't write prompts for you, but it'll bias Suno's generations toward your preferred sounds.</div>
+    </div>
+    <div class="workaround-card">
+      <div class="wc-num">04</div>
+      <h3>Future: Claude + Spotify</h3>
+      <p>Anthropic is actively expanding Claude's connector ecosystem. If a Spotify integration becomes available, I'll be able to read your liked songs, recently played, and playlist contents directly — and automatically generate prompt sets from them.</p>
+      <div class="wc-tip">To check whether Spotify has been added to your Claude connectors: go to Claude.ai → Settings → Integrations or Connections. If it appears there, you can enable it and I'll have access in our next conversation.</div>
+    </div>
+  </div>
+
+  <div style="margin-top: 40px; margin-bottom: 12px;">
+    <p style="color: var(--muted); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px;">— Ready-to-Use: Your Taste Profile Prompt (based on songs you've shared so far) —</p>
+  </div>
+
+  <div class="spotify-prompt-pair">
+    <div class="sp-prompt-card prompt-card">
+      <div class="prompt-card-header">
+        <span class="prompt-type type-sp">Your Taste — Universal Style Prompt → Style Field</span>
+        <span class="prompt-hint">≤500 chars</span>
+      </div>
+      <div class="prompt-body" id="sp01s">Modern country-pop with R&amp;B influence, warm acoustic guitar over polished Nashville production, male tenor vocal earnest and charismatic, pedal steel warmth, layered harmonies on chorus, 100–140 BPM range, emotionally open romantic storytelling, clean bright production with organic country instruments, genre-bending country-pop hybrid, lyric-driven with specific personal imagery, uplifting or deeply tender emotional core</div>
+      <button class="copy-btn" onclick="cp('sp01s',this)">Copy Your Taste Style Prompt</button>
+    </div>
+    <div class="sp-prompt-card prompt-card">
+      <div class="prompt-card-header">
+        <span class="prompt-type type-sp-lyric">Your Taste — Universal Lyric Generation Prompt → Lyrics Field</span>
+        <span class="prompt-hint">Click Generate Lyrics</span>
+      </div>
+      <div class="prompt-body" id="sp01l">Write a modern country-pop song in the style of earnest male romantic storytelling — the kind of song that works equally as a first dance and as a radio anthem. Choose ONE of these emotional modes: (A) pure devotion — a man cataloguing everything he loves about the woman in his life using hyper-specific detail; (B) grateful disbelief — a man who cannot believe how good his life is, cataloguing the small moments that make it so; (C) nostalgic first encounter — a man recalling a specific night or moment when everything changed, with exact sensory details; (D) future-building — a man painting a picture of the decades ahead, the life they'll grow together. Structure: conversational verse → building pre-chorus → wide-open anthem chorus → second verse with new specific detail → chorus → bridge with emotional peak → final chorus. Under 3:30. Male vocal throughout. First line must create an immediate specific image.</div>
+      <button class="copy-btn" onclick="cp('sp01l',this)">Copy Your Taste Lyric Prompt</button>
+    </div>
+  </div>
+
+</main>
+</div>
+
+<script>
+function show(id, btn, cls) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active', cls);
+  window.scrollTo(0,0);
+}
+function cp(id, btn) {
+  const el = document.getElementById(id);
+  const orig = btn.textContent;
+  navigator.clipboard.writeText(el.innerText).then(() => {
+    btn.textContent = '✓ Copied!';
+    btn.classList.add('ok');
+    setTimeout(() => { btn.classList.remove('ok'); btn.textContent = orig; }, 2000);
+  });
+}
+</script>
+</body>
+</html>

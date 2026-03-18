@@ -1,0 +1,189 @@
+{
+  "id": "taylor_male",
+  "name": "Taylor Swift / Antonoff (Male Era)",
+  "genres": ["Synth-Pop", "Indie Pop", "Pop", "Folk-Pop", "Dream-Pop"],
+  "era": "2014–2022",
+  "color": "#9b6dff",
+  "bio": "Male-perspective reframe of 14 Jack Antonoff-produced Taylor Swift songs, plus per-album prompts for 1989, Reputation, Lover, folklore, evermore, and Midnights. The Antonoff signature: Juno-6 synth arpeggios, reverb-drenched vocals placed high in the mix, pitched-up detuned elements, 80s-influenced drum machines, emotional vulnerability over polished production.",
+  "producer_notes": "Jack Antonoff — Juno-6 synth, analog warmth, Brooklyn home-studio feel. No artist names in Suno prompts — use genre/era descriptors only.",
+  "songs": [
+    {
+      "title": "Welcome to New York",
+      "album": "1989",
+      "year": 2014,
+      "bpm": 117,
+      "vibe": "Euphoric city rebirth anthem",
+      "dna": "Juno-106 synth arpeggios, insistent disco drum machine, no guitar — pure synth-pop. Broad, cinematic, manifesto-like. Male version: arriving in a new city, shedding old identity.",
+      "style_prompt": "Euphoric 80s synth-pop, Juno synth arpeggio opening, insistent disco drum machine, no guitar, layered choral male vocals high in the mix, processed vocal harmonies, cinematic city-anthem energy, pure electronic production, bright and wide stereo field, 117 BPM, triumphant rebirth tone, warm analog synth bass, New Wave-influenced, emotionally open and celebratory",
+      "lyric_prompt": "Write an anthem for a man who has just moved to a new city and is shedding his entire old identity — old name, old reputation, old heartbreaks. The tone is euphoric and almost manifesto-like, not reflective. The city itself becomes a character: it doesn't know his past, it offers him a blank slate. The chorus should be a huge repeated hook using the city (or a metaphor for it) as the central image. Structure: short punchy verses building momentum → massive anthem chorus with layered imagery → second verse with a single new detail → same chorus → brief bridge about what he's leaving behind → final exploding chorus. Under 3:30."
+    },
+    {
+      "title": "Out of the Woods",
+      "album": "1989",
+      "year": 2014,
+      "bpm": 92,
+      "vibe": "Anxious love · relentless percussion · are we safe yet?",
+      "dna": "Gibson ES-330, Juno-6, Vox AC30, Fine Young Cannibals-inspired snare. Half-time feel on chorus. Relentlessly driving percussion. Chorus keeps asking the same question — creates anxiety through repetition.",
+      "style_prompt": "Anxious 80s synth-pop, hollow-body guitar texture, Juno synth swells, vintage Vox amp warmth, relentless driving drum pattern with half-time chorus feel, sampled snare snap, building tension throughout, male tenor vocal urgent and breathless, repeated questioning hook chorus, no dynamic rest — constant forward momentum, wide reverb field, 92 BPM with relentless pulse, emotionally unstable love song energy",
+      "lyric_prompt": "Write a song from the perspective of a man in a relationship that has always felt one step from disaster — a love that was passionate but built on anxiety and near-misses. The central chorus question should be a repeated urgent refrain asking whether they've finally made it through. The verses recall specific moments of danger or instability. The bridge should be the moment where he realizes the relationship is over and declares some kind of freedom or resignation. The emotional tone is exhausted hope. Percussion and urgency should be felt in the lyric rhythm. Under 3:45."
+    },
+    {
+      "title": "I Wish You Would",
+      "album": "1989",
+      "year": 2014,
+      "bpm": 170,
+      "vibe": "Fast-tempo longing · 2am wishes",
+      "dna": "Started as an Antonoff guitar instrumental, 170 BPM. Driving rhythm guitar, Juno synths. The chorus is a list of desperate wishes. Simple, declarative, longing.",
+      "style_prompt": "Fast-tempo 80s synth-pop, 170 BPM, driving rhythm guitar energy, Juno synth accents, punchy tight drum machine, male vocal urgent and raw, late-night restless energy, no vocal layering on verses — intimate and direct, layered harmonies exploding on chorus, simple declarative chorus lyrics built on repeated wish/longing structure, bright guitar-forward production with synth bed, emotionally desperate but melodically upbeat",
+      "lyric_prompt": "Write a fast-tempo pop song from a man's perspective — he's alone at 2am, driving past her street, unable to stop thinking about his ex and wishing she'd come back. The chorus is built entirely around a repeated 'I wish you would...' structure — a list of desperate, specific wishes. The verses are short and urgent — setting the late-night scene, his restlessness. The bridge should be the moment he almost calls her and stops himself. Under 3:15."
+    },
+    {
+      "title": "You Are in Love",
+      "album": "1989",
+      "year": 2014,
+      "bpm": 72,
+      "vibe": "Third-person quiet love observation",
+      "dna": "Antonoff's warmest, most intimate production — frequencies cut above a certain range for warmth. Spacious, cloud-like. Written about observing someone else fall in love.",
+      "style_prompt": "Warm intimate synth-pop ballad, 72 BPM, high frequencies rolled off for woolen softness, spacious cloud-like production, male vocal tender and breathy, no percussion until bridge, subtle bass pulse, analog warmth throughout, Juno synth pads sustained and blurring, third-person observational lyric, emotionally restrained tenderness, whispered harmonies layered under lead, feels like 3am quiet love, gentle and unhurried",
+      "lyric_prompt": "Write a tender, slow pop ballad from a man's perspective — written in the third or second person, observing someone else fall in love. He's describing the small quiet signs that someone is in love. The emotional subtext is that HE is also in love — but this should never be stated outright, only felt. The language is extremely specific and sensory. No chorus in the traditional sense — the song flows as a series of observed moments. The title phrase appears only once, at the most devastating moment. Under 4 minutes."
+    },
+    {
+      "title": "All You Had to Do Was Stay",
+      "album": "1989",
+      "year": 2014,
+      "bpm": 120,
+      "vibe": "Controlled anger · rejection of a returning ex",
+      "dna": "Opening with a high-pitched vocal sting. Propulsive mid-tempo synth-pop. Attitude-forward. The chorus is a single repeated accusation. Male version: finally turning down an ex who left.",
+      "style_prompt": "Bright attitude-forward 80s synth-pop, 120 BPM, propulsive drum machine, crisp high-pitched synth accents, male vocal controlled and sardonic — righteous not angry, layered backing harmonies on chorus with wagging-finger energy, mid-tempo with forward momentum, no guitar, clean punchy production, restrained but pointed delivery, emotionally closed-off narrator turning down an ex, short declarative chorus built on a single accusation repeated",
+      "lyric_prompt": "Write a controlled, attitude-forward pop song from a man who had his heart broken by someone who left — and now she wants to come back. He's not angry, he's simply done. The chorus is built on one repeated accusation phrase — the one simple thing she failed to do. The verses recall the specific things she did or didn't do. The tone is wry, righteous, a little cold. The bridge is the moment she explains herself and he simply doesn't care anymore. Under 3:20."
+    },
+    {
+      "title": "Is It Over Now?",
+      "album": "1989 (Vault)",
+      "year": 2023,
+      "bpm": 120,
+      "vibe": "Synthwave power ballad · obsessive post-breakup spiral",
+      "dna": "Opens with a seagull-like vocal hook created by Moog Model D and Juno-6. Synthwave-influenced power ballad. Lyrical mode: obsessively cataloguing a former partner's new life.",
+      "style_prompt": "Synthwave-influenced 80s synth-pop power ballad, Moog synthesizer atmospheric opening hook, Juno-6 synth bed, heavily reverb-soaked vocal and drums, echoing drum machine, 120 BPM, male vocal raw and obsessive, spiraling emotional energy, specific jealous imagery in lyrics, wide cinematic production, layered synth harmonics, melancholic but melodically strong, post-breakup obsession energy, coastal atmospheric feel",
+      "lyric_prompt": "Write a synthwave-flavored pop power ballad from the perspective of a man who is obsessively monitoring his ex's new life from a distance. The central question of the chorus is whether it is truly over — delivered with the sting of already knowing the answer. The verses are loaded with specific, jealous, almost forensic detail. The bridge should be the moment he realizes his obsession says more about him than about her. Chorus should repeat the central question with increasing desperation. Under 3:45."
+    },
+    {
+      "title": "This Love",
+      "album": "1989",
+      "year": 2014,
+      "bpm": 90,
+      "vibe": "Hypnotic dream-pop · cyclical doomed love",
+      "dna": "The only 1989 track Swift wrote entirely alone. Hypnotically sparse, ocean-like production. The lyrics are almost circular — love that comes back even after it's ended.",
+      "style_prompt": "Hypnotic dream-pop, 90 BPM, sparse oceanic production where silence is instrumentation, male vocal deep in reverb and haze, minimal percussion — soft brush drums only, sustained synth tones blurring together, circular melodic motif, no guitar, ethereal and trance-like, lyrics built on wave and tide imagery, emotionally haunted rather than sad, cyclical song structure mirroring the lyrical theme, intimate and isolating",
+      "lyric_prompt": "Write a hypnotic, sparse dream-pop song about a love that a man keeps returning to even after it ended — a cyclical, almost tidal feeling. The central metaphor should be water: waves, tides, things returning to shore. The lyrics should feel like they are circling the same feeling from different angles rather than building a linear narrative. There should be one devastating line buried somewhere in the middle that suddenly makes everything else click. Under 4 minutes. Quiet, haunting, unhurried."
+    },
+    {
+      "title": "Cruel Summer",
+      "album": "Lover",
+      "year": 2019,
+      "bpm": 170,
+      "vibe": "Synth-pop ecstasy · secret love · screamed bridge",
+      "dna": "Arguably the peak of the Swift/Antonoff collaboration. 170 BPM, relentless energy, pre-chorus builds unbearable tension, chorus explodes. The bridge is a screamed confessional. The secret/forbidden love angle.",
+      "style_prompt": "Euphoric synth-pop peak energy, 170 BPM, relentless pulsing synth arpeggio, tight punchy drum machine, male vocal rising with building pre-chorus tension, explosive singalong chorus, pulsing bass synth bed, screamed emotional bridge over minimal backing, summer haze atmosphere, secret forbidden love energy, layered harmonies on chorus, Antonoff-style layered reverb-soaked production, irresistible momentum throughout",
+      "lyric_prompt": "Write a euphoric synth-pop song about a man in a secret summer fling — a relationship he can't officially admit to anyone but feels so intensely he can barely contain it. The song should be structured so the tension builds almost unbearably before the chorus explodes into release. The bridge must be the emotional peak: a screamed or belted confessional — something raw, specific, the kind of thing you'd only say when drunk and overwhelmed. Under 3:30."
+    },
+    {
+      "title": "Look What You Made Me Do",
+      "album": "Reputation",
+      "year": 2017,
+      "bpm": 128,
+      "vibe": "Revenge pop · identity death · villain-mode",
+      "dna": "Modular synth, fuzzy guitars through EMI strips, live piano, 808 drum hits, trap percussion. The old version of the narrator is 'dead.' Maximalist, theatrical, dark.",
+      "style_prompt": "Dark maximalist electropop revenge anthem, 128 BPM, modular synth riff, fuzzy distorted guitar stabs, live piano accents, heavy 808 bass hits, trap-influenced percussion, spoken word section, male vocal cold and theatrical — deadly calm not screaming, no warmth in production, hard-panned elements, cinematic villain energy, identity-death narrative arc, bombastic production with dramatic silence contrasts, dark and industrial atmosphere",
+      "lyric_prompt": "Write a dark theatrical pop revenge anthem from a man announcing that the version of himself people knew and manipulated is gone. The tone is icy, theatrical, calculated — not a breakdown, a PERFORMANCE of vengeance. The chorus is a single accusation/threat delivered with absolute cold control. There should be a spoken-word section where he addresses his enemies directly. The bridge is the moment he announces the identity switch — the old him is explicitly pronounced dead. Under 3:30."
+    },
+    {
+      "title": "Getaway Car",
+      "album": "Reputation",
+      "year": 2017,
+      "bpm": 156,
+      "vibe": "Cinematic heist energy · doomed exciting love",
+      "dna": "Breathless 156 BPM, cinematic action-movie production. Pure narrative momentum — a relationship told as a heist movie.",
+      "style_prompt": "Breathless cinematic synth-pop, 156 BPM, driving pulsing synth bass, snapping drum machine, wide reverb on male vocal, action-movie heist energy, narrative velocity throughout, no slow moments — relentless forward momentum, layered backing harmonies, bright punchy production, doomed romance storytelling tone, Antonoff-style reverb-drenched mix, dramatic bridge with gear-shift, feels like a car chase through a city at night",
+      "lyric_prompt": "Write a fast, cinematic pop song that tells a doomed love story using a heist or car chase as the extended metaphor. A man and a woman were bad for each other from the start — they both knew it — and chose to run anyway. The whole song should feel like a thriller. Use heist/getaway language organically woven into the emotional narrative. The last line should land like a body hitting the floor. Under 3:30. Pure momentum."
+    },
+    {
+      "title": "Gorgeous",
+      "album": "Reputation",
+      "year": 2017,
+      "bpm": 100,
+      "vibe": "Playful obsession · resentful attraction",
+      "dna": "Mid-tempo, playful. Lighter production within Reputation's dark palette. The emotional core: someone being so attractive it makes you angry.",
+      "style_prompt": "Playful mid-tempo electropop, 100 BPM, lighter production within dark Reputation palette, bouncy synth bed, warm drum machine, male vocal charming and self-deprecating — humor mixed with genuine attraction, childlike innocent opening before adult complexity, layered harmonies on chorus, conversational lyric delivery, resentful-attraction emotional core",
+      "lyric_prompt": "Write a playful, self-aware pop song from a man who is genuinely furious at a woman for being so impossibly attractive that she has ruined his evening, his composure, and possibly his entire life. The tone is comedic on the surface but the attraction underneath is completely real. Include one line that's genuinely funny and one line that suddenly reveals the depth of his feeling. The bridge should be the moment the comedy drops and the real emotion surfaces briefly. Under 3:20."
+    },
+    {
+      "title": "This Is Why We Can't Have Nice Things",
+      "album": "Reputation",
+      "year": 2017,
+      "bpm": 160,
+      "vibe": "Gleeful revenge party · fake-out bridge laugh",
+      "dna": "Roaring opening, celebratory chaos. Big brass-style synths, driving beat, a bridge that fakes sincerity before breaking into laughter. Pure gleeful revenge.",
+      "style_prompt": "Gleeful celebratory electropop revenge anthem, 160 BPM, roaring brass-synth stab opening, driving party-energy beat, male vocal delighted and triumphant — not angry, openly gleeful, big singalong chorus with celebratory energy, fake-sincere bridge that breaks into laughter or sarcasm, wide arena production, punchy drums, revenge party atmosphere, Antonoff maximalist celebration mode",
+      "lyric_prompt": "Write a gleeful, celebratory pop revenge song from a man who has been betrayed by a close friend or partner and is now publicly, joyfully celebrating the consequences. The tone is NOT angry — it's delighted. The bridge must include a fake-out: he begins with something that sounds sincere and heartfelt — and then the sarcasm kicks back in, harder. The last line should be the most devastating and funny line in the whole song. Under 3:15."
+    },
+    {
+      "title": "London Boy",
+      "album": "Lover",
+      "year": 2019,
+      "bpm": 100,
+      "vibe": "Besotted cultural tourism love song",
+      "dna": "Joyful, light, filled with place names and cultural references. Acoustic and electronic hybrid. A love letter to both a person AND their city.",
+      "style_prompt": "Joyful acoustic-electronic hybrid pop, 100 BPM, light acoustic guitar strumming over synth bed, bright production, male vocal warm and besotted — maximum enthusiasm, cultural place-name-dropping lyric style, singalong chorus built on geographic/cultural specificity, no darkness anywhere in the production, warm analog warmth, feels like writing a love letter to a city and a person simultaneously",
+      "lyric_prompt": "Write a joyful, besotted pop song from a man who has fallen completely in love with a woman from another city or country — and by extension, completely fallen in love with her world: her city, her culture, her accent, the specific places she takes him. Lyrics should be packed with specific cultural and geographic references. The tone is infectious enthusiasm. No darkness, no conflict — this is a pure love song disguised as a travel itinerary. Under 3:15. Pure joy."
+    },
+    {
+      "title": "Midnight Rain",
+      "album": "Midnights",
+      "year": 2022,
+      "bpm": 80,
+      "vibe": "Dual-voice dreamscape · ambition vs. love",
+      "dna": "Opens with a dramatically pitch-shifted deep voice layered under the normal vocal — two versions of the narrator speaking simultaneously. Dreamy, slow, atmospheric. About the tension between chasing ambition and the person who wanted a quieter life.",
+      "style_prompt": "Atmospheric Midnights-era bedroom dream-pop, 80 BPM, pitch-shifted deep voice layered under normal male tenor — dual narrator effect, slow-motion drum machine, blurring Juno synth pads, late-night introspective energy, two simultaneous emotional states in production, wide reverb throughout, vocals swimming in haze, ambition-vs-love thematic tension, hushed and cinematic, Antonoff midnight atmosphere, soft bass pulse",
+      "lyric_prompt": "Write a dreamy, slow atmospheric pop song about a man who chose ambition — his career, his city, his endless striving — over a relationship with someone who wanted a quieter, simpler life. The song should contain two simultaneous voices or perspectives: his own (driven, restless, urban) and hers (rooted, warm, quiet, satisfied with small things). The tension is not regret exactly — it's more like wonder at the two lives that existed. The chorus is the moment both voices land on the same aching truth. Under 4 minutes."
+    }
+  ],
+  "albums": [
+    {
+      "title": "1989",
+      "year": 2014,
+      "style_prompt": "Pure 80s synth-pop, Juno-6 arpeggios and pads, programmed drum machine with bright punchy snare, processed male vocal high in the mix with multitracked harmonies, no acoustic instruments — fully electronic, wide stereo field, New Wave-influenced production, 90–170 BPM depending on track, emotionally open and cinematic, Antonoff Brooklyn home-studio warmth, clear and polished mix, city-energy backdrop, bright and optimistic with melancholic undercurrent",
+      "lyric_prompt": "Write a 1989-era synth-pop song from a man's perspective. The emotional world: a man who has just moved to a new city, left behind a damaging relationship, and is figuring out who he is in the middle of the loudest and most anonymous place on earth. The tone swings between euphoric freedom and quiet aching longing. Lyrics should be emotionally specific but imagistically broad. Use the 80s pop structure: verse-prechorus-chorus-verse-chorus-bridge-chorus. Hook phrase should be city-connected or freedom-connected. Under 3:30."
+    },
+    {
+      "title": "Reputation",
+      "year": 2017,
+      "style_prompt": "Dark maximalist electropop, heavy 808 bass hits, trap-influenced drum programming, pulsating synth bass, modular synth accents, male vocal manipulated and multitracked — sometimes distorted or heavily processed, abrupt dynamic shifts from silence to bombast, industrial-pop atmosphere, cinematic villain energy, 120–160 BPM, Antonoff production with EDM and R&B elements, weaponized pop production",
+      "lyric_prompt": "Write a Reputation-era dark electropop song from a man's perspective. The emotional world: a man who has been publicly humiliated or betrayed, has retreated completely from the world, and in that isolation found an intensely private love. Either (a) the revenge half — cold, theatrical, identity-destruction; OR (b) the love-in-the-dark half — intensely private, sensual, two people hiding from the world together. Include one moment of startling vulnerability in the bridge. Under 3:30."
+    },
+    {
+      "title": "Lover",
+      "year": 2019,
+      "style_prompt": "Warm pastel synth-pop, bright colorful production, acoustic-electronic hybrid with acoustic guitar over Juno synth bed, male vocal tender and open — no armor, unguarded warmth, euphoric chorus energy, 80–170 BPM range, Antonoff home-studio warmth dialed to maximum, light sparkly synth accents, no darkness in the production palette, celebratory love song atmosphere, layered cheerful harmonies",
+      "lyric_prompt": "Write a Lover-era warm, joyful pop song from a man who is completely, unguardedly happy in love. He is not afraid to sound sentimental. The lyrics are about the small domestic moments of being in love. OR: write the secret-summer version — a man who has fallen hard for someone he shouldn't have, the secret making it more electric, the summer making it urgent. Either way: no irony, no armor, no darkness. Under 3:30."
+    },
+    {
+      "title": "folklore",
+      "year": 2020,
+      "style_prompt": "Indie folk-pop, piano-driven with muted acoustic guitar, soft orchestral strings, hushed brushed drum kit — no drum machine, male vocal intimate and literary — close-mic'd in a quiet room, reverb suggesting forest or cabin rather than city, lo-fi warmth, slow to mid tempo 70–100 BPM, long melodic lines, space and silence as instruments, narrative storytelling mode, cottagecore atmosphere",
+      "lyric_prompt": "Write a folklore-era indie folk song from a man's perspective — but NOT autobiographical. Write it as a character study or fictional narrative. The emotional world is nostalgia, grief, the specific weight of past summers and old houses. Use literary, imagistic language: specific places (a lake, a back road, a screened porch), specific objects (a letter, a photograph). The most devastating moment should arrive quietly, without warning. Under 4:30."
+    },
+    {
+      "title": "evermore",
+      "year": 2020,
+      "style_prompt": "Autumnal indie folk-rock, acoustic guitar and banjo interplay, fiddle accents, denser orchestration than folklore, brushed drums and occasional full kit, male vocal weathered and warm — deep autumn grain, melancholic minor key harmonies, 65–95 BPM, November atmosphere — bare trees and cold rain, emotionally complex grief and acceptance themes, no electronic elements, organic instrumentation throughout",
+      "lyric_prompt": "Write an evermore-era folk-rock song from a man's perspective. The emotional world is grief, ending, and complicated acceptance — the feeling of November, of something being over that you're not quite ready to name yet. Use imagery built from the natural world (bare trees, frost, rivers, smoke). Structure: long unhurried verses, a chorus that feels like a weight settling rather than a burst of energy, a bridge that opens something painful that closes again before the final verse. Include one moment of raw emotional confession in the bridge. Under 4:30."
+    },
+    {
+      "title": "Midnights",
+      "year": 2022,
+      "style_prompt": "Midnights-era bedroom dream-pop, subdued synth-pop with smooth cool atmosphere, saxophone and clarinet accents over synth bed, slow drum machine — softer and less insistent than 1989, male vocal close-mic'd and confessional in a late-night haze, Juno pads blurring together, pitch-shifted vocal layers for eerie depth effect, 70–110 BPM, introspective and psychologically inward, no arena energy — intimate scale, cool tonal palette",
+      "lyric_prompt": "Write a Midnights-era bedroom pop song from a man's perspective. The emotional world: 3am self-examination — a man lying awake cataloguing his own flaws, fears, revenge fantasies, and half-remembered loves. Either: (a) self-critical and darkly funny — the narrator dissecting one specific flaw or failure with uncomfortably honest precision; OR (b) nocturnal longing — a slow, hazy re-examination of a past love. Include one line that is genuinely funny and devastating at the same time. Under 3:45."
+    }
+  ]
+}
