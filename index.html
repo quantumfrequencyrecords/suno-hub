@@ -13,19 +13,16 @@
 <title>Suno Prompt Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* ── TOKENS ──────────────────────────────────────────────── */
-:root {
-  --bg:#08080f; --surf:#0f0f1a; --card:#141420; --raise:#1a1a28;
-  --border:#1e1e2e; --b2:#161624; --text:#e8e8f2; --t2:#7878a0;
-  --mute:#3a3a55; --dim:#222235; --acc:#f0f0e8;
-  --grn:#00e676; --grn2:rgba(0,230,118,.12); --grn3:rgba(0,230,118,.06);
-  --sans:'Syne',sans-serif; --mono:'DM Mono','SF Mono',monospace;
-  --sat:env(safe-area-inset-top,0px); --sab:env(safe-area-inset-bottom,0px);
-  --sal:env(safe-area-inset-left,0px); --sar:env(safe-area-inset-right,0px);
-  /* Genre palette */
-  --c-country:#e8943a; --c-pop-punk:#ff4757; --c-edm:#00b4d8;
-  --c-alt:#9b59b6; --c-rock:#e67e22; --c-rap:#f1c40f;
-  --c-folk:#8bc34a; --c-soul:#e91e63; --c-space:#5b8dee;
+:root{
+  --bg:#08080f;--surf:#0f0f1a;--card:#141420;--raise:#1a1a28;
+  --border:#1e1e2e;--b2:#161624;--text:#e8e8f2;--t2:#7878a0;
+  --mute:#3a3a55;--dim:#222235;--acc:#f0f0e8;
+  --grn:#00e676;--grn2:rgba(0,230,118,.14);--grn3:rgba(0,230,118,.07);
+  --sans:'Syne',sans-serif;--mono:'DM Mono','SF Mono',monospace;
+  --sat:env(safe-area-inset-top,0px);--sab:env(safe-area-inset-bottom,0px);
+  --sal:env(safe-area-inset-left,0px);--sar:env(safe-area-inset-right,0px);
+  --c-country:#e8943a;--c-punk:#ff4757;--c-edm:#00b4d8;
+  --c-alt:#9b59b6;--c-rock:#e67e22;--c-folk:#8bc34a;--c-soul:#e91e63;--c-space:#5b8dee;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{height:100%;-webkit-text-size-adjust:100%}
@@ -35,9 +32,9 @@ input,textarea,select{font-family:var(--sans)}
 ::-webkit-scrollbar{display:none}
 .app{display:flex;flex-direction:column;height:100vh;height:100dvh;padding-top:var(--sat);padding-left:var(--sal);padding-right:var(--sar)}
 
-/* ── TOPBAR ──────────────────────────────────────────────── */
-.topbar{flex-shrink:0;background:rgba(8,8,15,.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(–border);padding:10px 16px;display:flex;align-items:center;gap:12px;z-index:100}
-.logo{display:flex;align-items:center;gap:7px;font-family:var(–mono);font-size:10px;letter-spacing:4px;color:var(–acc);white-space:nowrap;flex-shrink:0;text-transform:uppercase}
+/* TOPBAR */
+.topbar{flex-shrink:0;background:rgba(8,8,15,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(–border);padding:10px 16px;display:flex;align-items:center;gap:12px;z-index:100}
+.logo{display:flex;align-items:center;gap:7px;font-family:var(–mono);font-size:10px;letter-spacing:4px;color:var(–acc);white-space:nowrap;flex-shrink:0}
 .pulse{width:6px;height:6px;border-radius:50%;background:var(–grn);flex-shrink:0;animation:pulse 3s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.5)}}
 .sw{flex:1;position:relative}
@@ -47,285 +44,248 @@ input,textarea,select{font-family:var(--sans)}
 #qi::placeholder{color:var(–mute)}
 .sx{position:absolute;right:10px;top:50%;transform:translateY(-50%);color:var(–mute);font-size:17px;display:none;padding:4px}
 #qi:not(:placeholder-shown) ~ .sx{display:block}
-.topbar-right{display:flex;gap:8px;flex-shrink:0}
-.tb-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;background:var(–surf);border:1px solid var(–border);transition:all .15s}
-.tb-icon:active{background:var(–raise)}
+.ref-btn{padding:7px 10px;background:var(–surf);border:1px solid var(–border);border-radius:8px;color:var(–mute);font-size:13px;flex-shrink:0;transition:all .15s}
+.ref-btn:active{border-color:var(–grn);color:var(–grn)}
 
-/* ── FILTER BAR ──────────────────────────────────────────── */
+/* FILTER BAR */
 .fbar{flex-shrink:0;display:none;align-items:center;gap:6px;padding:6px 16px 4px;background:var(–surf);border-bottom:1px solid var(–border);overflow-x:auto;white-space:nowrap}
 .fbar.on{display:flex}
-.fbar-label{font-size:9px;color:var(–mute);font-family:var(–mono);letter-spacing:2px;text-transform:uppercase;flex-shrink:0}
 .af{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:14px;background:var(–grn2);border:1px solid var(–grn);color:var(–grn);font-size:11px;flex-shrink:0}
-.af-x{font-size:13px;line-height:1}
 .fbar-clear{flex-shrink:0;font-size:10px;color:var(–mute);font-family:var(–mono);margin-left:4px}
 
-/* ── LAYOUT ──────────────────────────────────────────────── */
+/* LAYOUT */
 .body{flex:1;overflow:hidden;display:flex;flex-direction:column}
 
-/* ── BOTTOM TAB BAR ──────────────────────────────────────── */
-.tabbar{flex-shrink:0;background:rgba(8,8,15,.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid var(–border);display:flex;padding-bottom:var(–sab)}
+/* BOTTOM TABS */
+.tabbar{flex-shrink:0;background:rgba(8,8,15,.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid var(–border);display:flex;padding-bottom:var(–sab)}
 .tab{flex:1;display:flex;flex-direction:column;align-items:center;padding:8px 0 5px;gap:2px;color:var(–mute);transition:color .15s;min-height:50px;font-size:9px;letter-spacing:.5px;text-transform:uppercase;font-family:var(–mono)}
 .tab.on{color:var(–grn)}
-.tab-ic{font-size:19px;line-height:1}
+.tab-ic{font-size:18px;line-height:1}
 
-/* ── CONTENT ──────────────────────────────────────────────── */
+/* CONTENT */
 .content{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 .screen{display:none}
 .screen.on{display:block}
 
-/* ── GENRE COLOR TAGS ────────────────────────────────────── */
-.genre-tag{display:inline-block;padding:2px 7px;border-radius:4px;font-size:9px;font-family:var(–mono);letter-spacing:.5px;text-transform:uppercase}
+/* GENRE TAGS */
+.gtag{display:inline-block;padding:2px 7px;border-radius:4px;font-size:9px;font-family:var(–mono);letter-spacing:.5px;text-transform:uppercase}
 .gt-country{background:rgba(232,148,58,.15);color:var(–c-country);border:1px solid rgba(232,148,58,.3)}
-.gt-pop-punk,.gt-punk{background:rgba(255,71,87,.15);color:var(–c-pop-punk);border:1px solid rgba(255,71,87,.3)}
-.gt-edm,.gt-electronic,.gt-house{background:rgba(0,180,216,.15);color:var(–c-edm);border:1px solid rgba(0,180,216,.3)}
-.gt-alternative,.gt-alt{background:rgba(155,89,182,.15);color:var(–c-alt);border:1px solid rgba(155,89,182,.3)}
-.gt-rock{background:rgba(230,126,34,.15);color:var(–c-rock);border:1px solid rgba(230,126,34,.3)}
-.gt-rap,.gt-hip-hop{background:rgba(241,196,15,.15);color:var(–c-rap);border:1px solid rgba(241,196,15,.3)}
+.gt-punk,.gt-pop-punk{background:rgba(255,71,87,.15);color:var(–c-punk);border:1px solid rgba(255,71,87,.3)}
+.gt-edm,.gt-house,.gt-electronic{background:rgba(0,180,216,.15);color:var(–c-edm);border:1px solid rgba(0,180,216,.3)}
+.gt-alt,.gt-alternative,.gt-space,.gt-atmospheric{background:rgba(155,89,182,.15);color:var(–c-alt);border:1px solid rgba(155,89,182,.3)}
+.gt-rock,.gt-metal{background:rgba(230,126,34,.15);color:var(–c-rock);border:1px solid rgba(230,126,34,.3)}
 .gt-folk,.gt-acoustic{background:rgba(139,195,74,.15);color:var(–c-folk);border:1px solid rgba(139,195,74,.3)}
 .gt-soul,.gt-rb{background:rgba(233,30,99,.15);color:var(–c-soul);border:1px solid rgba(233,30,99,.3)}
-.gt-space,.gt-atmospheric{background:rgba(91,141,238,.15);color:var(–c-space);border:1px solid rgba(91,141,238,.3)}
 
-/* ── HOME GRID ───────────────────────────────────────────── */
-.statsbar{display:flex;align-items:center;justify-content:space-between;padding:10px 16px 4px}
+/* HOME */
+.ph{padding:16px 16px 12px}
+.ph-t{font-size:22px;font-weight:800;color:var(–acc);margin-bottom:2px;letter-spacing:-.5px}
+.ph-s{font-size:12px;color:var(–t2)}
+.stats-bar{display:flex;align-items:center;justify-content:space-between;padding:10px 16px 4px}
 .stats-t{font-size:10px;color:var(–mute);font-family:var(–mono)}
-.ref-btn{font-size:9px;color:var(–mute);font-family:var(–mono);padding:4px 8px;border:1px solid var(–border);border-radius:4px;letter-spacing:1px}
-.home-hd{padding:4px 16px 14px}
-.home-title{font-size:22px;font-weight:800;color:var(–acc);margin-bottom:2px;letter-spacing:-.5px}
-.home-sub{font-size:12px;color:var(–t2)}
 .agrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 16px 24px}
-.acard{background:var(–card);border:1px solid var(–border);border-radius:10px;padding:14px 12px;position:relative;overflow:hidden;-webkit-tap-highlight-color:transparent;transition:transform .1s}
+.acard{background:var(–card);border:1px solid var(–border);border-radius:10px;padding:14px 12px;position:relative;overflow:hidden;-webkit-tap-highlight-color:transparent;transition:transform .1s;min-height:90px}
 .acard::before{content:’’;position:absolute;top:0;left:0;right:0;height:3px;border-radius:10px 10px 0 0}
 .acard:active{transform:scale(.97)}
 .ac-era{font-size:9px;color:var(–mute);font-family:var(–mono);margin-bottom:3px;margin-top:8px}
 .ac-nm{font-size:13px;font-weight:700;color:var(–acc);margin-bottom:6px;line-height:1.2}
 .ac-genres{display:flex;flex-wrap:wrap;gap:3px}
-.fav-btn{position:absolute;top:10px;right:10px;font-size:15px;color:var(–mute);transition:color .15s;padding:4px}
-.fav-btn.on{color:#ffd700}
+.fav-star{position:absolute;top:8px;right:8px;font-size:14px;color:var(–mute);padding:4px;line-height:1;transition:color .15s}
+.fav-star.on{color:#ffd700}
 
-/* ── BROWSE / FILTER PANELS ──────────────────────────────── */
-.browse-hd{padding:16px 16px 8px}
-.browse-title{font-size:22px;font-weight:800;color:var(–acc);margin-bottom:2px;letter-spacing:-.5px}
-.browse-sub{font-size:12px;color:var(–t2)}
-.panel-search-wrap{padding:8px 16px 4px}
-.panel-qi{width:100%;padding:9px 14px;background:var(–surf);border:1px solid var(–border);border-radius:10px;color:var(–text);font-size:13px;outline:none;-webkit-appearance:none}
-.panel-qi:focus{border-color:var(–grn)}
-.panel-qi::placeholder{color:var(–mute)}
-.filter-type-tabs{display:flex;gap:0;padding:10px 16px 4px}
-.ftt{flex:1;padding:8px 0;text-align:center;font-size:11px;font-family:var(–mono);letter-spacing:1px;text-transform:uppercase;color:var(–mute);border-bottom:2px solid var(–border);transition:all .15s}
+/* BROWSE */
+.ftt-row{display:flex;gap:0;border-bottom:1px solid var(–border);margin:0 16px}
+.ftt{flex:1;padding:8px 0;text-align:center;font-size:11px;font-family:var(–mono);letter-spacing:1px;text-transform:uppercase;color:var(–mute);border-bottom:2px solid transparent;transition:all .15s}
 .ftt.on{color:var(–grn);border-bottom-color:var(–grn)}
-.browse-results-count{padding:8px 16px 4px;font-size:10px;color:var(–mute);font-family:var(–mono)}
-.fdim{margin:0 16px 8px;background:var(–card);border:1px solid var(–border);border-radius:10px;overflow:hidden}
-.fdim-hd{display:flex;align-items:center;gap:10px;padding:12px 16px;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .1s;min-height:50px}
+.brc{padding:8px 16px 4px;font-size:10px;color:var(–mute);font-family:var(–mono)}
+.fdim{margin:8px 16px 0;background:var(–card);border:1px solid var(–border);border-radius:10px;overflow:hidden}
+.fdim-hd{display:flex;align-items:center;gap:10px;padding:12px 16px;min-height:50px;-webkit-tap-highlight-color:transparent;transition:background .1s}
 .fdim-hd:active{background:var(–raise)}
-.fdim-ic{font-size:16px;flex-shrink:0}
+.fdim-ic{font-size:15px;flex-shrink:0}
 .fdim-label{flex:1;font-size:13px;font-weight:600;color:var(–text)}
-.fdim-active-badge{font-size:9px;padding:2px 7px;border-radius:10px;background:var(–grn2);border:1px solid var(–grn);color:var(–grn);font-family:var(–mono);flex-shrink:0}
-.fdim-count{font-size:10px;color:var(–mute);font-family:var(–mono);flex-shrink:0}
-.fdim-chevron{font-size:12px;color:var(–mute);transition:transform .2s;flex-shrink:0}
-.fdim.open .fdim-chevron{transform:rotate(180deg)}
+.fdim-badge{font-size:9px;padding:2px 7px;border-radius:10px;background:var(–grn2);border:1px solid var(–grn);color:var(–grn);font-family:var(–mono);flex-shrink:0}
+.fdim-ct{font-size:10px;color:var(–mute);font-family:var(–mono);flex-shrink:0}
+.fdim-chev{font-size:12px;color:var(–mute);transition:transform .2s;flex-shrink:0}
+.fdim.open .fdim-chev{transform:rotate(180deg)}
 .fdim-body{display:none;padding:0 12px 12px;border-top:1px solid var(–b2)}
 .fdim.open .fdim-body{display:block}
 .chip-row{display:flex;gap:5px;flex-wrap:wrap;padding-top:10px}
-.fp{display:inline-flex;align-items:center;gap:4px;padding:7px 12px;border-radius:8px;background:var(–surf);border:1px solid var(–border);color:var(–t2);font-size:12px;font-weight:500;transition:all .1s;-webkit-tap-highlight-color:transparent;min-height:40px}
+.fp{display:inline-flex;align-items:center;gap:4px;padding:7px 11px;border-radius:8px;background:var(–surf);border:1px solid var(–border);color:var(–t2);font-size:12px;font-weight:500;transition:all .1s;min-height:38px}
 .fp:active{transform:scale(.95)}
 .fp.on{background:var(–grn2);border-color:var(–grn);color:var(–grn)}
 .fp-c{font-family:var(–mono);font-size:9px;color:var(–mute)}
 .fp.on .fp-c{color:rgba(0,230,118,.6)}
 .dim-clear{display:block;width:100%;margin-top:7px;padding:7px;border-radius:7px;font-size:10px;color:var(–mute);font-family:var(–mono);border:1px solid var(–b2);text-align:center}
 
-/* ── SONGS LIST ──────────────────────────────────────────── */
-.songs-hd{padding:16px 16px 10px;border-bottom:1px solid var(–border)}
-.songs-title{font-size:22px;font-weight:800;color:var(–acc);margin-bottom:2px;letter-spacing:-.5px}
-.songs-sub{font-size:12px;color:var(–t2)}
-.song-row{display:flex;align-items:center;gap:10px;padding:11px 16px;border-bottom:1px solid var(–b2);min-height:62px;-webkit-tap-highlight-color:transparent;transition:background .1s;position:relative}
+/* SONG ROWS */
+.song-row{display:flex;align-items:center;gap:10px;padding:11px 16px;border-bottom:1px solid var(–b2);min-height:60px;-webkit-tap-highlight-color:transparent;transition:background .1s}
 .song-row:active{background:var(–raise)}
-.song-row.on{background:var(–raise)}
 .sr-num{font-family:var(–mono);font-size:10px;color:var(–mute);min-width:20px;text-align:right;flex-shrink:0}
 .sr-info{flex:1;min-width:0}
-.sr-title{font-size:13px;font-weight:600;color:var(–text);margin-bottom:2px}
+.sr-title{font-size:13px;font-weight:600;color:var(–text);margin-bottom:1px}
 .sr-meta{font-size:10px;color:var(–mute);font-family:var(–mono)}
 .sr-right{display:flex;flex-direction:column;align-items:flex-end;gap:2px;flex-shrink:0}
 .stg{font-size:8px;padding:2px 5px;border-radius:3px;white-space:nowrap;font-family:var(–mono)}
-.stg-b{background:rgba(0,230,118,.08);color:#4ae89a;border:1px solid rgba(0,230,118,.2)}
-.stg-m{background:rgba(155,89,182,.1);color:#c4a0ff;border:1px solid rgba(155,89,182,.2)}
-.sr-fav{font-size:13px;color:var(–mute);padding:4px;flex-shrink:0;transition:color .15s}
+.stg-s{background:rgba(0,180,216,.1);color:#6dd4de;border:1px solid rgba(0,180,216,.2)}
+.stg-l{background:rgba(155,89,182,.1);color:#c4a0ff;border:1px solid rgba(155,89,182,.2)}
+.sr-fav{font-size:13px;color:var(–mute);padding:4px;flex-shrink:0;transition:color .15s;line-height:1}
 .sr-fav.on{color:#ffd700}
 .sr-arr{color:var(–dim);font-size:12px;flex-shrink:0}
 .alb-divider{padding:12px 16px 5px;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(–mute);font-family:var(–mono);border-top:1px solid var(–border);margin-top:6px}
 
-/* ── ARTIST DETAIL ───────────────────────────────────────── */
-.detail-topbar{display:flex;align-items:center;gap:10px;padding:11px 16px;border-bottom:1px solid var(–border);position:sticky;top:0;z-index:10;background:rgba(8,8,15,.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
-.back-btn{display:flex;align-items:center;gap:2px;color:var(–grn);font-size:13px;font-weight:600;padding:6px 4px;margin:-6px -4px;min-width:44px;min-height:44px}
-.back-ic{font-size:20px;line-height:1}
-.detail-nm{font-size:14px;font-weight:700;color:var(–acc);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.artist-info-block{padding:14px 16px;display:flex;gap:12px;align-items:flex-start;border-bottom:1px solid var(–border)}
-.artist-icon{width:54px;height:54px;border-radius:9px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:20px;overflow:hidden}
-.artist-icon img{width:100%;height:100%;object-fit:cover}
-.ai-t{flex:1;min-width:0}
-.ai-nm{font-size:16px;font-weight:800;margin-bottom:2px;letter-spacing:-.3px}
-.ai-era{font-size:9px;color:var(–mute);font-family:var(–mono);margin-bottom:4px}
-.ai-bio{font-size:11px;color:var(–t2);line-height:1.6}
-.ai-genres{display:flex;flex-wrap:wrap;gap:3px;margin-top:7px}
-.prod-note{padding:7px 16px;font-size:10px;color:var(–mute);font-family:var(–mono);background:var(–surf);border-bottom:1px solid var(–border);line-height:1.6}
+/* ARTIST DETAIL */
+.dtb{display:flex;align-items:center;gap:10px;padding:11px 16px;border-bottom:1px solid var(–border);position:sticky;top:0;z-index:10;background:rgba(8,8,15,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.back-btn{display:flex;align-items:center;color:var(–grn);font-size:13px;font-weight:600;padding:6px 4px;margin:-6px -4px;min-width:44px;min-height:44px}
+.back-ic{font-size:20px}
+.dtb-nm{font-size:14px;font-weight:700;color:var(–acc);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.aib{padding:14px 16px;display:flex;gap:12px;align-items:flex-start;border-bottom:1px solid var(–border)}
+.a-icon{width:52px;height:52px;border-radius:9px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:20px;overflow:hidden}
+.a-icon img{width:100%;height:100%;object-fit:cover}
+.a-t{flex:1;min-width:0}
+.a-nm{font-size:16px;font-weight:800;margin-bottom:2px;letter-spacing:-.3px}
+.a-era{font-size:9px;color:var(–mute);font-family:var(–mono);margin-bottom:4px}
+.a-bio{font-size:11px;color:var(–t2);line-height:1.6}
+.a-genres{display:flex;flex-wrap:wrap;gap:3px;margin-top:7px}
+.pnote{padding:7px 16px;font-size:10px;color:var(–mute);font-family:var(–mono);background:var(–surf);border-bottom:1px solid var(–border);line-height:1.6}
 
-/* Level prompt strip */
-.level-prompts{border-bottom:1px solid var(–border)}
-.lp-tabs{display:flex;border-bottom:1px solid var(–b2)}
-.lp-tab{flex:1;padding:9px 0;text-align:center;font-size:10px;font-family:var(–mono);letter-spacing:1px;text-transform:uppercase;color:var(–mute);transition:all .15s;border-bottom:2px solid transparent}
-.lp-tab.on{color:var(–grn);border-bottom-color:var(–grn)}
-.lp-content{padding:12px 16px;display:none}
-.lp-content.on{display:block}
-.lp-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;font-family:var(–mono);color:var(–mute);margin-bottom:5px}
-.lp-text{font-size:11px;color:var(–t2);font-family:var(–mono);line-height:1.7;white-space:pre-wrap}
-.lp-copy{display:block;width:100%;margin-top:8px;padding:8px;background:var(–grn3);border:1px solid rgba(0,230,118,.25);color:var(–grn);border-radius:7px;font-size:10px;font-family:var(–mono);letter-spacing:1px;text-align:center;text-transform:uppercase;transition:all .15s}
-.lp-copy:active{background:var(–grn2)}
+/* Level strip (catalog prompts on artist page) */
+.lvl-strip{border-bottom:1px solid var(–border)}
+.lvl-tabs{display:flex}
+.lvl-tab{flex:1;padding:9px 0;text-align:center;font-size:10px;font-family:var(–mono);letter-spacing:1px;text-transform:uppercase;color:var(–mute);border-bottom:2px solid transparent;transition:all .15s}
+.lvl-tab.on{color:var(–grn);border-bottom-color:var(–grn)}
+.lvl-body{padding:12px 16px;display:none}
+.lvl-body.on{display:block}
+.lvl-label{font-size:8px;letter-spacing:2px;text-transform:uppercase;font-family:var(–mono);color:var(–mute);margin-bottom:5px}
+.lvl-text{font-size:11px;color:var(–t2);font-family:var(–mono);line-height:1.7;white-space:pre-wrap}
+.lvl-copy{display:block;width:100%;margin-top:8px;padding:8px;background:var(–grn3);border:1px solid rgba(0,230,118,.22);color:var(–grn);border-radius:7px;font-size:10px;font-family:var(–mono);letter-spacing:1px;text-align:center;text-transform:uppercase}
 
-/* ── PROMPT SHEET ─────────────────────────────────────────── */
+/* SHEET */
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:200;display:none;align-items:flex-end;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
 .overlay.on{display:flex}
-.sheet{width:100%;max-height:93vh;background:var(–card);border-radius:18px 18px 0 0;padding-bottom:calc(16px + var(–sab));overflow:hidden;display:flex;flex-direction:column;transform:translateY(100%);transition:transform .28s cubic-bezier(.32,1,.23,1);border-top:1px solid var(–border)}
+.sheet{width:100%;max-height:92vh;background:var(–card);border-radius:18px 18px 0 0;padding-bottom:calc(16px + var(–sab));overflow:hidden;display:flex;flex-direction:column;transform:translateY(100%);transition:transform .28s cubic-bezier(.32,1,.23,1);border-top:1px solid var(–border)}
 .overlay.on .sheet{transform:translateY(0)}
-.sheet-handle{width:34px;height:4px;background:var(–dim);border-radius:2px;margin:10px auto 0;flex-shrink:0}
-.sheet-hd{padding:10px 18px 10px;border-bottom:1px solid var(–border);flex-shrink:0;display:flex;justify-content:space-between;align-items:flex-start}
-.sheet-title-wrap{flex:1;margin-right:10px}
-.sheet-title{font-size:16px;font-weight:800;color:var(–acc);line-height:1.2;letter-spacing:-.3px}
-.sheet-sub{font-size:10px;color:var(–mute);font-family:var(–mono);margin-top:2px}
-.sheet-close{color:var(–mute);font-size:22px;min-width:40px;min-height:40px;display:flex;align-items:center;justify-content:center}
-.sheet-body{overflow-y:auto;-webkit-overflow-scrolling:touch;flex:1}
-
-/* Level tabs in sheet */
-.sheet-level-tabs{display:flex;border-bottom:1px solid var(–b2);flex-shrink:0}
-.slt{flex:1;padding:9px 0;text-align:center;font-size:9px;font-family:var(–mono);letter-spacing:1px;text-transform:uppercase;color:var(–mute);transition:all .15s;border-bottom:2px solid transparent}
+.sh-handle{width:34px;height:4px;background:var(–dim);border-radius:2px;margin:10px auto 0;flex-shrink:0}
+.sh-hd{padding:10px 18px 10px;border-bottom:1px solid var(–border);flex-shrink:0;display:flex;justify-content:space-between;align-items:flex-start}
+.sh-tw{flex:1;margin-right:10px}
+.sh-title{font-size:16px;font-weight:800;color:var(–acc);line-height:1.2;letter-spacing:-.3px}
+.sh-sub{font-size:10px;color:var(–mute);font-family:var(–mono);margin-top:2px}
+.sh-close{color:var(–mute);font-size:22px;min-width:40px;min-height:40px;display:flex;align-items:center;justify-content:center}
+.sh-level-tabs{display:flex;flex-shrink:0}
+.slt{flex:1;padding:9px 0;text-align:center;font-size:9px;font-family:var(–mono);letter-spacing:1px;text-transform:uppercase;color:var(–mute);border-bottom:2px solid transparent;transition:all .15s}
 .slt.on{color:var(–grn);border-bottom-color:var(–grn)}
-.sheet-level-content{display:none;padding:12px 16px 0}
-.sheet-level-content.on{display:block}
-
-.sheet-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px}
+.sh-body{overflow-y:auto;-webkit-overflow-scrolling:touch;flex:1}
+.slc{display:none;padding:12px 16px 4px}
+.slc.on{display:block}
+.sh-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:10px}
 .sht{font-size:9px;padding:3px 8px;border-radius:5px;cursor:pointer;min-height:28px;display:inline-flex;align-items:center}
-.sheet-dna{margin-bottom:10px;background:var(–surf);border:1px solid var(–border);border-radius:8px;padding:10px 12px}
-.dna-label{font-size:8px;letter-spacing:2px;text-transform:uppercase;font-family:var(–mono);color:var(–mute);margin-bottom:4px}
-.dna-text{font-size:11px;color:var(–t2);line-height:1.7}
+.sh-dna{margin-bottom:10px;background:var(–surf);border:1px solid var(–border);border-radius:8px;padding:10px 12px}
+.dna-lbl{font-size:8px;letter-spacing:2px;text-transform:uppercase;font-family:var(–mono);color:var(–mute);margin-bottom:4px}
+.dna-txt{font-size:11px;color:var(–t2);line-height:1.7}
 .pb{margin-bottom:10px}
 .pb-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;font-family:var(–mono);font-weight:600;margin-bottom:5px;display:flex;align-items:center;justify-content:space-between}
 .pb-hint{font-size:8px;color:var(–mute);font-weight:400;letter-spacing:.5px;text-transform:none}
 .pb-box{background:var(–surf);border:1px solid var(–border);border-radius:8px;overflow:hidden}
-.pb-text{padding:10px 12px;font-size:11px;color:#b0b0cc;font-family:var(–mono);line-height:1.8;white-space:pre-wrap;max-height:180px;overflow-y:auto;-webkit-overflow-scrolling:touch}
-.copy-btn{display:flex;align-items:center;justify-content:center;gap:7px;width:calc(100% - 22px);margin:7px 11px 9px;padding:13px;background:var(–grn3);border:1px solid rgba(0,230,118,.28);color:var(–grn);border-radius:10px;font-size:14px;font-weight:700;min-height:52px;transition:all .1s;-webkit-tap-highlight-color:transparent}
-.copy-btn:active{background:var(–grn2);transform:scale(.98)}
-.copy-btn.ok{background:var(–grn2);border-color:var(–grn)}
+.pb-txt{padding:10px 12px;font-size:11px;color:#b0b0cc;font-family:var(–mono);line-height:1.8;white-space:pre-wrap;max-height:175px;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.cp-btn{display:flex;align-items:center;justify-content:center;gap:7px;width:calc(100% - 22px);margin:7px 11px 9px;padding:13px;background:var(–grn3);border:1px solid rgba(0,230,118,.28);color:var(–grn);border-radius:10px;font-size:14px;font-weight:700;min-height:52px;transition:all .1s}
+.cp-btn:active{background:var(–grn2);transform:scale(.98)}
+.cp-btn.ok{background:var(–grn2)}
 
-/* ── SEARCH ───────────────────────────────────────────────── */
-.sg-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(–mute);font-family:var(–mono);padding:12px 16px 5px;border-bottom:1px solid var(–border);margin-bottom:2px}
-.sres{display:flex;align-items:center;gap:10px;padding:11px 16px;border-bottom:1px solid var(–b2);min-height:58px;-webkit-tap-highlight-color:transparent}
+/* SEARCH */
+.sg-lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(–mute);font-family:var(–mono);padding:12px 16px 5px;border-bottom:1px solid var(–border)}
+.sres{display:flex;align-items:center;gap:10px;padding:11px 16px;border-bottom:1px solid var(–b2);min-height:56px;-webkit-tap-highlight-color:transparent}
 .sres:active{background:var(–raise)}
 .sres-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
 .sres-c{flex:1;min-width:0}
-.sres-title{font-size:13px;font-weight:600;color:var(–text);margin-bottom:1px}
-.sres-sub{font-size:10px;color:var(–mute);font-family:var(–mono)}
-.sres-match{font-size:10px;color:var(–t2);margin-top:2px;font-style:italic;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.sres-tt{font-size:13px;font-weight:600;color:var(–text);margin-bottom:1px}
+.sres-sb{font-size:10px;color:var(–mute);font-family:var(–mono)}
+.sres-mx{font-size:10px;color:var(–t2);margin-top:2px;font-style:italic;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 
-/* ── FAVORITES ────────────────────────────────────────────── */
-.favs-hd{padding:16px 16px 10px}
-.favs-title{font-size:22px;font-weight:800;color:var(–acc);margin-bottom:2px;letter-spacing:-.5px}
-.favs-sub{font-size:12px;color:var(–t2)}
-.favs-section-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(–mute);font-family:var(–mono);padding:12px 16px 5px;border-bottom:1px solid var(–border)}
-.empty-favs{text-align:center;padding:48px 24px;color:var(–mute)}
-.empty-favs .eic{font-size:40px;margin-bottom:10px}
-.empty-favs h3{font-size:16px;font-weight:700;color:var(–dim);margin-bottom:5px}
-.empty-favs p{font-size:11px;line-height:1.7;max-width:260px;margin:0 auto}
+/* FAVORITES */
+.empty-favs{text-align:center;padding:48px 20px;color:var(–mute)}
+.eic{font-size:40px;margin-bottom:10px}
 
-/* ── PROMPT GENERATOR ─────────────────────────────────────── */
-.gen-hd{padding:16px 16px 10px}
-.gen-title{font-size:22px;font-weight:800;color:var(–acc);margin-bottom:2px;letter-spacing:-.5px}
-.gen-sub{font-size:12px;color:var(–t2)}
-.gen-section{margin:0 16px 14px;background:var(–card);border:1px solid var(–border);border-radius:10px;overflow:hidden}
-.gen-sec-hd{padding:11px 14px;border-bottom:1px solid var(–b2);font-size:10px;letter-spacing:2px;text-transform:uppercase;font-family:var(–mono);color:var(–mute);display:flex;align-items:center;gap:7px}
-.gen-sec-hd span{font-size:13px}
-.gen-sec-body{padding:12px 14px}
-.gen-tag-cloud{display:flex;flex-wrap:wrap;gap:5px}
-.gen-tp{display:inline-flex;align-items:center;gap:4px;padding:6px 11px;border-radius:8px;background:var(–surf);border:1px solid var(–border);color:var(–t2);font-size:11px;cursor:pointer;transition:all .1s;min-height:36px;font-weight:500}
-.gen-tp:active{transform:scale(.95)}
-.gen-tp.on{background:var(–grn2);border-color:var(–grn);color:var(–grn)}
-.gen-tp-c{font-family:var(–mono);font-size:9px;color:var(–mute)}
-.gen-tp.on .gen-tp-c{color:rgba(0,230,118,.6)}
-.gen-result-box{margin:0 16px 14px;background:var(–card);border:1px solid var(–border);border-radius:10px;overflow:hidden}
-.gen-result-label{padding:10px 14px 6px;font-size:9px;letter-spacing:2px;text-transform:uppercase;font-family:var(–mono);color:var(–mute);border-bottom:1px solid var(–b2)}
-.gen-result-text{padding:12px 14px;font-size:11px;color:var(–t2);font-family:var(–mono);line-height:1.8;min-height:60px;white-space:pre-wrap}
-.gen-result-text.placeholder{color:var(–mute);font-style:italic}
-.gen-copy-row{display:flex;gap:8px;padding:0 14px 12px}
-.gen-copy-btn{flex:1;padding:10px;background:var(–grn3);border:1px solid rgba(0,230,118,.28);color:var(–grn);border-radius:8px;font-size:10px;font-family:var(–mono);letter-spacing:1px;text-transform:uppercase;text-align:center}
-.gen-save-btn{padding:10px 14px;background:var(–raise);border:1px solid var(–border);color:var(–t2);border-radius:8px;font-size:10px;font-family:var(–mono);letter-spacing:1px;text-transform:uppercase}
-.gen-generate-btn{display:block;width:calc(100% - 32px);margin:0 16px 14px;padding:14px;background:var(–grn2);border:2px solid var(–grn);color:var(–grn);border-radius:10px;font-size:13px;font-weight:700;letter-spacing:1px;text-align:center;transition:all .15s}
-.gen-generate-btn:active{background:var(–grn2);transform:scale(.98)}
-.gen-generate-btn.loading{opacity:.6}
-.saved-prompts-section{margin:0 16px 20px}
-.saved-prompt-item{background:var(–surf);border:1px solid var(–border);border-radius:8px;padding:10px 12px;margin-bottom:7px}
-.sp-meta{font-size:9px;color:var(–mute);font-family:var(–mono);margin-bottom:5px;display:flex;justify-content:space-between}
-.sp-label{font-size:10px;letter-spacing:1px;text-transform:uppercase;font-family:var(–mono);color:var(–t2);margin-bottom:3px}
-.sp-preview{font-size:10px;color:var(–t2);font-family:var(–mono);line-height:1.6;overflow:hidden;max-height:40px}
-.sp-actions{display:flex;gap:7px;margin-top:7px}
+/* PROMPT GENERATOR */
+.gen-sec{margin:0 16px 12px;background:var(–card);border:1px solid var(–border);border-radius:10px;overflow:hidden}
+.gen-sec-hd{padding:10px 14px;border-bottom:1px solid var(–b2);font-size:10px;letter-spacing:2px;text-transform:uppercase;font-family:var(–mono);color:var(–mute);display:flex;align-items:center;gap:7px}
+.gen-sec-hd .ic{font-size:14px}
+.gen-sec-body{padding:10px 12px}
+.gen-tc{display:flex;flex-wrap:wrap;gap:5px}
+.gtp{display:inline-flex;align-items:center;gap:4px;padding:6px 10px;border-radius:8px;background:var(–surf);border:1px solid var(–border);color:var(–t2);font-size:11px;cursor:pointer;transition:all .1s;min-height:34px;font-weight:500}
+.gtp:active{transform:scale(.95)}
+.gtp.on{background:var(–grn2);border-color:var(–grn);color:var(–grn)}
+.gtp-c{font-family:var(–mono);font-size:9px;color:var(–mute)}
+.gtp.on .gtp-c{color:rgba(0,230,118,.6)}
+.gen-out{margin:0 16px 10px;background:var(–card);border:1px solid var(–border);border-radius:10px;overflow:hidden}
+.gen-out-lbl{padding:9px 13px 5px;font-size:9px;letter-spacing:2px;text-transform:uppercase;font-family:var(–mono);color:var(–mute);border-bottom:1px solid var(–b2)}
+.gen-out-txt{padding:10px 13px;font-size:11px;color:var(–t2);font-family:var(–mono);line-height:1.75;min-height:50px;white-space:pre-wrap}
+.gen-out-txt.ph{color:var(–mute);font-style:italic}
+.gen-btn-row{display:flex;gap:7px;padding:0 13px 10px}
+.gen-cp{flex:1;padding:9px;background:var(–grn3);border:1px solid rgba(0,230,118,.25);color:var(–grn);border-radius:8px;font-size:9px;font-family:var(–mono);letter-spacing:1px;text-transform:uppercase;text-align:center}
+.gen-sv{padding:9px 12px;background:var(–raise);border:1px solid var(–border);color:var(–t2);border-radius:8px;font-size:9px;font-family:var(–mono);letter-spacing:1px;text-transform:uppercase}
+.gen-go{display:block;width:calc(100% - 32px);margin:0 16px 12px;padding:14px;background:var(–grn2);border:2px solid var(–grn);color:var(–grn);border-radius:10px;font-size:13px;font-weight:700;letter-spacing:1px;text-align:center;transition:all .15s}
+.gen-go:active{transform:scale(.98)}
+.saved-lbl{padding:0 16px 8px;font-size:9px;letter-spacing:2px;text-transform:uppercase;font-family:var(–mono);color:var(–mute)}
+.sp-item{margin:0 16px 8px;background:var(–surf);border:1px solid var(–border);border-radius:8px;padding:10px 12px}
+.sp-ts{font-size:9px;color:var(–mute);font-family:var(–mono);margin-bottom:5px}
+.sp-lbl{font-size:9px;letter-spacing:1px;text-transform:uppercase;font-family:var(–mono);color:var(–mute);margin-bottom:2px;margin-top:6px}
+.sp-prev{font-size:10px;color:var(–t2);font-family:var(–mono);line-height:1.5;overflow:hidden;max-height:36px}
+.sp-acts{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap}
 .sp-btn{font-size:9px;font-family:var(–mono);letter-spacing:1px;text-transform:uppercase;padding:5px 9px;border-radius:5px;border:1px solid var(–border);color:var(–mute)}
+.sp-btn.del{color:#ff6b6b;border-color:#ff6b6b}
 
-/* ── MY BANDS ─────────────────────────────────────────────── */
-.bands-hd{padding:16px 16px 10px}
-.bands-title{font-size:22px;font-weight:800;color:var(–acc);margin-bottom:2px;letter-spacing:-.5px}
-.bands-sub{font-size:12px;color:var(–t2)}
+/* MY BANDS */
 .band-tabs{display:flex;overflow-x:auto;padding:10px 16px 0;gap:8px;border-bottom:1px solid var(–border)}
-.band-tab{flex-shrink:0;padding:7px 14px;border-radius:8px 8px 0 0;background:var(–surf);border:1px solid var(–border);border-bottom:none;font-size:11px;font-weight:600;color:var(–t2);transition:all .15s;display:flex;align-items:center;gap:6px}
-.band-tab.on{background:var(–card);color:var(–acc);border-color:var(–border)}
-.band-tab img{width:18px;height:18px;border-radius:3px;object-fit:cover}
-.add-band-tab{flex-shrink:0;padding:7px 12px;border-radius:8px 8px 0 0;background:var(–surf);border:1px solid var(–border);border-bottom:none;font-size:16px;color:var(–mute)}
-.band-content{display:none;padding:14px 16px}
-.band-content.on{display:block}
-.band-banner{width:100%;height:80px;border-radius:8px;overflow:hidden;margin-bottom:12px;background:var(–surf);border:1px dashed var(–border);display:flex;align-items:center;justify-content:center;color:var(–mute);font-size:11px;font-family:var(–mono);cursor:pointer;position:relative}
+.btab{flex-shrink:0;padding:7px 12px;border-radius:8px 8px 0 0;background:var(–surf);border:1px solid var(–border);border-bottom:none;font-size:11px;font-weight:600;color:var(–t2);display:flex;align-items:center;gap:5px}
+.btab.on{background:var(–card);color:var(–acc)}
+.btab img{width:16px;height:16px;border-radius:3px;object-fit:cover}
+.add-btab{flex-shrink:0;padding:7px 12px;border-radius:8px 8px 0 0;background:var(–surf);border:1px solid var(–border);border-bottom:none;font-size:16px;color:var(–mute)}
+.band-cnt{display:none;padding:14px 16px}
+.band-cnt.on{display:block}
+.band-banner{width:100%;height:75px;border-radius:8px;overflow:hidden;margin-bottom:12px;background:var(–surf);border:1px dashed var(–border);display:flex;align-items:center;justify-content:center;color:var(–mute);font-size:11px;font-family:var(–mono);cursor:pointer;position:relative}
 .band-banner img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
-.band-info-row{display:flex;gap:10px;margin-bottom:12px;align-items:center}
-.band-logo-upload{width:52px;height:52px;border-radius:8px;background:var(–surf);border:1px dashed var(–border);display:flex;align-items:center;justify-content:center;color:var(–mute);font-size:10px;font-family:var(–mono);cursor:pointer;flex-shrink:0;overflow:hidden;position:relative}
-.band-logo-upload img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
-.band-name-input{flex:1;padding:9px 12px;background:var(–surf);border:1px solid var(–border);border-radius:8px;color:var(–text);font-size:14px;font-weight:700;outline:none}
-.band-name-input:focus{border-color:var(–grn)}
-.band-name-input::placeholder{color:var(–mute)}
-.add-song-form{background:var(–surf);border:1px solid var(–border);border-radius:8px;padding:12px;margin-bottom:12px}
-.add-song-title{font-size:10px;letter-spacing:2px;text-transform:uppercase;font-family:var(–mono);color:var(–mute);margin-bottom:10px}
-.form-field{margin-bottom:8px}
-.form-label{font-size:9px;letter-spacing:1px;text-transform:uppercase;font-family:var(–mono);color:var(–mute);margin-bottom:3px;display:block}
-.form-input{width:100%;padding:8px 11px;background:var(–card);border:1px solid var(–border);border-radius:7px;color:var(–text);font-size:12px;outline:none}
-.form-input:focus{border-color:var(–grn)}
-.form-textarea{resize:vertical;min-height:60px;font-family:var(–mono);font-size:11px;line-height:1.6}
-.form-submit{width:100%;padding:10px;background:var(–grn3);border:1px solid rgba(0,230,118,.28);color:var(–grn);border-radius:7px;font-size:10px;font-family:var(–mono);letter-spacing:1px;text-transform:uppercase;margin-top:4px}
-.band-songs-list{margin-bottom:14px}
-.band-song-item{background:var(–card);border:1px solid var(–border);border-radius:8px;padding:10px 12px;margin-bottom:7px}
-.bsi-title{font-size:13px;font-weight:700;color:var(–text);margin-bottom:3px}
-.bsi-style{font-size:10px;color:var(–t2);font-family:var(–mono);margin-bottom:2px}
-.bsi-del{position:absolute;top:8px;right:8px;color:var(–mute);font-size:14px;padding:4px}
-.consistency-btn{display:block;width:100%;padding:13px;background:var(–grn2);border:2px solid var(–grn);color:var(–grn);border-radius:10px;font-size:12px;font-weight:700;letter-spacing:1px;text-align:center;margin-bottom:10px;transition:all .15s}
-.consistency-btn:active{transform:scale(.98)}
-.consistency-result{background:var(–surf);border:1px solid var(–border);border-radius:8px;padding:12px;margin-bottom:12px}
+.b-info-row{display:flex;gap:10px;margin-bottom:12px;align-items:center}
+.b-logo{width:50px;height:50px;border-radius:8px;background:var(–surf);border:1px dashed var(–border);display:flex;align-items:center;justify-content:center;color:var(–mute);font-size:10px;font-family:var(–mono);cursor:pointer;flex-shrink:0;overflow:hidden;position:relative}
+.b-logo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.b-name{flex:1;padding:9px 12px;background:var(–surf);border:1px solid var(–border);border-radius:8px;color:var(–text);font-size:14px;font-weight:700;outline:none}
+.b-name:focus{border-color:var(–grn)}
+.b-song{background:var(–card);border:1px solid var(–border);border-radius:8px;padding:10px 12px;margin-bottom:7px;position:relative}
+.b-song-t{font-size:13px;font-weight:700;color:var(–text);margin-bottom:2px;padding-right:24px}
+.b-song-s{font-size:10px;color:var(–t2);font-family:var(–mono)}
+.b-song-del{position:absolute;top:8px;right:8px;color:var(–mute);font-size:15px;padding:4px;line-height:1}
+.add-form{background:var(–surf);border:1px solid var(–border);border-radius:8px;padding:12px;margin-bottom:12px}
+.add-form-t{font-size:10px;letter-spacing:2px;text-transform:uppercase;font-family:var(–mono);color:var(–mute);margin-bottom:10px}
+.ff{margin-bottom:8px}
+.ff label{font-size:9px;letter-spacing:1px;text-transform:uppercase;font-family:var(–mono);color:var(–mute);margin-bottom:3px;display:block}
+.fi{width:100%;padding:8px 11px;background:var(–card);border:1px solid var(–border);border-radius:7px;color:var(–text);font-size:12px;outline:none}
+.fi:focus{border-color:var(–grn)}
+.fi.ta{resize:vertical;min-height:56px;font-family:var(–mono);font-size:11px;line-height:1.5}
+.ff-submit{width:100%;padding:10px;background:var(–grn3);border:1px solid rgba(0,230,118,.25);color:var(–grn);border-radius:7px;font-size:10px;font-family:var(–mono);letter-spacing:1px;text-transform:uppercase;margin-top:4px}
+.cons-btn{display:block;width:100%;padding:13px;background:var(–grn2);border:2px solid var(–grn);color:var(–grn);border-radius:10px;font-size:12px;font-weight:700;letter-spacing:1px;text-align:center;margin-bottom:10px}
+.cons-btn:active{transform:scale(.98)}
+.cr{background:var(–surf);border:1px solid var(–border);border-radius:8px;padding:12px;margin-bottom:10px}
 .cr-ts{font-size:9px;font-family:var(–mono);color:var(–mute);margin-bottom:6px}
-.cr-label{font-size:9px;letter-spacing:1px;text-transform:uppercase;font-family:var(–mono);color:var(–mute);margin-bottom:3px}
-.cr-text{font-size:10px;font-family:var(–mono);color:var(–t2);line-height:1.7;margin-bottom:8px}
-.cr-copy{padding:6px 12px;background:var(–grn3);border:1px solid rgba(0,230,118,.25);color:var(–grn);border-radius:6px;font-size:9px;font-family:var(–mono);letter-spacing:1px;text-transform:uppercase}
+.cr-lbl{font-size:9px;letter-spacing:1px;text-transform:uppercase;font-family:var(–mono);color:var(–mute);margin-bottom:3px;margin-top:6px}
+.cr-txt{font-size:10px;font-family:var(–mono);color:var(–t2);line-height:1.6;margin-bottom:7px}
+.cr-cp{padding:6px 11px;background:var(–grn3);border:1px solid rgba(0,230,118,.22);color:var(–grn);border-radius:6px;font-size:9px;font-family:var(–mono);letter-spacing:1px;text-transform:uppercase}
 
-/* ── EMPTY / LOADING ─────────────────────────────────────── */
+/* TOAST */
+.toast{position:fixed;bottom:calc(68px + var(–sab));left:50%;transform:translateX(-50%) translateY(12px);background:var(–grn);color:#000;font-size:12px;font-weight:700;padding:9px 18px;border-radius:20px;opacity:0;transition:all .2s;pointer-events:none;z-index:500;white-space:nowrap;font-family:var(–mono);letter-spacing:.5px}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+.offline-bar{display:none;background:#1a1200;border-bottom:1px solid #443300;padding:5px 16px;font-size:10px;color:#d4a843;text-align:center;font-family:var(–mono);flex-shrink:0}
+.offline-bar.on{display:block}
+
+/* EMPTY */
 .empty{text-align:center;padding:48px 20px}
-.empty-ic{font-size:40px;margin-bottom:10px}
+.empty-ic{font-size:38px;margin-bottom:10px}
 .empty h3{font-size:16px;font-weight:700;color:var(–dim);margin-bottom:5px}
 .empty p{font-size:11px;color:var(–mute);line-height:1.7;max-width:260px;margin:0 auto}
-.loading{text-align:center;padding:60px 16px;color:var(–mute);font-family:var(–mono);font-size:10px;letter-spacing:2px}
-
-/* ── TOAST ────────────────────────────────────────────────── */
-.toast{position:fixed;bottom:calc(70px + var(–sab));left:50%;transform:translateX(-50%) translateY(14px);background:var(–grn);color:#000;font-size:13px;font-weight:700;padding:10px 20px;border-radius:20px;opacity:0;transition:all .2s;pointer-events:none;z-index:500;white-space:nowrap;font-family:var(–mono);letter-spacing:.5px}
-.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
-
-/* ── OFFLINE ─────────────────────────────────────────────── */
-.offline{display:none;background:#1a1200;border-bottom:1px solid #443300;padding:6px 16px;font-size:10px;color:#d4a843;text-align:center;font-family:var(–mono);flex-shrink:0}
-.offline.on{display:block}
+.loading-msg{text-align:center;padding:60px 16px;color:var(–mute);font-family:var(–mono);font-size:11px;letter-spacing:2px}
 </style>
 
 </head>
 <body>
 <div class="app">
-<div class="offline" id="offline-banner">⚡ Offline — cached data</div>
+<div class="offline-bar" id="offline-bar">⚡ Offline — cached data</div>
 <div class="topbar">
   <div class="logo"><div class="pulse"></div>SUNO HUB</div>
   <div class="sw">
@@ -333,59 +293,76 @@ input,textarea,select{font-family:var(--sans)}
     <input type="search" id="qi" placeholder="Search everything…" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
     <button class="sx" onclick="clearSearch()">×</button>
   </div>
-  <div class="topbar-right">
-    <button class="tb-icon" onclick="refreshData()" title="Refresh">↻</button>
-  </div>
+  <button class="ref-btn" onclick="hardRefresh()" title="Refresh">↻</button>
 </div>
 <div class="fbar" id="fbar">
-  <span class="fbar-label">Filters:</span>
+  <span style="font-size:9px;color:var(--mute);font-family:var(--mono);letter-spacing:2px;text-transform:uppercase;flex-shrink:0">Filters:</span>
   <div id="fbar-chips" style="display:flex;gap:5px;flex-shrink:0"></div>
-  <button class="fbar-clear" onclick="clearAll()">Clear</button>
+  <button class="fbar-clear" onclick="clearAllFilters()">Clear all</button>
 </div>
 <div class="body">
   <div class="content" id="content">
-    <div class="screen on" id="s-home">
-      <div class="statsbar"><span class="stats-t" id="stats-t">Loading…</span></div>
-      <div class="home-hd"><div class="home-title">Artists</div><div class="home-sub">Tap to browse songs &amp; generate Suno prompts</div></div>
-      <div class="agrid" id="agrid"></div>
-    </div>
-    <div class="screen" id="s-browse">
-      <div class="browse-hd"><div class="browse-title">Browse</div><div class="browse-sub">Filter by style or lyric keywords across all artists</div></div>
-      <div class="panel-search-wrap"><input type="search" class="panel-qi" id="pqi" placeholder="Search keywords…" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></div>
-      <div class="filter-type-tabs">
-        <button class="ftt on" id="ftt-style" onclick="setFilterType('style')">🎸 Style</button>
-        <button class="ftt" id="ftt-lyric" onclick="setFilterType('lyric')">📝 Lyric</button>
-      </div>
-      <div class="browse-results-count" id="browse-rc"></div>
-      <div id="filter-panels" style="padding:0 0 24px"></div>
-    </div>
-    <div class="screen" id="s-songs">
-      <div class="songs-hd"><div class="songs-title">All Songs</div><div class="songs-sub" id="songs-sub"></div></div>
-      <div class="songs-list" id="all-songs-list"></div>
-    </div>
-    <div class="screen" id="s-artist">
-      <div class="detail-topbar">
-        <button class="back-btn" onclick="goBack()"><span class="back-ic">‹</span></button>
-        <div class="detail-nm" id="detail-nm"></div>
-        <button class="tb-icon" id="artist-fav-btn" style="font-size:16px" onclick="toggleArtistFav()">☆</button>
-      </div>
-      <div id="artist-body"></div>
-    </div>
-    <div class="screen" id="s-search">
-      <div id="search-body" style="padding-bottom:24px"></div>
-    </div>
-    <div class="screen" id="s-favs">
-      <div class="favs-hd"><div class="favs-title">Favorites</div><div class="favs-sub">Your starred artists, albums, and songs</div></div>
-      <div id="favs-body"></div>
-    </div>
-    <div class="screen" id="s-gen">
-      <div class="gen-hd"><div class="gen-title">Prompt Generator</div><div class="gen-sub">Build a custom Suno prompt from your keywords</div></div>
-      <div id="gen-body"></div>
-    </div>
-    <div class="screen" id="s-bands">
-      <div class="bands-hd"><div class="bands-title">My Bands</div><div class="bands-sub">Track your songs and generate consistency prompts</div></div>
-      <div id="bands-body"></div>
-    </div>
+
+```
+<!-- HOME -->
+<div class="screen on" id="s-home">
+  <div class="stats-bar"><span class="stats-t" id="stats-t">Loading…</span></div>
+  <div class="ph"><div class="ph-t">Artists</div><div class="ph-s">Tap to browse songs and copy Suno prompts</div></div>
+  <div class="agrid" id="agrid"><div class="loading-msg" style="grid-column:1/-1">Loading database…</div></div>
+</div>
+
+<!-- BROWSE -->
+<div class="screen" id="s-browse">
+  <div class="ph"><div class="ph-t">Browse</div><div class="ph-s">Filter songs by style or lyric keywords</div></div>
+  <div style="padding:8px 16px 4px"><input type="search" style="width:100%;padding:9px 14px;background:var(--surf);border:1px solid var(--border);border-radius:10px;color:var(--text);font-size:13px;outline:none;-webkit-appearance:none" id="pqi" placeholder="Search keywords…" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></div>
+  <div class="ftt-row" style="margin:8px 16px 0">
+    <button class="ftt on" id="ftt-style" onclick="setFType('style')">🎸 Style</button>
+    <button class="ftt" id="ftt-lyric" onclick="setFType('lyric')">📝 Lyric</button>
+  </div>
+  <div class="brc" id="brc"></div>
+  <div id="filter-panels" style="padding-bottom:24px"></div>
+</div>
+
+<!-- ALL SONGS -->
+<div class="screen" id="s-songs">
+  <div class="ph"><div class="ph-t">All Songs</div><div class="ph-s" id="songs-sub"></div></div>
+  <div id="all-songs-list"></div>
+</div>
+
+<!-- ARTIST DETAIL -->
+<div class="screen" id="s-artist">
+  <div class="dtb">
+    <button class="back-btn" onclick="goBack()"><span class="back-ic">‹</span></button>
+    <div class="dtb-nm" id="dtb-nm"></div>
+    <button style="font-size:16px;padding:6px;color:var(--mute);min-width:36px;text-align:center" id="a-fav-btn" onclick="toggleArtistFav()">☆</button>
+  </div>
+  <div id="artist-body"></div>
+</div>
+
+<!-- SEARCH -->
+<div class="screen" id="s-search">
+  <div id="search-body" style="padding-bottom:24px"></div>
+</div>
+
+<!-- FAVORITES -->
+<div class="screen" id="s-favs">
+  <div class="ph"><div class="ph-t">Favorites</div><div class="ph-s">Your starred artists and songs</div></div>
+  <div id="favs-body"></div>
+</div>
+
+<!-- GENERATOR -->
+<div class="screen" id="s-gen">
+  <div class="ph"><div class="ph-t">Prompt Generator</div><div class="ph-s">Build a custom Suno prompt from keywords</div></div>
+  <div id="gen-body"></div>
+</div>
+
+<!-- MY BANDS -->
+<div class="screen" id="s-bands">
+  <div class="ph"><div class="ph-t">My Bands</div><div class="ph-s">Track your songs and generate consistency prompts</div></div>
+  <div id="bands-body"></div>
+</div>
+```
+
   </div>
   <div class="tabbar">
     <button class="tab on" id="tab-home"   onclick="goTab('home')">  <span class="tab-ic">⊞</span>Artists</button>
@@ -397,727 +374,1097 @@ input,textarea,select{font-family:var(--sans)}
   </div>
 </div>
 </div>
-<div class="overlay" id="overlay" onclick="sheetOut(event)">
-  <div class="sheet" id="sheet">
-    <div class="sheet-handle"></div>
-    <div class="sheet-hd">
-      <div class="sheet-title-wrap">
-        <div class="sheet-title" id="sh-title"></div>
-        <div class="sheet-sub" id="sh-sub"></div>
-      </div>
-      <button class="sheet-close" onclick="closeSheet()">×</button>
+
+<!-- PROMPT SHEET -->
+
+<div class="overlay" id="overlay" onclick="sheetClickOut(event)">
+  <div class="sheet">
+    <div class="sh-handle"></div>
+    <div class="sh-hd">
+      <div class="sh-tw"><div class="sh-title" id="sh-title"></div><div class="sh-sub" id="sh-sub"></div></div>
+      <button class="sh-close" onclick="closeSheet()">×</button>
     </div>
-    <div class="sheet-level-tabs" id="sh-level-tabs"></div>
-    <div class="sheet-body" id="sh-body"></div>
+    <div class="sh-level-tabs" id="sh-lvl-tabs"></div>
+    <div class="sh-body" id="sh-body"></div>
   </div>
 </div>
 <div class="toast" id="toast">✓ Copied!</div>
 
 <script>
-// ── STATE ───────────────────────────────────────────────────
-let DB=[], TC_STYLE={}, TC_LYRIC={}, filters={}, filterType='style';
-let view='home', prevView='home', curArtist=null, searchQ='';
-let favs={artists:new Set(),albums:new Set(),songs:new Set()};
-let bands=[], activeBand=0;
-let savedPrompts=[];
-let genSelStyle=new Set(), genSelLyric=new Set(), genSelGenres=new Set();
-let currentSheetData=null;
+// ═══════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════
+var DB = [];
+var TC_STYLE = [];  // array of [tag, count]
+var TC_LYRIC = [];  // array of [tag, count]
+var filters = {};
+var fType = 'style';
+var view = 'home';
+var prevView = 'home';
+var curArtist = null;
+var searchQ = '';
+var favArtists = {};
+var favSongs = {};
+var bands = [];
+var activeBand = 0;
+var savedPrompts = [];
+var genStyle = {};
+var genLyric = {};
+var genGenres = {};
 
-// ── GENRE → CSS CLASS ────────────────────────────────────────
-function genreClass(g){
-  const map={'country-pop':'country','country':'country','country-soul':'country',
-    'pop-punk':'pop-punk','punk':'pop-punk','skate-punk':'pop-punk',
-    'progressive house':'edm','edm':'edm','dance-pop':'edm','melodic house':'edm','house':'edm',
-    'alternative rock':'alt','alternative':'alt','space rock':'alt','synth rock':'alt','atmospheric rock':'atmospheric',
-    'rap-metal':'rap','hip-hop':'hip-hop','funk-metal':'rock','alternative metal':'alt',
-    'folk':'folk','acoustic':'acoustic','indie pop':'alt',
-    'r&b':'rb','soul':'soul',
-    'post-punk':'alt'};
-  const k=g.toLowerCase();
-  for(const [pat,cls] of Object.entries(map)){if(k.includes(pat))return 'gt-'+cls;}
+// ═══════════════════════════════════════════════════
+// GENRE CSS CLASS
+// ═══════════════════════════════════════════════════
+function gClass(g) {
+  var s = g.toLowerCase();
+  if (s.indexOf('country') >= 0) return 'gt-country';
+  if (s.indexOf('pop-punk') >= 0 || s.indexOf('punk') >= 0 || s.indexOf('skate') >= 0) return 'gt-punk';
+  if (s.indexOf('edm') >= 0 || s.indexOf('house') >= 0 || s.indexOf('electronic') >= 0 || s.indexOf('dance') >= 0) return 'gt-edm';
+  if (s.indexOf('metal') >= 0 || s.indexOf('rap-metal') >= 0 || s.indexOf('funk-metal') >= 0) return 'gt-metal';
+  if (s.indexOf('rock') >= 0) return 'gt-rock';
+  if (s.indexOf('folk') >= 0 || s.indexOf('acoustic') >= 0) return 'gt-folk';
+  if (s.indexOf('soul') >= 0 || s.indexOf('r&b') >= 0) return 'gt-soul';
   return 'gt-alt';
 }
 
-// ── KEYWORD EXTRACTION ───────────────────────────────────────
-const STYLE_RULES={
-  'Acoustic Guitar':['acoustic guitar','strummed acoustic','acoustic '],
-  'Electric Guitar':['electric guitar','power chord','distorted guitar','palm-muted'],
-  'Pedal Steel':['pedal steel'],
-  'Piano':['piano'],
-  'Synth / Juno':['juno','synth','synthesizer','moog'],
-  'Drums':['drum machine','live drummer','drumming','punchy drum','drum groove'],
-  '808 / Bass':['808','bass guitar','bass-forward'],
-  'Banjo':['banjo'],'Strings':['strings','cello','violin','fiddle'],'Horns':['horn','brass','saxophone'],
-  'Mellotron':['mellotron'],'Hammond Organ':['hammond','organ '],'Saxophone':['saxophone'],
-  'Upbeat':['uptempo','upbeat','driving','energetic','chest-thumping','full-throttle','stadium','foot-stomping'],
-  'Ballad':['ballad','sparse','stripped','tender','slow-burn','intimate'],
-  'Mid-Tempo':['mid-tempo','warm mid-tempo','laid-back'],
-  'Driving':['driving','punchy','anthemic'],
-  'Nashville Production':['nashville','casey brown','polished nashville','clean nashville','bright nashville'],
-  '80s Influence':['80s','retro shimmer','synth shimmer','juno-6','80s pop'],
-  'R&B Groove':['r&b','soul-infused','rhythmic roots','funky','funk groove','slinky'],
-  'Festival Energy':['festival','arena','stadium','singalong','hands-in-the-air','arms-in-the-air'],
-  'Reverb / Atmospheric':['reverb','cathedral','vast reverb','reverb-soaked','atmospheric'],
-  'Layered Harmonies':['layered harmonies','layered vocals','harmony vocal','harmonies'],
-  'Male Vocal':['male vocal','male tenor','tenor','earnest male'],
-  'Female Vocal':['female vocal','female pop'],
-  'Dual Vocal':['dual vocal','two vocal','duet','two-voice','collaboration'],
-  'Earnest / Sincere':['earnest','sincere','tender','heartfelt'],
-  'Playful / Charming':['playful','charming','carefree','swagger'],
-  'Dark / Heavy':['heavy','dark','aggressive','industrial','grinding'],
-  'Organic / Live':['organic','live-band','acoustic-forward','unplugged'],
+// ═══════════════════════════════════════════════════
+// TAG EXTRACTION
+// ═══════════════════════════════════════════════════
+var SRULES = {
+  'Acoustic Guitar': ['acoustic guitar','strummed acoustic','acoustic '],
+  'Electric Guitar': ['electric guitar','power chord','distorted guitar','palm-muted'],
+  'Pedal Steel': ['pedal steel'],
+  'Piano': ['piano'],
+  'Synth': ['juno','synth','synthesizer','moog'],
+  'Drums': ['drum machine','live drummer','drum groove','punchy drum'],
+  'Bass / 808': ['808','bass guitar','bass-forward'],
+  'Banjo': ['banjo'],
+  'Strings': ['strings','cello','violin','fiddle'],
+  'Horns / Sax': ['horn','brass','saxophone'],
+  'Upbeat': ['uptempo','upbeat','driving','energetic','foot-stomping','full-throttle','stadium'],
+  'Ballad': ['ballad','sparse','stripped','tender ballad','slow-burn'],
+  'Mid-Tempo': ['mid-tempo','laid-back'],
+  'Festival / Arena': ['festival','arena','singalong','arms-in-the-air'],
+  'Nashville': ['nashville','clean nashville','polished nashville'],
+  '80s Influence': ['80s','retro shimmer','synth shimmer'],
+  'R&B / Soul': ['r&b','soul-infused','rhythmic roots','funky','slinky'],
+  'Reverb / Atmospheric': ['reverb','cathedral','vast reverb','reverb-soaked','atmospheric'],
+  'Layered Harmonies': ['layered harmonies','harmony vocal'],
+  'Male Vocal': ['male vocal','male tenor','earnest male'],
+  'Female Vocal': ['female vocal','female pop'],
+  'Dual Vocal': ['dual vocal','duet','two-voice'],
+  'Earnest': ['earnest','sincere','heartfelt'],
+  'Dark / Heavy': ['heavy','dark ','aggressive','industrial','grinding'],
+  'Organic': ['organic','live-band','acoustic-forward']
 };
 
-const LYRIC_RULES={
-  'Devotion / Love':['devotion','belonging','romantic','first-dance','joyful belonging','complete','totally'],
-  'Specific Details':['specific','sensory','particular','hyperspecific','exact detail','polaroid','snapshot'],
-  'Fatherhood':['father','daughter','son','fatherhood','dad','parent'],
-  'Small Town / Roots':['small town','hometown','rural','gravel road','raising','cornfield','tobacco'],
-  'Long-term Love':['long marriage','long-term','commitment','over and over','still love','choose'],
-  'Nostalgia':['nostalgic','nostalgia','memory','looking back','remember','younger'],
-  'Faith / Spiritual':['faith','christian','jesus','believe','spiritual','prayer'],
-  'Carefree / Summer':['carefree','summer','sun','weekend','lake','windows-down'],
-  'New Love':['fell in love','first time','early love','beginning','new love'],
-  'Vulnerability':['vulnerable','helpless','fall completely','confession'],
-  'Identity / Roots':['who you are','identity','raising','pride','roots'],
-  'Political / Protest':['political','protest','war','government','corporate','resist'],
-  'Awakening':['awakening','waking up','consciousness','realize','see clearly'],
-  'Space / Cosmic':['space','cosmos','universe','lunar','stars','apollo','orbit'],
-  'Loss / Longing':['miss','longing','absence','heartbreak','lost','empty'],
-  'Youth / Rebellion':['youth','teenage','rebellion','reckless','young'],
-  'Metaphorical':['metaphor','symbol','represents','stands for','as a metaphor'],
-  'Triumph / Resilience':['triumph','resilience','survive','overcome','made it'],
-  'Gratitude':['grateful','gratitude','thankful','blessed','appreciate'],
-  'Simple Life':['simple life','ordinary','everyday','domestic','porch','home sweet'],
+var LRULES = {
+  'Devotion / Love': ['devotion','belonging','romantic','joyful belonging'],
+  'Specific Details': ['specific','sensory','hyperspecific','snapshot','polaroid'],
+  'Fatherhood': ['father','daughter','fatherhood','dad '],
+  'Small Town / Roots': ['small town','hometown','rural','gravel road','cornfield'],
+  'Long-term Love': ['long marriage','long-term','over and over','still love'],
+  'Nostalgia': ['nostalgic','nostalgia','memory','looking back','remember'],
+  'Faith': ['faith','christian','jesus','believe','spiritual','prayer'],
+  'Carefree / Summer': ['carefree','summer ','weekend','lake ','windows-down'],
+  'Vulnerability': ['vulnerable','helpless','fall completely'],
+  'Identity': ['who you are','identity','raising','pride','roots'],
+  'Political': ['political','protest','war ','government','corporate','resist'],
+  'Awakening': ['awakening','waking up','consciousness','realize'],
+  'Space / Cosmic': ['space','cosmos','universe','lunar','stars','apollo'],
+  'Loss / Longing': ['miss ','longing','absence','heartbreak'],
+  'Youth': ['youth','teenage','rebellion','reckless','young '],
+  'Triumph': ['triumph','resilience','survive','overcome'],
+  'Gratitude': ['grateful','gratitude','thankful','appreciate'],
+  'Simple Life': ['simple life','ordinary','everyday','domestic']
 };
 
-function extractTags(song){
-  const txt=[song.style_prompt||'',song.lyric_prompt||'',song.dna||'',song.vibe||''].join(' ').toLowerCase();
-  const tags={style:[],lyric:[]};
-  for(const [l,kws] of Object.entries(STYLE_RULES)){if(kws.some(k=>txt.includes(k)))tags.style.push(l);}
-  for(const [l,kws] of Object.entries(LYRIC_RULES)){if(kws.some(k=>txt.includes(k)))tags.lyric.push(l);}
+function extractTags(song) {
+  var txt = [
+    song.style_prompt || '',
+    song.lyric_prompt || '',
+    song.dna || '',
+    song.vibe || ''
+  ].join(' ').toLowerCase();
+  var tags = { style: [], lyric: [] };
+  var k, kws, j;
+  for (k in SRULES) {
+    kws = SRULES[k];
+    for (j = 0; j < kws.length; j++) {
+      if (txt.indexOf(kws[j]) >= 0) { tags.style.push(k); break; }
+    }
+  }
+  for (k in LRULES) {
+    kws = LRULES[k];
+    for (j = 0; j < kws.length; j++) {
+      if (txt.indexOf(kws[j]) >= 0) { tags.lyric.push(k); break; }
+    }
+  }
   return tags;
 }
 
-// ── DATA LOAD ────────────────────────────────────────────────
-async function loadAll(){
-  let files;
-  try{const r=await fetch('./manifest.json?_='+Date.now());const m=await r.json();files=m.files||[];}
-  catch(e){document.getElementById('s-home').innerHTML='<div class="empty"><div class="empty-ic">⚠️</div><h3>Setup Needed</h3><p>Make sure manifest.json is in the repo folder. See SETUP_GUIDE.md.</p></div>';return;}
-  DB=[];
-  const accS={},accL={},accG={};
-  await Promise.all(files.map(async fn=>{
-    try{const r=await fetch('./'+fn+'?_='+Date.now());if(!r.ok)return;const d=await r.json();
-      (d.songs||[]).forEach(s=>{
-        s.tags=extractTags(s);
-        s.tags.style.forEach(t=>{accS[t]=(accS[t]||0)+1;});
-        s.tags.lyric.forEach(t=>{accL[t]=(accL[t]||0)+1;});
+// ═══════════════════════════════════════════════════
+// DATA LOAD
+// ═══════════════════════════════════════════════════
+function loadAll() {
+  fetch('./manifest.json?v=' + Date.now())
+    .then(function(r) {
+      if (!r.ok) throw new Error('manifest ' + r.status);
+      return r.json();
+    })
+    .then(function(m) {
+      var files = m.files || [];
+      if (!files.length) { showLoadError('manifest.json has no files listed'); return; }
+      var promises = files.map(function(fn) {
+        return fetch('./' + fn + '?v=' + Date.now())
+          .then(function(r) { return r.ok ? r.json() : null; })
+          .catch(function() { return null; });
       });
-      (d.genres||[]).forEach(g=>{accG[g]=(accG[g]||0)+1;});
-      DB.push(d);
-    }catch(e){}
-  }));
-  TC_STYLE=Object.entries(accS).sort((a,b)=>b[1]-a[1]);
-  TC_LYRIC=Object.entries(accL).sort((a,b)=>b[1]-a[1]);
-  loadStorage();
-  boot();
+      return Promise.all(promises);
+    })
+    .then(function(results) {
+      if (!results) return;
+      var accS = {}, accL = {};
+      results.forEach(function(d) {
+        if (!d) return;
+        (d.songs || []).forEach(function(s) {
+          s.tags = extractTags(s);
+          s.tags.style.forEach(function(t) { accS[t] = (accS[t] || 0) + 1; });
+          s.tags.lyric.forEach(function(t) { accL[t] = (accL[t] || 0) + 1; });
+        });
+        DB.push(d);
+      });
+      // Sort tag arrays by count descending
+      TC_STYLE = Object.keys(accS).map(function(k) { return [k, accS[k]]; })
+        .sort(function(a, b) { return b[1] - a[1]; });
+      TC_LYRIC = Object.keys(accL).map(function(k) { return [k, accL[k]]; })
+        .sort(function(a, b) { return b[1] - a[1]; });
+      loadPersisted();
+      boot();
+    })
+    .catch(function(e) {
+      showLoadError('Could not load manifest.json — check your GitHub Pages setup. Error: ' + e.message);
+    });
 }
 
-function boot(){
-  const total=DB.reduce((s,a)=>s+(a.songs||[]).length,0);
-  document.getElementById('stats-t').textContent=`${DB.length} artists · ${total} songs`;
-  document.getElementById('songs-sub').textContent=`${total} songs across ${DB.length} artists`;
-  buildHome(); buildBrowse(); buildAllSongs(); buildGen(); buildBands();
+function showLoadError(msg) {
+  document.getElementById('agrid').innerHTML =
+    '<div class="empty" style="grid-column:1/-1"><div class="empty-ic">⚠️</div>' +
+    '<h3>Setup Needed</h3><p>' + msg + '</p>' +
+    '<p style="margin-top:12px;font-family:var(--mono);font-size:10px;color:var(--grn)">Check SETUP_GUIDE.md</p></div>';
 }
 
-// ── STORAGE ──────────────────────────────────────────────────
-function loadStorage(){
-  try{
-    const sf=localStorage.getItem('suno_favs');
-    if(sf){const p=JSON.parse(sf);favs={artists:new Set(p.artists||[]),albums:new Set(p.albums||[]),songs:new Set(p.songs||[])};}
-    const sb=localStorage.getItem('suno_bands');if(sb)bands=JSON.parse(sb);
-    const sp=localStorage.getItem('suno_saved_prompts');if(sp)savedPrompts=JSON.parse(sp);
-  }catch(e){}
-  if(!bands.length){bands=[{id:'band1',name:'Band 1',logo:'',banner:'',songs:[],consistencyPrompts:[]},{id:'band2',name:'Band 2',logo:'',banner:'',songs:[],consistencyPrompts:[]},{id:'band3',name:'Band 3',logo:'',banner:'',songs:[],consistencyPrompts:[]},{id:'band4',name:'Band 4',logo:'',banner:'',songs:[],consistencyPrompts:[]},{id:'band5',name:'Band 5',logo:'',banner:'',songs:[],consistencyPrompts:[]}];}
+function boot() {
+  var total = DB.reduce(function(s, a) { return s + (a.songs || []).length; }, 0);
+  document.getElementById('stats-t').textContent = DB.length + ' artists · ' + total + ' songs';
+  document.getElementById('songs-sub').textContent = total + ' songs across ' + DB.length + ' artists';
+  buildHome();
+  buildBrowse();
+  buildAllSongs();
+  buildGen();
+  buildBands();
 }
 
-function saveFavs(){try{localStorage.setItem('suno_favs',JSON.stringify({artists:[...favs.artists],albums:[...favs.albums],songs:[...favs.songs]}));}catch(e){}}
-function saveBands(){try{localStorage.setItem('suno_bands',JSON.stringify(bands));}catch(e){}}
-function savePrompts(){try{localStorage.setItem('suno_saved_prompts',JSON.stringify(savedPrompts));}catch(e){}}
+// ═══════════════════════════════════════════════════
+// PERSISTENCE (localStorage with graceful fallback)
+// ═══════════════════════════════════════════════════
+function loadPersisted() {
+  try {
+    var sf = localStorage.getItem('sh_favs');
+    if (sf) { var p = JSON.parse(sf); favArtists = p.artists || {}; favSongs = p.songs || {}; }
+    var sb = localStorage.getItem('sh_bands');
+    if (sb) bands = JSON.parse(sb);
+    var sp = localStorage.getItem('sh_prompts');
+    if (sp) savedPrompts = JSON.parse(sp);
+  } catch(e) {}
+  if (!bands.length) {
+    bands = [1,2,3,4,5].map(function(i) {
+      return { id:'band'+i, name:'Band '+i, logo:'', banner:'', songs:[], prompts:[] };
+    });
+  }
+}
+function persist() {
+  try { localStorage.setItem('sh_favs', JSON.stringify({ artists: favArtists, songs: favSongs })); } catch(e) {}
+}
+function persistBands() { try { localStorage.setItem('sh_bands', JSON.stringify(bands)); } catch(e) {} }
+function persistPrompts() { try { localStorage.setItem('sh_prompts', JSON.stringify(savedPrompts)); } catch(e) {} }
 
-// ── HOME ─────────────────────────────────────────────────────
-function buildHome(){
-  let arts=DB;
-  if(Object.keys(filters).length)arts=arts.filter(a=>(a.songs||[]).some(s=>smf(s)));
-  const g=document.getElementById('agrid');g.innerHTML='';
-  arts.forEach(a=>{
-    const el=document.createElement('div');el.className='acard';
-    el.onclick=()=>openArtist(a.id);
-    const genres=(a.genres||[]).slice(0,2).map(g=>`<span class="genre-tag ${genreClass(g)}">${g}</span>`).join('');
-    const isFav=favs.artists.has(a.id);
-    el.innerHTML=`<style>.acard:nth-of-type(${DB.indexOf(a)+1})::before{background:${a.color||'#555'}}</style>
+// ═══════════════════════════════════════════════════
+// HOME
+// ═══════════════════════════════════════════════════
+function buildHome() {
+  var arts = filtered(DB, true);
+  var g = document.getElementById('agrid');
+  g.innerHTML = '';
+  if (!arts.length) {
+    g.innerHTML = '<div class="empty" style="grid-column:1/-1"><div class="empty-ic">🔍</div><h3>No Results</h3><p>Clear filters to see all artists.</p></div>';
+    return;
+  }
+  arts.forEach(function(a, idx) {
+    var el = document.createElement('div');
+    el.className = 'acard';
+    var color = a.color || '#555';
+    var genres = (a.genres || []).slice(0, 2).map(function(g) {
+      return '<span class="gtag ' + gClass(g) + '">' + g + '</span>';
+    }).join('');
+    var isFav = !!favArtists[a.id];
+    el.innerHTML =
+      '<style>.acard:nth-child(' + (idx+1) + ')::before{background:' + color + '}</style>' +
 
 ```
-  <button class="fav-btn${isFav?' on':''}" onclick="event.stopPropagation();toggleFavArtist('${a.id}',this)">${isFav?'★':'☆'}</button>
-  <div class="ac-era">${a.era||''} · ${(a.songs||[]).length} songs</div>
-  <div class="ac-nm">${a.name}</div>
-  <div class="ac-genres">${genres}</div>`;
+  '<button class="fav-star' + (isFav ? ' on' : '') + '" onclick="event.stopPropagation();favArtist(\'' + a.id + '\',this)">' + (isFav?'★':'☆') + '</button>' +
+  '<div class="ac-era">' + (a.era||'') + ' · ' + (a.songs||[]).length + ' songs</div>' +
+  '<div class="ac-nm">' + a.name + '</div>' +
+  '<div class="ac-genres">' + genres + '</div>';
+el.onclick = function(e) { if (!e.target.classList.contains('fav-star')) openArtist(a.id); };
 g.appendChild(el);
 ```
 
 });
-if(!arts.length)g.innerHTML=’<div class="empty" style="grid-column:1/-1"><div class="empty-ic">🔍</div><h3>No Results</h3><p>Clear filters to see all artists.</p></div>’;
 }
 
-// ── BROWSE ────────────────────────────────────────────────────
-let currentFilterType=‘style’;
-function setFilterType(t){
-currentFilterType=t;
-document.getElementById(‘ftt-style’).classList.toggle(‘on’,t===‘style’);
-document.getElementById(‘ftt-lyric’).classList.toggle(‘on’,t===‘lyric’);
-buildBrowse(document.getElementById(‘pqi’).value);
-}
-
-const STYLE_DIMS=[
-{k:‘style’,sub:‘Instruments’,ic:‘🎸’,keys:[‘Acoustic Guitar’,‘Electric Guitar’,‘Pedal Steel’,‘Piano’,‘Synth / Juno’,‘Drums’,‘808 / Bass’,‘Banjo’,‘Strings’,‘Horns’,‘Mellotron’,‘Hammond Organ’,‘Saxophone’]},
-{k:‘style’,sub:‘Tempo / Energy’,ic:‘⚡’,keys:[‘Upbeat’,‘Ballad’,‘Mid-Tempo’,‘Driving’,‘Festival Energy’]},
-{k:‘style’,sub:‘Production Style’,ic:‘🎛️’,keys:[‘Nashville Production’,‘80s Influence’,‘R&B Groove’,‘Reverb / Atmospheric’,‘Organic / Live’]},
-{k:‘style’,sub:‘Vocal Style’,ic:‘🎤’,keys:[‘Male Vocal’,‘Female Vocal’,‘Dual Vocal’,‘Earnest / Sincere’,‘Playful / Charming’,‘Dark / Heavy’,‘Layered Harmonies’]},
-];
-const LYRIC_DIMS=[
-{k:‘lyric’,sub:‘Relationship Themes’,ic:‘❤️’,keys:[‘Devotion / Love’,‘New Love’,‘Long-term Love’,‘Vulnerability’,‘Loss / Longing’,‘Fatherhood’]},
-{k:‘lyric’,sub:‘Setting & Identity’,ic:‘🌍’,keys:[‘Small Town / Roots’,‘Simple Life’,‘Nostalgia’,‘Youth / Rebellion’,‘Identity / Roots’,‘Faith / Spiritual’]},
-{k:‘lyric’,sub:‘Approach & Tone’,ic:‘✍️’,keys:[‘Specific Details’,‘Metaphorical’,‘Carefree / Summer’,‘Gratitude’,‘Political / Protest’,‘Triumph / Resilience’]},
-{k:‘lyric’,sub:‘Concept’,ic:‘💭’,keys:[‘Space / Cosmic’,‘Awakening’,‘Carefree / Summer’]},
-];
-
-function buildBrowse(ql=’’){
-const container=document.getElementById(‘filter-panels’);
-container.innerHTML=’’;
-const dims=currentFilterType===‘style’?STYLE_DIMS:LYRIC_DIMS;
-const tc=currentFilterType===‘style’?Object.fromEntries(TC_STYLE):Object.fromEntries(TC_LYRIC);
-
-dims.forEach(dim=>{
-let keys=dim.keys.filter(k=>!ql||(k.toLowerCase().includes(ql.toLowerCase()))).filter(k=>tc[k]);
-if(!keys.length)return;
-const activeTag=filters[dim.sub];const hasFilter=!!activeTag;const isOpen=hasFilter||ql.length>0;
-const panel=document.createElement(‘div’);
-panel.className=‘fdim’+(isOpen?’ open’:’’);panel.id=‘fdim-’+dim.sub.replace(/ /g,’-’);
-const badge=hasFilter?`<span class="fdim-active-badge">${activeTag}</span>`:`<span class="fdim-count">${keys.length}</span>`;
-panel.innerHTML=`<div class="fdim-hd" onclick="togglePanel('${dim.sub.replace(/ /g,'-')}')"> <span class="fdim-ic">${dim.ic}</span><span class="fdim-label">${dim.sub}</span>${badge} <span class="fdim-chevron">▾</span></div> <div class="fdim-body" id="fdim-body-${dim.sub.replace(/ /g,'-')}"> <div class="chip-row"> ${keys.map(k=>`<button class=“fp${filters[dim.sub]===k?’ on’:’’}” onclick=“togF(’${dim.sub}’,’${k.replace(/’/g,”\’”)}’)”>
-${k}<span class="fp-c">${tc[k]||0}</span></button>`).join('')} </div> ${hasFilter?`<button class="dim-clear" onclick="clearDim('${dim.sub}')">Clear ${dim.sub}</button>`:''} </div>`;
-container.appendChild(panel);
+function filtered(arts, checkSongs) {
+if (!Object.keys(filters).length) return arts;
+if (checkSongs) {
+return arts.filter(function(a) {
+return (a.songs || []).some(function(s) { return songMatches(s); });
 });
-
-let all=[];DB.forEach(a=>(a.songs||[]).forEach(s=>all.push(s)));
-const filtered=Object.keys(filters).length?all.filter(s=>smf(s)):all;
-const rc=document.getElementById(‘browse-rc’);
-rc.textContent=Object.keys(filters).length?`${filtered.length} song${filtered.length!==1?'s':''} match filters`:`${all.length} total songs — select filters to narrow`;
-rc.style.color=Object.keys(filters).length?‘var(–grn)’:‘var(–mute)’;
+}
+return arts;
 }
 
-document.getElementById(‘pqi’).addEventListener(‘input’,function(){buildBrowse(this.value);});
-function togglePanel(id){const el=document.getElementById(‘fdim-’+id);if(el)el.classList.toggle(‘open’);}
-
-// ── FILTERS ──────────────────────────────────────────────────
-function togF(cat,tag){filters[cat]===tag?delete filters[cat]:(filters[cat]=tag);onFC();}
-function clearDim(cat){delete filters[cat];onFC();}
-function clearAll(){filters={};updateFbar();buildHome();buildAllSongs();buildBrowse();if(curArtist&&view===‘artist’)openArtist(curArtist);}
-function onFC(){updateFbar();buildHome();buildAllSongs();buildBrowse(document.getElementById(‘pqi’).value);if(curArtist&&view===‘artist’)openArtist(curArtist);}
-function updateFbar(){
-const bar=document.getElementById(‘fbar’),chips=document.getElementById(‘fbar-chips’);
-const en=Object.entries(filters);chips.innerHTML=’’;
-if(!en.length){bar.classList.remove(‘on’);return;}
-bar.classList.add(‘on’);
-en.forEach(([cat,tag])=>{const c=document.createElement(‘span’);c.className=‘af’;c.innerHTML=`${tag} <span class="af-x" onclick="clearDim('${cat}')">×</span>`;chips.appendChild(c);});
-}
-function smf(s){
-for(const [cat,tag] of Object.entries(filters)){
-const t=s.tags;if(!t)return false;
-if(Array.isArray(t.style)&&t.style.includes(tag))continue;
-if(Array.isArray(t.lyric)&&t.lyric.includes(tag))continue;
-return false;
+function songMatches(s) {
+var keys = Object.keys(filters);
+if (!keys.length) return true;
+if (!s.tags) return false;
+for (var i = 0; i < keys.length; i++) {
+var tag = filters[keys[i]];
+var st = s.tags.style || [];
+var lt = s.tags.lyric || [];
+if (st.indexOf(tag) < 0 && lt.indexOf(tag) < 0) return false;
 }
 return true;
 }
 
-// ── ALL SONGS ─────────────────────────────────────────────────
-function buildAllSongs(){
-let all=[];DB.forEach(a=>(a.songs||[]).forEach((s,i)=>all.push({s,a,i})));
-if(Object.keys(filters).length)all=all.filter(({s})=>smf(s));
-document.getElementById(‘songs-sub’).textContent=`${all.length} song${all.length!==1?'s':''} ${Object.keys(filters).length?'matching filters':'total'}`;
-const el=document.getElementById(‘all-songs-list’);el.innerHTML=’’;
-all.forEach(({s,a,i},n)=>el.appendChild(makeSongRow(s,a,i,n+1,true)));
-if(!all.length)el.innerHTML=’<div class="empty"><div class="empty-ic">🎵</div><h3>No Songs Match</h3><p>Try clearing filters.</p></div>’;
+// ═══════════════════════════════════════════════════
+// BROWSE
+// ═══════════════════════════════════════════════════
+var STYLE_DIMS = [
+{ sub:‘Instruments’, ic:‘🎸’, keys:[‘Acoustic Guitar’,‘Electric Guitar’,‘Pedal Steel’,‘Piano’,‘Synth’,‘Drums’,‘Bass / 808’,‘Banjo’,‘Strings’,‘Horns / Sax’] },
+{ sub:‘Tempo & Energy’, ic:‘⚡’, keys:[‘Upbeat’,‘Ballad’,‘Mid-Tempo’,‘Festival / Arena’] },
+{ sub:‘Production’, ic:‘🎛️’, keys:[‘Nashville’,‘80s Influence’,‘R&B / Soul’,‘Reverb / Atmospheric’,‘Organic’] },
+{ sub:‘Vocal’, ic:‘🎤’, keys:[‘Male Vocal’,‘Female Vocal’,‘Dual Vocal’,‘Earnest’,‘Dark / Heavy’,‘Layered Harmonies’] }
+];
+var LYRIC_DIMS = [
+{ sub:‘Love & Relationships’, ic:‘❤️’, keys:[‘Devotion / Love’,‘Long-term Love’,‘Vulnerability’,‘Loss / Longing’,‘Fatherhood’] },
+{ sub:‘Setting & Place’, ic:‘🌍’, keys:[‘Small Town / Roots’,‘Simple Life’,‘Carefree / Summer’,‘Faith’] },
+{ sub:‘Themes’, ic:‘💭’, keys:[‘Nostalgia’,‘Youth’,‘Identity’,‘Gratitude’,‘Triumph’,‘Political’,‘Awakening’,‘Space / Cosmic’] },
+{ sub:‘Craft’, ic:‘✍️’, keys:[‘Specific Details’] }
+];
+
+function setFType(t) {
+fType = t;
+document.getElementById(‘ftt-style’).className = ‘ftt’ + (t===‘style’?’ on’:’’);
+document.getElementById(‘ftt-lyric’).className = ‘ftt’ + (t===‘lyric’?’ on’:’’);
+buildBrowse();
 }
 
-// ── ARTIST DETAIL ─────────────────────────────────────────────
-function openArtist(id){
-curArtist=id;prevView=view;showScreen(‘artist’);
-document.querySelectorAll(’.tab’).forEach(t=>t.classList.remove(‘on’));
-const a=DB.find(x=>x.id===id);if(!a)return;
-document.getElementById(‘detail-nm’).textContent=a.name;
-const favBtn=document.getElementById(‘artist-fav-btn’);
-favBtn.textContent=favs.artists.has(id)?‘★’:‘☆’;
-favBtn.style.color=favs.artists.has(id)?’#ffd700’:‘var(–mute)’;
+function buildBrowse(ql) {
+ql = ql || document.getElementById(‘pqi’).value || ‘’;
+var container = document.getElementById(‘filter-panels’);
+container.innerHTML = ‘’;
+var dims = fType === ‘style’ ? STYLE_DIMS : LYRIC_DIMS;
+var tc = {};
+(fType === ‘style’ ? TC_STYLE : TC_LYRIC).forEach(function(pair) { tc[pair[0]] = pair[1]; });
 
-let songs=a.songs||[];
-if(Object.keys(filters).length)songs=songs.filter(s=>smf(s));
-const genres=(a.genres||[]).map(g=>`<span class="genre-tag ${genreClass(g)}">${g}</span>`).join(’’);
-
-// Level prompt tabs (catalog level)
-const hasCatalogPrompts=a.catalog_style_prompt||a.catalog_lyric_prompt;
-let levelHTML=’’;
-if(hasCatalogPrompts){
-levelHTML=`<div class="level-prompts"> <div class="lp-tabs"> <button class="lp-tab on" onclick="switchLPTab(this,'lp-style-cat')">🎸 Style</button> <button class="lp-tab" onclick="switchLPTab(this,'lp-lyric-cat')">📝 Lyric</button> </div> <div class="lp-content on" id="lp-style-cat"> <div class="lp-label">Artist-wide style direction</div> <div class="lp-text">${a.catalog_style_prompt||'No catalog style prompt defined.'}</div> <button class="lp-copy" onclick="copyStr(${JSON.stringify(a.catalog_style_prompt||'')})">Copy Style Prompt</button> </div> <div class="lp-content" id="lp-lyric-cat"> <div class="lp-label">Artist-wide lyric direction</div> <div class="lp-text">${a.catalog_lyric_prompt||'No catalog lyric prompt defined.'}</div> <button class="lp-copy" onclick="copyStr(${JSON.stringify(a.catalog_lyric_prompt||'')})">Copy Lyric Prompt</button> </div> </div>`;
-}
-
-const rows=songs.map((s,i)=>makeSongRow(s,a,(a.songs||[]).indexOf(s),i+1,false));
-
-// Album section with album-level prompts
-let albsec=’’;
-if((a.albums||[]).length){
-const ar=(a.albums||[]).map((al,i)=>{
-const k=`${id}:alb:${i}`;const isFav=favs.albums.has(k);
-const el=document.createElement(‘div’);el.className=‘song-row’;
-el.innerHTML=`<span class="sr-num" style="color:${a.color||'var(--mute)'}">♦</span> <div class="sr-info"><div class="sr-title">${al.title}</div><div class="sr-meta">Album prompt${al.year?' · '+al.year:''}</div></div> <button class="sr-fav${isFav?' on':''}" onclick="event.stopPropagation();toggleFavAlbum('${k}',this)">${isFav?'★':'☆'}</button> <span class="sr-arr">›</span>`;
-el.onclick=(e)=>{if(!e.target.classList.contains(‘sr-fav’))openAlbSheet(a,i);};
-return el.outerHTML;
+dims.forEach(function(dim) {
+var keys = dim.keys.filter(function(k) {
+return (!ql || k.toLowerCase().indexOf(ql.toLowerCase()) >= 0) && tc[k];
+});
+if (!keys.length) return;
+var activeTag = filters[dim.sub];
+var hasF = !!activeTag;
+var isOpen = hasF || ql.length > 0;
+var panel = document.createElement(‘div’);
+panel.className = ‘fdim’ + (isOpen ? ’ open’ : ‘’);
+panel.id = ‘fdp-’ + dim.sub.replace(/\W/g,’_’);
+var badge = hasF
+? ‘<span class="fdim-badge">’ + activeTag + ‘</span>’
+: ‘<span class="fdim-ct">’ + keys.length + ‘</span>’;
+var pills = keys.map(function(k) {
+var on = filters[dim.sub] === k;
+return ‘<button class=“fp’ + (on?’ on’:’’) + ‘” onclick=“togFilter('’ + dim.sub + ‘','’ + k.replace(/’/g,”\’”) + ‘')”>’ +
+k + ‘<span class="fp-c">’ + (tc[k]||0) + ‘</span></button>’;
 }).join(’’);
-albsec=`<div class="alb-divider">Album Prompts</div><div id="artist-alb-rows">${ar}</div>`;
+var clearBtn = hasF ? ’<button class="dim-clear" onclick="clearDim(\'' + dim.sub + '\')">Clear ’ + dim.sub + ‘</button>’ : ‘’;
+panel.innerHTML =
+‘<div class="fdim-hd" onclick="toggleFPanel(\'' + panel.id + '\')">’ +
+‘<span class="fdim-ic">’ + dim.ic + ‘</span>’ +
+‘<span class="fdim-label">’ + dim.sub + ‘</span>’ +
+badge +
+‘<span class="fdim-chev">▾</span></div>’ +
+‘<div class="fdim-body"><div class="chip-row">’ + pills + ‘</div>’ + clearBtn + ‘</div>’;
+container.appendChild(panel);
+});
+
+var allSongs = [];
+DB.forEach(function(a) { (a.songs||[]).forEach(function(s) { allSongs.push(s); }); });
+var matched = allSongs.filter(function(s) { return songMatches(s); });
+var rc = document.getElementById(‘brc’);
+if (Object.keys(filters).length) {
+rc.textContent = matched.length + ’ song’ + (matched.length!==1?‘s’:’’) + ’ match filters’;
+rc.style.color = ‘var(–grn)’;
+} else {
+rc.textContent = allSongs.length + ’ total songs — select filters to narrow’;
+rc.style.color = ‘var(–mute)’;
+}
 }
 
-document.getElementById(‘artist-body’).innerHTML=` <div class="artist-info-block"> <div class="artist-icon" style="background:${a.color||'#666'}22;border:1px solid ${a.color||'#666'}33">🎵</div> <div class="ai-t"> <div class="ai-nm" style="color:${a.color||'var(--acc)'}">${a.name}</div> <div class="ai-era">${a.era||''} · ${(a.songs||[]).length} songs</div> <div class="ai-bio">${(a.bio||'').slice(0,220)}…</div> <div class="ai-genres">${genres}</div> </div> </div> ${a.producer_notes?`<div class="prod-note">${a.producer_notes}</div>`:''} ${levelHTML} <div id="artist-rows"></div> ${albsec}`;
+document.getElementById(‘pqi’).addEventListener(‘input’, function() { buildBrowse(this.value); });
+function toggleFPanel(id) { var el = document.getElementById(id); if (el) el.classList.toggle(‘open’); }
 
-const sl=document.getElementById(‘artist-rows’);
-rows.forEach(r=>sl.appendChild(r));
-if(!rows.length)sl.innerHTML=’<div class="empty"><p>No songs match filters.</p></div>’;
+function togFilter(cat, tag) {
+if (filters[cat] === tag) delete filters[cat]; else filters[cat] = tag;
+updateFbar(); buildHome(); buildAllSongs(); buildBrowse();
+if (curArtist && view === ‘artist’) openArtist(curArtist);
+}
+function clearDim(cat) { delete filters[cat]; togFilter.__noop = true; updateFbar(); buildHome(); buildAllSongs(); buildBrowse(); if (curArtist && view===‘artist’) openArtist(curArtist); }
+function clearAllFilters() { filters = {}; updateFbar(); buildHome(); buildAllSongs(); buildBrowse(); if (curArtist && view===‘artist’) openArtist(curArtist); }
+
+function updateFbar() {
+var bar = document.getElementById(‘fbar’);
+var chips = document.getElementById(‘fbar-chips’);
+var en = Object.keys(filters);
+chips.innerHTML = ‘’;
+if (!en.length) { bar.classList.remove(‘on’); return; }
+bar.classList.add(‘on’);
+en.forEach(function(cat) {
+var span = document.createElement(‘span’);
+span.className = ‘af’;
+span.innerHTML = filters[cat] + ’ <span class="af-x" style="cursor:pointer" onclick="clearDim(\'' + cat + '\')">×</span>’;
+chips.appendChild(span);
+});
 }
 
-function switchLPTab(btn,targetId){
-const container=btn.closest(’.level-prompts’);
-container.querySelectorAll(’.lp-tab’).forEach(t=>t.classList.remove(‘on’));
-container.querySelectorAll(’.lp-content’).forEach(c=>c.classList.remove(‘on’));
+// ═══════════════════════════════════════════════════
+// ALL SONGS
+// ═══════════════════════════════════════════════════
+function buildAllSongs() {
+var all = [];
+DB.forEach(function(a) { (a.songs||[]).forEach(function(s,i) { all.push({s:s,a:a,i:i}); }); });
+if (Object.keys(filters).length) all = all.filter(function(x) { return songMatches(x.s); });
+document.getElementById(‘songs-sub’).textContent = all.length + ’ songs ’ + (Object.keys(filters).length ? ‘matching filters’ : ‘total’);
+var el = document.getElementById(‘all-songs-list’);
+el.innerHTML = ‘’;
+all.forEach(function(x, n) { el.appendChild(makeSongRow(x.s, x.a, x.i, n+1, true)); });
+if (!all.length) el.innerHTML = ‘<div class="empty"><div class="empty-ic">🎵</div><h3>No Songs Match</h3><p>Try clearing filters.</p></div>’;
+}
+
+// ═══════════════════════════════════════════════════
+// ARTIST DETAIL
+// ═══════════════════════════════════════════════════
+function openArtist(id) {
+curArtist = id; prevView = view;
+showScreen(‘artist’);
+document.querySelectorAll(’.tab’).forEach(function(t) { t.classList.remove(‘on’); });
+var a = DB.find(function(x) { return x.id === id; });
+if (!a) return;
+document.getElementById(‘dtb-nm’).textContent = a.name;
+var afb = document.getElementById(‘a-fav-btn’);
+var isFav = !!favArtists[id];
+afb.textContent = isFav ? ‘★’ : ‘☆’;
+afb.style.color = isFav ? ‘#ffd700’ : ‘var(–mute)’;
+
+var songs = a.songs || [];
+if (Object.keys(filters).length) songs = songs.filter(function(s) { return songMatches(s); });
+
+var genres = (a.genres||[]).map(function(g) {
+return ‘<span class="gtag ' + gClass(g) + '">’ + g + ‘</span>’;
+}).join(’’);
+
+// Level strip (catalog prompts)
+var lvl = ‘’;
+if (a.catalog_style_prompt || a.catalog_lyric_prompt) {
+lvl = ‘<div class="lvl-strip">’ +
+‘<div class="lvl-tabs">’ +
+‘<button class="lvl-tab on" onclick="switchLvl(this,\'lv-s-'+id+'\')">🎸 Artist Style</button>’ +
+‘<button class="lvl-tab" onclick="switchLvl(this,\'lv-l-'+id+'\')">📝 Artist Lyric</button>’ +
+‘</div>’ +
+‘<div class="lvl-body on" id="lv-s-'+id+'">’ +
+‘<div class="lvl-label">Artist-wide style direction</div>’ +
+‘<div class="lvl-text">’ + (a.catalog_style_prompt||’’) + ‘</div>’ +
+‘<button class="lvl-copy" onclick="copyStr(' + JSON.stringify(a.catalog_style_prompt||'') + ')">Copy Style Prompt</button>’ +
+‘</div>’ +
+‘<div class="lvl-body" id="lv-l-'+id+'">’ +
+‘<div class="lvl-label">Artist-wide lyric direction</div>’ +
+‘<div class="lvl-text">’ + (a.catalog_lyric_prompt||’’) + ‘</div>’ +
+‘<button class="lvl-copy" onclick="copyStr(' + JSON.stringify(a.catalog_lyric_prompt||'') + ')">Copy Lyric Prompt</button>’ +
+‘</div>’ +
+‘</div>’;
+}
+
+var body = document.getElementById(‘artist-body’);
+body.innerHTML =
+‘<div class="aib">’ +
+‘<div class="a-icon" style="background:' + (a.color||'#666') + '22;border:1px solid ' + (a.color||'#666') + '33">🎵</div>’ +
+‘<div class="a-t">’ +
+‘<div class="a-nm" style="color:' + (a.color||'var(--acc)') + '">’ + a.name + ‘</div>’ +
+‘<div class="a-era">’ + (a.era||’’) + ’ · ’ + (a.songs||[]).length + ’ songs</div>’ +
+‘<div class="a-bio">’ + ((a.bio||’’).slice(0,220)) + ‘</div>’ +
+‘<div class="a-genres">’ + genres + ‘</div>’ +
+‘</div></div>’ +
+(a.producer_notes ? ‘<div class="pnote">’ + a.producer_notes + ‘</div>’ : ‘’) +
+lvl +
+‘<div id="artist-songs"></div>’ +
+‘<div id="artist-albums"></div>’;
+
+var sl = document.getElementById(‘artist-songs’);
+songs.forEach(function(s, n) {
+var realIdx = (a.songs||[]).indexOf(s);
+sl.appendChild(makeSongRow(s, a, realIdx, n+1, false));
+});
+if (!songs.length) sl.innerHTML = ‘<div class="empty"><p>No songs match filters.</p></div>’;
+
+// Album prompts
+if ((a.albums||[]).length) {
+var al = document.getElementById(‘artist-albums’);
+al.innerHTML = ‘<div class="alb-divider">Album Prompts</div>’;
+a.albums.forEach(function(alb, i) {
+var row = document.createElement(‘div’);
+row.className = ‘song-row’;
+row.innerHTML =
+‘<span class="sr-num" style="color:' + (a.color||'var(--mute)') + '">♦</span>’ +
+‘<div class="sr-info"><div class="sr-title">’ + alb.title + ‘</div>’ +
+‘<div class="sr-meta">Album prompt’ + (alb.year?’ · ‘+alb.year:’’) + ‘</div></div>’ +
+‘<span class="sr-arr">›</span>’;
+row.onclick = function() { openAlbSheet(a, i); };
+al.appendChild(row);
+});
+}
+}
+
+function switchLvl(btn, targetId) {
+var strip = btn.closest(’.lvl-strip’);
+strip.querySelectorAll(’.lvl-tab’).forEach(function(t) { t.classList.remove(‘on’); });
+strip.querySelectorAll(’.lvl-body’).forEach(function(c) { c.classList.remove(‘on’); });
 btn.classList.add(‘on’);
-document.getElementById(targetId)?.classList.add(‘on’);
+var el = document.getElementById(targetId);
+if (el) el.classList.add(‘on’);
 }
 
-function toggleArtistFav(){
-if(!curArtist)return;
-if(favs.artists.has(curArtist))favs.artists.delete(curArtist);
-else favs.artists.add(curArtist);
-saveFavs();
-const btn=document.getElementById(‘artist-fav-btn’);
-btn.textContent=favs.artists.has(curArtist)?‘★’:‘☆’;
-btn.style.color=favs.artists.has(curArtist)?’#ffd700’:‘var(–mute)’;
+function toggleArtistFav() {
+if (!curArtist) return;
+if (favArtists[curArtist]) delete favArtists[curArtist]; else favArtists[curArtist] = 1;
+persist();
+var afb = document.getElementById(‘a-fav-btn’);
+var on = !!favArtists[curArtist];
+afb.textContent = on ? ‘★’ : ‘☆’;
+afb.style.color = on ? ‘#ffd700’ : ‘var(–mute)’;
 buildHome();
 }
-
-function toggleFavArtist(id,btn){
-if(favs.artists.has(id))favs.artists.delete(id);else favs.artists.add(id);
-btn.textContent=favs.artists.has(id)?‘★’:‘☆’;
-btn.classList.toggle(‘on’,favs.artists.has(id));
-saveFavs();buildFavs();
-}
-function toggleFavAlbum(k,btn){
-if(favs.albums.has(k))favs.albums.delete(k);else favs.albums.add(k);
-btn.textContent=favs.albums.has(k)?‘★’:‘☆’;
-btn.classList.toggle(‘on’,favs.albums.has(k));
-saveFavs();buildFavs();
-}
-function toggleFavSong(k,btn){
-if(favs.songs.has(k))favs.songs.delete(k);else favs.songs.add(k);
-btn.textContent=favs.songs.has(k)?‘★’:‘☆’;
-btn.classList.toggle(‘on’,favs.songs.has(k));
-saveFavs();buildFavs();
+function favArtist(id, btn) {
+if (favArtists[id]) delete favArtists[id]; else favArtists[id] = 1;
+persist(); buildHome(); buildFavs();
 }
 
-function makeSongRow(s,a,idx,num,showArtist){
-const el=document.createElement(‘div’);el.className=‘song-row’;
-const styl=s.tags?.style?.[0]?`<span class="stg stg-b">${s.tags.style[0]}</span>`:’’;
-const lyric=s.tags?.lyric?.[0]?`<span class="stg stg-m">${s.tags.lyric[0]}</span>`:’’;
-const sub=showArtist?`${a.name} · ${s.album||''}${s.year?' · '+s.year:''}`:`${s.album||''}${s.year?' · '+s.year:''} · ${s.vibe?.split(' · ')[0]||''}`;
-const fk=`${a.id}:${idx}`;const isFav=favs.songs.has(fk);
-el.innerHTML=`<span class="sr-num" style="color:${a.color||'var(--mute)'}">${String(num).padStart(2,'0')}</span> <div class="sr-info"><div class="sr-title">${s.title}</div><div class="sr-meta">${sub}</div></div> <div class="sr-right">${styl}${lyric}</div> <button class="sr-fav${isFav?' on':''}" onclick="event.stopPropagation();toggleFavSong('${fk}',this)">${isFav?'★':'☆'}</button> <span class="sr-arr">›</span>`;
-el.onclick=(e)=>{if(!e.target.classList.contains(‘sr-fav’))openSongSheet(s,a,idx);};
+function makeSongRow(s, a, idx, num, showArtist) {
+var el = document.createElement(‘div’);
+el.className = ‘song-row’;
+var stag = (s.tags&&s.tags.style&&s.tags.style[0]) ? ‘<span class="stg stg-s">’ + s.tags.style[0] + ‘</span>’ : ‘’;
+var ltag = (s.tags&&s.tags.lyric&&s.tags.lyric[0]) ? ‘<span class="stg stg-l">’ + s.tags.lyric[0] + ‘</span>’ : ‘’;
+var sub = showArtist
+? (a.name + ’ · ’ + (s.album||’’) + (s.year?’ · ‘+s.year:’’))
+: ((s.album||’’) + (s.year?’ · ‘+s.year:’’));
+var fk = a.id + ‘:’ + idx;
+var isFav = !!favSongs[fk];
+el.innerHTML =
+‘<span class="sr-num" style="color:' + (a.color||'var(--mute)') + '">’ + String(num).padStart(2,‘0’) + ‘</span>’ +
+‘<div class="sr-info"><div class="sr-title">’ + s.title + ‘</div><div class="sr-meta">’ + sub + ‘</div></div>’ +
+‘<div class="sr-right">’ + stag + ltag + ‘</div>’ +
+‘<button class="sr-fav' + (isFav?' on':'') + '" onclick="event.stopPropagation();favSong(\'' + fk + '\',this)">’ + (isFav?‘★’:‘☆’) + ‘</button>’ +
+‘<span class="sr-arr">›</span>’;
+el.onclick = function(e) { if (!e.target.classList.contains(‘sr-fav’)) openSongSheet(s, a, idx); };
 return el;
 }
 
-// ── SONG SHEET ────────────────────────────────────────────────
-function openSongSheet(s,a,idx){
-currentSheetData={s,a,idx,type:‘song’};
-document.getElementById(‘sh-title’).textContent=s.title;
-document.getElementById(‘sh-sub’).textContent=`${a.name} · ${s.album||''}${s.year?' · '+s.year:''}`;
-
-const color=a.color||‘var(–grn)’;
-
-// Build level tabs: Song | Album | Artist
-const albumIdx=a.albums?.findIndex(al=>al.title===s.album)??-1;
-const album=albumIdx>=0?a.albums[albumIdx]:null;
-
-let tabs=’<button class="slt on" onclick="switchSheetLevel(this,0)">Song</button>’;
-if(album)tabs+=’<button class="slt" onclick="switchSheetLevel(this,1)">Album</button>’;
-tabs+=’<button class="slt" onclick="switchSheetLevel(this,2)">Artist</button>’;
-document.getElementById(‘sh-level-tabs’).innerHTML=tabs;
-
-const fk=`${a.id}:${idx}`;const isFav=favs.songs.has(fk);
-const tagPills=buildSheetTags(s.tags,color);
-const dna=s.dna?`<div class="sheet-dna"><div class="dna-label">Sonic DNA</div><div class="dna-text">${s.dna}</div></div>`:’’;
-const id0=rid();const id1=rid();
-const songContent=`<div class="sheet-tags">${tagPills}</div> ${dna} ${buildPB(id0,'Style Prompt','→ Suno Style field',s.style_prompt,color)} ${buildPB(id1,'Lyric Generation Prompt','→ Suno Lyrics field → Generate',s.lyric_prompt,color)} <div style="padding:0 0 8px;text-align:center"> <button class="sr-fav${isFav?' on':''}" style="font-size:18px;padding:6px 10px" onclick="toggleFavSong('${fk}',this)">${isFav?'★':'☆'} Favorite</button> </div>`;
-
-let albumContent=’<div style="padding:20px;text-align:center;color:var(--mute);font-size:11px;font-family:var(--mono)">No album prompt defined</div>’;
-if(album){
-const ia0=rid();const ia1=rid();
-albumContent=buildPB(ia0,‘Album Style Prompt’,‘→ Suno Style field’,album.style_prompt,color)+
-buildPB(ia1,‘Album Lyric Prompt’,‘→ Suno Lyrics field → Generate’,album.lyric_prompt,color);
+function favSong(fk, btn) {
+if (favSongs[fk]) delete favSongs[fk]; else favSongs[fk] = 1;
+btn.textContent = favSongs[fk] ? ‘★’ : ‘☆’;
+btn.classList.toggle(‘on’, !!favSongs[fk]);
+persist(); buildFavs();
 }
 
-const ic0=rid();const ic1=rid();
-const artistContent=`<div style="padding:12px 0 0">
-${buildPB(ic0,‘Artist Style Direction’,‘→ Reflects overall catalog sound’,a.catalog_style_prompt||a.bio||’’,color)}
-${buildPB(ic1,‘Artist Lyric Direction’,‘→ Reflects overall lyric themes’,a.catalog_lyric_prompt||’’,color)}
+// ═══════════════════════════════════════════════════
+// SONG SHEET — 3 LEVELS
+// ═══════════════════════════════════════════════════
+function openSongSheet(s, a, idx) {
+document.getElementById(‘sh-title’).textContent = s.title;
+document.getElementById(‘sh-sub’).textContent = a.name + ’ · ’ + (s.album||’’) + (s.year?’ · ‘+s.year:’’);
+var color = a.color || ‘var(–grn)’;
 
-  </div>`;
+// Find matching album prompt
+var album = null;
+if (a.albums) {
+album = a.albums.find(function(al) { return al.title === s.album; }) || null;
+}
 
-document.getElementById(‘sh-body’).innerHTML=` <div class="sheet-level-content on" id="slc-0">${songContent}</div> <div class="sheet-level-content" id="slc-1">${albumContent}</div> <div class="sheet-level-content" id="slc-2">${artistContent}</div>`;
+// Build level tabs
+var tabHtml = ‘<button class="slt on" onclick="switchShLvl(this,\'slc-0\')">Song</button>’;
+if (album) tabHtml += ‘<button class="slt" onclick="switchShLvl(this,\'slc-1\')">Album</button>’;
+tabHtml += ‘<button class="slt" onclick="switchShLvl(this,\'slc-2\')">Artist</button>’;
+document.getElementById(‘sh-lvl-tabs’).innerHTML = tabHtml;
+
+// Tags
+var tagHtml = ‘’;
+if (s.tags) {
+(s.tags.style||[]).forEach(function(v) {
+tagHtml += ‘<span class="sht" style="background:rgba(0,180,216,.1);color:#6dd4de;border:1px solid rgba(0,180,216,.2)">’ + v + ‘</span>’;
+});
+(s.tags.lyric||[]).forEach(function(v) {
+tagHtml += ‘<span class="sht" style="background:rgba(155,89,182,.1);color:#c4a0ff;border:1px solid rgba(155,89,182,.2)">’ + v + ‘</span>’;
+});
+}
+
+var id0 = ‘p’ + Math.random().toString(36).slice(2);
+var id1 = ‘p’ + Math.random().toString(36).slice(2);
+var fk = a.id + ‘:’ + idx;
+var isFav = !!favSongs[fk];
+
+var songHtml =
+(tagHtml ? ‘<div class="sh-tags">’ + tagHtml + ‘</div>’ : ‘’) +
+(s.dna ? ‘<div class="sh-dna"><div class="dna-lbl">Sonic DNA</div><div class="dna-txt">’ + s.dna + ‘</div></div>’ : ‘’) +
+buildPBHtml(id0, ‘Style Prompt’, ‘→ Suno Style field’, s.style_prompt, color) +
+buildPBHtml(id1, ‘Lyric Generation Prompt’, ‘→ Suno Lyrics → Generate’, s.lyric_prompt, color) +
+‘<div style="text-align:center;padding:8px 0 14px">’ +
+‘<button class="sr-fav' + (isFav?' on':'') + '" style="font-size:18px;padding:6px 12px;border:1px solid var(--border);border-radius:8px;background:var(--surf)" onclick="favSong(\'' + fk + '\',this)">’ + (isFav?‘★’:‘☆’) + ’ Favorite</button>’ +
+‘</div>’;
+
+var albumHtml = ‘<div style="padding:16px;color:var(--mute);font-size:11px;font-family:var(--mono);text-align:center">No album prompt defined</div>’;
+if (album) {
+var ia = ‘p’ + Math.random().toString(36).slice(2);
+var ib = ‘p’ + Math.random().toString(36).slice(2);
+albumHtml = buildPBHtml(ia, ‘Album Style Prompt’, ‘→ Suno Style field’, album.style_prompt, color) +
+buildPBHtml(ib, ‘Album Lyric Prompt’, ‘→ Suno Lyrics → Generate’, album.lyric_prompt, color);
+}
+
+var ic = ‘p’ + Math.random().toString(36).slice(2);
+var id2 = ‘p’ + Math.random().toString(36).slice(2);
+var artistHtml =
+buildPBHtml(ic, ‘Artist Style Direction’, ‘→ Overall catalog sound’, a.catalog_style_prompt || a.bio || ‘’, color) +
+buildPBHtml(id2, ‘Artist Lyric Direction’, ‘→ Overall lyric themes’, a.catalog_lyric_prompt || ‘’, color);
+
+document.getElementById(‘sh-body’).innerHTML =
+‘<div class="slc on" id="slc-0">’ + songHtml + ‘</div>’ +
+‘<div class="slc" id="slc-1">’ + albumHtml + ‘</div>’ +
+‘<div class="slc" id="slc-2">’ + artistHtml + ‘</div>’;
 
 openSheet();
 }
 
-function switchSheetLevel(btn,idx){
-document.querySelectorAll(’.slt’).forEach(b=>b.classList.remove(‘on’));
-document.querySelectorAll(’.sheet-level-content’).forEach(c=>c.classList.remove(‘on’));
+function openAlbSheet(a, idx) {
+var alb = (a.albums||[])[idx];
+if (!alb) return;
+document.getElementById(‘sh-title’).textContent = alb.title;
+document.getElementById(‘sh-sub’).textContent = a.name + ’ · Album Prompt’ + (alb.year?’ · ‘+alb.year:’’);
+document.getElementById(‘sh-lvl-tabs’).innerHTML = ‘<button class="slt on">Album</button>’;
+var id0 = ‘p’ + Math.random().toString(36).slice(2);
+var id1 = ‘p’ + Math.random().toString(36).slice(2);
+document.getElementById(‘sh-body’).innerHTML =
+‘<div class="slc on" id="slc-0">’ +
+buildPBHtml(id0,‘Album Style Prompt’,‘→ Suno Style field’,alb.style_prompt,a.color||‘var(–grn)’) +
+buildPBHtml(id1,‘Album Lyric Prompt’,‘→ Suno Lyrics → Generate’,alb.lyric_prompt,a.color||‘var(–grn)’) +
+‘</div>’;
+openSheet();
+}
+
+function switchShLvl(btn, targetId) {
+document.querySelectorAll(’.slt’).forEach(function(b) { b.classList.remove(‘on’); });
+document.querySelectorAll(’.slc’).forEach(function(c) { c.classList.remove(‘on’); });
 btn.classList.add(‘on’);
-document.getElementById(‘slc-’+idx)?.classList.add(‘on’);
+var el = document.getElementById(targetId);
+if (el) el.classList.add(‘on’);
 }
 
-function openAlbSheet(a,idx){
-const al=(a.albums||[])[idx];if(!al)return;
-document.getElementById(‘sh-title’).textContent=al.title;
-document.getElementById(‘sh-sub’).textContent=`${a.name} · Album Prompt${al.year?' · '+al.year:''}`;
-document.getElementById(‘sh-level-tabs’).innerHTML=’<button class="slt on">Album</button>’;
-const id0=rid(),id1=rid();
-document.getElementById(‘sh-body’).innerHTML=`<div class="sheet-level-content on" id="slc-0">
-${buildPB(id0,‘Album Style Prompt’,‘→ Suno Style field’,al.style_prompt,a.color||‘var(–grn)’)}
-${buildPB(id1,‘Album Lyric Prompt’,‘→ Suno Lyrics field → Generate’,al.lyric_prompt,a.color||‘var(–grn)’)}
-
-  </div>`;
-  openSheet();
+function buildPBHtml(id, label, hint, text, color) {
+if (!text) return ‘’;
+return ‘<div class="pb">’ +
+‘<div class="pb-label" style="color:' + color + '">’ + label + ‘<span class="pb-hint">’ + hint + ‘</span></div>’ +
+‘<div class="pb-box">’ +
+‘<div class="pb-txt" id="' + id + '">’ + text + ‘</div>’ +
+‘<button class="cp-btn" onclick="copyById(\'' + id + '\')">⎘ Copy</button>’ +
+‘</div></div>’;
 }
 
-function buildPB(id,label,hint,text,color){
-if(!text)return’’;
-return `<div class="pb">
-<div class="pb-label" style="color:${color}">${label}<span class="pb-hint">${hint}</span></div>
-<div class="pb-box"><div class="pb-text" id="${id}">${text}</div>
-<button class="copy-btn" onclick="copyText('${id}')"><span>⎘</span> Copy</button></div>
-
-  </div>`;
+function openSheet() {
+document.getElementById(‘overlay’).classList.add(‘on’);
+setTimeout(function() { document.getElementById(‘sh-body’).scrollTop = 0; }, 50);
 }
+function closeSheet() { document.getElementById(‘overlay’).classList.remove(‘on’); }
+function sheetClickOut(e) { if (e.target === document.getElementById(‘overlay’)) closeSheet(); }
 
-function buildSheetTags(tags,color){
-if(!tags)return’’;
-let h=’’;
-(tags.style||[]).forEach(v=>{h+=`<span class="sht" style="background:rgba(0,180,216,.1);color:#6dd4de;border:1px solid rgba(0,180,216,.2)" onclick="togF('Style',${JSON.stringify(v)});closeSheet();goTab('songs')">${v}</span>`;});
-(tags.lyric||[]).forEach(v=>{h+=`<span class="sht" style="background:rgba(155,89,182,.1);color:#c4a0ff;border:1px solid rgba(155,89,182,.2)" onclick="togF('Lyric',${JSON.stringify(v)});closeSheet();goTab('songs')">${v}</span>`;});
-return h;
+// ═══════════════════════════════════════════════════
+// FAVORITES
+// ═══════════════════════════════════════════════════
+function buildFavs() {
+var el = document.getElementById(‘favs-body’);
+el.innerHTML = ‘’;
+var anyArtist = Object.keys(favArtists).length > 0;
+var anySong = Object.keys(favSongs).length > 0;
+if (!anyArtist && !anySong) {
+el.innerHTML = ‘<div class="empty-favs"><div class="eic">★</div><h3>No Favorites Yet</h3><p>Tap ☆ on any artist or song to save it here.</p></div>’;
+return;
 }
-
-function openSheet(){document.getElementById(‘overlay’).classList.add(‘on’);setTimeout(()=>{document.getElementById(‘sh-body’).scrollTop=0;},50);}
-function closeSheet(){document.getElementById(‘overlay’).classList.remove(‘on’);}
-function sheetOut(e){if(e.target===document.getElementById(‘overlay’))closeSheet();}
-function rid(){return’pb’+Math.random().toString(36).slice(2,8);}
-
-// ── FAVORITES ─────────────────────────────────────────────────
-function buildFavs(){
-const el=document.getElementById(‘favs-body’);el.innerHTML=’’;
-let hasAny=false;
-
-if(favs.artists.size){
-hasAny=true;
-const sec=document.createElement(‘div’);
-sec.innerHTML=’<div class="favs-section-label">Artists</div>’;
-favs.artists.forEach(id=>{
-const a=DB.find(x=>x.id===id);if(!a)return;
-const row=document.createElement(‘div’);row.className=‘song-row’;
-row.innerHTML=`<span style="width:8px;height:8px;border-radius:50%;background:${a.color||'#666'};flex-shrink:0"></span> <div class="sr-info"><div class="sr-title">${a.name}</div><div class="sr-meta">${(a.songs||[]).length} songs · ${(a.genres||[]).join(', ')}</div></div> <button class="sr-fav on" onclick="event.stopPropagation();toggleFavArtist('${id}',this)">★</button> <span class="sr-arr">›</span>`;
-row.onclick=(e)=>{if(!e.target.classList.contains(‘sr-fav’))openArtist(id);};
-sec.appendChild(row);
+if (anyArtist) {
+var aLbl = document.createElement(‘div’);
+aLbl.className = ‘sg-lbl’; aLbl.textContent = ‘Artists’;
+el.appendChild(aLbl);
+Object.keys(favArtists).forEach(function(id) {
+var a = DB.find(function(x) { return x.id === id; });
+if (!a) return;
+var row = document.createElement(‘div’); row.className = ‘song-row’;
+row.innerHTML = ‘<span style="width:8px;height:8px;border-radius:50%;background:' + (a.color||'#666') + ';flex-shrink:0"></span>’ +
+‘<div class="sr-info"><div class="sr-title">’ + a.name + ‘</div><div class="sr-meta">’ + (a.songs||[]).length + ’ songs</div></div>’ +
+‘<button class="sr-fav on" onclick="event.stopPropagation();favArtist(\'' + id + '\',this)">★</button>’ +
+‘<span class="sr-arr">›</span>’;
+row.onclick = function(e) { if (!e.target.classList.contains(‘sr-fav’)) openArtist(id); };
+el.appendChild(row);
 });
-el.appendChild(sec);
 }
-
-if(favs.songs.size){
-hasAny=true;
-const sec=document.createElement(‘div’);
-sec.innerHTML=’<div class="favs-section-label">Songs</div>’;
-favs.songs.forEach(k=>{
-const [aid,idx]=k.split(’:’);const a=DB.find(x=>x.id===aid);
-const s=(a?.songs||[])[parseInt(idx)];if(!s)return;
-const row=document.createElement(‘div’);row.className=‘song-row’;
-row.innerHTML=`<span style="width:8px;height:8px;border-radius:50%;background:${a.color||'#666'};flex-shrink:0"></span> <div class="sr-info"><div class="sr-title">${s.title}</div><div class="sr-meta">${a.name} · ${s.album||''}</div></div> <button class="sr-fav on" onclick="event.stopPropagation();toggleFavSong('${k}',this)">★</button> <span class="sr-arr">›</span>`;
-row.onclick=(e)=>{if(!e.target.classList.contains(‘sr-fav’))openSongSheet(s,a,parseInt(idx));};
-sec.appendChild(row);
+if (anySong) {
+var sLbl = document.createElement(‘div’);
+sLbl.className = ‘sg-lbl’; sLbl.textContent = ‘Songs’;
+el.appendChild(sLbl);
+Object.keys(favSongs).forEach(function(fk) {
+var parts = fk.split(’:’);
+var aid = parts[0], idx = parseInt(parts[1]);
+var a = DB.find(function(x) { return x.id === aid; });
+var s = a ? (a.songs||[])[idx] : null;
+if (!s) return;
+var row = document.createElement(‘div’); row.className = ‘song-row’;
+row.innerHTML = ‘<span style="width:8px;height:8px;border-radius:50%;background:' + (a.color||'#666') + ';flex-shrink:0"></span>’ +
+‘<div class="sr-info"><div class="sr-title">’ + s.title + ‘</div><div class="sr-meta">’ + a.name + ’ · ’ + (s.album||’’) + ‘</div></div>’ +
+‘<button class="sr-fav on" onclick="event.stopPropagation();favSong(\'' + fk + '\',this)">★</button>’ +
+‘<span class="sr-arr">›</span>’;
+row.onclick = function(e) { if (!e.target.classList.contains(‘sr-fav’)) openSongSheet(s, a, idx); };
+el.appendChild(row);
 });
-el.appendChild(sec);
-}
-
-if(!hasAny){
-el.innerHTML=’<div class="empty-favs"><div class="eic">★</div><h3>No Favorites Yet</h3><p>Tap ☆ on any artist, album, or song to save it here.</p></div>’;
 }
 }
 
-// ── PROMPT GENERATOR ──────────────────────────────────────────
-function buildGen(){
-const el=document.getElementById(‘gen-body’);
-const genreList=[…new Set(DB.flatMap(a=>a.genres||[]))].sort();
-const stylePills=TC_STYLE.slice(0,30).map(([tag,ct])=>`<button class="gen-tp${genSelStyle.has(tag)?' on':''}" onclick="toggleGenKw('style','${tag.replace(/'/g,"\\'")}',this)">${tag}<span class="gen-tp-c">${ct}</span></button>`).join(’’);
-const lyricPills=TC_LYRIC.slice(0,30).map(([tag,ct])=>`<button class="gen-tp${genSelLyric.has(tag)?' on':''}" onclick="toggleGenKw('lyric','${tag.replace(/'/g,"\\'")}',this)">${tag}<span class="gen-tp-c">${ct}</span></button>`).join(’’);
+// ═══════════════════════════════════════════════════
+// PROMPT GENERATOR
+// ═══════════════════════════════════════════════════
+function buildGen() {
+var el = document.getElementById(‘gen-body’);
+var allGenres = [];
+var seen = {};
+DB.forEach(function(a) { (a.genres||[]).forEach(function(g) { if (!seen[g]) { seen[g]=1; allGenres.push(g); } }); });
+allGenres.sort();
 
-const savedHTML=savedPrompts.length?savedPrompts.map((p,i)=>` <div class="saved-prompt-item"> <div class="sp-meta"><span>${p.ts}</span><span style="color:${p.genres?.join?','||''}">${(p.genres||[]).join(' · ')}</span></div> <div class="sp-label">Style</div><div class="sp-preview">${p.style||'—'}</div> <div class="sp-label" style="margin-top:5px">Lyric</div><div class="sp-preview">${p.lyric||'—'}</div> <div class="sp-actions"> <button class="sp-btn" onclick="loadSavedPrompt(${i})">Load</button> <button class="sp-btn" onclick="copyStr(${JSON.stringify(p.style||'')})">Copy Style</button> <button class="sp-btn" onclick="copyStr(${JSON.stringify(p.lyric||'')})">Copy Lyric</button> <button class="sp-btn" onclick="deleteSavedPrompt(${i})" style="color:#ff4757;border-color:#ff4757">Delete</button> </div> </div>`).join(’’):’<div style="padding:12px;color:var(--mute);font-size:11px;font-family:var(--mono)">No saved prompts yet</div>’;
-
-el.innerHTML=` <div class="gen-section"> <div class="gen-sec-hd"><span>🎵</span>Genre Focus (optional)</div> <div class="gen-sec-body"><div class="gen-tag-cloud">${genreList.map(g=>`<button class=“gen-tp${genSelGenres.has(g)?’ on’:’’}” onclick=“toggleGenKw(‘genre’,’${g.replace(/’/g,”\’”)}’,this)”>${g}</button>`).join('')}</div></div> </div> <div class="gen-section"> <div class="gen-sec-hd"><span>🎸</span>Style Keywords</div> <div class="gen-sec-body"><div class="gen-tag-cloud">${stylePills}</div></div> </div> <div class="gen-section"> <div class="gen-sec-hd"><span>📝</span>Lyric Keywords</div> <div class="gen-sec-body"><div class="gen-tag-cloud">${lyricPills}</div></div> </div> <button class="gen-generate-btn" id="gen-btn" onclick="generatePrompts()">✦ Generate Prompts</button> <div class="gen-result-box"> <div class="gen-result-label">Style Prompt</div> <div class="gen-result-text placeholder" id="gen-style-out">Select keywords above, then tap Generate</div> <div class="gen-copy-row"> <button class="gen-copy-btn" onclick="copyEl('gen-style-out')">Copy Style</button> <button class="gen-save-btn" onclick="saveCurrentPrompt()">Save ↓</button> </div> </div> <div class="gen-result-box"> <div class="gen-result-label">Lyric Prompt</div> <div class="gen-result-text placeholder" id="gen-lyric-out">Select keywords above, then tap Generate</div> <div class="gen-copy-row"> <button class="gen-copy-btn" onclick="copyEl('gen-lyric-out')">Copy Lyric</button> </div> </div> <div class="saved-prompts-section"> <div class="gen-result-label" style="padding:0 0 8px;letter-spacing:2px;font-size:9px;text-transform:uppercase;font-family:var(--mono);color:var(--mute)">Saved Prompts</div> ${savedHTML} </div>`;
+function makePills(items, selObj, type) {
+return items.map(function(item) {
+var tag = Array.isArray(item) ? item[0] : item;
+var ct = Array.isArray(item) ? item[1] : null;
+var on = !!selObj[tag];
+return ‘<button class=“gtp’ + (on?’ on’:’’) + ‘” onclick=“toggleGenSel('’ + type + ‘',this,'’ + tag.replace(/’/g,”\’”) + ‘')”>’ +
+tag + (ct !== null ? ‘<span class="gtp-c">’ + ct + ‘</span>’ : ‘’) +
+‘</button>’;
+}).join(’’);
 }
 
-function toggleGenKw(type,tag,btn){
-const set=type===‘style’?genSelStyle:type===‘lyric’?genSelLyric:genSelGenres;
-set.has(tag)?set.delete(tag):set.add(tag);
-btn.classList.toggle(‘on’,set.has(tag));
+var savedHtml = ‘’;
+if (savedPrompts.length) {
+savedHtml = savedPrompts.map(function(p, i) {
+return ‘<div class="sp-item">’ +
+‘<div class="sp-ts">’ + p.ts + ‘</div>’ +
+‘<div class="sp-lbl">Style</div><div class="sp-prev">’ + (p.style||’’) + ‘</div>’ +
+‘<div class="sp-lbl">Lyric</div><div class="sp-prev">’ + (p.lyric||’’) + ‘</div>’ +
+‘<div class="sp-acts">’ +
+‘<button class="sp-btn" onclick="loadGenPrompt(' + i + ')">Load</button>’ +
+‘<button class="sp-btn" onclick="copyStr(' + JSON.stringify(p.style||'') + ')">Copy Style</button>’ +
+‘<button class="sp-btn" onclick="copyStr(' + JSON.stringify(p.lyric||'') + ')">Copy Lyric</button>’ +
+‘<button class="sp-btn del" onclick="delGenPrompt(' + i + ')">Delete</button>’ +
+‘</div></div>’;
+}).join(’’);
 }
 
-async function generatePrompts(){
-const btn=document.getElementById(‘gen-btn’);
-const styleOut=document.getElementById(‘gen-style-out’);
-const lyricOut=document.getElementById(‘gen-lyric-out’);
-if(!genSelStyle.size&&!genSelLyric.size&&!genSelGenres.size){showToast(‘Select some keywords first’);return;}
-btn.classList.add(‘loading’);btn.textContent=‘Generating…’;
-styleOut.textContent=‘Generating…’;styleOut.classList.remove(‘placeholder’);
-lyricOut.textContent=‘Generating…’;lyricOut.classList.remove(‘placeholder’);
-
-const styleKws=[…genSelStyle].join(’, ‘);
-const lyricKws=[…genSelLyric].join(’, ‘);
-const genres=[…genSelGenres].join(’, ’);
-
-const styleSystemPrompt=`You are a Suno AI music prompt expert. Generate a concise, creative style prompt (150-300 characters) for Suno's Style field. The prompt should describe instruments, vocal style, production approach, and energy — NOT specific song names or artist names. Use natural music production language. Be specific about sounds, not generic.`;
-const lyricSystemPrompt=`You are a creative music lyric brief writer. Generate a lyric generation brief (100-250 words) for Suno's Lyrics field. This is a CREATIVE BRIEF telling Suno what to write lyrics about — NOT the lyrics themselves. Describe the emotional concept, narrator perspective, lyric tone, and thematic content. Leave room for creative interpretation — don't over-specify.`;
-
-const styleUserPrompt=`Create a Suno style prompt using these characteristics: ${genres?'Genres: '+genres:''} ${styleKws?'Style elements: '+styleKws:''} Make it sound professional and specific. 150-300 characters. No artist names.`;
-
-const lyricUserPrompt=`Create a lyric generation brief using these characteristics: ${genres?'Genres: '+genres:''} ${lyricKws?'Lyric themes: '+lyricKws:''} ${styleKws?'Sonic context: '+styleKws:''} Write a creative brief (100-200 words) describing what the song should be about, the emotional tone, and how it should feel. Do not write actual lyrics. Leave creative room for interpretation.`;
-
-try{
-const [sRes,lRes]=await Promise.all([
-callClaude(styleSystemPrompt,styleUserPrompt),
-callClaude(lyricSystemPrompt,lyricUserPrompt)
-]);
-styleOut.textContent=sRes;styleOut.classList.remove(‘placeholder’);
-lyricOut.textContent=lRes;lyricOut.classList.remove(‘placeholder’);
-}catch(e){
-// Fallback: build from keywords directly
-const fallbackStyle=[…genSelGenres,…genSelStyle].join(’, ’)||‘Contemporary music style’;
-const fallbackLyric=`Write a song that captures the essence of: ${[...genSelLyric].join(', ')||'authentic human emotion'}. The tone should reflect the sonic world of ${[...genSelGenres].join(', ')||'contemporary music'}. Focus on genuine emotional expression with specific imagery and honest storytelling.`;
-styleOut.textContent=fallbackStyle;styleOut.classList.remove(‘placeholder’);
-lyricOut.textContent=fallbackLyric;lyricOut.classList.remove(‘placeholder’);
-}
-btn.classList.remove(‘loading’);btn.textContent=‘✦ Generate Prompts’;
+el.innerHTML =
+‘<div class="gen-sec"><div class="gen-sec-hd"><span class="ic">🎵</span>Genre (optional)</div>’ +
+‘<div class="gen-sec-body"><div class="gen-tc">’ + makePills(allGenres, genGenres, ‘genre’) + ‘</div></div></div>’ +
+‘<div class="gen-sec"><div class="gen-sec-hd"><span class="ic">🎸</span>Style Keywords</div>’ +
+‘<div class="gen-sec-body"><div class="gen-tc">’ + makePills(TC_STYLE.slice(0,28), genStyle, ‘style’) + ‘</div></div></div>’ +
+‘<div class="gen-sec"><div class="gen-sec-hd"><span class="ic">📝</span>Lyric Keywords</div>’ +
+‘<div class="gen-sec-body"><div class="gen-tc">’ + makePills(TC_LYRIC.slice(0,28), genLyric, ‘lyric’) + ‘</div></div></div>’ +
+‘<button class="gen-go" id="gen-go" onclick="runGenerator()">✦ Generate Prompts</button>’ +
+‘<div class="gen-out"><div class="gen-out-lbl">Style Prompt</div>’ +
+‘<div class="gen-out-txt ph" id="gen-style-out">Select keywords above, then tap Generate</div>’ +
+‘<div class="gen-btn-row"><button class="gen-cp" onclick="copyById(\'gen-style-out\')">Copy Style</button>’ +
+‘<button class="gen-sv" onclick="saveGenPrompt()">Save ↓</button></div></div>’ +
+‘<div class="gen-out"><div class="gen-out-lbl">Lyric Prompt</div>’ +
+‘<div class="gen-out-txt ph" id="gen-lyric-out">Select keywords above, then tap Generate</div>’ +
+‘<div class="gen-btn-row"><button class="gen-cp" onclick="copyById(\'gen-lyric-out\')">Copy Lyric</button></div></div>’ +
+(savedPrompts.length ? ‘<div class="saved-lbl">Saved Prompts</div>’ + savedHtml : ‘’) +
+‘<div style="height:24px"></div>’;
 }
 
-async function callClaude(system,user){
-const r=await fetch(‘https://api.anthropic.com/v1/messages’,{
-method:‘POST’,headers:{‘Content-Type’:‘application/json’},
-body:JSON.stringify({model:‘claude-sonnet-4-20250514’,max_tokens:1000,system,messages:[{role:‘user’,content:user}]})
+function toggleGenSel(type, btn, tag) {
+var obj = type===‘style’ ? genStyle : type===‘lyric’ ? genLyric : genGenres;
+if (obj[tag]) delete obj[tag]; else obj[tag] = 1;
+btn.classList.toggle(‘on’, !!obj[tag]);
+}
+
+function runGenerator() {
+var sKeys = Object.keys(genStyle);
+var lKeys = Object.keys(genLyric);
+var gKeys = Object.keys(genGenres);
+if (!sKeys.length && !lKeys.length && !gKeys.length) { toast(‘Select some keywords first’); return; }
+
+var btn = document.getElementById(‘gen-go’);
+btn.textContent = ‘Generating…’;
+
+var stylePrompt = (gKeys.length ? gKeys.join(’, ‘) + ’ — ’ : ‘’) +
+(sKeys.length ? sKeys.join(’, ’) : ‘contemporary music style’);
+var lyricPrompt = ‘Write a song with the following characteristics:\n’ +
+(gKeys.length ? ‘Genre: ’ + gKeys.join(’, ’) + ‘\n’ : ‘’) +
+(lKeys.length ? ‘Themes: ’ + lKeys.join(’, ’) + ‘\n’ : ‘’) +
+(sKeys.length ? ‘Sonic context: ’ + sKeys.join(’, ’) + ‘\n’ : ‘’) +
+‘\nFocus on genuine emotional expression with specific imagery. Leave room for creative interpretation.’;
+
+// Try Claude API, fall back to keyword concatenation
+var sysStyle = ‘You are a Suno AI music prompt expert. Create a concise style prompt (150-250 characters) for Suno's Style field. Describe instruments, vocal style, production approach and energy. No artist names. Use natural music language. Be specific.’;
+var sysLyric = ‘You are a creative music brief writer. Create a lyric generation brief (100-200 words) for Suno's Lyrics field — a creative brief NOT actual lyrics. Describe emotional concept, narrator perspective, and thematic content. Leave creative room.’;
+var userStyle = ‘Create a Suno style prompt for: ’ + (gKeys.length?‘Genres: ‘+gKeys.join(’, ‘)+’. ‘:’’) + (sKeys.length?‘Style: ‘+sKeys.join(’, ‘)+’.’:’’);
+var userLyric = ‘Create a lyric brief for: ’ + (gKeys.length?‘Genres: ‘+gKeys.join(’, ‘)+’. ‘:’’) + (lKeys.length?‘Themes: ‘+lKeys.join(’, ‘)+’. ‘:’’) + (sKeys.length?‘Sonic context: ‘+sKeys.join(’, ‘)+’.’:’’);
+
+Promise.all([callClaude(sysStyle, userStyle), callClaude(sysLyric, userLyric)])
+.then(function(res) {
+setGenOut(res[0], res[1]);
+btn.textContent = ‘✦ Generate Prompts’;
+})
+.catch(function() {
+setGenOut(stylePrompt, lyricPrompt);
+btn.textContent = ‘✦ Generate Prompts’;
 });
-const d=await r.json();
-return(d.content||[]).map(c=>c.text||’’).join(’’).trim();
 }
 
-function saveCurrentPrompt(){
-const s=document.getElementById(‘gen-style-out’)?.textContent;
-const l=document.getElementById(‘gen-lyric-out’)?.textContent;
-if(!s||s.includes(‘Select keywords’))return;
-savedPrompts.unshift({ts:new Date().toLocaleString(),genres:[…genSelGenres],styleKws:[…genSelStyle],lyricKws:[…genSelLyric],style:s,lyric:l});
-if(savedPrompts.length>20)savedPrompts.pop();
-savePrompts();buildGen();showToast(‘Prompt saved!’);
+function setGenOut(s, l) {
+var se = document.getElementById(‘gen-style-out’);
+var le = document.getElementById(‘gen-lyric-out’);
+if (se) { se.textContent = s; se.classList.remove(‘ph’); }
+if (le) { le.textContent = l; le.classList.remove(‘ph’); }
 }
 
-function loadSavedPrompt(i){
-const p=savedPrompts[i];
-genSelGenres=new Set(p.genres||[]);genSelStyle=new Set(p.styleKws||[]);genSelLyric=new Set(p.lyricKws||[]);
+function saveGenPrompt() {
+var se = document.getElementById(‘gen-style-out’);
+var le = document.getElementById(‘gen-lyric-out’);
+if (!se || se.classList.contains(‘ph’)) { toast(‘Generate a prompt first’); return; }
+savedPrompts.unshift({
+ts: new Date().toLocaleString(),
+genres: Object.keys(genGenres),
+style: se.textContent,
+lyric: le ? le.textContent : ‘’
+});
+if (savedPrompts.length > 15) savedPrompts.pop();
+persistPrompts();
 buildGen();
-setTimeout(()=>{
-const so=document.getElementById(‘gen-style-out’);const lo=document.getElementById(‘gen-lyric-out’);
-if(so){so.textContent=p.style;so.classList.remove(‘placeholder’);}
-if(lo){lo.textContent=p.lyric;lo.classList.remove(‘placeholder’);}
-},100);
-}
-function deleteSavedPrompt(i){savedPrompts.splice(i,1);savePrompts();buildGen();}
-function copyEl(id){const el=document.getElementById(id);if(el)copyStr(el.textContent);}
-
-// ── MY BANDS ──────────────────────────────────────────────────
-function buildBands(){
-const el=document.getElementById(‘bands-body’);
-const tabsHTML=bands.map((b,i)=>`<button class="band-tab${i===activeBand?' on':''}" onclick="switchBand(${i})"> ${b.logo?`<img src="${b.logo}" alt="">`:'🎸'} ${b.name||'Band '+(i+1)} </button>`).join(’’)+`<button class="add-band-tab" onclick="addBand()">+</button>`;
-
-const band=bands[activeBand];
-const songsHTML=band.songs.length?band.songs.map((s,i)=>`<div class="band-song-item" style="position:relative">
-<div class="bsi-title">${s.title}</div>
-<div class="bsi-style">${s.style||’’}</div>
-<button class="bsi-del" onclick="deleteBandSong(${i})">×</button>
-
-  </div>`).join(''):'<div style="color:var(--mute);font-size:11px;font-family:var(--mono);padding:8px 0">No songs yet — add one below</div>';
-
-const consistencyResults=band.consistencyPrompts?.map((cp,i)=>`<div class="consistency-result">
-<div class="cr-ts">${cp.ts}</div>
-<div class="cr-label">Style Consistency Prompt</div>
-<div class="cr-text">${cp.style}</div>
-<div class="cr-label">Lyric Consistency Prompt</div>
-<div class="cr-text">${cp.lyric}</div>
-<div style="display:flex;gap:7px">
-<button class="cr-copy" onclick="copyStr(${JSON.stringify(cp.style)})">Copy Style</button>
-<button class="cr-copy" onclick="copyStr(${JSON.stringify(cp.lyric)})">Copy Lyric</button>
-</div>
-
-  </div>`).join('')||'';
-
-el.innerHTML=`<div class="band-tabs">${tabsHTML}</div> <div class="band-content on"> <div class="band-banner" onclick="uploadBandBanner()"> ${band.banner?`<img src="${band.banner}" alt="">`:'+ Upload Banner'} <input type="file" id="banner-input" accept="image/*" style="display:none" onchange="handleBannerUpload(event)"> </div> <div class="band-info-row"> <div class="band-logo-upload" onclick="uploadBandLogo()"> ${band.logo?`<img src="${band.logo}" alt="">`:'Logo'} <input type="file" id="logo-input" accept="image/*" style="display:none" onchange="handleLogoUpload(event)"> </div> <input class="band-name-input" type="text" placeholder="Band Name" value="${band.name||''}" oninput="updateBandName(this.value)"> </div> <div class="band-songs-list">${songsHTML}</div> <button class="consistency-btn" onclick="generateConsistency()">✦ Generate Consistency Prompt</button> ${consistencyResults?`<div style="margin-bottom:12px">${consistencyResults}</div>`:''} <div class="add-song-form"> <div class="add-song-title">Add Song</div> <div class="form-field"><label class="form-label">Song Name</label><input class="form-input" id="new-song-title" placeholder="My New Song"></div> <div class="form-field"><label class="form-label">Style Notes</label><input class="form-input" id="new-song-style" placeholder="Country-pop, uptempo, acoustic guitar…"></div> <div class="form-field"><label class="form-label">Lyric / Theme Notes</label><textarea class="form-input form-textarea" id="new-song-lyrics" placeholder="What the song is about, emotional tone, themes…"></textarea></div> <button class="form-submit" onclick="addBandSong()">+ Add Song</button> </div> </div>`;
+toast(‘Prompt saved!’);
 }
 
-function switchBand(i){activeBand=i;buildBands();}
-function addBand(){bands.push({id:‘band’+(bands.length+1),name:‘Band ‘+(bands.length+1),logo:’’,banner:’’,songs:[],consistencyPrompts:[]});activeBand=bands.length-1;saveBands();buildBands();}
-function updateBandName(v){bands[activeBand].name=v;saveBands();}
-function addBandSong(){
-const t=document.getElementById(‘new-song-title’)?.value.trim();if(!t)return;
-const s=document.getElementById(‘new-song-style’)?.value.trim();
-const l=document.getElementById(‘new-song-lyrics’)?.value.trim();
-bands[activeBand].songs.push({title:t,style:s,lyrics:l,added:new Date().toISOString()});
-saveBands();buildBands();showToast(‘Song added!’);
-}
-function deleteBandSong(i){bands[activeBand].songs.splice(i,1);saveBands();buildBands();}
-function uploadBandLogo(){document.getElementById(‘logo-input’)?.click();}
-function uploadBandBanner(){document.getElementById(‘banner-input’)?.click();}
-function handleLogoUpload(e){
-const f=e.target.files[0];if(!f)return;
-const r=new FileReader();r.onload=ev=>{bands[activeBand].logo=ev.target.result;saveBands();buildBands();};r.readAsDataURL(f);
-}
-function handleBannerUpload(e){
-const f=e.target.files[0];if(!f)return;
-const r=new FileReader();r.onload=ev=>{bands[activeBand].banner=ev.target.result;saveBands();buildBands();};r.readAsDataURL(f);
+function loadGenPrompt(i) {
+var p = savedPrompts[i];
+genGenres = {};
+(p.genres||[]).forEach(function(g) { genGenres[g] = 1; });
+buildGen();
+setTimeout(function() {
+setGenOut(p.style, p.lyric);
+}, 100);
 }
 
-async function generateConsistency(){
-const band=bands[activeBand];
-if(!band.songs.length){showToast(‘Add some songs first’);return;}
-const btn=document.querySelector(’.consistency-btn’);
-if(btn){btn.textContent=‘Generating…’;}
-
-const songSummary=band.songs.map((s,i)=>`${i+1}. "${s.title}"\n   Style: ${s.style||'not specified'}\n   Theme: ${s.lyrics||'not specified'}`).join(’\n\n’);
-
-const systemPrompt=`You are a music production consultant helping an artist maintain consistency across their releases. Based on the songs provided, generate two concise prompts for Suno AI that capture the defining characteristics of this artist's sound and lyrical identity.`;
-const userPrompt=`Here are the songs for “${band.name}”:
-
-${songSummary}
-
-Based on these songs, create:
-
-1. A STYLE CONSISTENCY PROMPT (150-250 characters): Describing the sonic signature of this artist — instruments, production approach, vocal style, energy. Use for Suno’s Style field.
-1. A LYRIC CONSISTENCY PROMPT (100-200 words): Describing the lyrical world of this artist — recurring themes, emotional register, storytelling approach, what makes their lyrics distinctive. Use as a creative brief for Suno’s Lyrics field.
-
-Format exactly as:
-STYLE: [your style prompt here]
-
-LYRIC: [your lyric prompt here]`;
-
-try{
-const response=await callClaude(systemPrompt,userPrompt);
-const styleMatch=response.match(/STYLE:\s*([\s\S]+?)(?=LYRIC:|$)/i);
-const lyricMatch=response.match(/LYRIC:\s*([\s\S]+)/i);
-const stylePrompt=styleMatch?styleMatch[1].trim():’’;
-const lyricPrompt=lyricMatch?lyricMatch[1].trim():’’;
-if(!band.consistencyPrompts)band.consistencyPrompts=[];
-band.consistencyPrompts.unshift({ts:new Date().toLocaleString(),style:stylePrompt,lyric:lyricPrompt,songs:band.songs.map(s=>s.title)});
-if(band.consistencyPrompts.length>5)band.consistencyPrompts.pop();
-saveBands();buildBands();showToast(‘Consistency prompt generated!’);
-}catch(e){showToast(‘Generation failed — check connection’);if(btn)btn.textContent=‘✦ Generate Consistency Prompt’;}
+function delGenPrompt(i) {
+savedPrompts.splice(i, 1);
+persistPrompts();
+buildGen();
 }
 
-// ── SEARCH ────────────────────────────────────────────────────
-document.getElementById(‘qi’).addEventListener(‘input’,function(){
-searchQ=this.value.trim();
-if(!searchQ){if(view===‘search’)goTab(prevView||‘home’);return;}
+function callClaude(sys, user) {
+return fetch(‘https://api.anthropic.com/v1/messages’, {
+method: ‘POST’,
+headers: { ‘Content-Type’: ‘application/json’ },
+body: JSON.stringify({
+model: ‘claude-sonnet-4-20250514’,
+max_tokens: 1000,
+system: sys,
+messages: [{ role: ‘user’, content: user }]
+})
+}).then(function(r) { return r.json(); })
+.then(function(d) {
+return (d.content||[]).map(function(c) { return c.text||’’; }).join(’’).trim();
+});
+}
+
+// ═══════════════════════════════════════════════════
+// MY BANDS
+// ═══════════════════════════════════════════════════
+function buildBands() {
+var el = document.getElementById(‘bands-body’);
+var band = bands[activeBand] || bands[0];
+
+var tabs = bands.map(function(b, i) {
+return ‘<button class="btab' + (i===activeBand?' on':'') + '" onclick="switchBand(' + i + ')">’ +
+(b.logo ? ‘<img src="' + b.logo + '" alt="">’ : ‘🎸’) +
+’ ’ + (b.name||‘Band ‘+(i+1)) +
+‘</button>’;
+}).join(’’) + ‘<button class="add-btab" onclick="addBand()">+</button>’;
+
+var songs = band.songs || [];
+var songsHtml = songs.length ? songs.map(function(s, i) {
+return ‘<div class="b-song">’ +
+‘<div class="b-song-t">’ + s.title + ‘</div>’ +
+‘<div class="b-song-s">’ + (s.style||’’) + ‘</div>’ +
+‘<button class="b-song-del" onclick="delBandSong(' + i + ')">×</button>’ +
+‘</div>’;
+}).join(’’) : ‘<div style="color:var(--mute);font-size:11px;font-family:var(--mono);padding:6px 0">No songs yet — add one below</div>’;
+
+var cps = (band.prompts||[]).map(function(cp, i) {
+return ‘<div class="cr">’ +
+‘<div class="cr-ts">’ + cp.ts + ‘</div>’ +
+‘<div class="cr-lbl">Style Consistency</div>’ +
+‘<div class="cr-txt">’ + cp.style + ‘</div>’ +
+‘<div class="cr-lbl">Lyric Consistency</div>’ +
+‘<div class="cr-txt">’ + cp.lyric + ‘</div>’ +
+‘<div style="display:flex;gap:7px">’ +
+‘<button class="cr-cp" onclick="copyStr(' + JSON.stringify(cp.style) + ')">Copy Style</button>’ +
+‘<button class="cr-cp" onclick="copyStr(' + JSON.stringify(cp.lyric) + ')">Copy Lyric</button>’ +
+‘</div></div>’;
+}).join(’’);
+
+el.innerHTML =
+‘<div class="band-tabs">’ + tabs + ‘</div>’ +
+‘<div class="band-cnt on">’ +
+‘<div class="band-banner" onclick="trigBanner()">’ +
+(band.banner ? ‘<img src="' + band.banner + '" alt="">’ : ‘+ Upload Band Banner’) +
+‘<input type="file" id="b-banner-in" accept="image/*" style="display:none" onchange="handleBanner(event)">’ +
+‘</div>’ +
+‘<div class="b-info-row">’ +
+‘<div class="b-logo" onclick="trigLogo()">’ +
+(band.logo ? ‘<img src="' + band.logo + '" alt="">’ : ‘Logo’) +
+‘<input type="file" id="b-logo-in" accept="image/*" style="display:none" onchange="handleLogo(event)">’ +
+‘</div>’ +
+‘<input class="b-name" type="text" placeholder="Band Name" value="' + (band.name||'') + '" oninput="updBandName(this.value)">’ +
+‘</div>’ +
+‘<div id="b-songs-list">’ + songsHtml + ‘</div>’ +
+‘<button class="cons-btn" onclick="genConsistency()">✦ Generate Consistency Prompt</button>’ +
+(cps ? ‘<div>’ + cps + ‘</div>’ : ‘’) +
+‘<div class="add-form">’ +
+‘<div class="add-form-t">Add Song</div>’ +
+‘<div class="ff"><label>Song Name</label><input class="fi" id="ns-title" placeholder="My New Song"></div>’ +
+‘<div class="ff"><label>Style Notes</label><input class="fi" id="ns-style" placeholder="Country-pop, uptempo, acoustic guitar…"></div>’ +
+‘<div class="ff"><label>Theme / Lyrics Notes</label><textarea class="fi ta" id="ns-lyrics" placeholder="What the song is about, emotional tone…"></textarea></div>’ +
+‘<button class="ff-submit" onclick="addBandSong()">+ Add Song</button>’ +
+‘</div></div>’;
+}
+
+function switchBand(i) { activeBand = i; buildBands(); }
+function addBand() {
+bands.push({ id:‘band’+(bands.length+1), name:‘Band ‘+(bands.length+1), logo:’’, banner:’’, songs:[], prompts:[] });
+activeBand = bands.length - 1;
+persistBands(); buildBands();
+}
+function updBandName(v) { bands[activeBand].name = v; persistBands(); }
+function addBandSong() {
+var t = (document.getElementById(‘ns-title’)||{}).value;
+if (!t || !t.trim()) { toast(‘Enter a song name’); return; }
+var s = (document.getElementById(‘ns-style’)||{}).value || ‘’;
+var l = (document.getElementById(‘ns-lyrics’)||{}).value || ‘’;
+bands[activeBand].songs.push({ title:t.trim(), style:s, lyrics:l, added:new Date().toISOString() });
+persistBands(); buildBands(); toast(‘Song added!’);
+}
+function delBandSong(i) { bands[activeBand].songs.splice(i,1); persistBands(); buildBands(); }
+function trigBanner() { var el = document.getElementById(‘b-banner-in’); if (el) el.click(); }
+function trigLogo()   { var el = document.getElementById(‘b-logo-in’);   if (el) el.click(); }
+function handleBanner(e) {
+var f = e.target.files[0]; if (!f) return;
+var r = new FileReader();
+r.onload = function(ev) { bands[activeBand].banner = ev.target.result; persistBands(); buildBands(); };
+r.readAsDataURL(f);
+}
+function handleLogo(e) {
+var f = e.target.files[0]; if (!f) return;
+var r = new FileReader();
+r.onload = function(ev) { bands[activeBand].logo = ev.target.result; persistBands(); buildBands(); };
+r.readAsDataURL(f);
+}
+
+function genConsistency() {
+var band = bands[activeBand];
+if (!band.songs || !band.songs.length) { toast(‘Add some songs first’); return; }
+var btn = document.querySelector(’.cons-btn’);
+if (btn) btn.textContent = ‘Generating…’;
+
+var summary = band.songs.map(function(s, i) {
+return (i+1) + ‘. “’ + s.title + ‘”\n   Style: ’ + (s.style||‘not specified’) + ‘\n   Theme: ’ + (s.lyrics||‘not specified’);
+}).join(’\n\n’);
+
+var sys = ‘You are a music production consultant. Analyze these songs and create two concise prompts that capture the defining characteristics of this artist's sound and lyrical identity. Format exactly as:\nSTYLE: [style prompt here]\n\nLYRIC: [lyric brief here]’;
+var user = ‘Band: “’ + band.name + ‘”\n\nSongs:\n’ + summary + ‘\n\nCreate:\n1. STYLE: A 150-250 character style prompt capturing the sonic signature (instruments, production, vocal style, energy)\n2. LYRIC: A 100-200 word lyric brief describing recurring themes, emotional register, and storytelling approach’;
+
+callClaude(sys, user)
+.then(function(response) {
+var styleM = response.match(/STYLE:\s*([\s\S]+?)(?:\n\nLYRIC:|$)/i);
+var lyricM = response.match(/LYRIC:\s*([\s\S]+)/i);
+var sp = styleM ? styleM[1].trim() : ‘Style prompt could not be generated’;
+var lp = lyricM ? lyricM[1].trim() : ‘Lyric prompt could not be generated’;
+if (!band.prompts) band.prompts = [];
+band.prompts.unshift({ ts: new Date().toLocaleString(), style: sp, lyric: lp });
+if (band.prompts.length > 5) band.prompts.pop();
+persistBands(); buildBands(); toast(‘Consistency prompt saved!’);
+})
+.catch(function() {
+toast(‘API unavailable — check internet connection’);
+if (btn) btn.textContent = ‘✦ Generate Consistency Prompt’;
+});
+}
+
+// ═══════════════════════════════════════════════════
+// SEARCH
+// ═══════════════════════════════════════════════════
+document.getElementById(‘qi’).addEventListener(‘input’, function() {
+searchQ = this.value.trim();
+if (!searchQ) { if (view===‘search’) goTab(prevView||‘home’); return; }
 doSearch(searchQ);
 });
-function clearSearch(){document.getElementById(‘qi’).value=’’;searchQ=’’;if(view===‘search’)goTab(‘home’);}
-
-function doSearch(q){
-showScreen(‘search’);document.querySelectorAll(’.tab’).forEach(t=>t.classList.remove(‘on’));
-const ql=q.toLowerCase(),arts=[],songs=[];
-DB.forEach(a=>{
-if((a.name+’ ‘+(a.bio||’’)+’ ‘+(a.genres||[]).join(’ ‘)).toLowerCase().includes(ql))arts.push(a);
-(a.songs||[]).forEach((s,i)=>{
-const txt=[s.title,s.album,s.vibe,s.dna,s.style_prompt,s.lyric_prompt,…(s.tags?.style||[]),…(s.tags?.lyric||[])].join(’ ‘).toLowerCase();
-if(txt.includes(ql)){
-const full=(s.style_prompt+’ ‘+s.lyric_prompt).toLowerCase();
-const mi=full.indexOf(ql);let mx=’’;
-if(mi>=0){const st=Math.max(0,mi-22),en=Math.min(full.length,mi+ql.length+40);
-mx=’…’+full.slice(st,en).replace(new RegExp(q.replace(/[.*+?^${}()|[]\]/g,’\$&’),‘gi’),m=>`<b style="color:var(--grn)">${m}</b>`)+’…’;}
-songs.push({a,s,i,mx});
+function clearSearch() {
+document.getElementById(‘qi’).value = ‘’;
+searchQ = ‘’;
+if (view===‘search’) goTab(‘home’);
+}
+function doSearch(q) {
+showScreen(‘search’);
+document.querySelectorAll(’.tab’).forEach(function(t) { t.classList.remove(‘on’); });
+var ql = q.toLowerCase(), arts = [], songs = [];
+DB.forEach(function(a) {
+var atxt = (a.name+’ ‘+(a.bio||’’)+’ ‘+(a.genres||[]).join(’ ‘)).toLowerCase();
+if (atxt.indexOf(ql) >= 0) arts.push(a);
+(a.songs||[]).forEach(function(s, i) {
+var stxt = [s.title,s.album,s.vibe,s.dna,s.style_prompt,s.lyric_prompt,
+(s.tags&&s.tags.style||[]).join(’ ‘),(s.tags&&s.tags.lyric||[]).join(’ ‘)].join(’ ‘).toLowerCase();
+if (stxt.indexOf(ql) >= 0) {
+var full = ((s.style_prompt||’’)+’ ‘+(s.lyric_prompt||’’)).toLowerCase();
+var mi = full.indexOf(ql); var mx = ‘’;
+if (mi >= 0) {
+var st = Math.max(0,mi-22), en = Math.min(full.length,mi+ql.length+38);
+mx = ‘…’ + full.slice(st,en).replace(new RegExp(q.replace(/[.*+?^${}()|[]\]/g,’\$&’),‘gi’),
+function(m) { return ‘<b style="color:var(--grn)">’ + m + ‘</b>’; }) + ‘…’;
+}
+songs.push({a:a,s:s,i:i,mx:mx});
 }
 });
 });
-const ah=arts.map(a=>`<div class="sres" onclick="openArtist('${a.id}')"> <span class="sres-dot" style="background:${a.color||'#666'}"></span> <div class="sres-c"><div class="sres-title">${a.name}</div><div class="sres-sub">${(a.genres||[]).slice(0,2).join(' · ')} · ${(a.songs||[]).length} songs</div></div> <span class="sr-arr">›</span></div>`).join(’’);
-const sh=songs.map(({a,s,i,mx})=>`<div class="sres" onclick="openSongSheet(DB.find(x=>x.id==='${a.id}').songs[${i}],DB.find(x=>x.id==='${a.id}'),${i})"> <span class="sres-dot" style="background:${a.color||'#666'}"></span> <div class="sres-c"><div class="sres-title">${s.title}</div><div class="sres-sub">${a.name} · ${s.album||''}</div> ${mx?`<div class="sres-match">${mx}</div>`:''}</div> <span class="sr-arr">›</span></div>`).join(’’);
-const tot=arts.length+songs.length;
-document.getElementById(‘search-body’).innerHTML=` ${arts.length?`<div class="sg-label">Artists (${arts.length})</div>${ah}`:''} ${songs.length?`<div class="sg-label">Songs (${songs.length})</div>${sh}`:''} ${tot===0?'<div class="empty" style="padding-top:40px"><div class="empty-ic">🔍</div><h3>No Results</h3><p>Try moods, instruments, or any word from the prompts.</p></div>':''}`;
+var ah = arts.map(function(a) {
+return ‘<div class="sres" onclick="openArtist(\'' + a.id + '\')">’ +
+‘<span class="sres-dot" style="background:' + (a.color||'#666') + '"></span>’ +
+‘<div class="sres-c"><div class="sres-tt">’ + a.name + ‘</div>’ +
+‘<div class="sres-sb">’ + (a.genres||[]).slice(0,2).join(’ · ‘) + ’ · ’ + (a.songs||[]).length + ’ songs</div></div>’ +
+‘<span class="sr-arr">›</span></div>’;
+}).join(’’);
+var sh = songs.map(function(x) {
+return ‘<div class="sres" onclick="openSongSheet(DB.find(function(d){return d.id===\'' + x.a.id + '\'}).songs[' + x.i + '],DB.find(function(d){return d.id===\'' + x.a.id + '\'}),'+x.i+')">’ +
+‘<span class="sres-dot" style="background:' + (x.a.color||'#666') + '"></span>’ +
+‘<div class="sres-c"><div class="sres-tt">’ + x.s.title + ‘</div>’ +
+‘<div class="sres-sb">’ + x.a.name + ’ · ’ + (x.s.album||’’) + ‘</div>’ +
+(x.mx?’<div class="sres-mx">’+x.mx+’</div>’:’’) + ‘</div>’ +
+‘<span class="sr-arr">›</span></div>’;
+}).join(’’);
+var tot = arts.length + songs.length;
+document.getElementById(‘search-body’).innerHTML =
+(arts.length ? ‘<div class="sg-lbl">Artists (’ + arts.length + ‘)</div>’ + ah : ‘’) +
+(songs.length ? ‘<div class="sg-lbl">Songs (’ + songs.length + ‘)</div>’ + sh : ‘’) +
+(tot===0 ? ‘<div class="empty" style="padding-top:40px"><div class="empty-ic">🔍</div><h3>No Results</h3><p>Try moods, instruments, or any word from the prompts.</p></div>’ : ‘’);
 }
 
-// ── NAVIGATION ────────────────────────────────────────────────
-function showScreen(id){
-document.querySelectorAll(’.screen’).forEach(s=>s.classList.remove(‘on’));
-document.getElementById(‘s-’+id).classList.add(‘on’);
-document.getElementById(‘content’).scrollTop=0;
-view=id;
+// ═══════════════════════════════════════════════════
+// NAVIGATION
+// ═══════════════════════════════════════════════════
+function showScreen(id) {
+document.querySelectorAll(’.screen’).forEach(function(s) { s.classList.remove(‘on’); });
+var el = document.getElementById(‘s-’ + id);
+if (el) el.classList.add(‘on’);
+document.getElementById(‘content’).scrollTop = 0;
+view = id;
 }
-function goTab(tab){
-prevView=view;
-document.querySelectorAll(’.tab’).forEach(t=>t.classList.remove(‘on’));
-document.getElementById(‘tab-’+tab)?.classList.add(‘on’);
-const map={home:‘home’,browse:‘browse’,songs:‘songs’,gen:‘gen’,favs:‘favs’,bands:‘bands’};
-showScreen(map[tab]||tab);
-if(tab===‘favs’)buildFavs();
-if(tab===‘gen’)buildGen();
-if(tab===‘bands’)buildBands();
+function goTab(tab) {
+prevView = view;
+document.querySelectorAll(’.tab’).forEach(function(t) { t.classList.remove(‘on’); });
+var btn = document.getElementById(‘tab-’ + tab);
+if (btn) btn.classList.add(‘on’);
+showScreen(tab);
+if (tab===‘favs’) buildFavs();
+if (tab===‘gen’) buildGen();
+if (tab===‘bands’) buildBands();
 }
-function goBack(){goTab(prevView===‘songs’?‘songs’:prevView===‘browse’?‘browse’:‘home’);curArtist=null;}
+function goBack() {
+goTab([‘songs’,‘browse’].indexOf(prevView) >= 0 ? prevView : ‘home’);
+curArtist = null;
+}
 
-// ── COPY ─────────────────────────────────────────────────────
-function copyText(id){const el=document.getElementById(id);if(el)copyStr(el.textContent.trim());}
-function copyStr(text){
-if(!text)return;
-if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(showToast).catch(()=>legacyCopy(text));}
-else legacyCopy(text);
+// ═══════════════════════════════════════════════════
+// COPY
+// ═══════════════════════════════════════════════════
+function copyById(id) {
+var el = document.getElementById(id);
+if (el) copyStr(el.textContent.trim());
 }
-function legacyCopy(text){
-const ta=document.createElement(‘textarea’);ta.value=text;ta.style.cssText=‘position:fixed;top:-9999px;left:-9999px;opacity:0;font-size:16px’;
-document.body.appendChild(ta);ta.focus();ta.select();ta.setSelectionRange(0,ta.value.length);
-try{document.execCommand(‘copy’);showToast();}catch(e){}
+function copyStr(text) {
+if (!text) return;
+if (navigator.clipboard && navigator.clipboard.writeText) {
+navigator.clipboard.writeText(text).then(function() { toast(‘✓ Copied!’); }).catch(function() { legacyCopy(text); });
+} else { legacyCopy(text); }
+}
+function legacyCopy(text) {
+var ta = document.createElement(‘textarea’);
+ta.value = text;
+ta.style.cssText = ‘position:fixed;top:-9999px;left:-9999px;opacity:0;font-size:16px’;
+document.body.appendChild(ta);
+ta.focus(); ta.select(); ta.setSelectionRange(0, ta.value.length);
+try { document.execCommand(‘copy’); toast(‘✓ Copied!’); } catch(e) {}
 document.body.removeChild(ta);
 }
-function showToast(msg){
-const t=document.getElementById(‘toast’);t.textContent=msg||‘✓ Copied!’;
-t.classList.add(‘on’);setTimeout(()=>t.classList.remove(‘on’),2200);
+function toast(msg) {
+var t = document.getElementById(‘toast’);
+t.textContent = msg || ‘✓ Copied!’;
+t.classList.add(‘on’);
+setTimeout(function() { t.classList.remove(‘on’); }, 2200);
 }
 
-// ── OFFLINE / REFRESH ─────────────────────────────────────────
-window.addEventListener(‘online’,()=>document.getElementById(‘offline-banner’).classList.remove(‘on’));
-window.addEventListener(‘offline’,()=>document.getElementById(‘offline-banner’).classList.add(‘on’));
-if(!navigator.onLine)document.getElementById(‘offline-banner’).classList.add(‘on’);
-function refreshData(){
-if(navigator.serviceWorker&&navigator.serviceWorker.controller)navigator.serviceWorker.controller.postMessage(‘CLEAR_ARTIST_CACHE’);
-setTimeout(()=>location.reload(),200);
-}
-if(‘serviceWorker’ in navigator){window.addEventListener(‘load’,()=>{navigator.serviceWorker.register(’./sw.js’).catch(()=>{});});}
+// ═══════════════════════════════════════════════════
+// OFFLINE / REFRESH
+// ═══════════════════════════════════════════════════
+window.addEventListener(‘online’,  function() { document.getElementById(‘offline-bar’).classList.remove(‘on’); });
+window.addEventListener(‘offline’, function() { document.getElementById(‘offline-bar’).classList.add(‘on’); });
+if (!navigator.onLine) document.getElementById(‘offline-bar’).classList.add(‘on’);
 
+function hardRefresh() {
+// Unregister old service workers first, then reload
+if (navigator.serviceWorker) {
+navigator.serviceWorker.getRegistrations().then(function(regs) {
+regs.forEach(function(reg) { reg.unregister(); });
+location.reload(true);
+}).catch(function() { location.reload(true); });
+} else {
+location.reload(true);
+}
+}
+
+// Register service worker (offline support)
+if (‘serviceWorker’ in navigator) {
+window.addEventListener(‘load’, function() {
+navigator.serviceWorker.register(’./sw.js’).catch(function() {});
+});
+}
+
+// ═══════════════════════════════════════════════════
+// START
+// ═══════════════════════════════════════════════════
 loadAll();
 </script>
 
